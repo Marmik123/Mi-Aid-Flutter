@@ -1,0 +1,41 @@
+name: miaid
+description: A new Flutter project.
+
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  
+  flutter:
+    sdk: flutter
+  google_fonts: ^1.1.1
+  cupertino_icons: ^1.0.0
+  get_utils: ^3.13.0
+  country_code_picker: ^1.7.0
+  pin_code_fields: ^6.0.1
+  flutter_cupertino_date_picker: ^1.0.26+2
+  mask_text_input_formatter: ^1.2.1
+  
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/images/NavBar/
+    - assets/
+    
+
+  
