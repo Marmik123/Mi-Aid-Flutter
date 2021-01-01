@@ -27,10 +27,28 @@ class _SignUp2State extends State<SignUp2> {
 
   String dropDownLanguage = 'Select a Language';
   String dropDownGender = 'Select your gender';
+  List<String> languageOption = <String>[
+    'Select a Language',
+    'English',
+    'French',
+    'Spanish',
+    'Russian',
+    'Arabic ',
+    'Chinese'
+  ];
+
+  List<String> genderOption = <String>[
+    'Select your gender',
+    'Male',
+    'Female',
+    'Other'
+  ];
 
   static const colorBlack = Color(0xFFB1B1B1);
   static const colorBlue = Color(0xFF0CBCC5);
   static const colorWhite = Color(0xFFFFFFFF);
+  static const fontColor = Color(0xFF010101);
+  static const borderColor = Color(0xFFB1B1B1);
 
   @override
   Widget build(BuildContext context) {
@@ -142,7 +160,7 @@ class _SignUp2State extends State<SignUp2> {
                           ? Color(0xFFB1B1B1)
                           : Color(0xFF010101),
                       fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
@@ -180,7 +198,8 @@ class _SignUp2State extends State<SignUp2> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: Color(0xFFB1B1B1),
+                          color: borderColor,
+                          width: 0.5,
                         ),
                       ),
                       suffixIcon: Padding(
@@ -217,7 +236,7 @@ class _SignUp2State extends State<SignUp2> {
                           ? Color(0xFFB1B1B1)
                           : Color(0xFF010101),
                       fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
@@ -227,12 +246,13 @@ class _SignUp2State extends State<SignUp2> {
                     width: 335,
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: colorBlack,
+                        color: borderColor,
+                        width: 0.5,
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 16, right: 10),
+                      padding: const EdgeInsets.only(left: 16, right: 16),
                       child: DropdownButton(
                         value: dropDownLanguage,
                         isExpanded: true,
@@ -240,27 +260,32 @@ class _SignUp2State extends State<SignUp2> {
                             'assets/images/ic_pharmacy_location_expand.png'),
                         iconSize: 24,
                         elevation: 16,
+                        style: GoogleFonts.rubik(color: fontColor),
                         underline: SizedBox.shrink(),
                         onChanged: (String newValue) {
                           setState(() {
                             dropDownLanguage = newValue;
                           });
                         },
-                        items: <String>[
-                          'Select a Language',
-                          'English',
-                          'French',
-                          'Spanish',
-                          'Russian',
-                          'Arabic ',
-                          'Chinese'
-                        ].map<DropdownMenuItem<String>>((String value) {
+                        selectedItemBuilder: (BuildContext context) {
+                          return languageOption.map((String value) {
+                            return Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                dropDownLanguage,
+                                style: TextStyle(color: fontColor),
+                              ),
+                            );
+                          }).toList();
+                        },
+                        items: languageOption
+                            .map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(
                               value,
                               style: GoogleFonts.rubik(
-                                color: colorBlack,
+                                color: fontColor,
                                 fontSize: 14,
                               ),
                             ),
@@ -287,7 +312,7 @@ class _SignUp2State extends State<SignUp2> {
                           ? Color(0xFFB1B1B1)
                           : Color(0xFF010101),
                       fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
@@ -296,20 +321,21 @@ class _SignUp2State extends State<SignUp2> {
                   Container(
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: colorBlack,
+                        color: borderColor,
+                        width: 0.5,
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(
                         left: 16,
-                        right: 10,
+                        right: 16,
                       ),
                       child: DropdownButton(
                         underline: SizedBox.shrink(),
                         value: dropDownGender,
                         isExpanded: true,
-                        focusColor: Colors.black,
+                        style: GoogleFonts.rubik(color: fontColor),
                         icon: Image.asset(
                             'assets/images/ic_pharmacy_location_expand.png'),
                         iconSize: 24,
@@ -319,18 +345,25 @@ class _SignUp2State extends State<SignUp2> {
                             dropDownGender = newValue;
                           });
                         },
-                        items: <String>[
-                          'Select your gender',
-                          'Male',
-                          'Female',
-                          'Other'
-                        ].map<DropdownMenuItem<String>>((String value) {
+                        selectedItemBuilder: (BuildContext context) {
+                          return genderOption.map((String value) {
+                            return Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                dropDownGender,
+                                style: TextStyle(color: fontColor),
+                              ),
+                            );
+                          }).toList();
+                        },
+                        items: genderOption
+                            .map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(
                               value,
                               style: GoogleFonts.rubik(
-                                color: colorBlack,
+                                color: fontColor,
                                 fontSize: 14,
                               ),
                             ),
@@ -357,7 +390,7 @@ class _SignUp2State extends State<SignUp2> {
                           ? Color(0xFFB1B1B1)
                           : Color(0xFF010101),
                       fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
@@ -382,7 +415,7 @@ class _SignUp2State extends State<SignUp2> {
                           ? Color(0xFFB1B1B1)
                           : Color(0xFF010101),
                       fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
@@ -420,7 +453,8 @@ class _SignUp2State extends State<SignUp2> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: Color(0xFFB1B1B1),
+                          color: borderColor,
+                          width: 0.5,
                         ),
                       ),
                     ),
@@ -467,7 +501,7 @@ class _SignUp2State extends State<SignUp2> {
                     ? Color(0xFFB1B1B1)
                     : Color(0xFF010101),
                 fontSize: 12,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w500,
               ),
             ),
             SizedBox(
@@ -498,7 +532,8 @@ class _SignUp2State extends State<SignUp2> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: Color(0xFFB1B1B1),
+                    color: borderColor,
+                    width: 0.5,
                   ),
                 ),
                 errorBorder: OutlineInputBorder(
@@ -526,7 +561,7 @@ class _SignUp2State extends State<SignUp2> {
                     ? Color(0xFFB1B1B1)
                     : Color(0xFF010101),
                 fontSize: 12,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w500,
               ),
             ),
             SizedBox(
@@ -536,6 +571,7 @@ class _SignUp2State extends State<SignUp2> {
               onChanged: (value) {
                 setState(() {});
               },
+              keyboardType: TextInputType.emailAddress,
               controller: emailController,
               decoration: InputDecoration(
                 hintText: 'samplemail@example.com',
@@ -563,7 +599,8 @@ class _SignUp2State extends State<SignUp2> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: Color(0xFFB1B1B1),
+                    color: borderColor,
+                    width: 0.5,
                   ),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
@@ -578,14 +615,14 @@ class _SignUp2State extends State<SignUp2> {
               height: 25,
             ),
             Text(
-              'Phone',
+              'Mobile',
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
                 color: phoneController.text.trim().length > 0
                     ? Color(0xFFB1B1B1)
                     : Color(0xFF010101),
                 fontSize: 12,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w500,
               ),
             ),
             SizedBox(
@@ -602,6 +639,7 @@ class _SignUp2State extends State<SignUp2> {
               onChanged: (value) {
                 setState(() {});
               },
+              keyboardType: TextInputType.phone,
               controller: phoneController,
               decoration: InputDecoration(
                 hintText: '1234567890',
@@ -623,7 +661,8 @@ class _SignUp2State extends State<SignUp2> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: Color(0xFFB1B1B1),
+                    color: borderColor,
+                    width: 0.5,
                   ),
                 ),
                 prefixIconConstraints: BoxConstraints(
@@ -723,7 +762,7 @@ class _SignUp2State extends State<SignUp2> {
                     ? Color(0xFFB1B1B1)
                     : Color(0xFF010101),
                 fontSize: 12,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w500,
               ),
             ),
             SizedBox(
@@ -754,7 +793,8 @@ class _SignUp2State extends State<SignUp2> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: Color(0xFFB1B1B1),
+                    color: borderColor,
+                    width: 0.5,
                   ),
                 ),
                 errorBorder: OutlineInputBorder(
@@ -782,7 +822,7 @@ class _SignUp2State extends State<SignUp2> {
                     ? Color(0xFFB1B1B1)
                     : Color(0xFF010101),
                 fontSize: 12,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w500,
               ),
             ),
             SizedBox(
@@ -819,7 +859,8 @@ class _SignUp2State extends State<SignUp2> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: Color(0xFFB1B1B1),
+                    color: borderColor,
+                    width: 0.5,
                   ),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
@@ -841,21 +882,46 @@ class _SignUp2State extends State<SignUp2> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Container(
+          height: 30,
           decoration: BoxDecoration(
             color: colorBlue,
             borderRadius: BorderRadius.circular(22),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xFF0cbcc5).withOpacity(0.2),
+                blurRadius: 10.0, // soften the shadow
+                spreadRadius: 0.0, //extend the shadow
+                offset: Offset(
+                  0.0, // Move to right 10  horizontally
+                  0.4, // Move to bottom 10 Vertically
+                ),
+              )
+            ],
           ),
           child: Padding(
             padding:
-                const EdgeInsets.only(left: 38, right: 37, top: 4, bottom: 4),
+                const EdgeInsets.only(left: 38, right: 37, top: 6, bottom: 5),
             child: Text(
               'Any',
+              textAlign: TextAlign.left,
               style: GoogleFonts.rubik(color: colorWhite, fontSize: 14),
             ),
           ),
         ),
         Container(
+          height: 30,
           decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xFF0cbcc5).withOpacity(0.2),
+                blurRadius: 10.0, // soften the shadow
+                spreadRadius: 0.0, //extend the shadow
+                offset: Offset(
+                  0.0, // Move to right 10  horizontally
+                  0.4, // Move to bottom 10 Vertically
+                ),
+              )
+            ],
             color: colorWhite,
             border: Border.all(
               color: colorBlue,
@@ -866,8 +932,8 @@ class _SignUp2State extends State<SignUp2> {
             padding: const EdgeInsets.only(
               left: 35.5,
               right: 35.5,
-              top: 4,
-              bottom: 4,
+              top: 6,
+              bottom: 5,
             ),
             child: Text(
               'Male',
@@ -876,7 +942,19 @@ class _SignUp2State extends State<SignUp2> {
           ),
         ),
         Container(
+          height: 30,
           decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xFF0cbcc5).withOpacity(0.2),
+                blurRadius: 10.0, // soften the shadow
+                spreadRadius: 0.0, //extend the shadow
+                offset: Offset(
+                  0.0, // Move to right 10  horizontally
+                  0.4, // Move to bottom 10 Vertically
+                ),
+              )
+            ],
             color: colorWhite,
             border: Border.all(
               color: colorBlue,
@@ -887,8 +965,8 @@ class _SignUp2State extends State<SignUp2> {
             padding: const EdgeInsets.only(
               left: 27,
               right: 27,
-              top: 4,
-              bottom: 4,
+              top: 6,
+              bottom: 5,
             ),
             child: Text(
               'Female',

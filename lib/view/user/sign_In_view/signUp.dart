@@ -28,6 +28,7 @@ class _SignUpState extends State<SignUp> {
   String _selectedValue;
 
   static const color = Color(0xFF0CBCC5);
+  static const borderColor = Color(0xFFB1B1B1);
 
   @override
   Widget build(BuildContext context) {
@@ -98,6 +99,7 @@ class _SignUpState extends State<SignUp> {
                 ),
                 child: CupertinoSegmentedControl(
                   selectedColor: color,
+                  unselectedColor: Colors.white,
                   borderColor: Color(0xFF0CBCC5),
                   children: {
                     '0': Container(
@@ -156,6 +158,7 @@ class _SignUpState extends State<SignUp> {
                       _selectedValue = value;
                     });
                   },
+                  groupValue: _selectedValue,
                 ),
               ),
             ),
@@ -189,7 +192,7 @@ class _SignUpState extends State<SignUp> {
                           ? Color(0xFFB1B1B1)
                           : Color(0xFF010101),
                       fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
@@ -218,6 +221,9 @@ class _SignUpState extends State<SignUp> {
                         top: 5,
                         bottom: 5,
                       ),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.yellow),
+                      ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Color(0xFF010101),
@@ -227,7 +233,8 @@ class _SignUpState extends State<SignUp> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: Color(0xFFB1B1B1),
+                          color: borderColor,
+                          width: 0.5,
                         ),
                       ),
                     ),
@@ -250,7 +257,7 @@ class _SignUpState extends State<SignUp> {
                           ? Color(0xFFB1B1B1)
                           : Color(0xFF010101),
                       fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
@@ -288,7 +295,8 @@ class _SignUpState extends State<SignUp> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: Color(0xFFB1B1B1),
+                          color: borderColor,
+                          width: 0.5,
                         ),
                       ),
                     ),
@@ -311,7 +319,7 @@ class _SignUpState extends State<SignUp> {
                           ? Color(0xFFB1B1B1)
                           : Color(0xFF010101),
                       fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
@@ -328,6 +336,7 @@ class _SignUpState extends State<SignUp> {
                     onChanged: (value) {
                       setState(() {});
                     },
+                    keyboardType: TextInputType.emailAddress,
                     controller: emailController,
                     decoration: InputDecoration(
                       hintText: 'yourname@example.com',
@@ -349,7 +358,8 @@ class _SignUpState extends State<SignUp> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: Color(0xFFB1B1B1),
+                          color: borderColor,
+                          width: 0.5,
                         ),
                       ),
                     ),
@@ -372,7 +382,7 @@ class _SignUpState extends State<SignUp> {
                           ? Color(0xFFB1B1B1)
                           : Color(0xFF010101),
                       fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
@@ -389,6 +399,7 @@ class _SignUpState extends State<SignUp> {
                     onChanged: (value) {
                       setState(() {});
                     },
+                    keyboardType: TextInputType.phone,
                     controller: phoneController,
                     decoration: InputDecoration(
                       hintText: '1 23456 7890',
@@ -403,14 +414,15 @@ class _SignUpState extends State<SignUp> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color(0xFF010101),
+                          color: Color(0xFFB1B1B1).withOpacity(0.5),
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: Color(0xFFB1B1B1),
+                          color: borderColor,
+                          width: 0.5,
                         ),
                       ),
                       prefixIconConstraints: BoxConstraints(
@@ -462,7 +474,7 @@ class _SignUpState extends State<SignUp> {
                                 Container(
                                   height: 35,
                                   width: 1,
-                                  color: Color(0xFFb1b1b1),
+                                  color: Color(0xFFb1b1b1).withOpacity(0.1),
                                 )
                               ],
                             );
@@ -489,7 +501,7 @@ class _SignUpState extends State<SignUp> {
                           ? Color(0xFFB1B1B1)
                           : Color(0xFF010101),
                       fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
@@ -528,7 +540,8 @@ class _SignUpState extends State<SignUp> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: Color(0xFFB1B1B1),
+                          color: borderColor,
+                          width: 0.5,
                         ),
                       ),
                       suffixIcon: Padding(
@@ -565,7 +578,7 @@ class _SignUpState extends State<SignUp> {
                           ? Color(0xFFB1B1B1)
                           : Color(0xFF010101),
                       fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
@@ -604,7 +617,8 @@ class _SignUpState extends State<SignUp> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: Color(0xFFB1B1B1),
+                          color: borderColor,
+                          width: 0.5,
                         ),
                       ),
                       suffixIcon: Padding(

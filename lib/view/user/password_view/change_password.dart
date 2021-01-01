@@ -65,7 +65,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                               ? Color(0xFFB1B1B1)
                               : Color(0xFF010101),
                           fontSize: 12,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       SizedBox(
@@ -147,7 +147,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                               ? Color(0xFFB1B1B1)
                               : Color(0xFF010101),
                           fontSize: 12,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       SizedBox(
@@ -230,7 +230,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                                   ? Color(0xFFB1B1B1)
                                   : Color(0xFF010101),
                           fontSize: 12,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       SizedBox(
@@ -313,7 +313,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: 44,
-                  child: RaisedButton(
+                  child: FlatButton(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(9),
                     ),

@@ -18,7 +18,6 @@ dependencies:
   get_utils: ^3.13.0
   country_code_picker: ^1.7.0
   pin_code_fields: ^6.0.1
-  flutter_cupertino_date_picker: ^1.0.26+2
   mask_text_input_formatter: ^1.2.1
   
 

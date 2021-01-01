@@ -18,267 +18,282 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
   static const colorWhite = Color(0xFFFFFFFF);
   static const colorgrey = Color(0xFF696969);
 
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       drawer: Drawer(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 15),
-              child: Container(
-                height: 70,
-                width: 70,
-                decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => UserProfileScreen(),
+              ),
+            );
+          },
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 60),
                 child: Container(
-                  margin: EdgeInsets.all(4),
+                  height: 70,
+                  width: 70,
                   decoration: BoxDecoration(
-                    border: Border.all(color: color),
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                        image: AssetImage('assets/images/logo_auth.png'),
-                        fit: BoxFit.fill),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              'john Doe',
-              style: GoogleFonts.rubik(
-                color: Color(0xFF010101),
-                fontSize: 17,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Divider(
-              color: Colors.grey,
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => HomeScreen(),
-                  ),
-                );
-              },
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'Home',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+                      shape: BoxShape.circle, color: Colors.white),
+                  child: Container(
+                    margin: EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: color),
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/logo_auth.png'),
+                          fit: BoxFit.fill),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image: AssetImage('assets/images/ic_sidebar_home.png'),
-                  ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                'john Doe',
+                style: GoogleFonts.rubik(
+                  color: Color(0xFF010101),
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => UserProfileScreen(),
+              SizedBox(
+                height: 15,
+              ),
+              Divider(
+                color: Colors.grey,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomeScreen(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'Home',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
                   ),
-                );
-              },
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'My Profile',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage('assets/images/ic_sidebar_home.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image: AssetImage('assets/images/ic_sidebar_profile.png'),
-                  ),
-                ),
               ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'Travel Care',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+              InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => UserProfileScreen(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'My Profile',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage('assets/images/ic_sidebar_profile.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image:
-                        AssetImage('assets/images/ic_sidebar_travelcare.png'),
-                  ),
-                ),
               ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'Call History',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TravelCarePackages(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'Travel Care',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image:
+                          AssetImage('assets/images/ic_sidebar_travelcare.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image:
-                        AssetImage('assets/images/ic_sidebar_callhistory.png'),
-                  ),
-                ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TermsConditions(),
+              InkWell(
+                onTap: () {},
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'Call History',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
                   ),
-                );
-              },
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'Terms & Conditions',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage(
+                          'assets/images/ic_sidebar_callhistory.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image: AssetImage('assets/images/ic_sidebar_terms.png'),
-                  ),
-                ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PrivacyPolicy(),
+              InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TermsConditions(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'Terms & Conditions',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
                   ),
-                );
-              },
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'Privacy Policy',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage('assets/images/ic_sidebar_terms.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image: AssetImage('assets/images/ic_sidebar_privacy.png'),
-                  ),
-                ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AboutMiAid(),
+              InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PrivacyPolicy(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'Privacy Policy',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
                   ),
-                );
-              },
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'About MiAid',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage('assets/images/ic_sidebar_privacy.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image: AssetImage('assets/images/ic_sidebar_about.png'),
-                  ),
-                ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                showAlertDialog(context);
-              },
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'Log out',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFFFA0020),
-                      fontSize: 14,
+              InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AboutMiAid(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'About MiAid',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage('assets/images/ic_sidebar_about.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image: AssetImage('assets/images/ic_sidebar_logout.png'),
+              ),
+              InkWell(
+                onTap: () {
+                  showAlertDialog(context);
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'Log out',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFFFA0020),
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage('assets/images/ic_sidebar_logout.png'),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       appBar: AppBar(
@@ -307,13 +322,16 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
           },
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 20, right: 20),
-        child: ListView(children: [
-          SizedBox(
-            height: 15,
+      body: ListView(children: [
+        SizedBox(
+          height: 15,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 20,
+            right: 20,
           ),
-          Text(
+          child: Text(
             'Active Package',
             style: GoogleFonts.rubik(
               color: colorBlack,
@@ -321,30 +339,33 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
               fontWeight: FontWeight.w700,
             ),
           ),
-          Column(
-            children: [
-              Image(
-                image: AssetImage(
-                    'assets/images/Img_signin_travelcare_active.png'),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Center(
-                child: Text(
-                  'No Active Package',
-                  style: GoogleFonts.rubik(
-                    color: Color(0xFF696969),
-                    fontSize: 17,
-                  ),
+        ),
+        Column(
+          children: [
+            Image(
+              image:
+                  AssetImage('assets/images/Img_signin_travelcare_active.png'),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Center(
+              child: Text(
+                'No Active Package',
+                style: GoogleFonts.rubik(
+                  color: Color(0xFF696969),
+                  fontSize: 17,
                 ),
               ),
-            ],
-          ),
-          SizedBox(
-            height: 14,
-          ),
-          ListView.builder(
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 14,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: ListView.builder(
             itemCount: 1,
             shrinkWrap: true,
             physics: ClampingScrollPhysics(),
@@ -374,14 +395,14 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                         Text(
                           '• Description with features goes here.',
                           style: GoogleFonts.rubik(
-                            color: colorWhite,
+                            color: colorWhite.withOpacity(0.75),
                             fontSize: 14,
                           ),
                         ),
                         Text(
                           '• Lorem ipsum dolor it amet',
                           style: GoogleFonts.rubik(
-                            color: colorWhite,
+                            color: colorWhite.withOpacity(0.75),
                             fontSize: 14,
                           ),
                         ),
@@ -409,7 +430,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                                   child: RichText(
                                     text: TextSpan(
                                       style: GoogleFonts.rubik(
-                                        color: Color(0xFFFFFFFF),
+                                        color: colorWhite.withOpacity(0.75),
                                       ),
                                       children: [
                                         TextSpan(
@@ -432,6 +453,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                                 ),
                               ),
                               Container(
+                                height: 24,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(3),
                                   color: colorWhite.withOpacity(0.3),
@@ -440,14 +462,15 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                                   padding: const EdgeInsets.only(
                                     left: 10,
                                     right: 10,
-                                    bottom: 3,
-                                    top: 2,
                                   ),
-                                  child: Text(
-                                    '10 days remaining',
-                                    style: GoogleFonts.rubik(
-                                      color: colorWhite,
-                                      fontSize: 12,
+                                  child: Align(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      '10 days remaining',
+                                      style: GoogleFonts.rubik(
+                                        color: colorWhite,
+                                        fontSize: 12,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -462,10 +485,16 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
               ],
             ),
           ),
-          SizedBox(
-            height: 28.4,
+        ),
+        SizedBox(
+          height: 28.4,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 20,
+            right: 20,
           ),
-          Text(
+          child: Text(
             'Available Packages',
             style: GoogleFonts.rubik(
               color: colorBlack,
@@ -473,7 +502,14 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
               fontWeight: FontWeight.w700,
             ),
           ),
-          ListView.builder(
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 20,
+            right: 20,
+            bottom: 10,
+          ),
+          child: ListView.builder(
             shrinkWrap: true,
             physics: ClampingScrollPhysics(),
             itemCount: 2,
@@ -483,7 +519,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                 SizedBox(
                   height: 19,
                 ),
-                availableaPackageCard(
+                availablePackageCard(
                   Padding(
                     padding: const EdgeInsets.only(left: 16),
                     child: Column(
@@ -594,28 +630,50 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
               ],
             ),
           ),
-        ]),
+        ),
+      ]),
+    );
+  }
+
+  Widget activeSubscriptionCard(Widget child) {
+    return Container(
+      decoration: new BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: color,
+        boxShadow: [
+          new BoxShadow(
+            color: Color(0xFF003f51).withOpacity(0.15),
+            blurRadius: 15.0,
+            spreadRadius: 0.0, //extend the shadow
+            offset: Offset(
+              0.0, // Move to right 10  horizontally
+              4, // Move to bottom 10 Vertically
+            ),
+          ),
+        ],
       ),
+      child: child,
     );
   }
 
-  Card activeSubscriptionCard(Widget child) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+  Widget availablePackageCard(Widget child) {
+    return Container(
+      decoration: new BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: colorWhite,
+        boxShadow: [
+          new BoxShadow(
+            color: Color(0xFF003f51).withOpacity(0.15),
+            blurRadius: 15.0,
+            spreadRadius: 0.0, //extend the shadow
+            offset: Offset(
+              0.2, // Move to right 10  horizontally
+              4, // Move to bottom 10 Vertically
+            ),
+          ),
+        ],
+      ),
       child: child,
-      shadowColor: Color(0xff003f51).withOpacity(0.4),
-      color: color,
-      elevation: 3,
-    );
-  }
-
-  Card availableaPackageCard(Widget child) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      child: child,
-      shadowColor: Color(0xff003f51).withOpacity(0.4),
-      color: colorWhite,
-      elevation: 3,
     );
   }
 }

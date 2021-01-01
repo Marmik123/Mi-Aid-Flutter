@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/view/user/sign_In_view/signIn.dart';
+import 'package:miaid/view/user/password_view/forgot_password.dart';
 
 class ResetPassword extends StatefulWidget {
   @override
@@ -12,6 +13,8 @@ class _ResetPasswordState extends State<ResetPassword> {
   TextEditingController confirmPasswordController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
+
+  static const borderColor = Color(0xFFB1B1B1);
 
   bool _obsecurePasswordText = true;
   bool _obsecureConfirmPasswordText = true;
@@ -35,7 +38,12 @@ class _ResetPasswordState extends State<ResetPassword> {
           builder: (BuildContext context) {
             return InkWell(
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ForgotPassword(),
+                  ),
+                );
               },
               child: Image(
                 image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
@@ -104,7 +112,8 @@ class _ResetPasswordState extends State<ResetPassword> {
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: Color(0xFFB1B1B1),
+                              color: borderColor,
+                              width: 0.5,
                             ),
                           ),
                           errorBorder: OutlineInputBorder(
@@ -187,7 +196,8 @@ class _ResetPasswordState extends State<ResetPassword> {
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: Color(0xFFB1B1B1),
+                              color: borderColor,
+                              width: 0.5,
                             ),
                           ),
                           errorBorder: OutlineInputBorder(
@@ -231,7 +241,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: 44,
-                  child: RaisedButton(
+                  child: FlatButton(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(9),
                     ),
@@ -265,7 +275,22 @@ showAlertDialog(BuildContext context) {
     child: Container(
       width: MediaQuery.of(context).size.width,
       height: 36,
-      child: RaisedButton(
+      decoration: new BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: Colors.white,
+        boxShadow: [
+          new BoxShadow(
+            color: Color(0xFF0cbcc5).withOpacity(0.2),
+            blurRadius: 10.0,
+            spreadRadius: 0.0, //extend the shadow
+            offset: Offset(
+              0.0, // Move to right 10  horizontally
+              4, // Move to bottom 10 Vertically
+            ),
+          ),
+        ],
+      ),
+      child: FlatButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(9),
         ),
@@ -292,12 +317,18 @@ showAlertDialog(BuildContext context) {
     title: Text(
       'Success!',
       textAlign: TextAlign.center,
+      style: GoogleFonts.rubik(
+        fontSize: 17,
+        fontWeight: FontWeight.w500,
+        color: Color(0xFF010101),
+      ),
     ),
     content: Text(
       'Password has been reset successfully.',
       textAlign: TextAlign.center,
       style: GoogleFonts.rubik(
         fontSize: 13,
+        color: Color(0xFF010101),
       ),
     ),
     actions: [okButton],

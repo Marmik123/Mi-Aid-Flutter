@@ -4,8 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/view/drawer/about.dart';
 import 'package:miaid/view/drawer/privacy&policy.dart';
 import 'package:miaid/view/drawer/Terms&Cond.dart';
+import 'package:miaid/view/user/travel_care_packages/Travel_care_packages.dart';
 import 'package:miaid/view/user/home_screen.dart';
 import 'package:miaid/view/user/user_profile_screen/edit_user_profile.dart';
+import 'package:miaid/view/user/password_view/change_password.dart';
 
 class UserProfileScreen extends StatefulWidget {
   @override
@@ -34,255 +36,267 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       drawer: Drawer(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 15),
-              child: Container(
-                height: 70,
-                width: 70,
-                decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+        child: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 60),
                 child: Container(
-                  margin: EdgeInsets.all(4),
+                  height: 70,
+                  width: 70,
                   decoration: BoxDecoration(
-                    border: Border.all(color: colorBlue),
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                        image: AssetImage('assets/images/logo_auth.png'),
-                        fit: BoxFit.fill),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              'john Doe',
-              style: GoogleFonts.rubik(
-                color: Color(0xFF010101),
-                fontSize: 17,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Divider(
-              color: Colors.grey,
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => HomeScreen(),
-                  ),
-                );
-              },
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'Home',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+                      shape: BoxShape.circle, color: Colors.white),
+                  child: Container(
+                    margin: EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: colorBlue),
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/logo_auth.png'),
+                          fit: BoxFit.fill),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image: AssetImage('assets/images/ic_sidebar_home.png'),
-                  ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                'john Doe',
+                style: GoogleFonts.rubik(
+                  color: Color(0xFF010101),
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'My Profile',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+              SizedBox(
+                height: 15,
+              ),
+              Divider(
+                color: Colors.grey,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomeScreen(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'Home',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage('assets/images/ic_sidebar_home.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image: AssetImage('assets/images/ic_sidebar_profile.png'),
-                  ),
-                ),
               ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'Travel Care',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+              InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'My Profile',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage('assets/images/ic_sidebar_profile.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image:
-                        AssetImage('assets/images/ic_sidebar_travelcare.png'),
-                  ),
-                ),
               ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'Call History',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TravelCarePackages(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'Travel Care',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image:
+                          AssetImage('assets/images/ic_sidebar_travelcare.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image:
-                        AssetImage('assets/images/ic_sidebar_callhistory.png'),
-                  ),
-                ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TermsConditions(),
+              InkWell(
+                onTap: () {},
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'Call History',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
                   ),
-                );
-              },
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'Terms & Conditions',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage(
+                          'assets/images/ic_sidebar_callhistory.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image: AssetImage('assets/images/ic_sidebar_terms.png'),
-                  ),
-                ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PrivacyPolicy(),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TermsConditions(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'Terms & Conditions',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
                   ),
-                );
-              },
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'Privacy Policy',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage('assets/images/ic_sidebar_terms.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image: AssetImage('assets/images/ic_sidebar_privacy.png'),
-                  ),
-                ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AboutMiAid(),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PrivacyPolicy(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'Privacy Policy',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
                   ),
-                );
-              },
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'About MiAid',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage('assets/images/ic_sidebar_privacy.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image: AssetImage('assets/images/ic_sidebar_about.png'),
-                  ),
-                ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                showAlertDialog(context);
-              },
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'Log out',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFFFA0020),
-                      fontSize: 14,
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AboutMiAid(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'About MiAid',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage('assets/images/ic_sidebar_about.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image: AssetImage('assets/images/ic_sidebar_logout.png'),
+              ),
+              InkWell(
+                onTap: () {
+                  showAlertDialog(context);
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'Log out',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFFFA0020),
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage('assets/images/ic_sidebar_logout.png'),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       appBar: AppBar(
@@ -439,10 +453,12 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 width: MediaQuery.of(context).size.width,
                 height: 44,
                 child: FlatButton(
+                  splashColor: colorBlue.withOpacity(0.1),
+                  highlightColor: colorBlue.withOpacity(0.2),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(9),
                     side: BorderSide(
-                      color: Color(0xFF0CBCC5),
+                      color: Color(0xFF30BEE6),
                     ),
                   ),
                   color: Color(0xFFFFFFFF),
@@ -450,7 +466,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => EditUserProfile(),
+                        builder: (context) => ChangePassword(),
                       ),
                     );
                   },
@@ -472,563 +488,581 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   }
 
   Widget generalDetails() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: Text(
-                    'General Details',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                    ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 20, left: 20),
+                child: Text(
+                  'General Details',
+                  style: GoogleFonts.rubik(
+                    color: Color(0xFF010101),
+                    fontSize: 17,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(
-                  height: 19,
-                ),
-                Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
+              ),
+              SizedBox(
+                height: 19,
+              ),
+              Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Text(
                               'DOB',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.rubik(
                                 color: colorGrey,
                                 fontSize: 14,
-                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(
-                              height: 6,
+                          ),
+                          TextFormField(
+                            // validator: (value) {
+                            //   if (value.trim().length == 0) {
+                            //     return 'please Enter an Email';
+                            //   } else {
+                            //     return null;
+                            //   }
+                            // },
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.only(left: 10),
                             ),
-                            TextFormField(
-                              // validator: (value) {
-                              //   if (value.trim().length == 0) {
-                              //     return 'please Enter an Email';
-                              //   } else {
-                              //     return null;
-                              //   }
-                              // },
-                              onChanged: (value) {
-                                setState(() {});
-                              },
-                              enabled: false,
-                              controller: dobController..text = '24 Aug 1986',
-                              style: GoogleFonts.rubik(
-                                color: colorBlack,
-                                fontSize: 14,
-                              ),
+                            onChanged: (value) {
+                              setState(() {});
+                            },
+                            enabled: false,
+                            controller: dobController..text = '24 Aug 1986',
+                            style: GoogleFonts.rubik(
+                              color: colorBlack,
+                              fontSize: 14,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Text(
                               'Preferred Language',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.rubik(
                                 color: colorGrey,
                                 fontSize: 14,
-                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(
-                              height: 6,
+                          ),
+                          TextFormField(
+                            // validator: (value) {
+                            //   if (value.trim().length == 0) {
+                            //     return 'please Enter an Email';
+                            //   } else {
+                            //     return null;
+                            //   }
+                            // },
+                            onChanged: (value) {
+                              setState(() {});
+                            },
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.only(left: 10),
                             ),
-                            TextFormField(
-                              // validator: (value) {
-                              //   if (value.trim().length == 0) {
-                              //     return 'please Enter an Email';
-                              //   } else {
-                              //     return null;
-                              //   }
-                              // },
-                              onChanged: (value) {
-                                setState(() {});
-                              },
-                              enabled: false,
-                              controller: languageController..text = 'English',
-                              style: GoogleFonts.rubik(
-                                color: colorBlack,
-                                fontSize: 14,
-                              ),
+                            enabled: false,
+                            controller: languageController..text = 'English',
+                            style: GoogleFonts.rubik(
+                              color: colorBlack,
+                              fontSize: 14,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Text(
                               'Email',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.rubik(
                                 color: colorGrey,
                                 fontSize: 14,
-                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(
-                              height: 6,
+                          ),
+                          SizedBox(
+                            height: 6,
+                          ),
+                          TextFormField(
+                            // validator: (value) {
+                            //   if (value.trim().length == 0) {
+                            //     return 'please Enter an Email';
+                            //   } else {
+                            //     return null;
+                            //   }
+                            // },
+                            onChanged: (value) {
+                              setState(() {});
+                            },
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.only(left: 10),
                             ),
-                            TextFormField(
-                              // validator: (value) {
-                              //   if (value.trim().length == 0) {
-                              //     return 'please Enter an Email';
-                              //   } else {
-                              //     return null;
-                              //   }
-                              // },
-                              onChanged: (value) {
-                                setState(() {});
-                              },
-                              enabled: false,
-                              controller: genderController..text = 'Male',
-                              style: GoogleFonts.rubik(
-                                color: colorBlack,
-                                fontSize: 14,
-                              ),
+                            enabled: false,
+                            controller: genderController..text = 'Male',
+                            style: GoogleFonts.rubik(
+                              color: colorBlack,
+                              fontSize: 14,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Text(
                               'Doctor Preference',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.rubik(
                                 color: colorGrey,
                                 fontSize: 14,
-                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(
-                              height: 6,
+                          ),
+                          SizedBox(
+                            height: 6,
+                          ),
+                          TextFormField(
+                            // validator: (value) {
+                            //   if (value.trim().length == 0) {
+                            //     return 'please Enter an Email';
+                            //   } else {
+                            //     return null;
+                            //   }
+                            // },
+                            onChanged: (value) {
+                              setState(() {});
+                            },
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.only(left: 10),
                             ),
-                            TextFormField(
-                              // validator: (value) {
-                              //   if (value.trim().length == 0) {
-                              //     return 'please Enter an Email';
-                              //   } else {
-                              //     return null;
-                              //   }
-                              // },
-                              onChanged: (value) {
-                                setState(() {});
-                              },
-                              enabled: false,
-                              controller: doctorPreferenceController
-                                ..text = 'Any',
-                              style: GoogleFonts.rubik(
-                                color: colorBlack,
-                                fontSize: 14,
-                              ),
+                            enabled: false,
+                            controller: doctorPreferenceController
+                              ..text = 'Any',
+                            style: GoogleFonts.rubik(
+                              color: colorBlack,
+                              fontSize: 14,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Text(
                               'Travel Agency Name',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.rubik(
                                 color: colorGrey,
                                 fontSize: 14,
-                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(
-                              height: 6,
+                          ),
+                          SizedBox(
+                            height: 6,
+                          ),
+                          TextFormField(
+                            // validator: (value) {
+                            //   if (value.trim().length == 0) {
+                            //     return 'please Enter an Email';
+                            //   } else {
+                            //     return null;
+                            //   }
+                            // },
+                            onChanged: (value) {
+                              setState(() {});
+                            },
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.only(left: 10),
                             ),
-                            TextFormField(
-                              // validator: (value) {
-                              //   if (value.trim().length == 0) {
-                              //     return 'please Enter an Email';
-                              //   } else {
-                              //     return null;
-                              //   }
-                              // },
-                              onChanged: (value) {
-                                setState(() {});
-                              },
-                              enabled: false,
-                              controller: travelAgencyNameController
-                                ..text = 'First Class tour',
-                              style: GoogleFonts.rubik(
-                                color: colorBlack,
-                                fontSize: 14,
-                              ),
+                            enabled: false,
+                            controller: travelAgencyNameController
+                              ..text = 'First Class tour',
+                            style: GoogleFonts.rubik(
+                              color: colorBlack,
+                              fontSize: 14,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
   Widget nextOfKin() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: Text(
-                    'Next of Kin',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                    ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 20, left: 20),
+                child: Text(
+                  'Next of Kin',
+                  style: GoogleFonts.rubik(
+                    color: Color(0xFF010101),
+                    fontSize: 17,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(
-                  height: 19,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
+              ),
+              SizedBox(
+                height: 19,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text(
                         'Full Name',
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color: colorGrey,
                           fontSize: 14,
-                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(
-                        height: 6,
+                    ),
+                    TextFormField(
+                      // validator: (value) {
+                      //   if (value.trim().length == 0) {
+                      //     return 'please Enter an Email';
+                      //   } else {
+                      //     return null;
+                      //   }
+                      // },
+                      onChanged: (value) {
+                        setState(() {});
+                      },
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.only(left: 10),
                       ),
-                      TextFormField(
-                        // validator: (value) {
-                        //   if (value.trim().length == 0) {
-                        //     return 'please Enter an Email';
-                        //   } else {
-                        //     return null;
-                        //   }
-                        // },
-                        onChanged: (value) {
-                          setState(() {});
-                        },
-                        enabled: false,
-                        controller: fullNameController..text = 'Lucinda Mendez',
-                        style: GoogleFonts.rubik(
-                          color: colorBlack,
-                          fontSize: 14,
-                        ),
+                      enabled: false,
+                      controller: fullNameController..text = 'Lucinda Mendez',
+                      style: GoogleFonts.rubik(
+                        color: colorBlack,
+                        fontSize: 14,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text(
                         'Email',
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color: colorGrey,
                           fontSize: 14,
-                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(
-                        height: 6,
+                    ),
+                    TextFormField(
+                      // validator: (value) {
+                      //   if (value.trim().length == 0) {
+                      //     return 'please Enter an Email';
+                      //   } else {
+                      //     return null;
+                      //   }
+                      // },
+                      onChanged: (value) {
+                        setState(() {});
+                      },
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.only(left: 10),
                       ),
-                      TextFormField(
-                        // validator: (value) {
-                        //   if (value.trim().length == 0) {
-                        //     return 'please Enter an Email';
-                        //   } else {
-                        //     return null;
-                        //   }
-                        // },
-                        onChanged: (value) {
-                          setState(() {});
-                        },
-                        enabled: false,
-                        controller: emailController
-                          ..text = 'lucinda.m@mail.com',
-                        style: GoogleFonts.rubik(
-                          color: colorBlack,
-                          fontSize: 14,
-                        ),
+                      enabled: false,
+                      controller: emailController..text = 'lucinda.m@mail.com',
+                      style: GoogleFonts.rubik(
+                        color: colorBlack,
+                        fontSize: 14,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text(
                         'Phone',
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color: colorGrey,
                           fontSize: 14,
-                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(
-                        height: 6,
+                    ),
+                    TextFormField(
+                      // validator: (value) {
+                      //   if (value.trim().length == 0) {
+                      //     return 'please Enter an Email';
+                      //   } else {
+                      //     return null;
+                      //   }
+                      // },
+                      onChanged: (value) {
+                        setState(() {});
+                      },
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.only(left: 10),
                       ),
-                      TextFormField(
-                        // validator: (value) {
-                        //   if (value.trim().length == 0) {
-                        //     return 'please Enter an Email';
-                        //   } else {
-                        //     return null;
-                        //   }
-                        // },
-                        onChanged: (value) {
-                          setState(() {});
-                        },
-                        enabled: false,
-                        controller: phoneController..text = '+612 2277 6241',
-                        style: GoogleFonts.rubik(
-                          color: colorBlack,
-                          fontSize: 14,
-                        ),
+                      enabled: false,
+                      controller: phoneController..text = '+612 2277 6241',
+                      style: GoogleFonts.rubik(
+                        color: colorBlack,
+                        fontSize: 14,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-          SizedBox(
-            height: 10,
-          ),
-        ],
-      ),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+      ],
     );
   }
 
   Widget regularDoctor() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: Text(
-                    'Regular Doctor',
-                    style: GoogleFonts.rubik(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 20, left: 20),
+                child: Text(
+                  'Regular Doctor',
+                  style: GoogleFonts.rubik(
                       color: Color(0xFF010101),
                       fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                      fontWeight: FontWeight.w500),
                 ),
-                SizedBox(
-                  height: 19,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
+              ),
+              SizedBox(
+                height: 19,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text(
                         'Full Name',
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color: colorGrey,
                           fontSize: 14,
-                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(
-                        height: 6,
+                    ),
+                    TextFormField(
+                      // validator: (value) {
+                      //   if (value.trim().length == 0) {
+                      //     return 'please Enter an Email';
+                      //   } else {
+                      //     return null;
+                      //   }
+                      // },
+                      onChanged: (value) {
+                        setState(() {});
+                      },
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.only(left: 10),
                       ),
-                      TextFormField(
-                        // validator: (value) {
-                        //   if (value.trim().length == 0) {
-                        //     return 'please Enter an Email';
-                        //   } else {
-                        //     return null;
-                        //   }
-                        // },
-                        onChanged: (value) {
-                          setState(() {});
-                        },
-                        enabled: false,
-                        controller: regularDoctorFullNameController
-                          ..text = 'Theresa Warren',
-                        style: GoogleFonts.rubik(
-                          color: colorBlack,
-                          fontSize: 14,
-                        ),
+                      enabled: false,
+                      controller: regularDoctorFullNameController
+                        ..text = 'Theresa Warren',
+                      style: GoogleFonts.rubik(
+                        color: colorBlack,
+                        fontSize: 14,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text(
                         'Email',
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color: colorGrey,
                           fontSize: 14,
-                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(
-                        height: 6,
+                    ),
+                    TextFormField(
+                      // validator: (value) {
+                      //   if (value.trim().length == 0) {
+                      //     return 'please Enter an Email';
+                      //   } else {
+                      //     return null;
+                      //   }
+                      // },
+                      onChanged: (value) {
+                        setState(() {});
+                      },
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.only(left: 10),
                       ),
-                      TextFormField(
-                        // validator: (value) {
-                        //   if (value.trim().length == 0) {
-                        //     return 'please Enter an Email';
-                        //   } else {
-                        //     return null;
-                        //   }
-                        // },
-                        onChanged: (value) {
-                          setState(() {});
-                        },
-                        enabled: false,
-                        controller: regularDoctorEmailController
-                          ..text = 'theresawarren@mail.com',
-                        style: GoogleFonts.rubik(
-                          color: colorBlack,
-                          fontSize: 14,
-                        ),
+                      enabled: false,
+                      controller: regularDoctorEmailController
+                        ..text = 'theresawarren@mail.com',
+                      style: GoogleFonts.rubik(
+                        color: colorBlack,
+                        fontSize: 14,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
