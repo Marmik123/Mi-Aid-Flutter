@@ -12,6 +12,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   TextEditingController forgotEmailController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
+  static const borderColor = Color(0xFFB1B1B1);
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +132,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: Color(0xFFB1B1B1),
+                              color: borderColor,
+                              width: 0.5,
                             ),
                           ),
                         ),
@@ -151,7 +153,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: 44,
-                  child: RaisedButton(
+                  child: FlatButton(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(9),
                     ),
@@ -184,13 +186,28 @@ showAlertDialog(BuildContext context) {
     child: Container(
       width: MediaQuery.of(context).size.width,
       height: 36,
-      child: RaisedButton(
+      decoration: new BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: Colors.white,
+        boxShadow: [
+          new BoxShadow(
+            color: Color(0xFF0cbcc5).withOpacity(0.2),
+            blurRadius: 10.0,
+            spreadRadius: 0.0, //extend the shadow
+            offset: Offset(
+              0.0, // Move to right 10  horizontally
+              4, // Move to bottom 10 Vertically
+            ),
+          ),
+        ],
+      ),
+      child: FlatButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(9),
         ),
         color: Color(0xFF0CBCC5),
         onPressed: () {
-          Navigator.push(context,
+          Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) => ResetPassword()));
         },
         child: Text(
@@ -211,12 +228,18 @@ showAlertDialog(BuildContext context) {
     title: Text(
       'Link Sent',
       textAlign: TextAlign.center,
+      style: GoogleFonts.rubik(
+        fontWeight: FontWeight.w500,
+        fontSize: 17,
+        color: Color(0xFF010101),
+      ),
     ),
     content: Text(
       'A Password reset link has been sent.\nPlease check your email.',
       textAlign: TextAlign.center,
       style: GoogleFonts.rubik(
         fontSize: 13,
+        color: Color(0xFF010101),
       ),
     ),
     actions: [okButton],

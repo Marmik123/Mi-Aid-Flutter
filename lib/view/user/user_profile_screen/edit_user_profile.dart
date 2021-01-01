@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/view/user/password_view/change_password.dart';
+import 'package:country_code_picker/country_code_picker.dart';
+
 
 class EditUserProfile extends StatefulWidget {
   @override
@@ -33,6 +35,11 @@ class _EditUserProfileState extends State<EditUserProfile> {
   static const colorBlue = Color(0xFF0CBCC5);
   static const colorBlack = Color(0xFF010101);
   static const colorGrey = Color(0xFF5E5E5E);
+  static const borderColor = Color(0xFFB1B1B1);
+
+  DateTime _dateTime = DateTime.now();
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -76,18 +83,19 @@ class _EditUserProfileState extends State<EditUserProfile> {
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 height: 44,
-                child: RaisedButton(
+                child: FlatButton(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(9),
                   ),
                   color: Color(0xFF0CBCC5),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ChangePassword(),
-                      ),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => UserProfileScreen(),
+                    //   ),
+                    // );
+                    cupertinoDatePicker(context);
                   },
                   child: Text(
                     'Save Changes',
@@ -140,7 +148,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                           ? Color(0xFFB1B1B1)
                           : Color(0xFF010101),
                       fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
@@ -177,7 +185,8 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: Color(0xFFB1B1B1),
+                          color: borderColor,
+                          width: 0.5,
                         ),
                       ),
                     ),
@@ -200,7 +209,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                           ? Color(0xFFB1B1B1)
                           : Color(0xFF010101),
                       fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
@@ -237,7 +246,8 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: Color(0xFFB1B1B1),
+                          color: borderColor,
+                          width: 0.5,
                         ),
                       ),
                     ),
@@ -260,7 +270,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                           ? Color(0xFFB1B1B1)
                           : Color(0xFF010101),
                       fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
@@ -298,7 +308,8 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: Color(0xFFB1B1B1),
+                          color: borderColor,
+                          width: 0.5,
                         ),
                       ),
                     ),
@@ -321,7 +332,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                           ? Color(0xFFB1B1B1)
                           : Color(0xFF010101),
                       fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
@@ -338,14 +349,15 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     onChanged: (value) {
                       setState(() {});
                     },
-                    controller: accountPhoneController..text = '2 3456 4567',
+                    keyboardType: TextInputType.phone,
+                    controller: accountPhoneController..text = '1 23456 7890',
                     style: GoogleFonts.rubik(
                       color: colorBlack,
                       fontSize: 14,
                     ),
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(
-                        left: 16,
+                        left: 0,
                         top: 5,
                         bottom: 5,
                       ),
@@ -358,7 +370,64 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: Color(0xFFB1B1B1),
+                          color: borderColor,
+                          width: 0.5,
+                        ),
+                      ),
+                      prefixIconConstraints: BoxConstraints(
+                        maxWidth: 120,
+                      ),
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.only(left: 12),
+                        child: CountryCodePicker(
+                          showDropDownButton: true,
+                          alignLeft: false,
+                          textStyle: GoogleFonts.rubik(
+                            color: Color(0xFFB1B1B1),
+                            fontSize: 14,
+                          ),
+                          initialSelection: 'au',
+                          showCountryOnly: false,
+                          closeIcon: const Icon(
+                            Icons.close,
+                            color: colorBlue,
+                          ),
+                          showOnlyCountryWhenClosed: false,
+                          padding: EdgeInsets.zero,
+                          builder: (country) {
+                            return Row(
+                              children: [
+                                Image.asset(
+                                  country.flagUri,
+                                  package: 'country_code_picker',
+                                  width: 32,
+                                ),
+                                SizedBox(
+                                  width: 3.69,
+                                ),
+                                Text(
+                                  country.dialCode,
+                                  style: GoogleFonts.rubik(
+                                    color: Color(0xFFB1B1B1),
+                                    fontSize: 14,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 6,
+                                ),
+                                Image.asset(
+                                    'assets/images/ic_pharmacy_location_expand.png'),
+                                SizedBox(
+                                  width: 6,
+                                ),
+                                Container(
+                                  height: 35,
+                                  width: 1,
+                                  color: Color(0xFFb1b1b1),
+                                )
+                              ],
+                            );
+                          },
                         ),
                       ),
                     ),
@@ -406,7 +475,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                           ? Color(0xFFB1B1B1)
                           : Color(0xFF010101),
                       fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
@@ -422,8 +491,12 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     // },
                     onChanged: (value) {
                       setState(() {});
+
+                      cupertinoDatePicker(context);
                     },
+                    enabled: true,
                     controller: dobController,
+                    keyboardType: TextInputType.datetime,
                     decoration: InputDecoration(
                       hintText: 'Ex: 01 Jan 1990',
                       hintStyle: TextStyle(
@@ -444,7 +517,8 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: Color(0xFFB1B1B1),
+                          color: borderColor,
+                          width: 0.5,
                         ),
                       ),
                       suffixIcon: Padding(
@@ -452,6 +526,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                         child: InkWell(
                             onTap: () {
                               setState(() {});
+                              cupertinoDatePicker(context);
                             },
                             child: InkWell(
                               onTap: () {},
@@ -477,7 +552,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     ? Color(0xFFB1B1B1)
                     : Color(0xFF010101),
                 fontSize: 12,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w500,
               ),
             ),
             SizedBox(
@@ -514,7 +589,8 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: Color(0xFFB1B1B1),
+                    color: borderColor,
+                    width: 0.5,
                   ),
                 ),
               ),
@@ -530,7 +606,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     ? Color(0xFFB1B1B1)
                     : Color(0xFF010101),
                 fontSize: 12,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w500,
               ),
             ),
             SizedBox(
@@ -567,7 +643,8 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: Color(0xFFB1B1B1),
+                    color: borderColor,
+                    width: 0.5,
                   ),
                 ),
               ),
@@ -583,7 +660,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     ? Color(0xFFB1B1B1)
                     : Color(0xFF010101),
                 fontSize: 12,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w500,
               ),
             ),
             SizedBox(
@@ -620,7 +697,8 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: Color(0xFFB1B1B1),
+                    color: borderColor,
+                    width: 0.5,
                   ),
                 ),
               ),
@@ -636,7 +714,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     ? Color(0xFFB1B1B1)
                     : Color(0xFF010101),
                 fontSize: 12,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w500,
               ),
             ),
             SizedBox(
@@ -674,7 +752,8 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: Color(0xFFB1B1B1),
+                    color: borderColor,
+                    width: 0.5,
                   ),
                 ),
               ),
@@ -718,7 +797,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     ? Color(0xFFB1B1B1)
                     : Color(0xFF010101),
                 fontSize: 12,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w500,
               ),
             ),
             SizedBox(
@@ -748,7 +827,8 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: Color(0xFFB1B1B1),
+                    color: borderColor,
+                    width: 0.5,
                   ),
                 ),
                 errorBorder: OutlineInputBorder(
@@ -776,7 +856,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     ? Color(0xFFB1B1B1)
                     : Color(0xFF010101),
                 fontSize: 12,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w500,
               ),
             ),
             SizedBox(
@@ -786,6 +866,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               onChanged: (value) {
                 setState(() {});
               },
+              keyboardType: TextInputType.emailAddress,
               controller: emailController..text = 'lucinda.m@mail.com',
               style: GoogleFonts.rubik(
                 color: colorBlack,
@@ -812,7 +893,8 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: Color(0xFFB1B1B1),
+                    color: borderColor,
+                    width: 0.5,
                   ),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
@@ -826,61 +908,119 @@ class _EditUserProfileState extends State<EditUserProfile> {
             SizedBox(
               height: 25,
             ),
-            Text(
-              'Phone',
-              textAlign: TextAlign.left,
-              style: GoogleFonts.rubik(
-                color: phoneController.text.trim().length > 0
-                    ? Color(0xFFB1B1B1)
-                    : Color(0xFF010101),
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(
-              height: 8,
-            ),
-            TextFormField(
-              // validator: (value) {
-              //   if (value.trim().length == 0) {
-              //     return 'please Enter an Email';
-              //   } else {
-              //     return null;
-              //   }
-              // },
-              onChanged: (value) {
-                setState(() {});
-              },
-              controller: phoneController..text = '2 2277 6241',
-              style: GoogleFonts.rubik(
-                color: colorBlack,
-                fontSize: 14,
-              ),
-              decoration: InputDecoration(
-                contentPadding: EdgeInsets.only(
-                  left: 16,
-                  top: 5,
-                  bottom: 5,
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0xFF010101),
+            Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Phone',
+                    textAlign: TextAlign.left,
+                    style: GoogleFonts.rubik(
+                      color: phoneController.text.trim().length > 0
+                          ? Color(0xFFB1B1B1)
+                          : Color(0xFF010101),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(
-                    color: Color(0xFFB1B1B1),
+                  SizedBox(
+                    height: 8,
                   ),
-                ),
-                prefixIcon: Padding(
-                  padding: EdgeInsets.all(0),
-                  child: Image(
-                    image: AssetImage(
-                        "assets/images/ic_signin_hide_password_active.png"),
+                  TextFormField(
+                    // validator: (value) {
+                    //   if (value.trim().length == 0) {
+                    //     return 'please Enter an Email';
+                    //   } else {
+                    //     return null;
+                    //   }
+                    // },
+                    onChanged: (value) {
+                      setState(() {});
+                    },
+                    keyboardType: TextInputType.phone,
+                    controller: phoneController..text = '1 23456 7890',
+                    style: GoogleFonts.rubik(
+                      color: colorBlack,
+                      fontSize: 14,
+                    ),
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.only(
+                        left: 0,
+                        top: 5,
+                        bottom: 5,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0xFF010101),
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: borderColor,
+                          width: 0.5,
+                        ),
+                      ),
+                      prefixIconConstraints: BoxConstraints(
+                        maxWidth: 120,
+                      ),
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.only(left: 12),
+                        child: CountryCodePicker(
+                          showDropDownButton: true,
+                          alignLeft: false,
+                          textStyle: GoogleFonts.rubik(
+                            color: Color(0xFFB1B1B1),
+                            fontSize: 14,
+                          ),
+                          initialSelection: 'au',
+                          showCountryOnly: false,
+                          closeIcon: const Icon(
+                            Icons.close,
+                            color: colorBlue,
+                          ),
+                          showOnlyCountryWhenClosed: false,
+                          padding: EdgeInsets.zero,
+                          builder: (country) {
+                            return Row(
+                              children: [
+                                Image.asset(
+                                  country.flagUri,
+                                  package: 'country_code_picker',
+                                  width: 32,
+                                ),
+                                SizedBox(
+                                  width: 3.69,
+                                ),
+                                Text(
+                                  country.dialCode,
+                                  style: GoogleFonts.rubik(
+                                    color: Color(0xFFB1B1B1),
+                                    fontSize: 14,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 6,
+                                ),
+                                Image.asset(
+                                    'assets/images/ic_pharmacy_location_expand.png'),
+                                SizedBox(
+                                  width: 6,
+                                ),
+                                Container(
+                                  height: 35,
+                                  width: 1,
+                                  color: Color(0xFFb1b1b1),
+                                )
+                              ],
+                            );
+                          },
+                        ),
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
             ),
           ],
@@ -922,7 +1062,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     ? Color(0xFFB1B1B1)
                     : Color(0xFF010101),
                 fontSize: 12,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w500,
               ),
             ),
             SizedBox(
@@ -953,7 +1093,8 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: Color(0xFFB1B1B1),
+                    color: borderColor,
+                    width: 0.5,
                   ),
                 ),
                 errorBorder: OutlineInputBorder(
@@ -981,7 +1122,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     ? Color(0xFFB1B1B1)
                     : Color(0xFF010101),
                 fontSize: 12,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w500,
               ),
             ),
             SizedBox(
@@ -1018,7 +1159,8 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: Color(0xFFB1B1B1),
+                    color: borderColor,
+                    width: 0.5,
                   ),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
@@ -1032,6 +1174,26 @@ class _EditUserProfileState extends State<EditUserProfile> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget cupertinoDatePicker(context) {
+    return Column(
+      children: [
+        SizedBox(
+          height: 400,
+          child: CupertinoDatePicker(
+            initialDateTime: _dateTime,
+            use24hFormat: false,
+            onDateTimeChanged: (dateTime) {
+              setState(() {
+                _dateTime = dateTime;
+                print(_dateTime);
+              });
+            },
+          ),
+        ),
+      ],
     );
   }
 }

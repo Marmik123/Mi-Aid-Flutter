@@ -8,9 +8,10 @@ import 'package:miaid/view/drawer/privacy&policy.dart';
 import 'package:miaid/view/drawer/Terms&Cond.dart';
 import 'package:miaid/view/user/user_profile_screen/user_profile.dart';
 import 'package:miaid/view/user/travel_care_packages/Travel_care_packages.dart';
-import 'package:miaid/view/user/calling/call_screen.dart';
+import 'package:miaid/view/user/calling/call_micure_assistant.dart';
 import 'package:miaid/payment/card_details.dart';
 import 'package:miaid/payment/payment_interface.dart';
+import 'package:miaid/payment/additional_services.dart';
 
 import 'package:miaid/view/user/sign_In_view/signIn.dart';
 
@@ -30,260 +31,277 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       drawer: Drawer(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 15),
-              child: Container(
-                height: 70,
-                width: 70,
-                decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => UserProfileScreen(),
+              ),
+            );
+          },
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 60),
                 child: Container(
-                  margin: EdgeInsets.all(4),
+                  height: 70,
+                  width: 70,
                   decoration: BoxDecoration(
-                    border: Border.all(color: color),
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                        image: AssetImage('assets/images/logo_auth.png'),
-                        fit: BoxFit.fill),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              'john Doe',
-              style: GoogleFonts.rubik(
-                color: Color(0xFF010101),
-                fontSize: 17,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Divider(
-              color: Colors.grey,
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => HomeScreen(),
-                  ),
-                );
-              },
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'Home',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+                      shape: BoxShape.circle, color: Colors.white),
+                  child: Container(
+                    margin: EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: color),
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/logo_auth.png'),
+                          fit: BoxFit.fill),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image: AssetImage('assets/images/ic_sidebar_home.png'),
-                  ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                'john Doe',
+                style: GoogleFonts.rubik(
+                  color: Color(0xFF010101),
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => UserProfileScreen(),
+              SizedBox(
+                height: 15,
+              ),
+              Divider(
+                color: Colors.grey,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomeScreen(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'Home',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
                   ),
-                );
-              },
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'My Profile',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage('assets/images/ic_sidebar_home.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image: AssetImage('assets/images/ic_sidebar_profile.png'),
-                  ),
-                ),
               ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'Travel Care',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => UserProfileScreen(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'My Profile',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage('assets/images/ic_sidebar_profile.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image:
-                        AssetImage('assets/images/ic_sidebar_travelcare.png'),
-                  ),
-                ),
               ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'Call History',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TravelCarePackages(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'Travel Care',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image:
+                          AssetImage('assets/images/ic_sidebar_travelcare.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image:
-                        AssetImage('assets/images/ic_sidebar_callhistory.png'),
-                  ),
-                ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TermsConditions(),
+              InkWell(
+                onTap: () {},
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'Call History',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
                   ),
-                );
-              },
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'Terms & Conditions',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage(
+                          'assets/images/ic_sidebar_callhistory.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image: AssetImage('assets/images/ic_sidebar_terms.png'),
-                  ),
-                ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PrivacyPolicy(),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TermsConditions(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'Terms & Conditions',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
                   ),
-                );
-              },
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'Privacy Policy',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage('assets/images/ic_sidebar_terms.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image: AssetImage('assets/images/ic_sidebar_privacy.png'),
-                  ),
-                ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AboutMiAid(),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PrivacyPolicy(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'Privacy Policy',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
                   ),
-                );
-              },
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'About MiAid',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
-                      fontSize: 14,
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage('assets/images/ic_sidebar_privacy.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image: AssetImage('assets/images/ic_sidebar_about.png'),
-                  ),
-                ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                showAlertDialog(context);
-              },
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 23),
-                  child: Text(
-                    'Log out',
-                    style: GoogleFonts.rubik(
-                      color: Color(0xFFFA0020),
-                      fontSize: 14,
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AboutMiAid(),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'About MiAid',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFF010101),
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage('assets/images/ic_sidebar_about.png'),
                     ),
                   ),
                 ),
-                leading: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 9, right: 20),
-                  child: Image(
-                    image: AssetImage('assets/images/ic_sidebar_logout.png'),
+              ),
+              InkWell(
+                onTap: () {
+                  showAlertDialog(context);
+                },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 23),
+                    child: Text(
+                      'Log out',
+                      style: GoogleFonts.rubik(
+                        color: Color(0xFFFA0020),
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  leading: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 9, right: 20),
+                    child: Image(
+                      image: AssetImage('assets/images/ic_sidebar_logout.png'),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       appBar: AppBar(
@@ -358,8 +376,30 @@ class _HomeScreenState extends State<HomeScreen> {
                 showCupertinoModalPopup(
                     context: context, builder: (context) => action);
               },
-              child: Image(
-                image: AssetImage('assets/images/NavBar/ic_nb_language.png'),
+              child: Padding(
+                padding: const EdgeInsets.only(right: 13, top: 4, bottom: 4),
+                child: Container(
+                  height: 36,
+                  width: 36,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0xFF003f51).withOpacity(0.1),
+                        blurRadius: 10.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          0.0, // Move to right 10  horizontally
+                          0.4, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Image(
+                    image:
+                        AssetImage('assets/images/NavBar/ic_nb_language.png'),
+                  ),
+                ),
               ),
             ),
           ),
@@ -559,6 +599,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
+                      SizedBox(
+                        width: 15,
+                      ),
                       miAidCard(
                         Padding(
                           padding: const EdgeInsets.only(
@@ -587,118 +630,134 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => CardDetails(),
-                            ),
-                          );
-                        },
-                        child: miAidCard(
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 16, top: 16, right: 87, bottom: 30),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'E - Shop',
-                                  style: GoogleFonts.rubik(
-                                    color: Color(0xFF010101),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w700,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CardDetails(),
+                              ),
+                            );
+                          },
+                          child: miAidCard(
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 16, top: 19.2, right: 85, bottom: 16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'E - Shop',
+                                    style: GoogleFonts.rubik(
+                                      color: Color(0xFF010101),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w700,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(
-                                  height: 33,
-                                ),
-                                Image(
-                                  image: AssetImage(
-                                      'assets/images/ic_service_eshop.png'),
-                                ),
-                              ],
+                                  SizedBox(
+                                    height: 45,
+                                  ),
+                                  Image(
+                                    image: AssetImage(
+                                        'assets/images/ic_service_eshop.png'),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          setState(() {
-                            remainingVideoConsultations--;
-                            if (remainingVideoConsultations == 0) {
-                              videoConsultationsAlert(context);
-                            } else {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => CallScreen(),
-                                ),
-                              );
-                            }
-                          });
-                        },
-                        child: miAidCard(
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 16, top: 16, right: 46, bottom: 16),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Video Consult \nA Doctor',
-                                  style: GoogleFonts.rubik(
-                                    color: Color(0xFF010101),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w700,
+                        SizedBox(
+                          width: 15,
+                        ),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              remainingVideoConsultations--;
+                              if (remainingVideoConsultations == 0) {
+                                videoConsultationsAlert(context);
+                              } else {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => CallScreen(),
                                   ),
-                                ),
-                                SizedBox(
-                                  height: 33,
-                                ),
-                                Image(
-                                  image: AssetImage(
-                                      'assets/images/ic_service_doctor.png'),
-                                ),
-                              ],
+                                );
+                              }
+                            });
+                          },
+                          child: miAidCard(
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 16, top: 16, right: 46, bottom: 16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Video Consult \nA Doctor',
+                                    style: GoogleFonts.rubik(
+                                      color: Color(0xFF010101),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 33,
+                                  ),
+                                  Image(
+                                    image: AssetImage(
+                                        'assets/images/ic_service_doctor.png'),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
                       left: 5,
                       right: 5,
+                      top: 16,
                     ),
-                    child: miAidCard(
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 16, top: 16, right: 87, bottom: 16),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Image(
-                              image: AssetImage(
-                                  'assets/images/ic_service_others.png'),
-                            ),
-                            SizedBox(
-                              width: 19,
-                            ),
-                            Text(
-                              'Other MiAid Services',
-                              style: GoogleFonts.rubik(
-                                color: Color(0xFF010101),
-                                fontSize: 14,
-                                fontWeight: FontWeight.w700,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AdditionalServices(),
+                            ));
+                      },
+                      child: miAidCard(
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 16, top: 16, right: 87, bottom: 16),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image(
+                                image: AssetImage(
+                                    'assets/images/ic_service_others.png'),
                               ),
-                            ),
-                          ],
+                              SizedBox(
+                                width: 19,
+                              ),
+                              Text(
+                                'Other MiAid Services',
+                                style: GoogleFonts.rubik(
+                                  color: Color(0xFF010101),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -757,12 +816,24 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Card miAidCard(Widget child) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+  Widget miAidCard(Widget child) {
+    return Container(
+      decoration: new BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: Colors.white,
+        boxShadow: [
+          new BoxShadow(
+            color: Color(0xFF003f51).withOpacity(0.15),
+            blurRadius: 15.0,
+            spreadRadius: 0.0, //extend the shadow
+            offset: Offset(
+              0.0, // Move to right 10  horizontally
+              4, // Move to bottom 10 Vertically
+            ),
+          ),
+        ],
+      ),
       child: child,
-      shadowColor: Color(0xff003f51).withOpacity(0.4),
-      elevation: 3,
     );
   }
 }
@@ -776,7 +847,22 @@ showAlertDialog(BuildContext context) {
         Container(
           width: MediaQuery.of(context).size.width,
           height: 36,
-          child: RaisedButton(
+          decoration: new BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Colors.white,
+            boxShadow: [
+              new BoxShadow(
+                color: Color(0xFF0cbcc5).withOpacity(0.2),
+                blurRadius: 10.0,
+                spreadRadius: 0.0, //extend the shadow
+                offset: Offset(
+                  0.0, // Move to right 10  horizontally
+                  4, // Move to bottom 10 Vertically
+                ),
+              ),
+            ],
+          ),
+          child: FlatButton(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(9),
             ),
@@ -855,12 +941,28 @@ videoConsultationsAlert(BuildContext context) {
         Container(
           width: MediaQuery.of(context).size.width,
           height: 36,
-          child: RaisedButton(
+          decoration: new BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Colors.white,
+            boxShadow: [
+              new BoxShadow(
+                color: Color(0xFF0cbcc5).withOpacity(0.2),
+                blurRadius: 10.0,
+                spreadRadius: 0.0, //extend the shadow
+                offset: Offset(
+                  0.0, // Move to right 10  horizontally
+                  4, // Move to bottom 10 Vertically
+                ),
+              ),
+            ],
+          ),
+          child: FlatButton(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(9),
             ),
             color: Color(0xFF0CBCC5),
             onPressed: () {
+              Navigator.pop(context);
               individualUserSubscriptionAlert(context);
             },
             child: Text(
@@ -929,13 +1031,28 @@ individualUserSubscriptionAlert(BuildContext context) {
         Container(
           width: MediaQuery.of(context).size.width,
           height: 36,
-          child: RaisedButton(
+          decoration: new BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Colors.white,
+            boxShadow: [
+              new BoxShadow(
+                color: Color(0xFF0cbcc5).withOpacity(0.2),
+                blurRadius: 10.0,
+                spreadRadius: 0.0, //extend the shadow
+                offset: Offset(
+                  0.0, // Move to right 10  horizontally
+                  4, // Move to bottom 10 Vertically
+                ),
+              ),
+            ],
+          ),
+          child: FlatButton(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(9),
             ),
             color: Color(0xFF0CBCC5),
             onPressed: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                   builder: (context) => TravelCarePackages(),

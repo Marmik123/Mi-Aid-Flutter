@@ -7,6 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/view/user/password_view/forgot_password.dart';
 import 'package:miaid/view/user/sign_In_view/signUp.dart';
 import 'package:miaid/view/user/home_screen.dart';
+import 'package:flutter/gestures.dart';
+import 'package:miaid/view/user/password_view/reset_password.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -27,6 +29,7 @@ class _SignInState extends State<SignIn> {
   bool _obsecurePasswordText = true;
 
   static const color = Color(0xFF0CBCC5);
+  static const borderColor = Color(0xFFB1B1B1);
 
   @override
   Widget build(BuildContext context) {
@@ -102,8 +105,30 @@ class _SignInState extends State<SignIn> {
                 showCupertinoModalPopup(
                     context: context, builder: (context) => action);
               },
-              child: Image(
-                image: AssetImage('assets/images/NavBar/ic_nb_language.png'),
+              child: Padding(
+                padding: const EdgeInsets.only(right: 13, top: 4, bottom: 4),
+                child: Container(
+                  height: 36,
+                  width: 36,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0xFF003f51).withOpacity(0.1),
+                        blurRadius: 10.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          0.0, // Move to right 10  horizontally
+                          0.4, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Image(
+                    image:
+                        AssetImage('assets/images/NavBar/ic_nb_language.png'),
+                  ),
+                ),
               ),
             ),
           ),
@@ -128,6 +153,81 @@ class _SignInState extends State<SignIn> {
               SizedBox(
                 height: 46,
               ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 20,
+                  right: 20,
+                  bottom: 19,
+                ),
+                child: Container(
+                  color: Color(0xFFfa0020).withOpacity(0.1),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 11, top: 19, bottom: 18),
+                        child: Image(
+                          image:
+                              AssetImage('assets/images/ic_signin_error.png'),
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 12, right: 9, top: 10, bottom: 10),
+                          child: RichText(
+                            textAlign: TextAlign.left,
+                            text: TextSpan(
+                              style: GoogleFonts.rubik(
+                                color: Color(0xFFFF3B30),
+                                fontSize: 12,
+                              ),
+                              children: [
+                                TextSpan(
+                                    text:
+                                        'Sorry, We couldn’t find an account with given username and/or password. We can help you to'),
+                                TextSpan(
+                                  text: ' Reset Password',
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => ResetPassword(),
+                                        ),
+                                      );
+                                    },
+                                  style: GoogleFonts.rubik(
+                                    color: color,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                TextSpan(text: ' or create a '),
+                                TextSpan(
+                                  text: 'New Account',
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => SignUp(),
+                                        ),
+                                      );
+                                    },
+                                  style: GoogleFonts.rubik(
+                                    color: color,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               Form(
                 key: formKey,
                 child: Padding(
@@ -147,13 +247,14 @@ class _SignInState extends State<SignIn> {
                               : Color(0xFF010101),
 
                           fontSize: 12,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       SizedBox(
                         height: 8,
                       ),
                       TextFormField(
+                        keyboardType: TextInputType.emailAddress,
                         validator: (value) {
                           if (value.trim().length == 0) {
                             return 'Please enter an Email';
@@ -193,12 +294,14 @@ class _SignInState extends State<SignIn> {
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: Color(0xFFB1B1B1),
+                              color: borderColor,
+                              width: 0.5,
                             ),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFFFA0020),
+                              // color: Color(0xFFFA0020),
+                              color: Colors.red,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -215,7 +318,7 @@ class _SignInState extends State<SignIn> {
                               ? Color(0xFFB1B1B1)
                               : Color(0xFF010101),
                           fontSize: 12,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       SizedBox(
@@ -254,7 +357,8 @@ class _SignInState extends State<SignIn> {
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
-                                color: Color(0xFFB1B1B1),
+                                color: borderColor,
+                                width: 0.5,
                               ),
                             ),
                             errorBorder: OutlineInputBorder(
@@ -297,7 +401,7 @@ class _SignInState extends State<SignIn> {
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: 44,
-                  child: RaisedButton(
+                  child: FlatButton(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(9),
                     ),
@@ -353,15 +457,22 @@ class _SignInState extends State<SignIn> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20, top: 15),
+                padding: const EdgeInsets.only(
+                  left: 20,
+                  right: 20,
+                  top: 15,
+                  bottom: 54,
+                ),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: 44,
                   child: FlatButton(
+                    splashColor: color.withOpacity(0.1),
+                    highlightColor: color.withOpacity(0.2),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(9),
                       side: BorderSide(
-                        color: Color(0xFF0CBCC5),
+                        color: Color(0xFF30BEE6),
                       ),
                     ),
                     color: Color(0xFFFFFFFF),
