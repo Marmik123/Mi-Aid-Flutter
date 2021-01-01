@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/view/drawer/about.dart';
-import 'package:miaid/view/drawer/privacy&policy.dart';
-import 'package:miaid/view/drawer/Terms&Cond.dart';
-import 'package:miaid/view/user/user_profile_screen/user_profile.dart';
-import 'package:miaid/view/user/home_screen.dart';
 
 class CallScreen extends StatefulWidget {
   @override
@@ -62,9 +57,10 @@ class _CallScreenState extends State<CallScreen> {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
+            colors: [colorBlack, color],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [colorBlack, color],
+
             // stops: [
             //   0.0,
             //   0.0,

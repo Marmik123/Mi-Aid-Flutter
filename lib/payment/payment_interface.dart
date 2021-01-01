@@ -15,10 +15,8 @@ class PaymentInterface extends StatelessWidget {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => AdditionalServices()));
           },
-          child: Icon(
-            Icons.arrow_back_sharp,
-            size: 20,
-            color: Color(0xff0CBCC5),
+          child: Image(
+            image: AssetImage("assets/images/NavBar/ic_nb_back.png"),
           ),
         ),
         centerTitle: true,

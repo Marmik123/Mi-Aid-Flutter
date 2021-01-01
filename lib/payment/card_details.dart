@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:miaid/utils/card_utils.dart';
 import 'package:miaid/payment/payment_interface.dart';
+import 'package:miaid/utils/card_utils.dart';
 
 enum CardType {
   Master,
@@ -53,10 +53,8 @@ class _CardDetailsState extends State<CardDetails> {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => PaymentInterface()));
           },
-          child: Icon(
-            Icons.arrow_back_sharp,
-            size: 20,
-            color: Color(0xff0CBCC5),
+          child: Image(
+            image: AssetImage("assets/images/NavBar/ic_nb_back.png"),
           ),
         ),
         centerTitle: true,
@@ -107,6 +105,11 @@ class _CardDetailsState extends State<CardDetails> {
                 },
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(
+                    left: 16,
+                    top: 5,
+                    bottom: 5,
+                  ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
@@ -157,6 +160,11 @@ class _CardDetailsState extends State<CardDetails> {
                   setState(() {});
                 },
                 decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(
+                    left: 16,
+                    top: 5,
+                    bottom: 5,
+                  ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
@@ -213,6 +221,7 @@ class _CardDetailsState extends State<CardDetails> {
                             if (value.contains(new RegExp(r'(\/)'))) {
                               var split = value.split(new RegExp(r'(\/)'));
                               print("!!!!!!!!!!split $split");
+                              // ignore: missing_return
                               // The value before the slash is the month while the value to right of
                               // it is the year.
                               month = int.parse(split[0]);
@@ -240,6 +249,11 @@ class _CardDetailsState extends State<CardDetails> {
                             setState(() {});
                           },
                           decoration: InputDecoration(
+                            contentPadding: EdgeInsets.only(
+                              left: 16,
+                              top: 5,
+                              bottom: 5,
+                            ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
@@ -268,7 +282,7 @@ class _CardDetailsState extends State<CardDetails> {
                     ),
                   ),
                   SizedBox(
-                    width: 10,
+                    width: 19,
                   ),
                   Expanded(
                     child: Column(
@@ -306,6 +320,11 @@ class _CardDetailsState extends State<CardDetails> {
                             setState(() {});
                           },
                           decoration: InputDecoration(
+                            contentPadding: EdgeInsets.only(
+                              left: 16,
+                              top: 5,
+                              bottom: 5,
+                            ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
@@ -393,22 +412,45 @@ class _CardDetailsState extends State<CardDetails> {
                 SizedBox(
                   height: 30,
                 ),
-                FlatButton(
-                  color: Color(0xff0CBCC5),
-                  onPressed: () {
-                    Navigator.pop(context);
-                    successDialog();
-                  },
-                  child: Text(
-                    "Confirm",
-                    style: GoogleFonts.rubik(
-                      color: Color(0xffFFFFFF),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    ),
+                Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0xff0cbcc5).withOpacity(0.2),
+                        offset: Offset(
+                          0,
+                          0.4,
+                        ),
+                        blurRadius: 10,
+                        spreadRadius: 0,
+                      )
+                    ],
                   ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(9),
+                  child: FlatButton(
+                    color: Color(0xff0CBCC5),
+                    onPressed: () {
+                      Navigator.pop(context);
+                      successDialog();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 44,
+                        right: 44,
+                        top: 10,
+                        bottom: 8,
+                      ),
+                      child: Text(
+                        "Confirm",
+                        style: GoogleFonts.rubik(
+                          color: Color(0xffFFFFFF),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(9),
+                    ),
                   ),
                 ),
                 FlatButton(
@@ -468,21 +510,44 @@ class _CardDetailsState extends State<CardDetails> {
                 SizedBox(
                   height: 30,
                 ),
-                FlatButton(
-                  color: Color(0xff0CBCC5),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text(
-                    "Ok",
-                    style: GoogleFonts.rubik(
-                      color: Color(0xffFFFFFF),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    ),
+                Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0xff0cbcc5).withOpacity(0.2),
+                        offset: Offset(
+                          0,
+                          0.4,
+                        ),
+                        blurRadius: 10,
+                        spreadRadius: 0,
+                      )
+                    ],
                   ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(9),
+                  child: FlatButton(
+                    color: Color(0xff0CBCC5),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 44,
+                        right: 44,
+                        top: 10,
+                        bottom: 8,
+                      ),
+                      child: Text(
+                        "Ok",
+                        style: GoogleFonts.rubik(
+                          color: Color(0xffFFFFFF),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(9),
+                    ),
                   ),
                 ),
               ],
@@ -514,32 +579,54 @@ class _CardDetailsState extends State<CardDetails> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Payment has been done",
+                  "Payment has been done.",
                   style: GoogleFonts.rubik(
                     color: Color(0xff010101),
                     fontSize: 13,
-                    letterSpacing: -0.08,
                   ),
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(
                   height: 30,
                 ),
-                FlatButton(
-                  color: Color(0xff0CBCC5),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text(
-                    "Ok",
-                    style: GoogleFonts.rubik(
-                      color: Color(0xffFFFFFF),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    ),
+                Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0xff0cbcc5).withOpacity(0.2),
+                        offset: Offset(
+                          0,
+                          0.4,
+                        ),
+                        blurRadius: 10,
+                        spreadRadius: 0,
+                      )
+                    ],
                   ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(9),
+                  child: FlatButton(
+                    color: Color(0xff0CBCC5),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 44,
+                        right: 44,
+                        top: 10,
+                        bottom: 8,
+                      ),
+                      child: Text(
+                        "Ok",
+                        style: GoogleFonts.rubik(
+                          color: Color(0xffFFFFFF),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(9),
+                    ),
                   ),
                 ),
               ],

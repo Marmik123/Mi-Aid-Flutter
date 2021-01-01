@@ -5,6 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/view/user/home_screen.dart';
 
+import 'card_details.dart';
+import 'payment_interface.dart';
+
 class AdditionalServices extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,10 +23,8 @@ class AdditionalServices extends StatelessWidget {
                     builder: (context) => HomeScreen(),
                   ));
             },
-            child: Icon(
-              Icons.arrow_back_sharp,
-              size: 20,
-              color: Color(0xff0CBCC5),
+            child: Image(
+              image: AssetImage("assets/images/NavBar/ic_nb_back.png"),
             ),
           ),
           centerTitle: true,
@@ -47,13 +48,18 @@ class AdditionalServices extends StatelessWidget {
                 miAidCard(Padding(
                   padding: const EdgeInsets.fromLTRB(16, 15, 12, 14),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Text('Additional Video Consultations',
                           style: GoogleFonts.rubik(
                             color: Color(0xff010101),
                             fontSize: 18,
+                            fontWeight: FontWeight.w500,
                           )),
+                      SizedBox(
+                        height: 11,
+                      ),
                       Text(
                         "Description with features goes here, Lorem ipsum dolor sit amet, consectetur adipisicing elit consectetur adipisicing",
                         style: GoogleFonts.rubik(
@@ -61,24 +67,31 @@ class AdditionalServices extends StatelessWidget {
                           fontSize: 14,
                         ),
                       ),
+                      SizedBox(
+                        height: 11,
+                      ),
                       ListTile(
                         leading: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(4),
                             color: Color(0xffF4F4F4),
                           ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text("A\$ "),
-                              Text(
-                                "20.0",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                ),
-                              )
-                            ],
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(7, 9, 7, 9),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.baseline,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text("A\$ "),
+                                Text(
+                                  "20.0",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                         trailing: InkWell(
@@ -93,92 +106,140 @@ class AdditionalServices extends StatelessWidget {
                                       topRight: Radius.circular(16)),
                                 ),
                                 builder: (BuildContext context) => Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                      //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                       children: [
-                                        Container(
-                                          child: Text("Choose a Payment Method",
-                                              style: GoogleFonts.rubik(
-                                                color: Color(0xff010101),
-                                                fontSize: 17,
-                                                fontWeight: FontWeight.w500,
-                                              )),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 20, bottom: 15),
+                                          child: Container(
+                                            child: Text(
+                                                "Choose a Payment Method",
+                                                style: GoogleFonts.rubik(
+                                                  color: Color(0xff010101),
+                                                  fontSize: 17,
+                                                  fontWeight: FontWeight.w500,
+                                                )),
+                                          ),
                                         ),
                                         Divider(
                                           color: Color(0xff010101),
                                           height: 0,
-                                          thickness: 0,
                                         ),
-                                        ListTile(
-                                          leading: Image(
-                                            image: AssetImage(
-                                                "assets/images/ic_payment_paypal.png"),
-                                            alignment: Alignment.center,
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 10, bottom: 10),
+                                          child: ListTile(
+                                            leading: Image(
+                                              image: AssetImage(
+                                                  "assets/images/ic_payment_paypal.png"),
+                                              alignment: Alignment.center,
+                                            ),
+                                            title: Text("PayPal",
+                                                style: GoogleFonts.rubik(
+                                                  color: Color(0xff010101),
+                                                  fontSize: 14,
+                                                )),
+                                            // contentPadding: EdgeInsets.zero,
+                                            dense: true,
+                                            onTap: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          PaymentInterface()));
+                                            },
                                           ),
-                                          title: Text("PayPal",
-                                              style: GoogleFonts.rubik(
-                                                color: Color(0xff010101),
-                                                fontSize: 14,
-                                              )),
-                                          // contentPadding: EdgeInsets.zero,
-                                          dense: true,
-                                          onTap: () {},
                                         ),
                                         Divider(
                                           color: Color(0xff010101),
+                                          height: 0,
                                         ),
-                                        ListTile(
-                                          leading: Image(
-                                            image: AssetImage(
-                                                "assets/images/ic_payment_wechatpay.png"),
-                                          ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 10, bottom: 10),
+                                          child: ListTile(
+                                            leading: Image(
+                                              image: AssetImage(
+                                                  "assets/images/ic_payment_wechatpay.png"),
+                                            ),
 
-                                          title: Text("Wechat Pay",
-                                              style: GoogleFonts.rubik(
-                                                color: Color(0xff010101),
-                                                fontSize: 14,
-                                              )),
-                                          // contentPadding: EdgeInsets.zero,
-                                          dense: true,
-                                          onTap: () {},
+                                            title: Text("Wechat Pay",
+                                                style: GoogleFonts.rubik(
+                                                  color: Color(0xff010101),
+                                                  fontSize: 14,
+                                                )),
+                                            // contentPadding: EdgeInsets.zero,
+                                            dense: true,
+                                            onTap: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          PaymentInterface()));
+                                            },
+                                          ),
                                         ),
                                         Divider(
                                           color: Color(0xff010101),
-                                          height: 1,
+                                          height: 0,
                                         ),
-                                        ListTile(
-                                          leading: Image(
-                                            image: AssetImage(
-                                                "assets/images/ic_payment_allpay.png"),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 10, bottom: 10),
+                                          child: ListTile(
+                                            leading: Image(
+                                              image: AssetImage(
+                                                  "assets/images/ic_payment_allpay.png"),
+                                            ),
+                                            title: Text("Allpay",
+                                                style: GoogleFonts.rubik(
+                                                  color: Color(0xff010101),
+                                                  fontSize: 14,
+                                                )),
+                                            // contentPadding: EdgeInsets.zero,
+                                            dense: true,
+                                            onTap: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          PaymentInterface()));
+                                            },
                                           ),
-                                          title: Text("Allpay",
-                                              style: GoogleFonts.rubik(
-                                                color: Color(0xff010101),
-                                                fontSize: 14,
-                                              )),
-                                          // contentPadding: EdgeInsets.zero,
-                                          dense: true,
-                                          onTap: () {},
                                         ),
                                         Divider(
                                           color: Color(0xff010101),
-                                          height: 1,
+                                          height: 0,
                                         ),
-                                        ListTile(
-                                          leading: Image(
-                                            image: AssetImage(
-                                                "assets/images/ic_payment_card.png"),
-                                          ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 10, bottom: 10),
+                                          child: ListTile(
+                                            leading: Image(
+                                              image: AssetImage(
+                                                  "assets/images/ic_payment_card.png"),
+                                            ),
 
-                                          title: Text("Credit or Debit Card",
-                                              style: GoogleFonts.rubik(
-                                                color: Color(0xff010101),
-                                                fontSize: 14,
-                                              )),
-                                          // contentPadding: EdgeInsets.zero,
-                                          dense: true,
-                                          onTap: () {},
-                                        )
+                                            title: Text("Credit or Debit Card",
+                                                style: GoogleFonts.rubik(
+                                                  color: Color(0xff010101),
+                                                  fontSize: 14,
+                                                )),
+                                            // contentPadding: EdgeInsets.zero,
+                                            dense: true,
+                                            onTap: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          CardDetails()));
+                                            },
+                                          ),
+                                        ),
+                                        Divider(
+                                          color: Color(0xff010101),
+                                          height: 0,
+                                        ),
                                       ],
                                     ));
                           },
