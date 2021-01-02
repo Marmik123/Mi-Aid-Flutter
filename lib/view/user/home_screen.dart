@@ -607,7 +607,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       miAidCard(
                         Padding(
                           padding: const EdgeInsets.only(
-                              left: 16, top: 16, bottom: 16),
+                              left: 16, top: 16, bottom: 16, right: 65),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -770,6 +770,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: const EdgeInsets.only(
                 top: 20,
+                bottom: 20,
               ),
               child: InkWell(
                 onTap: () {
