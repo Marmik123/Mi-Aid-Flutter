@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:country_code_picker/country_code_picker.dart';
-
+import 'package:miaid/view/user/user_profile_screen/user_profile.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class EditUserProfile extends StatefulWidget {
   @override
@@ -38,8 +39,6 @@ class _EditUserProfileState extends State<EditUserProfile> {
   static const borderColor = Color(0xFFB1B1B1);
 
   DateTime _dateTime = DateTime.now();
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -89,13 +88,13 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   ),
                   color: Color(0xFF0CBCC5),
                   onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => UserProfileScreen(),
-                    //   ),
-                    // );
-                    cupertinoDatePicker(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => UserProfileScreen(),
+                      ),
+                    );
+                    // cupertinoDatePicker(context);
                   },
                   child: Text(
                     'Save Changes',
@@ -491,18 +490,23 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     // },
                     onChanged: (value) {
                       setState(() {});
-
-                      cupertinoDatePicker(context);
+                    },
+                    onTap: () {
+                      showCupertinoModalBottomSheet(
+                        expand: false,
+                        context: context,
+                        builder: (context) => cupertinoDatePicker(context),
+                      );
                     },
                     enabled: true,
-                    controller: dobController,
-                    keyboardType: TextInputType.datetime,
+                    controller: dobController..text = '01 Jan 1990',
+
                     decoration: InputDecoration(
-                      hintText: 'Ex: 01 Jan 1990',
-                      hintStyle: TextStyle(
-                        color: Color(0xFfB1B1B1),
-                        fontSize: 14,
-                      ),
+                      // hintText: 'Ex: 01 Jan 1990',
+                      // hintStyle: TextStyle(
+                      //   color: Color(0xFfB1B1B1),
+                      //   fontSize: 14,
+                      // ),
                       contentPadding: EdgeInsets.only(
                         left: 16,
                         top: 5,
@@ -524,17 +528,18 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       suffixIcon: Padding(
                         padding: EdgeInsets.all(0),
                         child: InkWell(
-                            onTap: () {
-                              setState(() {});
-                              cupertinoDatePicker(context);
-                            },
-                            child: InkWell(
-                              onTap: () {},
-                              child: Image(
-                                image: AssetImage(
-                                    'assets/images/NavBar/ic_nb_callhistory_date.png'),
-                              ),
-                            )),
+                          // onTap: () {
+                          //   showCupertinoModalBottomSheet(
+                          //     context: context,
+                          //     builder: (context) =>
+                          //         cupertinoDatePicker(context),
+                          //   );
+                          // },
+                          child: Image(
+                            image: AssetImage(
+                                'assets/images/NavBar/ic_nb_callhistory_date.png'),
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -1178,22 +1183,22 @@ class _EditUserProfileState extends State<EditUserProfile> {
   }
 
   Widget cupertinoDatePicker(context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: 400,
-          child: CupertinoDatePicker(
-            initialDateTime: _dateTime,
-            use24hFormat: false,
-            onDateTimeChanged: (dateTime) {
-              setState(() {
-                _dateTime = dateTime;
-                print(_dateTime);
-              });
-            },
-          ),
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Container(
+        height: 300,
+        child: CupertinoDatePicker(
+          initialDateTime: _dateTime,
+          use24hFormat: false,
+          mode: CupertinoDatePickerMode.date,
+          onDateTimeChanged: (dateTime) {
+            setState(() {
+              _dateTime = dateTime;
+              print(_dateTime);
+            });
+          },
         ),
-      ],
+      ),
     );
   }
 }

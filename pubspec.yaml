@@ -19,6 +19,7 @@ dependencies:
   country_code_picker: ^1.7.0
   pin_code_fields: ^6.0.1
   mask_text_input_formatter: ^1.2.1
+  modal_bottom_sheet: ^1.0.0+1
   
 
 

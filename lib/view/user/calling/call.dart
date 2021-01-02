@@ -71,6 +71,7 @@ class _CallState extends State<Call> {
           children: [
             Center(
               child: Image(
+                fit: BoxFit.cover,
                 image: AssetImage('assets/images/nature.png'),
               ),
             ),

@@ -5,6 +5,7 @@ import 'package:miaid/view/drawer/privacy&policy.dart';
 import 'package:miaid/view/drawer/Terms&Cond.dart';
 import 'package:miaid/view/user/user_profile_screen/user_profile.dart';
 import 'package:miaid/view/user/home_screen.dart';
+import 'package:miaid/component/miaid_card.dart';
 
 class TravelCarePackages extends StatefulWidget {
   @override
@@ -519,7 +520,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                 SizedBox(
                   height: 19,
                 ),
-                availablePackageCard(
+                miAidCard(
                   Padding(
                     padding: const EdgeInsets.only(left: 16),
                     child: Column(
@@ -635,26 +636,6 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
     );
   }
 
-  Widget activeSubscriptionCard(Widget child) {
-    return Container(
-      decoration: new BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        color: color,
-        boxShadow: [
-          new BoxShadow(
-            color: Color(0xFF003f51).withOpacity(0.15),
-            blurRadius: 15.0,
-            spreadRadius: 0.0, //extend the shadow
-            offset: Offset(
-              0.0, // Move to right 10  horizontally
-              4, // Move to bottom 10 Vertically
-            ),
-          ),
-        ],
-      ),
-      child: child,
-    );
-  }
 
   Widget availablePackageCard(Widget child) {
     return Container(

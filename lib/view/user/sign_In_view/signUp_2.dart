@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/view/user/home_screen.dart';
 import 'package:country_code_picker/country_code_picker.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class SignUp2 extends StatefulWidget {
   @override
@@ -49,6 +51,8 @@ class _SignUp2State extends State<SignUp2> {
   static const colorWhite = Color(0xFFFFFFFF);
   static const fontColor = Color(0xFF010101);
   static const borderColor = Color(0xFFB1B1B1);
+
+  DateTime _dateTime = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -177,6 +181,13 @@ class _SignUp2State extends State<SignUp2> {
                     onChanged: (value) {
                       setState(() {});
                     },
+                    onTap: () {
+                      showCupertinoModalBottomSheet(
+                        expand: false,
+                        context: context,
+                        builder: (context) => cupertinoDatePicker(context),
+                      );
+                    },
                     controller: dobController,
                     decoration: InputDecoration(
                       hintText: 'Ex: 01 Jan 1990',
@@ -205,16 +216,19 @@ class _SignUp2State extends State<SignUp2> {
                       suffixIcon: Padding(
                         padding: EdgeInsets.all(0),
                         child: InkWell(
-                            onTap: () {
-                              setState(() {});
-                            },
-                            child: InkWell(
-                              onTap: () {},
-                              child: Image(
-                                image: AssetImage(
-                                    'assets/images/NavBar/ic_nb_callhistory_date.png'),
-                              ),
-                            )),
+                          // onTap: () {
+                          //   showCupertinoModalBottomSheet(
+                          //     expand: false,
+                          //     context: context,
+                          //     builder: (context) =>
+                          //         cupertinoDatePicker(context),
+                          //   );
+                          // },
+                          child: Image(
+                            image: AssetImage(
+                                'assets/images/NavBar/ic_nb_callhistory_date.png'),
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -975,6 +989,25 @@ class _SignUp2State extends State<SignUp2> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget cupertinoDatePicker(context) {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: SizedBox(
+        height: 200,
+        child: CupertinoDatePicker(
+          initialDateTime: _dateTime,
+          use24hFormat: false,
+          onDateTimeChanged: (dateTime) {
+            setState(() {
+              _dateTime = dateTime;
+              print(_dateTime);
+            });
+          },
+        ),
+      ),
     );
   }
 }

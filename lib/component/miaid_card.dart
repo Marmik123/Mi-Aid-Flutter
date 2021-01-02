@@ -1,6 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+const color = Color(0xFF0CBCC5);
+const colorBlack = Color(0xFF010101);
+const colorRed = Color(0xFFE63030);
+const colorWhite = Color(0xFFFFFFFF);
+const colorgrey = Color(0xFF696969);
+
 Widget miAidCard(Widget child) {
   return Container(
     decoration: BoxDecoration(
@@ -16,6 +22,27 @@ Widget miAidCard(Widget child) {
           blurRadius: 15,
           spreadRadius: 0,
         )
+      ],
+    ),
+    child: child,
+  );
+}
+
+Widget activeSubscriptionCard(Widget child) {
+  return Container(
+    decoration: new BoxDecoration(
+      borderRadius: BorderRadius.circular(15),
+      color: color,
+      boxShadow: [
+        new BoxShadow(
+          color: Color(0xFF003f51).withOpacity(0.15),
+          blurRadius: 15.0,
+          spreadRadius: 0.0, //extend the shadow
+          offset: Offset(
+            0.0, // Move to right 10  horizontally
+            4, // Move to bottom 10 Vertically
+          ),
+        ),
       ],
     ),
     child: child,
