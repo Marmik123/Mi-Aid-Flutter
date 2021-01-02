@@ -635,26 +635,4 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
       ]),
     );
   }
-
-
-  Widget availablePackageCard(Widget child) {
-    return Container(
-      decoration: new BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        color: colorWhite,
-        boxShadow: [
-          new BoxShadow(
-            color: Color(0xFF003f51).withOpacity(0.15),
-            blurRadius: 15.0,
-            spreadRadius: 0.0, //extend the shadow
-            offset: Offset(
-              0.2, // Move to right 10  horizontally
-              4, // Move to bottom 10 Vertically
-            ),
-          ),
-        ],
-      ),
-      child: child,
-    );
-  }
 }
