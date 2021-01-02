@@ -567,13 +567,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => PaymentInterface(),
-                              ));
-                        },
+                        onTap: () {},
                         child: miAidCard(
                           Padding(
                             padding: const EdgeInsets.only(
@@ -638,14 +632,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => CardDetails(),
-                              ),
-                            );
-                          },
+                          onTap: () {},
                           child: miAidCard(
                             Padding(
                               padding: const EdgeInsets.only(
@@ -1092,6 +1079,7 @@ individualUserSubscriptionAlert(BuildContext context) {
   );
 
   showDialog(
+      barrierColor: Colors.black38,
       context: context,
       builder: (BuildContext context) {
         return alert;

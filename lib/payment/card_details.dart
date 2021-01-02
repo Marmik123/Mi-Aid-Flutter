@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:miaid/payment/payment_interface.dart';
+import 'package:miaid/payment/additional_services.dart';
 import 'package:miaid/utils/card_utils.dart';
 
 enum CardType {
@@ -51,7 +52,7 @@ class _CardDetailsState extends State<CardDetails> {
         leading: InkWell(
           onTap: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => PaymentInterface()));
+                MaterialPageRoute(builder: (context) => AdditionalServices()));
           },
           child: Image(
             image: AssetImage("assets/images/NavBar/ic_nb_back.png"),

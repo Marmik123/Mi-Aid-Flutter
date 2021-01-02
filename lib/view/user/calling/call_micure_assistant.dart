@@ -21,7 +21,7 @@ class _CallScreenState extends State<CallScreen> {
     // TODO: implement initState
     super.initState();
     Timer(
-        Duration(seconds: 5),
+        Duration(seconds: 2),
         () => Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => CallStarted())));
   }

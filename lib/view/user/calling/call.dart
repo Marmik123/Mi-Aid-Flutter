@@ -111,6 +111,10 @@ class _CallState extends State<Call> {
                       width: 98,
                       decoration: new BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
+                        border: Border.all(
+                          color: colorWhite,
+                          width: 2,
+                        ),
                         color: Colors.white,
                         boxShadow: [
                           new BoxShadow(
@@ -125,7 +129,7 @@ class _CallState extends State<Call> {
                         ],
                       ),
                       child: Image(
-                        image: AssetImage('assets/images/ph_call_operator.png'),
+                        image: AssetImage('assets/images/logo_auth.png'),
                       ),
                     ),
                     SizedBox(
@@ -136,6 +140,10 @@ class _CallState extends State<Call> {
                       width: 98,
                       decoration: new BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
+                        border: Border.all(
+                          color: colorWhite,
+                          width: 2,
+                        ),
                         color: Colors.white,
                         boxShadow: [
                           new BoxShadow(
@@ -150,8 +158,7 @@ class _CallState extends State<Call> {
                         ],
                       ),
                       child: Image(
-                        image:
-                            AssetImage('assets/images/ph_call_translator.png'),
+                        image: AssetImage('assets/images/logo_auth.png'),
                       ),
                     ),
                     SizedBox(
@@ -162,6 +169,10 @@ class _CallState extends State<Call> {
                       width: 98,
                       decoration: new BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
+                        border: Border.all(
+                          color: colorWhite,
+                          width: 2,
+                        ),
                         color: Colors.white,
                         boxShadow: [
                           new BoxShadow(
@@ -176,7 +187,7 @@ class _CallState extends State<Call> {
                         ],
                       ),
                       child: Image(
-                        image: AssetImage('assets/images/ph_call_user.png'),
+                        image: AssetImage('assets/images/logo_auth.png'),
                       ),
                     ),
                   ],

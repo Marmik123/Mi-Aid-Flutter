@@ -9,23 +9,23 @@ const colorgrey = Color(0xFF696969);
 
 Widget miAidCard(Widget child) {
   return Container(
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(15),
-      boxShadow: [
-        BoxShadow(
-          color: Color(0xff003f51).withOpacity(0.15),
-          offset: Offset(
-            0,
-            4,
-          ),
-          blurRadius: 15,
-          spreadRadius: 0,
-        )
-      ],
-    ),
-    child: child,
-  );
+  decoration: BoxDecoration(
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(15),
+    boxShadow: [
+      BoxShadow(
+        color: Color(0xff003f51).withOpacity(0.15),
+        offset: Offset(
+          0,
+          4,
+        ),
+        blurRadius: 15,
+        spreadRadius: 0,
+      )
+    ],
+  ),
+  child: child,
+    );
 }
 
 Widget activeSubscriptionCard(Widget child) {

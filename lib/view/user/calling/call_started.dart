@@ -20,7 +20,7 @@ class _CallStartedState extends State<CallStarted> {
     // TODO: implement initState
     super.initState();
     Timer(
-        Duration(seconds: 5),
+        Duration(seconds: 2),
         () => Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) => NoVideoPlaceHolder())));
   }
@@ -183,7 +183,6 @@ class _CallStartedState extends State<CallStarted> {
                                       'assets/images/btn_call_chat.png'),
                                 ),
                               ],
-                            
                             ),
                           ),
                         ],
