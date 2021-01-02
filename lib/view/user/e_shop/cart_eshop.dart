@@ -357,6 +357,19 @@ class _CartEShopState extends State<CartEShop> {
                           image: AssetImage(
                               "assets/images/ic_cart_checkbox_normal.png"),
                         ),
+                        RichText(
+                            text: TextSpan(
+                          text: "By purchasing, You agree to",
+                          children: [
+                            TextSpan(
+                              text: "our  Terms & Conditions.",
+                              style: GoogleFonts.rubik(
+                                color: Color(0xff5E5E5E),
+                                fontSize: 12,
+                              ),
+                            )
+                          ],
+                        )),
                         Text(
                           "By purchasing, You agree to our  Terms & Conditions.",
                           style: GoogleFonts.rubik(

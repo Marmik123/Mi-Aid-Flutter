@@ -1,19 +1,19 @@
 import 'dart:ui';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/view/drawer/about.dart';
-import 'package:miaid/view/drawer/privacy&policy.dart';
-import 'package:miaid/view/drawer/Terms&Cond.dart';
-import 'package:miaid/view/user/user_profile_screen/user_profile.dart';
-import 'package:miaid/view/user/travel_care_packages/Travel_care_packages.dart';
-import 'package:miaid/view/user/calling/call_micure_assistant.dart';
+import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/payment/additional_services.dart';
 import 'package:miaid/payment/card_details.dart';
 import 'package:miaid/payment/payment_interface.dart';
-import 'package:miaid/payment/additional_services.dart';
-
+import 'package:miaid/view/drawer/Terms&Cond.dart';
+import 'package:miaid/view/drawer/about.dart';
+import 'package:miaid/view/drawer/privacy&policy.dart';
+import 'package:miaid/view/user/calling/call_micure_assistant.dart';
 import 'package:miaid/view/user/sign_In_view/signIn.dart';
+import 'package:miaid/view/user/travel_care_packages/Travel_care_packages.dart';
+import 'package:miaid/view/user/user_profile_screen/user_profile.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -424,102 +424,104 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Color(0xFF2E2E2E),
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            top: 23, left: 20, bottom: 28),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            RichText(
-                              text: TextSpan(
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 23, bottom: 28),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              RichText(
+                                text: TextSpan(
+                                  style: GoogleFonts.rubik(
+                                    color: Color(0xFFFFFFFF),
+                                  ),
+                                  children: [
+                                    TextSpan(text: 'Hi'),
+                                    TextSpan(
+                                      text: ' John',
+                                      style: GoogleFonts.rubik(
+                                        color: color,
+                                        fontSize: 21,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    TextSpan(text: ','),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 15,
+                              ),
+                              Text(
+                                'You are in Australia',
                                 style: GoogleFonts.rubik(
                                   color: Color(0xFFFFFFFF),
+                                  fontSize: 14,
                                 ),
-                                children: [
-                                  TextSpan(text: 'Hi'),
-                                  TextSpan(
-                                    text: ' John',
-                                    style: GoogleFonts.rubik(
-                                      color: color,
-                                      fontSize: 21,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  TextSpan(text: ','),
-                                ],
                               ),
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Text(
-                              'You are in Australia',
-                              style: GoogleFonts.rubik(
-                                color: Color(0xFFFFFFFF),
-                                fontSize: 14,
+                              SizedBox(
+                                height: 5,
                               ),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              'How can we help you today?',
-                              style: GoogleFonts.rubik(
-                                color: Color(0xFFFFFFFF),
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: 45,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            top: 23, right: 20, bottom: 28),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          // mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Image(
-                              image: AssetImage(
-                                  'assets/images/ic_home_emergencywithbg.png'),
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            RichText(
-                              text: TextSpan(
+                              Text(
+                                'How can we help you today?',
                                 style: GoogleFonts.rubik(
                                   color: Color(0xFFFFFFFF),
-                                  fontSize: 12,
+                                  fontSize: 14,
                                 ),
-                                children: [
-                                  TextSpan(text: 'Dial'),
-                                  TextSpan(
-                                    text: ' 000',
-                                    style: GoogleFonts.rubik(
-                                      color: Color(0xFFE63030),
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ],
                               ),
-                            ),
-                            Text(
-                              'in an Emergency',
-                              style: GoogleFonts.rubik(
-                                color: Color(0xFFFFFFFF),
-                                fontSize: 12,
-                              ),
-                            )
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                        Padding(
+                          padding: const EdgeInsets.only(top: 23, bottom: 28),
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Image(
+                                  image: AssetImage(
+                                      'assets/images/ic_home_emergencywithbg.png'),
+                                ),
+                                SizedBox(
+                                  height: 8,
+                                ),
+                                RichText(
+                                  text: TextSpan(
+                                    style: GoogleFonts.rubik(
+                                      color: Color(0xFFFFFFFF),
+                                      fontSize: 12,
+                                    ),
+                                    children: [
+                                      TextSpan(text: 'Dial'),
+                                      TextSpan(
+                                        text: ' 000',
+                                        style: GoogleFonts.rubik(
+                                          color: Color(0xFFE63030),
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Text(
+                                  'in an Emergency',
+                                  style: GoogleFonts.rubik(
+                                    color: Color(0xFFFFFFFF),
+                                    fontSize: 12,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -605,7 +607,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       miAidCard(
                         Padding(
                           padding: const EdgeInsets.only(
-                              left: 16, top: 16, right: 69, bottom: 16),
+                              left: 16, top: 16, right: 50, bottom: 16),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -813,27 +815,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-    );
-  }
-
-  Widget miAidCard(Widget child) {
-    return Container(
-      decoration: new BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        color: Colors.white,
-        boxShadow: [
-          new BoxShadow(
-            color: Color(0xFF003f51).withOpacity(0.15),
-            blurRadius: 15.0,
-            spreadRadius: 0.0, //extend the shadow
-            offset: Offset(
-              0.0, // Move to right 10  horizontally
-              4, // Move to bottom 10 Vertically
-            ),
-          ),
-        ],
-      ),
-      child: child,
     );
   }
 }
