@@ -646,7 +646,8 @@ class _SignUpState extends State<SignUp> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 48, right: 48),
-              child: RichText(
+              child: 
+              RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
                   style: GoogleFonts.rubik(
@@ -691,6 +692,7 @@ class _SignUpState extends State<SignUp> {
                   ],
                 ),
               ),
+           
             ),
             SizedBox(
               height: 22,

@@ -11,6 +11,7 @@ import 'package:miaid/view/drawer/Terms&Cond.dart';
 import 'package:miaid/view/drawer/about.dart';
 import 'package:miaid/view/drawer/privacy&policy.dart';
 import 'package:miaid/view/user/calling/call_micure_assistant.dart';
+import 'package:miaid/view/user/e_shop/cart_eshop.dart';
 import 'package:miaid/view/user/sign_In_view/signIn.dart';
 import 'package:miaid/view/user/travel_care_packages/Travel_care_packages.dart';
 import 'package:miaid/view/user/user_profile_screen/user_profile.dart';
@@ -632,7 +633,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).push(CupertinoPageRoute(builder: (context) => CartEShop(),));
+                          },
                           child: miAidCard(
                             Padding(
                               padding: const EdgeInsets.only(

@@ -8,6 +8,7 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:miaid/payment/payment_interface.dart';
 import 'package:miaid/payment/additional_services.dart';
 import 'package:miaid/utils/card_utils.dart';
+import 'package:miaid/view/user/e_shop/purchase.dart';
 
 enum CardType {
   Master,
@@ -607,7 +608,7 @@ class _CardDetailsState extends State<CardDetails> {
                   child: FlatButton(
                     color: Color(0xff0CBCC5),
                     onPressed: () {
-                      Navigator.pop(context);
+                      Navigator.of(context).push(CupertinoPageRoute(builder: (context)=>PurchaseItem()));
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(
