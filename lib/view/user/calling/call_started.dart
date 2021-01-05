@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/component/miaid_card.dart';
 import 'dart:async';
 import 'package:miaid/view/user/calling/call_no_video_placeholder.dart';
 
@@ -9,11 +10,7 @@ class CallStarted extends StatefulWidget {
 }
 
 class _CallStartedState extends State<CallStarted> {
-  static const color = Color(0xFF0CBCC5);
-  static const colorBlack = Color(0xFF010101);
-  static const colorRed = Color(0xFFE63030);
-  static const colorWhite = Color(0xFFFFFFFF);
-  static const colorgrey = Color(0xFF696969);
+  
 
   @override
   void initState() {

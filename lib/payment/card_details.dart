@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:miaid/payment/payment_interface.dart';
+
 import 'package:miaid/payment/additional_services.dart';
 import 'package:miaid/utils/card_utils.dart';
 

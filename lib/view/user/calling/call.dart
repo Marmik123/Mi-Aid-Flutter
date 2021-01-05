@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/view/user/chat/chat.dart';
 
 class Call extends StatefulWidget {
   @override
@@ -7,11 +9,7 @@ class Call extends StatefulWidget {
 }
 
 class _CallState extends State<Call> {
-  static const color = Color(0xFF0CBCC5);
-  static const colorBlack = Color(0xFF010101);
-  static const colorRed = Color(0xFFE63030);
-  static const colorWhite = Color(0xFFFFFFFF);
-  static const colorgrey = Color(0xFF696969);
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -250,9 +248,19 @@ class _CallState extends State<Call> {
                                 SizedBox(
                                   width: 24.89,
                                 ),
-                                Image(
-                                  image: AssetImage(
-                                      'assets/images/btn_call_chat.png'),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ChatScreen(),
+                                      ),
+                                    );
+                                  },
+                                  child: Image(
+                                    image: AssetImage(
+                                        'assets/images/btn_call_chat.png'),
+                                  ),
                                 ),
                               ],
                             ),

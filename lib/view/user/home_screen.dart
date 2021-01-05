@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/payment/additional_services.dart';
-import 'package:miaid/payment/card_details.dart';
-import 'package:miaid/payment/payment_interface.dart';
+
 import 'package:miaid/view/drawer/Terms&Cond.dart';
 import 'package:miaid/view/drawer/about.dart';
 import 'package:miaid/view/drawer/privacy&policy.dart';

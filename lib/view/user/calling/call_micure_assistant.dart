@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/component/miaid_card.dart';
 import 'dart:async';
 import 'package:miaid/view/user/calling/call_started.dart';
-
-
 class CallScreen extends StatefulWidget {
   @override
   _CallScreenState createState() => _CallScreenState();
 }
 
 class _CallScreenState extends State<CallScreen> {
-  static const color = Color(0xFF0CBCC5);
-  static const colorBlack = Color(0xFF010101);
-  static const colorRed = Color(0xFFE63030);
-  static const colorWhite = Color(0xFFFFFFFF);
-  static const colorgrey = Color(0xFF696969);
+ 
 
   @override
   void initState() {
@@ -25,7 +20,7 @@ class _CallScreenState extends State<CallScreen> {
         () => Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => CallStarted())));
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -174,6 +169,7 @@ class _CallScreenState extends State<CallScreen> {
                                   width: 24.89,
                                 ),
                                 Image(
+                                  
                                   image: AssetImage(
                                       'assets/images/btn_call_turnonmic.png'),
                                 ),
@@ -217,55 +213,9 @@ class _CallScreenState extends State<CallScreen> {
                 ),
               ),
             ),
-            // Align(
-            //   alignment: Alignment.bottomCenter,
-            //   child: Container(
-            //     decoration: BoxDecoration(
-            //       borderRadius: BorderRadius.circular(10),
-            //       color: Color(0xFFEEFEFF),
-            //     ),
-            //     child: bottomNavigation(),
-            //   ),
-            // ),
           ],
         ),
       ),
     );
- 
   }
-
-  // Widget bottomNavigation() {
-  //   return Padding(
-  //     padding: const EdgeInsets.only(
-  //       top: 10,
-  //     ),
-  //     child: BottomNavigationBar(
-  //       type: BottomNavigationBarType.fixed,
-  //       backgroundColor: Colors.transparent,
-  //       items: [
-  //         BottomNavigationBarItem(
-  //             icon: Image(
-  //               image: AssetImage('assets/images/btn_call_switchcamera.png'),
-  //             ),
-  //             label: ''),
-  //         BottomNavigationBarItem(
-  //             icon: Image(
-  //               image: AssetImage('assets/images/btn_call_turnonvideo.png'),
-  //             ),
-  //             label: ''),
-  //         BottomNavigationBarItem(
-  //             icon: Image(
-  //               image: AssetImage('assets/images/btn_call_turnonmic.png'),
-  //             ),
-  //             label: ''),
-  //         BottomNavigationBarItem(
-  //             icon: Image(
-  //               image: AssetImage('assets/images/btn_call_chat.png'),
-  //             ),
-  //             label: ''),
-  //       ],
-  //     ),
-  //   );
-  // }
-
 }
