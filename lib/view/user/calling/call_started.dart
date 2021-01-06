@@ -68,6 +68,7 @@ class _CallStartedState extends State<CallStarted> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
+            
             colors: [colorBlack, color],
             stops: [
               0.0,

@@ -12,6 +12,12 @@ import 'package:miaid/view/user/travel_care_packages/Travel_care_packages.dart';
 import 'package:miaid/view/map/map_screen.dart';
 import 'package:miaid/component/drawer.dart';
 import 'package:miaid/view/user/e_shop/e_shop.dart';
+// import 'package:miaid/component/drawer.dart';
+// import 'package:miaid/view/drawer/about.dart';
+// import 'package:miaid/view/user/calling/call_micure_assistant.dart';
+// import 'package:miaid/view/user/e_shop/cart_eshop.dart';
+// import 'package:miaid/view/user/sign_In_view/signIn.dart';
+// import 'package:miaid/view/user/travel_care_packages/Travel_care_packages.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -28,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      drawer: drawer(context),
+      drawer: Drawer(),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,

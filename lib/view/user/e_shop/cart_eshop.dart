@@ -1,7 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
-import 'package:miaid/payment/additional_services.dart';
+import 'package:miaid/component/payment_bootomsheet.dart';
+import 'package:miaid/view/drawer/Terms&Cond.dart';
 
 class CartEShop extends StatefulWidget {
   @override
@@ -11,31 +13,53 @@ class CartEShop extends StatefulWidget {
 class _CartEShopState extends State<CartEShop> {
   int value_1;
   int value_2;
+  int quentity = 1;
+  bool remove = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          FlatButton(
-            onPressed: () {},
-            child: Text(
-              "Remove",
-              style: GoogleFonts.rubik(
-                color: Color(0xffFA0020),
-                fontSize: 17,
-                fontWeight: FontWeight.w600,
-                letterSpacing: -0.41,
-              ),
-            ),
-          ),
+          !remove
+              ? FlatButton(
+                  onPressed: () {
+                    setState(() {
+                      remove = true;
+                    });
+                  },
+                  child: Text(
+                    "Remove",
+                    style: GoogleFonts.rubik(
+                      color: Color(0xffFA0020),
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: -0.41,
+                    ),
+                  ),
+                )
+              : FlatButton(
+                  onPressed: () {
+                    setState(() {
+                      remove = false;
+                    });
+                  },
+                  child: Text(
+                    "Done",
+                    style: GoogleFonts.rubik(
+                      color: color,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: -0.41,
+                    ),
+                  ),
+                ),
         ],
         backgroundColor: Colors.white,
         elevation: 0,
         leading: InkWell(
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => AdditionalServices()));
+            Navigator.pop(context);
           },
           child: Image(
             image: AssetImage("assets/images/NavBar/ic_nb_back.png"),
@@ -45,8 +69,9 @@ class _CartEShopState extends State<CartEShop> {
         title: Text(
           "Cart",
           style: GoogleFonts.rubik(
-            color: Color(0xff010101),
+            color: colorBlack,
             fontSize: 15,
+            fontWeight: FontWeight.w500,
           ),
         ),
       ),
@@ -178,39 +203,70 @@ class _CartEShopState extends State<CartEShop> {
                                                     ),
                                                   ),
                                                 ),
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceEvenly,
-                                                  children: [
-                                                    buttonContainer(
-                                                      Image.asset(
-                                                          "assets/images/btn_medicine_quantity_minus_disabled.png"),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              left: 15,
-                                                              right: 15),
-                                                      child: Text(
-                                                        "1",
-                                                        style: TextStyle(
-                                                          color:
-                                                              Color(0xff010101),
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontSize: 14,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    buttonContainer(
-                                                      Image.asset(
-                                                          "assets/images/btn_medicine_quantity_add.png"),
-                                                    ),
-                                                  ],
-                                                )
+                                                remove
+                                                    ? InkWell(
+                                                        onTap: () =>
+                                                            showAlertDialog(
+                                                                context),
+                                                        child: Image.asset(
+                                                            'assets/images/btn_medicine_removeitem.png'),
+                                                      )
+                                                    : Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.min,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceEvenly,
+                                                        children: [
+                                                          InkWell(
+                                                            onTap: () {
+                                                              setState(() {
+                                                                if (quentity >
+                                                                    1) {
+                                                                  quentity--;
+                                                                }
+                                                              });
+                                                            },
+                                                            child:
+                                                                buttonContainer(
+                                                              Image.asset(quentity <=
+                                                                      1
+                                                                  ? "assets/images/btn_medicine_quantity_minus_disabled.png"
+                                                                  : 'assets/images/btn_medicine_quantity_minus.png'),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .only(
+                                                                    left: 15,
+                                                                    right: 15),
+                                                            child: Text(
+                                                              "$quentity",
+                                                              style: TextStyle(
+                                                                color: Color(
+                                                                    0xff010101),
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                fontSize: 14,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          InkWell(
+                                                            onTap: () {
+                                                              setState(() {
+                                                                quentity++;
+                                                              });
+                                                            },
+                                                            child:
+                                                                buttonContainer(
+                                                              Image.asset(
+                                                                  "assets/images/btn_medicine_quantity_add.png"),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      )
                                               ],
                                             )
                                           ],
@@ -351,32 +407,47 @@ class _CartEShopState extends State<CartEShop> {
                       height: 20,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Image(
                           image: AssetImage(
                               "assets/images/ic_cart_checkbox_normal.png"),
                         ),
-                        RichText(
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left: 1,
+                          ),
+                          child: RichText(
+                            textAlign: TextAlign.center,
                             text: TextSpan(
-                          text: "By purchasing, You agree to",
-                          children: [
-                            TextSpan(
-                              text: "our  Terms & Conditions.",
                               style: GoogleFonts.rubik(
-                                color: Color(0xff5E5E5E),
+                                color: Color(0xFF5E5E5E),
                                 fontSize: 12,
                               ),
-                            )
-                          ],
-                        )),
-                        Text(
-                          "By purchasing, You agree to our  Terms & Conditions.",
-                          style: GoogleFonts.rubik(
-                            color: Color(0xff5E5E5E),
-                            fontSize: 12,
+                              children: [
+                                TextSpan(
+                                    text: 'By Submitting, You agree to our'),
+                                TextSpan(
+                                  text: ' Terms & Conditions',
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              TermsConditions(),
+                                        ),
+                                      );
+                                    },
+                                  style: GoogleFonts.rubik(
+                                    color: color,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ],
@@ -414,7 +485,17 @@ class _CartEShopState extends State<CartEShop> {
                 FlatButton(
                   color: Color(0xff0CBCC5),
                   onPressed: () {
-                    // Navigator.pop(context);
+                    showModalBottomSheet(
+                                backgroundColor: Colors.white,
+                                context: context,
+                                isDismissible: true,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(16),
+                                      topRight: Radius.circular(16)),
+                                ),
+                                builder: (BuildContext context) =>
+                                    PaymentBottomSheet());
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(
@@ -442,5 +523,97 @@ class _CartEShopState extends State<CartEShop> {
         ],
       ),
     );
+  }
+
+  showAlertDialog(BuildContext context) {
+    Widget okButton = Padding(
+      padding: EdgeInsets.only(left: 64.5, right: 63.5, bottom: 24.5),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: 36,
+            decoration: new BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Colors.white,
+              boxShadow: [
+                new BoxShadow(
+                  color: Color(0xFF0cbcc5).withOpacity(0.2),
+                  blurRadius: 10.0,
+                  spreadRadius: 0.0, //extend the shadow
+                  offset: Offset(
+                    0.0, // Move to right 10  horizontally
+                    4, // Move to bottom 10 Vertically
+                  ),
+                ),
+              ],
+            ),
+            child: FlatButton(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(9),
+              ),
+              color: Color(0xFF0CBCC5),
+              onPressed: () {
+                setState(() {
+                  remove = false;
+                });
+                Navigator.pop(context);
+              },
+              child: Text(
+                'No',
+                style: GoogleFonts.rubik(
+                  color: Color(0xFFFFFFFF),
+                  fontSize: 14,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Center(
+            child: InkWell(
+              onTap: () {
+                //Navigator.pop(context);
+              },
+              child: Text(
+                'Remove',
+                style: GoogleFonts.rubik(
+                  color: Color(0xFF0CBCC5),
+                  fontSize: 14,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+
+    AlertDialog alert = AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+      ),
+      title: Text(
+        'Remove',
+        textAlign: TextAlign.center,
+        style: GoogleFonts.rubik(
+            color: Color(0xFF010101), fontWeight: FontWeight.w700),
+      ),
+      content: Text(
+        'Are you sure you want to delete item "Panadol Rapid Parace Panadol Rap.." from cart?',
+        textAlign: TextAlign.center,
+        style: GoogleFonts.rubik(
+          fontSize: 13,
+        ),
+      ),
+      actions: [okButton],
+    );
+
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return alert;
+        });
   }
 }
