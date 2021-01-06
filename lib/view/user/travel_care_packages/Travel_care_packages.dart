@@ -13,11 +13,7 @@ class TravelCarePackages extends StatefulWidget {
 }
 
 class _TravelCarePackagesState extends State<TravelCarePackages> {
-  static const color = Color(0xFF0CBCC5);
-  static const colorBlack = Color(0xFF010101);
-  static const colorRed = Color(0xFFE63030);
-  static const colorWhite = Color(0xFFFFFFFF);
-  static const colorgrey = Color(0xFF696969);
+  
 
   @override
   Widget build(BuildContext context) {
@@ -482,6 +478,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                       ],
                     ),
                   ),
+               
                 ),
               ],
             ),

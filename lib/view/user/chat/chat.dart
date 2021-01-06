@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:miaid/component/miaid_card.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,51 +17,57 @@ class _ChatScreenState extends State<ChatScreen> {
 
       body: Stack(
         children: [
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 20,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 10, left: 13),
+                    child: Image(
+                      image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: Text(
+                    'Chat',
+                    style: GoogleFonts.rubik(
+                      color: colorBlack,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: Text(
+                    'Chat',
+                    style: GoogleFonts.rubik(
+                      color: colorWhite,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
           Expanded(
             child: ListView(
               shrinkWrap: true,
               physics: ClampingScrollPhysics(),
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 10, left: 13),
-                        child: Image(
-                          image:
-                              AssetImage('assets/images/NavBar/ic_nb_back.png'),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: Text(
-                        'Chat',
-                        style: GoogleFonts.rubik(
-                          color: colorBlack,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: Text(
-                        'Chat',
-                        style: GoogleFonts.rubik(
-                          color: colorWhite,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  ],
+                SizedBox(
+                  height: 50,
                 ),
-                SizedBox(height: 22.54,),
                 Align(
                   alignment: Alignment.center,
                   child: Text(
@@ -88,7 +95,6 @@ class _ChatScreenState extends State<ChatScreen> {
               ],
             ),
           ),
-
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -135,7 +141,58 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                   InkWell(
                     onTap: () {
-                      // ctrl.sendMessage();
+                      final action = CupertinoActionSheet(
+                        message: Text(
+                          "Select",
+                          style: TextStyle(
+                            fontSize: 13.0,
+                            color: Color(0xFF8F8E94),
+                          ),
+                        ),
+                        actions: <Widget>[
+                          CupertinoActionSheetAction(
+                            child: Text(
+                              "Camera",
+                              style: GoogleFonts.rubik(
+                                color: color,
+                                fontSize: 20,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                            isDefaultAction: true,
+                            onPressed: () {
+                              print("Action 1 is been clicked");
+                            },
+                          ),
+                          CupertinoActionSheetAction(
+                            child: Text(
+                              "Choose from Albums",
+                              style: GoogleFonts.rubik(
+                                color: color,
+                                fontSize: 20,
+                              ),
+                            ),
+                            isDestructiveAction: true,
+                            onPressed: () {
+                              print("Action 2 is been clicked");
+                            },
+                          )
+                        ],
+                        cancelButton: CupertinoActionSheetAction(
+                          child: Text(
+                            "Cancel",
+                            style: GoogleFonts.rubik(
+                              color: color,
+                              fontSize: 20,
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                      );
+                      showCupertinoModalPopup(
+                          context: context, builder: (context) => action);
                     },
                     child: Image(
                       image: AssetImage('assets/images/ic_chat_camera.png'),
@@ -156,7 +213,6 @@ class _ChatScreenState extends State<ChatScreen> {
               ),
             ),
           ),
-
           Positioned(
             right: 0,
             top: 25,
@@ -170,8 +226,39 @@ class _ChatScreenState extends State<ChatScreen> {
                     color: color,
                   ),
                 ),
-                child: Image(
-                  image: AssetImage('assets/images/logo_auth.png'),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Stack(
+                    children: [
+                      Image(
+                        image: AssetImage('assets/images/logo_auth.png'),
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        right: 0,
+                        child: Container(
+                            decoration: BoxDecoration(
+                              color: color.withOpacity(0.5),
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(5),
+                                // topRight: Radius.circular(10),
+                                // bottomLeft: Radius.circular(10),
+                                bottomRight: Radius.circular(26),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 2, left: 2, right: 5, bottom: 2),
+                              child: Image(
+                                image: AssetImage(
+                                    'assets/images/ic_call_turnonvideo_copy.png'),
+                              ),
+                            )),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -566,8 +653,21 @@ Widget receiverVideo() {
                     left: 14,
                   ),
                   // child:
-                  child: Image(
-                    image: AssetImage('assets/images/logo_auth.png'),
+                  child: Stack(
+                    children: [
+                      Image(
+                        width: 115,
+                        height: 115,
+                        image: AssetImage('assets/images/logo_auth.png'),
+                      ),
+                      Positioned(
+                        bottom: 35,
+                        right: 35,
+                        child: Image(
+                          image: AssetImage('assets/images/btn_chat_play.png'),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

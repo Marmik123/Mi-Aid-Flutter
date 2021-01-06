@@ -9,8 +9,6 @@ class Call extends StatefulWidget {
 }
 
 class _CallState extends State<Call> {
- 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -127,6 +125,7 @@ class _CallState extends State<Call> {
                         ],
                       ),
                       child: Image(
+                        fit: BoxFit.cover,
                         image: AssetImage('assets/images/logo_auth.png'),
                       ),
                     ),
@@ -156,6 +155,7 @@ class _CallState extends State<Call> {
                         ],
                       ),
                       child: Image(
+                        fit: BoxFit.cover,
                         image: AssetImage('assets/images/logo_auth.png'),
                       ),
                     ),
@@ -185,6 +185,7 @@ class _CallState extends State<Call> {
                         ],
                       ),
                       child: Image(
+                        fit: BoxFit.cover,
                         image: AssetImage('assets/images/logo_auth.png'),
                       ),
                     ),

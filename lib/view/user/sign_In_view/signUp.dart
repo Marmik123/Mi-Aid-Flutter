@@ -7,6 +7,7 @@ import 'package:miaid/view/user/otp_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:miaid/view/drawer/privacy&policy.dart';
 import 'package:miaid/view/drawer/Terms&Cond.dart';
+import 'package:miaid/component/miaid_card.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -28,7 +29,7 @@ class _SignUpState extends State<SignUp> {
   String _selectedValue;
 
   static const color = Color(0xFF0CBCC5);
-  static const borderColor = Color(0xFFB1B1B1);
+  
 
   @override
   Widget build(BuildContext context) {
@@ -86,6 +87,7 @@ class _SignUpState extends State<SignUp> {
           ),
         ],
       ),
+     
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -239,6 +241,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
+               
                 ],
               ),
             ),
@@ -477,6 +480,7 @@ class _SignUpState extends State<SignUp> {
                                   color: Color(0xFFb1b1b1).withOpacity(0.1),
                                 )
                               ],
+                           
                             );
                           },
                         ),

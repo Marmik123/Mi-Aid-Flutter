@@ -6,6 +6,10 @@ const colorBlack = Color(0xFF010101);
 const colorRed = Color(0xFFE63030);
 const colorWhite = Color(0xFFFFFFFF);
 const colorgrey = Color(0xFF696969);
+const borderColor = Color(0xFFB1B1B1);
+const colorYellow = Color(0xFFE68C30);
+const colorPurple = Color(0xFF5251F7);
+
 
 Widget miAidCard(Widget child) {
   return Container(

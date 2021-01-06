@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:miaid/view/user/user_profile_screen/user_profile.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:miaid/component/miaid_card.dart';
 
 class EditUserProfile extends StatefulWidget {
   @override
@@ -33,10 +34,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
   final regularDoctorKey = GlobalKey<FormState>();
   final accountDetailsKey = GlobalKey<FormState>();
 
-  static const colorBlue = Color(0xFF0CBCC5);
-  static const colorBlack = Color(0xFF010101);
-  static const colorGrey = Color(0xFF5E5E5E);
-  static const borderColor = Color(0xFFB1B1B1);
+ 
 
   DateTime _dateTime = DateTime.now();
 
@@ -389,13 +387,13 @@ class _EditUserProfileState extends State<EditUserProfile> {
                           showCountryOnly: false,
                           closeIcon: const Icon(
                             Icons.close,
-                            color: colorBlue,
+                            color: color,
                           ),
                           showOnlyCountryWhenClosed: false,
                           padding: EdgeInsets.zero,
                           builder: (country) {
                             return Row(
-                              children: [
+                               children: [
                                 Image.asset(
                                   country.flagUri,
                                   package: 'country_code_picker',
@@ -422,9 +420,10 @@ class _EditUserProfileState extends State<EditUserProfile> {
                                 Container(
                                   height: 35,
                                   width: 1,
-                                  color: Color(0xFFb1b1b1),
+                                  color: Color(0xFFb1b1b1).withOpacity(0.1),
                                 )
                               ],
+                           
                             );
                           },
                         ),
@@ -492,8 +491,8 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       setState(() {});
                     },
                     onTap: () {
-                      showCupertinoModalBottomSheet(
-                        expand: false,
+                      showModalBottomSheet(
+                        
                         context: context,
                         builder: (context) => cupertinoDatePicker(context),
                       );
@@ -983,13 +982,13 @@ class _EditUserProfileState extends State<EditUserProfile> {
                           showCountryOnly: false,
                           closeIcon: const Icon(
                             Icons.close,
-                            color: colorBlue,
+                            color: color,
                           ),
                           showOnlyCountryWhenClosed: false,
                           padding: EdgeInsets.zero,
                           builder: (country) {
                             return Row(
-                              children: [
+                               children: [
                                 Image.asset(
                                   country.flagUri,
                                   package: 'country_code_picker',
@@ -1016,9 +1015,10 @@ class _EditUserProfileState extends State<EditUserProfile> {
                                 Container(
                                   height: 35,
                                   width: 1,
-                                  color: Color(0xFFb1b1b1),
+                                  color: Color(0xFFb1b1b1).withOpacity(0.1),
                                 )
                               ],
+                           
                             );
                           },
                         ),
@@ -1183,21 +1183,20 @@ class _EditUserProfileState extends State<EditUserProfile> {
   }
 
   Widget cupertinoDatePicker(context) {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: Container(
-        height: 300,
-        child: CupertinoDatePicker(
-          initialDateTime: _dateTime,
-          use24hFormat: false,
-          mode: CupertinoDatePickerMode.date,
-          onDateTimeChanged: (dateTime) {
-            setState(() {
-              _dateTime = dateTime;
-              print(_dateTime);
-            });
-          },
-        ),
+    return Container(
+      height: 200,
+      child: CupertinoDatePicker(
+        initialDateTime: _dateTime,
+        use24hFormat: false,
+        minimumYear: 1930,
+        maximumYear: DateTime.now().year,
+        mode: CupertinoDatePickerMode.date,
+        onDateTimeChanged: (dateTime) {
+          setState(() {
+            _dateTime = dateTime;
+            print(_dateTime);
+          });
+        },
       ),
     );
   }

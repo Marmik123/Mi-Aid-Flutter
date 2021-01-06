@@ -20,6 +20,8 @@ dependencies:
   pin_code_fields: ^6.0.1
   mask_text_input_formatter: ^1.2.1
   modal_bottom_sheet: ^1.0.0+1
+  sliding_up_panel: ^1.0.2
+  toggle_switch: ^0.1.8
   
 
 

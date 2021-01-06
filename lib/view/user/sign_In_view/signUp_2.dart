@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/view/user/home_screen.dart';
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:miaid/component/miaid_card.dart';
 
 class SignUp2 extends StatefulWidget {
   @override
@@ -46,9 +46,7 @@ class _SignUp2State extends State<SignUp2> {
     'Other'
   ];
 
-  static const colorBlack = Color(0xFFB1B1B1);
-  static const colorBlue = Color(0xFF0CBCC5);
-  static const colorWhite = Color(0xFFFFFFFF);
+  
   static const fontColor = Color(0xFF010101);
   static const borderColor = Color(0xFFB1B1B1);
 
@@ -182,12 +180,13 @@ class _SignUp2State extends State<SignUp2> {
                       setState(() {});
                     },
                     onTap: () {
-                      showCupertinoModalBottomSheet(
-                        expand: false,
+                      showModalBottomSheet(
+                        
                         context: context,
                         builder: (context) => cupertinoDatePicker(context),
                       );
                     },
+                    readOnly: true,
                     controller: dobController,
                     decoration: InputDecoration(
                       hintText: 'Ex: 01 Jan 1990',
@@ -695,42 +694,43 @@ class _SignUp2State extends State<SignUp2> {
                     showCountryOnly: false,
                     closeIcon: const Icon(
                       Icons.close,
-                      color: colorBlue,
+                      color: color,
                     ),
                     showOnlyCountryWhenClosed: false,
                     padding: EdgeInsets.zero,
                     builder: (country) {
                       return Row(
                         children: [
-                          Image.asset(
-                            country.flagUri,
-                            package: 'country_code_picker',
-                            width: 32,
-                          ),
-                          SizedBox(
-                            width: 3.69,
-                          ),
-                          Text(
-                            country.dialCode,
-                            style: GoogleFonts.rubik(
-                              color: Color(0xFFB1B1B1),
-                              fontSize: 14,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 6,
-                          ),
-                          Image.asset(
-                              'assets/images/ic_pharmacy_location_expand.png'),
-                          SizedBox(
-                            width: 6,
-                          ),
-                          Container(
-                            height: 35,
-                            width: 1,
-                            color: Color(0xFFb1b1b1),
-                          )
-                        ],
+                                Image.asset(
+                                  country.flagUri,
+                                  package: 'country_code_picker',
+                                  width: 32,
+                                ),
+                                SizedBox(
+                                  width: 3.69,
+                                ),
+                                Text(
+                                  country.dialCode,
+                                  style: GoogleFonts.rubik(
+                                    color: Color(0xFFB1B1B1),
+                                    fontSize: 14,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 6,
+                                ),
+                                Image.asset(
+                                    'assets/images/ic_pharmacy_location_expand.png'),
+                                SizedBox(
+                                  width: 6,
+                                ),
+                                Container(
+                                  height: 35,
+                                  width: 1,
+                                  color: Color(0xFFb1b1b1).withOpacity(0.1),
+                                )
+                              ],
+                           
                       );
                     },
                   ),
@@ -898,7 +898,7 @@ class _SignUp2State extends State<SignUp2> {
         Container(
           height: 30,
           decoration: BoxDecoration(
-            color: colorBlue,
+            color: color,
             borderRadius: BorderRadius.circular(22),
             boxShadow: [
               BoxShadow(
@@ -938,7 +938,7 @@ class _SignUp2State extends State<SignUp2> {
             ],
             color: colorWhite,
             border: Border.all(
-              color: colorBlue,
+              color: color,
             ),
             borderRadius: BorderRadius.circular(22),
           ),
@@ -951,7 +951,7 @@ class _SignUp2State extends State<SignUp2> {
             ),
             child: Text(
               'Male',
-              style: GoogleFonts.rubik(color: colorBlue, fontSize: 14),
+              style: GoogleFonts.rubik(color: color, fontSize: 14),
             ),
           ),
         ),
@@ -971,7 +971,7 @@ class _SignUp2State extends State<SignUp2> {
             ],
             color: colorWhite,
             border: Border.all(
-              color: colorBlue,
+              color: color,
             ),
             borderRadius: BorderRadius.circular(22),
           ),
@@ -984,7 +984,7 @@ class _SignUp2State extends State<SignUp2> {
             ),
             child: Text(
               'Female',
-              style: GoogleFonts.rubik(color: colorBlue, fontSize: 14),
+              style: GoogleFonts.rubik(color: color, fontSize: 14),
             ),
           ),
         ),
@@ -993,20 +993,19 @@ class _SignUp2State extends State<SignUp2> {
   }
 
   Widget cupertinoDatePicker(context) {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: SizedBox(
-        height: 200,
-        child: CupertinoDatePicker(
-          initialDateTime: _dateTime,
-          use24hFormat: false,
-          onDateTimeChanged: (dateTime) {
-            setState(() {
-              _dateTime = dateTime;
-              print(_dateTime);
-            });
-          },
-        ),
+    return SizedBox(
+      height: 200,
+      child: CupertinoDatePicker(
+        initialDateTime: _dateTime,
+        use24hFormat: false,
+        minimumYear: 1930,
+        maximumYear: DateTime.now().year,
+        onDateTimeChanged: (dateTime) {
+          setState(() {
+            _dateTime = dateTime;
+            print(_dateTime);
+          });
+        },
       ),
     );
   }

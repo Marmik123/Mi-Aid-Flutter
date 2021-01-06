@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/view/user/sign_In_view/signIn.dart';
 import 'package:miaid/view/user/password_view/reset_password.dart';
 
 class ForgotPassword extends StatefulWidget {

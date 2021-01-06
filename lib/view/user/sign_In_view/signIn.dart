@@ -428,6 +428,7 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
               ),
+              
               SizedBox(
                 height: 25,
               ),
@@ -495,6 +496,7 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
               ),
+           
             ],
           ),
         ),

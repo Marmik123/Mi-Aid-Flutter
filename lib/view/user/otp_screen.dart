@@ -103,6 +103,7 @@ class _OTPScreenState extends State<OTPScreen> {
           ),
         ],
       ),
+     
       resizeToAvoidBottomPadding: true,
       body: SingleChildScrollView(
         child: Column(
