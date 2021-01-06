@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
 
-class PurchaseViewReceipt extends StatefulWidget {
+class CallViewReceipt extends StatefulWidget {
   @override
-  _PurchaseViewReceiptState createState() => _PurchaseViewReceiptState();
+  _CallViewReceiptState createState() => _CallViewReceiptState();
 }
 
-class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
+class _CallViewReceiptState extends State<CallViewReceipt> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +58,7 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
         child: Container(
           decoration: BoxDecoration(
               border: Border.all(
-                color: Color.fromRGBO(0, 100,244, 1),
+                color: Color.fromRGBO(0, 100, 244, 1),
               ),
               borderRadius: BorderRadius.circular(10)),
           margin: EdgeInsets.all(10),
@@ -80,15 +80,19 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Purchase Receipt',
+                          'Appointment Receipt',
                           style: GoogleFonts.rubik(fontSize: 12),
                         ),
                         Image.asset('assets/images/logo_reciept.png'),
                       ],
                     ),
                     Text(
-                      'Thank You for ordering with us',
-                      style: GoogleFonts.rubik(fontSize: 14),
+                      'Dr.David Pan',
+                      style: GoogleFonts.rubik(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        color: colorBlack,
+                      ),
                     ),
                     SizedBox(
                       height: 10,
@@ -100,11 +104,11 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
                           textAlign: TextAlign.left,
                           text: TextSpan(
                             style: GoogleFonts.rubik(
-                              color: Color(0xFF5E5E5E),
-                              fontSize: 12,
-                            ),
+                                color: Color(0xFF5E5E5E),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w300),
                             children: [
-                              TextSpan(text: 'Order Number'),
+                              TextSpan(text: 'Provider Number'),
                               TextSpan(
                                 text: '000000012',
                                 style: GoogleFonts.rubik(
@@ -117,40 +121,26 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
                         Text(
                           DateTime.now().toString(),
                           style: GoogleFonts.rubik(
-                            fontSize: 10,
-                          ),
+                              fontSize: 10, fontWeight: FontWeight.w300),
                         ),
                       ],
                     ),
                     SizedBox(
-                      height: 15,
+                      height: 10,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Total Order',
-                          style: GoogleFonts.rubik(fontSize: 20),
+                          'Patient Name',
+                          style: GoogleFonts.rubik(
+                              fontSize: 14, fontWeight: FontWeight.w300),
                         ),
-                        RichText(
-                          textAlign: TextAlign.left,
-                          text: TextSpan(
-                            style: GoogleFonts.rubik(
-                              color: Color(0xFF5E5E5E),
-                              fontSize: 14,
-                            ),
-                            children: [
-                              TextSpan(text: 'A\$ '),
-                              TextSpan(
-                                text: '40.0',
-                                style: GoogleFonts.rubik(
-                                    color: colorBlack,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18),
-                              ),
-                            ],
-                          ),
-                        )
+                        Text(
+                          'John Doe',
+                          style: GoogleFonts.rubik(
+                              fontSize: 14, fontWeight: FontWeight.w500),
+                        ),
                       ],
                     ),
                   ],
@@ -159,25 +149,33 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
               SizedBox(
                 height: 15,
               ),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: ClampingScrollPhysics(),
-                itemCount: 2,
-                itemBuilder: (BuildContext context, index) => ListTile(
-                  leading: CircleAvatar(
-                    child: Text(
-                      '1x',
-                      style: GoogleFonts.rubik(color: Colors.black),
+              Container(
+                padding: EdgeInsets.only(left: 20),
+                child: Column(
+                  children: [
+                    Text(
+                      'Video Consultation',
+                      style: GoogleFonts.rubik(
+                          fontSize: 14, fontWeight: FontWeight.w500),
                     ),
-                    radius: 15,
-                    backgroundColor: Color.fromRGBO(90, 177, 255, 0.1),
-                  ),
-                  title: Text(
-                      'Panadol Rapid Paracetamol Pain Relief Caplets 500 mg'),
-                  trailing: Text('A\$ 20.0'),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      'Item Number : 104',
+                      style: GoogleFonts.rubik(
+                          fontSize: 14, fontWeight: FontWeight.w500),
+                    ),
+                  ],
                 ),
               ),
-              Divider(endIndent: 25,indent: 25,),
+              SizedBox(
+                height: 15,
+              ),
+              Divider(
+                endIndent: 25,
+                indent: 25,
+              ),
               Container(
                 padding: EdgeInsets.only(left: 20, right: 20, top: 10),
                 child: Column(
@@ -199,27 +197,13 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
                     SizedBox(
                       height: 5,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Delivery Fees',
-                          style: GoogleFonts.rubik(fontSize: 12),
-                        ),
-                        Text(
-                          'A\$ 9.0',
-                          style: GoogleFonts.rubik(
-                              fontSize: 14, fontWeight: FontWeight.w500),
-                        ),
-                      ],
-                    ),
                     SizedBox(
                       height: 5,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Order Total',
+                        Text('Total',
                             style: GoogleFonts.rubik(
                                 fontSize: 12, fontWeight: FontWeight.w500)),
                         Text(

@@ -9,6 +9,7 @@ class PurchaseItem extends StatefulWidget {
 }
 
 class _PurchaseItemState extends State<PurchaseItem> {
+  bool _expand = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +41,12 @@ class _PurchaseItemState extends State<PurchaseItem> {
             children: [
               Card(
                 child: Padding(
-                  padding: const EdgeInsets.all(4.0),
+                  padding: EdgeInsets.only(
+                    top: 15,
+                    bottom: 17,
+                    left: 19,
+                    right: 20,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -52,61 +58,90 @@ class _PurchaseItemState extends State<PurchaseItem> {
                                 color: colorBlack,
                                 fontSize: 18,
                               )),
-                          buttonContainer(Image.asset(
-                              'assets/images/ic_pharmacy_location_expand.png')),
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                _expand = !_expand;
+                              });
+                            },
+                            child: _expand
+                                ? Image.asset(
+                                    'assets/images/ic_pharmacy_location_collapse.png')
+                                : Image.asset(
+                                    'assets/images/ic_pharmacy_location_expand.png'),
+                          ),
                         ],
                       ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      RichText(
-                        textAlign: TextAlign.left,
-                        text: TextSpan(
-                          style: GoogleFonts.rubik(
-                            color: Color(0xFF5E5E5E),
-                            fontSize: 14,
-                          ),
-                          children: [
-                            TextSpan(text: 'Order Number\n'),
-                            TextSpan(
-                              text: '000000012',
-                              style: GoogleFonts.rubik(
-                                color: colorBlack,
-                                fontWeight: FontWeight.bold,
+                      _expand
+                          ? Container(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  RichText(
+                                    textAlign: TextAlign.left,
+                                    text: TextSpan(
+                                      style: GoogleFonts.rubik(
+                                        color: Color(0xFF5E5E5E),
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w300,
+                                      ),
+                                      children: [
+                                        TextSpan(
+                                          text: 'Order Number\n',
+                                        ),
+                                        TextSpan(
+                                          text: '000000012',
+                                          style: GoogleFonts.rubik(
+                                            color: colorBlack,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                  RichText(
+                                    textAlign: TextAlign.left,
+                                    text: TextSpan(
+                                      style: GoogleFonts.rubik(
+                                        color: Color(0xFF5E5E5E),
+                                        fontSize: 14,
+                                      ),
+                                      children: [
+                                        TextSpan(text: 'Order Date & Time\n'),
+                                        TextSpan(
+                                          text: DateTime.now().toString(),
+                                          style: GoogleFonts.rubik(
+                                            color: colorBlack,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      RichText(
-                        textAlign: TextAlign.left,
-                        text: TextSpan(
-                          style: GoogleFonts.rubik(
-                            color: Color(0xFF5E5E5E),
-                            fontSize: 14,
-                          ),
-                          children: [
-                            TextSpan(text: 'Order Date & Time\n'),
-                            TextSpan(
-                              text: DateTime.now().toString(),
-                              style: GoogleFonts.rubik(
-                                color: colorBlack,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
+                            )
+                          : SizedBox.shrink()
                     ],
                   ),
                 ),
               ),
               Card(
                 child: Padding(
-                  padding: const EdgeInsets.all(4.0),
+                  padding: EdgeInsets.only(
+                    top: 15,
+                    bottom: 17,
+                    left: 19,
+                    right: 20,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -341,32 +376,32 @@ class _PurchaseItemState extends State<PurchaseItem> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         FlatButton(
-                    splashColor: color.withOpacity(0.1),
-                    highlightColor: color.withOpacity(0.2),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(9),
-                      side: BorderSide(
-                        color: Color(0xFF30BEE6),
-                      ),
-                    ),
-                    color: Color(0xFFFFFFFF),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => PurchaseViewReceipt(),
+                          splashColor: color.withOpacity(0.1),
+                          highlightColor: color.withOpacity(0.2),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(9),
+                            side: BorderSide(
+                              color: Color(0xFF30BEE6),
+                            ),
+                          ),
+                          color: Color(0xFFFFFFFF),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PurchaseViewReceipt(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            'View Receipt',
+                            style: GoogleFonts.rubik(
+                              color: color,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                      );
-                    },
-                    child: Text(
-                      'View Receipt',
-                      style: GoogleFonts.rubik(
-                        color: color,
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
                         FlatButton(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(9),
