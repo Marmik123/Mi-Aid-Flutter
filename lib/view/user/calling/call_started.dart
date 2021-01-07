@@ -10,11 +10,8 @@ class CallStarted extends StatefulWidget {
 }
 
 class _CallStartedState extends State<CallStarted> {
-  
-
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Timer(
         Duration(seconds: 2),
@@ -68,7 +65,6 @@ class _CallStartedState extends State<CallStarted> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            
             colors: [colorBlack, color],
             stops: [
               0.0,
@@ -77,10 +73,14 @@ class _CallStartedState extends State<CallStarted> {
           ),
         ),
         child: Stack(
+          // fit: StackFit.expand,
           children: [
             Center(
               child: Image(
-                image: AssetImage('assets/images/nature.png'),
+                fit: BoxFit.cover,
+                image: AssetImage('assets/images/doctor.jpg'),
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
               ),
             ),
             Positioned(
@@ -88,8 +88,9 @@ class _CallStartedState extends State<CallStarted> {
               right: 150,
               child: Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.transparent),
+                  borderRadius: BorderRadius.circular(10),
+                  color: colorBlack.withOpacity(0.3),
+                ),
                 child: Padding(
                   padding: const EdgeInsets.only(
                     left: 17,
@@ -98,7 +99,7 @@ class _CallStartedState extends State<CallStarted> {
                     bottom: 10,
                   ),
                   child: Text(
-                    '4:36',
+                    '5:00',
                     style: GoogleFonts.rubik(color: colorWhite, fontSize: 12),
                   ),
                 ),
@@ -111,13 +112,37 @@ class _CallStartedState extends State<CallStarted> {
                 padding: const EdgeInsets.only(
                   right: 10,
                 ),
-                child: Container(
-                  height: 98,
-                  width: 98,
-                  child: Image(
-                    image: AssetImage('assets/images/logo_auth.png'),
-                  ),
-                ),
+                child:   Container(
+                      height: 98,
+                      width: 98,
+                      decoration: new BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(
+                          color: colorWhite,
+                          width: 2,
+                        ),
+                        color: Colors.white,
+                        boxShadow: [
+                          new BoxShadow(
+                            color: Color(0xFF000000).withOpacity(0.24),
+                            blurRadius: 15.0,
+                            spreadRadius: 0.0, //extend the shadow
+                            offset: Offset(
+                              0.0, // Move to right 10  horizontally
+                              8, // Move to bottom 10 Vertically
+                            ),
+                          ),
+                        ],
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image(
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/images/female_doctor.jpg'),
+                        ),
+                      ),
+                    ),
+                  
               ),
             ),
             Positioned(
@@ -216,53 +241,9 @@ class _CallStartedState extends State<CallStarted> {
                 ),
               ),
             ),
-            // Align(
-            //   alignment: Alignment.bottomCenter,
-            //   child: Container(
-            //     decoration: BoxDecoration(
-            //       borderRadius: BorderRadius.circular(10),
-            //       color: Color(0xFFEEFEFF),
-            //     ),
-            //     child: bottomNavigation(),
-            //   ),
-            // ),
           ],
         ),
       ),
     );
   }
-
-  // Widget bottomNavigation() {
-  //   return Padding(
-  //     padding: const EdgeInsets.only(
-  //       top: 10,
-  //     ),
-  //     child: BottomNavigationBar(
-  //       type: BottomNavigationBarType.fixed,
-  //       backgroundColor: Colors.transparent,
-  //       items: [
-  //         BottomNavigationBarItem(
-  //             icon: Image(
-  //               image: AssetImage('assets/images/btn_call_switchcamera.png'),
-  //             ),
-  //             label: ''),
-  //         BottomNavigationBarItem(
-  //             icon: Image(
-  //               image: AssetImage('assets/images/btn_call_turnoffvideo.png'),
-  //             ),
-  //             label: ''),
-  //         BottomNavigationBarItem(
-  //             icon: Image(
-  //               image: AssetImage('assets/images/btn_call_turnonmic copy.png'),
-  //             ),
-  //             label: ''),
-  //         BottomNavigationBarItem(
-  //             icon: Image(
-  //               image: AssetImage('assets/images/btn_call_chat.png'),
-  //             ),
-  //             label: ''),
-  //       ],
-  //     ),
-  //   );
-  // }
 }

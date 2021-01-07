@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/component/drawer.dart';
-import 'package:miaid/view/user/home_screen.dart';
+
 
 class TravelCarePackages extends StatefulWidget {
   @override
@@ -16,7 +16,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      drawer: Drawers(),
+      drawer: drawer(context),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
@@ -27,7 +27,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
           style: GoogleFonts.rubik(
             color: Color(0xFF010101),
             fontSize: 15,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w500,
           ),
         ),
         leading: Builder(

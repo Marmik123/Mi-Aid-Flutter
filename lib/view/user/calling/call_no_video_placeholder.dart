@@ -14,7 +14,7 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
 
   @override
   void initState() {
-    // TODO: implement initState
+  
     super.initState();
     Timer(
         Duration(seconds: 2),
@@ -89,7 +89,7 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
               child: Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.transparent),
+                    color: colorBlack.withOpacity(0.3),),
                 child: Padding(
                   padding: const EdgeInsets.only(
                     left: 17,

@@ -122,11 +122,13 @@ class _CartEShopState extends State<CartEShop> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Text(' Market City Pharmacy',
-                                  style: GoogleFonts.rubik(
-                                    color: Color(0xff5E5E5E),
-                                    fontSize: 14,
-                                  )),
+                              Text(
+                                'Market City Pharmacy',
+                                style: GoogleFonts.rubik(
+                                  color: Color(0xff5E5E5E),
+                                  fontSize: 14,
+                                ),
+                              ),
                               Padding(
                                 padding: const EdgeInsets.only(
                                   top: 8,
@@ -135,10 +137,11 @@ class _CartEShopState extends State<CartEShop> {
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Container(
-                                      color: Colors.red,
-                                      height: 80,
+                                    Image(
+                                      height: 70,
                                       width: 70,
+                                      image: AssetImage(
+                                          'assets/images/panadol.png'),
                                     ),
                                     Expanded(
                                       child: Padding(
@@ -486,16 +489,16 @@ class _CartEShopState extends State<CartEShop> {
                   color: Color(0xff0CBCC5),
                   onPressed: () {
                     showModalBottomSheet(
-                                backgroundColor: Colors.white,
-                                context: context,
-                                isDismissible: true,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(16),
-                                      topRight: Radius.circular(16)),
-                                ),
-                                builder: (BuildContext context) =>
-                                    PaymentBottomSheet());
+                        backgroundColor: Colors.white,
+                        context: context,
+                        isDismissible: true,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(16),
+                              topRight: Radius.circular(16)),
+                        ),
+                        builder: (BuildContext context) =>
+                            PaymentBottomSheet());
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(

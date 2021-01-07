@@ -28,7 +28,7 @@ class _ChangePasswordState extends State<ChangePassword> {
           style: GoogleFonts.rubik(
             color: Color(0xFF010101),
             fontSize: 15,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w500,
           ),
         ),
         leading: Builder(

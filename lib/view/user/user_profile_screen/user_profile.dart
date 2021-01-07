@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/view/drawer/about.dart';
-import 'package:miaid/view/drawer/privacy&policy.dart';
-import 'package:miaid/view/drawer/Terms&Cond.dart';
-import 'package:miaid/view/user/travel_care_packages/Travel_care_packages.dart';
-import 'package:miaid/view/user/home_screen.dart';
+
 import 'package:miaid/view/user/user_profile_screen/edit_user_profile.dart';
 import 'package:miaid/view/user/password_view/change_password.dart';
 import 'package:miaid/component/drawer.dart';
+
 
 class UserProfileScreen extends StatefulWidget {
   @override
@@ -36,7 +33,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      drawer: Drawers(),
+      drawer: drawer(context),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
@@ -47,7 +44,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           style: GoogleFonts.rubik(
             color: Color(0xFF010101),
             fontSize: 15,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w500,
           ),
         ),
         actions: [
@@ -88,6 +85,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           },
         ),
       ),
+      
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

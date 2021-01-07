@@ -64,11 +64,14 @@ class _CallState extends State<Call> {
           ),
         ),
         child: Stack(
+          fit: StackFit.expand,
           children: [
             Center(
               child: Image(
                 fit: BoxFit.cover,
-                image: AssetImage('assets/images/nature.png'),
+                image: AssetImage('assets/images/doctor.jpg'),
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
               ),
             ),
             Positioned(
@@ -76,8 +79,9 @@ class _CallState extends State<Call> {
               right: 150,
               child: Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.transparent),
+                  borderRadius: BorderRadius.circular(10),
+                  color: colorBlack.withOpacity(0.3),
+                ),
                 child: Padding(
                   padding: const EdgeInsets.only(
                     left: 17,
@@ -100,11 +104,12 @@ class _CallState extends State<Call> {
                   left: 20,
                 ),
                 child: Row(
+                  mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      height: 98,
-                      width: 98,
+                      height: 100,
+                      width: 100,
                       decoration: new BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         border: Border.all(
@@ -124,9 +129,12 @@ class _CallState extends State<Call> {
                           ),
                         ],
                       ),
-                      child: Image(
-                        fit: BoxFit.cover,
-                        image: AssetImage('assets/images/logo_auth.png'),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image(
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/images/female_doctor.jpg'),
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -154,9 +162,12 @@ class _CallState extends State<Call> {
                           ),
                         ],
                       ),
-                      child: Image(
-                        fit: BoxFit.cover,
-                        image: AssetImage('assets/images/logo_auth.png'),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image(
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/images/female_doctor.jpg'),
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -184,11 +195,15 @@ class _CallState extends State<Call> {
                           ),
                         ],
                       ),
-                      child: Image(
-                        fit: BoxFit.cover,
-                        image: AssetImage('assets/images/logo_auth.png'),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image(
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/images/female_doctor.jpg'),
+                        ),
                       ),
                     ),
+                  
                   ],
                 ),
               ),
@@ -227,8 +242,10 @@ class _CallState extends State<Call> {
                               right: 24,
                             ),
                             child: Row(
+                              mainAxisSize: MainAxisSize.max,
                               children: [
                                 Image(
+                                  fit: BoxFit.cover,
                                   image: AssetImage(
                                       'assets/images/btn_call_switchcamera.png'),
                                 ),
@@ -236,6 +253,7 @@ class _CallState extends State<Call> {
                                   width: 24.89,
                                 ),
                                 Image(
+                                  fit: BoxFit.cover,
                                   image: AssetImage(
                                       'assets/images/btn_call_turnoffvideo.png'),
                                 ),
@@ -243,6 +261,7 @@ class _CallState extends State<Call> {
                                   width: 24.89,
                                 ),
                                 Image(
+                                  fit: BoxFit.cover,
                                   image: AssetImage(
                                       'assets/images/btn_call_turnonmic_copy.png'),
                                 ),
@@ -259,6 +278,7 @@ class _CallState extends State<Call> {
                                     );
                                   },
                                   child: Image(
+                                    fit: BoxFit.cover,
                                     image: AssetImage(
                                         'assets/images/btn_call_chat.png'),
                                   ),

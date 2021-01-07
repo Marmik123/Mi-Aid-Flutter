@@ -58,7 +58,7 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
         child: Container(
           decoration: BoxDecoration(
               border: Border.all(
-                color: Color.fromRGBO(0, 100,244, 1),
+                color: Color.fromRGBO(0, 100, 244, 1),
               ),
               borderRadius: BorderRadius.circular(10)),
           margin: EdgeInsets.all(10),
@@ -70,8 +70,12 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
                 padding:
                     EdgeInsets.only(top: 5, left: 17, right: 17, bottom: 5),
                 decoration: BoxDecoration(
-                    color: Color.fromRGBO(90, 177, 255, 0.1),
-                    borderRadius: BorderRadius.circular(10)),
+                  color: Color.fromRGBO(90, 177, 255, 0.1),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(10),
+                  ),
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
@@ -177,7 +181,10 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
                   trailing: Text('A\$ 20.0'),
                 ),
               ),
-              Divider(endIndent: 25,indent: 25,),
+              Divider(
+                endIndent: 25,
+                indent: 25,
+              ),
               Container(
                 padding: EdgeInsets.only(left: 20, right: 20, top: 10),
                 child: Column(

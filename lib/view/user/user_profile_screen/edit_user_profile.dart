@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:miaid/view/user/user_profile_screen/user_profile.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+
 import 'package:miaid/component/miaid_card.dart';
 
 class EditUserProfile extends StatefulWidget {
@@ -51,7 +51,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
           style: GoogleFonts.rubik(
             color: Color(0xFF010101),
             fontSize: 15,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w500,
           ),
         ),
         leading: Builder(
@@ -497,7 +497,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                         builder: (context) => cupertinoDatePicker(context),
                       );
                     },
-                    enabled: true,
+                    readOnly: true,
                     controller: dobController..text = '01 Jan 1990',
 
                     decoration: InputDecoration(
@@ -1183,21 +1183,63 @@ class _EditUserProfileState extends State<EditUserProfile> {
   }
 
   Widget cupertinoDatePicker(context) {
-    return Container(
-      height: 200,
-      child: CupertinoDatePicker(
-        initialDateTime: _dateTime,
-        use24hFormat: false,
-        minimumYear: 1930,
-        maximumYear: DateTime.now().year,
-        mode: CupertinoDatePickerMode.date,
-        onDateTimeChanged: (dateTime) {
-          setState(() {
-            _dateTime = dateTime;
-            print(_dateTime);
-          });
-        },
+      return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            padding: EdgeInsets.only(left: 20, right: 20),
+            height: 50,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    'Cancel',
+                    style: GoogleFonts.rubik(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w300,
+                        color: Color.fromRGBO(12, 188, 197, 1)),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    'Done',
+                    style: GoogleFonts.rubik(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        color: Color.fromRGBO(12, 188, 197, 1)),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            height: 200,
+            child: CupertinoDatePicker(
+              initialDateTime: _dateTime,
+              maximumYear: DateTime.now().year,
+              minimumYear: 1930,
+              use24hFormat: false,
+              mode: CupertinoDatePickerMode.date,
+              onDateTimeChanged: (dateTime) {
+                setState(() {
+                  _dateTime = dateTime;
+                  print(_dateTime);
+                });
+              },
+            ),
+          ),
+        ],
       ),
     );
+  
   }
 }

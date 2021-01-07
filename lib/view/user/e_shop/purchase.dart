@@ -35,291 +35,291 @@ class _PurchaseItemState extends State<PurchaseItem> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Card(
-                child: Padding(
-                  padding: EdgeInsets.only(
-                    top: 15,
-                    bottom: 17,
-                    left: 19,
-                    right: 20,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Pharmacy Name',
-                              style: GoogleFonts.rubik(
-                                color: colorBlack,
-                                fontSize: 18,
-                              )),
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                _expand = !_expand;
-                              });
-                            },
-                            child: _expand
-                                ? Image.asset(
-                                    'assets/images/ic_pharmacy_location_collapse.png')
-                                : Image.asset(
-                                    'assets/images/ic_pharmacy_location_expand.png'),
-                          ),
-                        ],
-                      ),
-                      _expand
-                          ? Container(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  RichText(
-                                    textAlign: TextAlign.left,
-                                    text: TextSpan(
-                                      style: GoogleFonts.rubik(
-                                        color: Color(0xFF5E5E5E),
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w300,
-                                      ),
-                                      children: [
-                                        TextSpan(
-                                          text: 'Order Number\n',
-                                        ),
-                                        TextSpan(
-                                          text: '000000012',
-                                          style: GoogleFonts.rubik(
-                                            color: colorBlack,
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 8,
-                                  ),
-                                  RichText(
-                                    textAlign: TextAlign.left,
-                                    text: TextSpan(
-                                      style: GoogleFonts.rubik(
-                                        color: Color(0xFF5E5E5E),
-                                        fontSize: 14,
-                                      ),
-                                      children: [
-                                        TextSpan(text: 'Order Date & Time\n'),
-                                        TextSpan(
-                                          text: DateTime.now().toString(),
-                                          style: GoogleFonts.rubik(
-                                            color: colorBlack,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )
-                          : SizedBox.shrink()
-                    ],
-                  ),
+        child: Column(
+          children: [
+            Card(
+              child: Padding(
+                padding: EdgeInsets.only(
+                  top: 15,
+                  bottom: 17,
+                  left: 19,
+                  right: 20,
                 ),
-              ),
-              Card(
-                child: Padding(
-                  padding: EdgeInsets.only(
-                    top: 15,
-                    bottom: 17,
-                    left: 19,
-                    right: 20,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Market City Pharmacy',
-                              style: GoogleFonts.rubik(
-                                color: colorBlack,
-                                fontSize: 18,
-                              )),
-                          buttonContainer(Image.asset(
-                              'assets/images/ic_pharmacy_location_expand.png')),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      RichText(
-                        textAlign: TextAlign.left,
-                        text: TextSpan(
-                          style: GoogleFonts.rubik(
-                            color: Color(0xFF5E5E5E),
-                            fontSize: 14,
-                          ),
-                          children: [
-                            TextSpan(text: 'Order Number\n'),
-                            TextSpan(
-                              text: '000000012',
-                              style: GoogleFonts.rubik(
-                                color: colorBlack,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      RichText(
-                        textAlign: TextAlign.left,
-                        text: TextSpan(
-                          style: GoogleFonts.rubik(
-                            color: Color(0xFF5E5E5E),
-                            fontSize: 14,
-                          ),
-                          children: [
-                            TextSpan(text: 'Order Date & Time\n'),
-                            TextSpan(
-                              text: DateTime.now().toString(),
-                              style: GoogleFonts.rubik(
-                                color: colorBlack,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: ClampingScrollPhysics(),
-                itemCount: 2,
-                itemBuilder: (BuildContext context, index) => Column(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    miAidCard(
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(12, 12, 16, 16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(' Market City Pharmacy',
-                                style: GoogleFonts.rubik(
-                                  color: Color(0xff5E5E5E),
-                                  fontSize: 14,
-                                )),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                top: 8,
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    color: Colors.red,
-                                    height: 80,
-                                    width: 70,
-                                  ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                        left: 15,
-                                        right: 16,
-                                      ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                              bottom: 14,
-                                            ),
-                                            child: Text(
-                                                "Panadol Rapid Parace Panadol Rapid Paracetamol Pain Relief Caplets 500 mg",
-                                                style: GoogleFonts.rubik(
-                                                  color: Color(0xff010101),
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w500,
-                                                )),
-                                          ),
-                                          /*SizedBox(
-                                                  height: 18,
-                                                ),*/
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Container(
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(4),
-                                                  color: Color(0xffF4F4F4),
-                                                ),
-                                                child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                    left: 7,
-                                                    right: 7,
-                                                    top: 3,
-                                                    bottom: 2,
-                                                  ),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    children: [
-                                                      Text("A\$ "),
-                                                      Text(
-                                                        "20.0",
-                                                        style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontSize: 18,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                              Text('1X'),
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Pharmacy Name',
+                            style: GoogleFonts.rubik(
+                              color: colorBlack,
+                              fontSize: 18,
+                            )),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              _expand = !_expand;
+                            });
+                          },
+                          child: _expand
+                              ? Image.asset(
+                                  'assets/images/ic_pharmacy_location_collapse.png')
+                              : Image.asset(
+                                  'assets/images/ic_pharmacy_location_expand.png'),
                         ),
-                      ),
+                      ],
                     ),
+                    _expand
+                        ? Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                RichText(
+                                  textAlign: TextAlign.left,
+                                  text: TextSpan(
+                                    style: GoogleFonts.rubik(
+                                      color: Color(0xFF5E5E5E),
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                    children: [
+                                      TextSpan(
+                                        text: 'Order Number\n',
+                                      ),
+                                      TextSpan(
+                                        text: '000000012',
+                                        style: GoogleFonts.rubik(
+                                          color: colorBlack,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 8,
+                                ),
+                                RichText(
+                                  textAlign: TextAlign.left,
+                                  text: TextSpan(
+                                    style: GoogleFonts.rubik(
+                                      color: Color(0xFF5E5E5E),
+                                      fontSize: 14,
+                                    ),
+                                    children: [
+                                      TextSpan(text: 'Order Date & Time\n'),
+                                      TextSpan(
+                                        text: DateTime.now().toString(),
+                                        style: GoogleFonts.rubik(
+                                          color: colorBlack,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        : SizedBox.shrink()
                   ],
                 ),
               ),
-              Divider(),
-              Container(
-                padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+            ),
+            Card(
+              child: Padding(
+                padding: EdgeInsets.only(
+                  top: 15,
+                  bottom: 17,
+                  left: 19,
+                  right: 20,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Market City Pharmacy',
+                            style: GoogleFonts.rubik(
+                              color: colorBlack,
+                              fontSize: 18,
+                            )),
+                        Image(image : AssetImage(
+                            'assets/images/ic_pharmacy_location_expand.png')),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    RichText(
+                      textAlign: TextAlign.left,
+                      text: TextSpan(
+                        style: GoogleFonts.rubik(
+                          color: Color(0xFF5E5E5E),
+                          fontSize: 14,
+                        ),
+                        children: [
+                          TextSpan(text: 'Order Number\n'),
+                          TextSpan(
+                            text: '000000012',
+                            style: GoogleFonts.rubik(
+                              color: colorBlack,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    RichText(
+                      textAlign: TextAlign.left,
+                      text: TextSpan(
+                        style: GoogleFonts.rubik(
+                          color: Color(0xFF5E5E5E),
+                          fontSize: 14,
+                        ),
+                        children: [
+                          TextSpan(text: 'Order Date & Time\n'),
+                          TextSpan(
+                            text: DateTime.now().toString(),
+                            style: GoogleFonts.rubik(
+                              color: colorBlack,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            ListView.builder(
+              shrinkWrap: true,
+              physics: ClampingScrollPhysics(),
+              itemCount: 2,
+              itemBuilder: (BuildContext context, index) => Column(
+                children: [
+                  Container(
+                    color: Color(0xFF0cbcc5).withOpacity(0.1),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text(' Market City Pharmacy',
+                              style: GoogleFonts.rubik(
+                                color: Color(0xff5E5E5E),
+                                fontSize: 14,
+                              )),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 8,
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image(
+                                  height: 70,
+                                  width: 70,
+                                  image: AssetImage('assets/images/panadol.png'),),
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                      left: 15,
+                                      right: 16,
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                            bottom: 14,
+                                          ),
+                                          child: Text(
+                                              "Panadol Rapid Parace Panadol Rapid Paracetamol Pain Relief Caplets 500 mg",
+                                              style: GoogleFonts.rubik(
+                                                color: Color(0xff010101),
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w500,
+                                              )),
+                                        ),
+                                        /*SizedBox(
+                                                  height: 18,
+                                                ),*/
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(4),
+                                                color: Color(0xffF4F4F4),
+                                              ),
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                  left: 7,
+                                                  right: 7,
+                                                  top: 3,
+                                                  bottom: 2,
+                                                ),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    Text("A\$ "),
+                                                    Text(
+                                                      "20.0",
+                                                      style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 18,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                            Text('1X'),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  divider(),
+                ],
+              ),
+            ),
+            Container(
+              color: Color(0xFF0cbcc5).withOpacity(0.1),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 15,
+                ),
                 child: Column(
                   children: [
                     Row(
@@ -393,12 +393,15 @@ class _PurchaseItemState extends State<PurchaseItem> {
                               ),
                             );
                           },
-                          child: Text(
-                            'View Receipt',
-                            style: GoogleFonts.rubik(
-                              color: color,
-                              fontSize: 17,
-                              fontWeight: FontWeight.bold,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: Text(
+                              'View Receipt',
+                              style: GoogleFonts.rubik(
+                                color: color,
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
@@ -413,12 +416,15 @@ class _PurchaseItemState extends State<PurchaseItem> {
                             //     MaterialPageRoute(
                             //         builder: (context) => HomeScreen()));
                           },
-                          child: Text(
-                            'Order Again',
-                            style: GoogleFonts.rubik(
-                              color: Color(0xFFFFFFFF),
-                              fontSize: 17,
-                              fontWeight: FontWeight.bold,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: Text(
+                              'Order Again',
+                              style: GoogleFonts.rubik(
+                                color: Color(0xFFFFFFFF),
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
@@ -427,10 +433,18 @@ class _PurchaseItemState extends State<PurchaseItem> {
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
+    );
+  }
+
+  Widget divider() {
+    return Container(
+      height: 0.5,
+      width: MediaQuery.of(context).size.width,
+      color: colorFont.withOpacity(0.3),
     );
   }
 }

@@ -60,40 +60,37 @@ class _ChatScreenState extends State<ChatScreen> {
               ],
             ),
           ),
-          Expanded(
-            child: ListView(
-              shrinkWrap: true,
-              physics: ClampingScrollPhysics(),
-              children: [
-                SizedBox(
-                  height: 50,
-                ),
-                Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Today',
-                    style: GoogleFonts.rubik(
-                      fontSize: 12,
-                      color: Color(0xFFB1B1B1),
-                    ),
+          ListView(
+            shrinkWrap: true,
+            physics: ClampingScrollPhysics(),
+            children: [
+              SizedBox(
+                height: 50,
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'Today',
+                  style: GoogleFonts.rubik(
+                    fontSize: 12,
+                    color: Color(0xFFB1B1B1),
                   ),
                 ),
-                SizedBox(height: 18),
-                receiverTextMessage(),
-                senderTextMessage(),
-                receiverTextMessage(),
-                receiverDocument(),
-                receiverImage(),
-                receiverVideo(),
-                receiverTextMessage(),
-                senderTextMessage(),
-                receiverTextMessage(),
-                receiverDocument(),
-                receiverImage(),
-                receiverVideo(),
-                SizedBox(height: 50),
-              ],
-            ),
+              ),
+              SizedBox(height: 18),
+              receiverTextMessage(),
+              senderTextMessage(),
+              receiverTextMessage(),
+              receiverDocument(),
+              receiverImage(),
+              receiverVideo(),
+              senderTextMessage(),
+              receiverTextMessage(),
+              receiverDocument(),
+              receiverImage(),
+              receiverVideo(),
+              SizedBox(height: 50),
+            ],
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -104,12 +101,11 @@ class _ChatScreenState extends State<ChatScreen> {
                   Expanded(
                     child: TextField(
                       // controller: ctrl.sendMessageController,
-                      autofocus: true,
+                      autofocus: false,
                       onChanged: (value) {},
 
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(bottom: 10, left: 20),
-                        labelText: '',
                         border: InputBorder.none,
                         hintText: 'Type a message...',
                         hintStyle: GoogleFonts.sourceSerifPro(
@@ -220,9 +216,9 @@ class _ChatScreenState extends State<ChatScreen> {
               padding: const EdgeInsets.only(right: 8),
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(28),
+                  borderRadius: BorderRadius.circular(15),
                   border: Border.all(
-                    width: 2,
+                    width: 1,
                     color: color,
                   ),
                 ),
@@ -232,8 +228,14 @@ class _ChatScreenState extends State<ChatScreen> {
                   },
                   child: Stack(
                     children: [
-                      Image(
-                        image: AssetImage('assets/images/logo_auth.png'),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image(
+                          height: 98,
+                          width: 98,
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/images/female_doctor.jpg'),
+                        ),
                       ),
                       Positioned(
                         bottom: 0,
@@ -245,7 +247,7 @@ class _ChatScreenState extends State<ChatScreen> {
                                 topLeft: Radius.circular(5),
                                 // topRight: Radius.circular(10),
                                 // bottomLeft: Radius.circular(10),
-                                bottomRight: Radius.circular(26),
+                                bottomRight: Radius.circular(15),
                               ),
                             ),
                             child: Padding(
@@ -347,7 +349,9 @@ Widget senderTextMessage() {
             Image(
               height: 34,
               width: 34,
-              image: AssetImage('assets/images/ic_service_assistance.png'),
+              image: AssetImage(
+                'assets/images/ic_service_assistance.png',
+              ),
             ),
             SizedBox(
               height: 11,
@@ -652,13 +656,14 @@ Widget receiverVideo() {
                     right: 14,
                     left: 14,
                   ),
-                  // child:
                   child: Stack(
                     children: [
-                      Image(
-                        width: 115,
-                        height: 115,
-                        image: AssetImage('assets/images/logo_auth.png'),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image(
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/images/logo_auth.png'),
+                        ),
                       ),
                       Positioned(
                         bottom: 35,

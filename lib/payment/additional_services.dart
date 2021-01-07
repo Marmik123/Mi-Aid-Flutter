@@ -6,8 +6,6 @@ import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/component/payment_bootomsheet.dart';
 import 'package:miaid/view/user/home_screen.dart';
 
-import 'card_details.dart';
-import 'payment_interface.dart';
 
 class AdditionalServices extends StatelessWidget {
   @override

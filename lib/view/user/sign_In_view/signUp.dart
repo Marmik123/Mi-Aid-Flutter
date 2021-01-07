@@ -44,7 +44,7 @@ class _SignUpState extends State<SignUp> {
           style: GoogleFonts.rubik(
             color: Color(0xFF010101),
             fontSize: 15,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w500,
           ),
         ),
         leading: Builder(
@@ -161,9 +161,11 @@ class _SignUpState extends State<SignUp> {
                     });
                   },
                   groupValue: _selectedValue,
+                
                 ),
               ),
             ),
+           
             SizedBox(
               height: 20,
             ),

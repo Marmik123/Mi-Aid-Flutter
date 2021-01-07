@@ -3,17 +3,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
 import 'dart:async';
 import 'package:miaid/view/user/calling/call_started.dart';
+
 class CallScreen extends StatefulWidget {
   @override
   _CallScreenState createState() => _CallScreenState();
 }
 
 class _CallScreenState extends State<CallScreen> {
- 
-
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Timer(
         Duration(seconds: 2),
@@ -87,8 +85,9 @@ class _CallScreenState extends State<CallScreen> {
               right: 150,
               child: Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.transparent),
+                  borderRadius: BorderRadius.circular(10),
+                  color: colorBlack.withOpacity(0.3),
+                ),
                 child: Padding(
                   padding: const EdgeInsets.only(
                     left: 17,
@@ -169,7 +168,6 @@ class _CallScreenState extends State<CallScreen> {
                                   width: 24.89,
                                 ),
                                 Image(
-                                  
                                   image: AssetImage(
                                       'assets/images/btn_call_turnonmic.png'),
                                 ),

@@ -2,19 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
-import 'package:miaid/component/drawer.dart';
-// //import 'package:miaid/payment/additional_services.dart';
-// //import 'package:miaid/payment/card_details.dart';
-// //import 'package:miaid/payment/payment_interface.dart';
-// import 'package:miaid/view/drawer/Terms&Cond.dart';
-// import 'package:miaid/view/drawer/about.dart';
-// import 'package:miaid/view/drawer/privacy&policy.dart';
-// //import 'package:miaid/view/user/calling/call_micure_assistant.dart';
-// //import 'package:miaid/view/user/e_shop/cart_eshop.dart';
+
 import 'package:miaid/view/user/sign_In_view/signIn.dart';
-// import 'package:miaid/view/user/travel_care_packages/Travel_care_packages.dart';
-// import 'package:miaid/view/user/user_profile_screen/user_profile.dart';
-// import 'package:miaid/view/user/home_screen.dart';
+import 'package:miaid/component/drawer.dart';
 import './callViewReceipt.dart';
 
 class CallHistory extends StatefulWidget {
@@ -176,6 +166,7 @@ class _CallHistoryState extends State<CallHistory> {
         ],
       ),
     );
+  
   }
 
   @override
@@ -220,7 +211,7 @@ class _CallHistoryState extends State<CallHistory> {
           },
         ),
       ),
-      drawer: Drawers(),
+      drawer: drawer(context),
       body: ListView.builder(
         itemCount: 5,
         itemBuilder: (context, index) {
@@ -251,6 +242,7 @@ class _CallHistoryState extends State<CallHistory> {
                     ],
                   ),
                 ),
+                
                 SizedBox(
                   height: 10,
                 ),

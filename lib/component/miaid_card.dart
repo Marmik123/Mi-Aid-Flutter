@@ -9,6 +9,7 @@ const colorgrey = Color(0xFF696969);
 const borderColor = Color(0xFFB1B1B1);
 const colorYellow = Color(0xFFE68C30);
 const colorPurple = Color(0xFF5251F7);
+const colorFont = Color(0xFF5E5E5E);
 
 
 Widget miAidCard(Widget child) {
@@ -18,7 +19,7 @@ Widget miAidCard(Widget child) {
     borderRadius: BorderRadius.circular(15),
     boxShadow: [
       BoxShadow(
-        color: Color(0xff003f51).withOpacity(0.15),
+        color: Color(0xff003f51).withOpacity(0.19),
         offset: Offset(
           0,
           4,
@@ -94,3 +95,5 @@ Widget buttonContainer(Widget child) {
     child: child,
   );
 }
+
+

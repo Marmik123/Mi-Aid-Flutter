@@ -10,14 +10,10 @@ import 'package:miaid/view/user/calling/call.dart';
 import 'package:miaid/view/user/sign_In_view/signIn.dart';
 import 'package:miaid/view/user/travel_care_packages/Travel_care_packages.dart';
 import 'package:miaid/view/map/map_screen.dart';
-import 'package:miaid/component/drawer.dart';
+
 import 'package:miaid/view/user/e_shop/e_shop.dart';
-// import 'package:miaid/component/drawer.dart';
-// import 'package:miaid/view/drawer/about.dart';
-// import 'package:miaid/view/user/calling/call_micure_assistant.dart';
-// import 'package:miaid/view/user/e_shop/cart_eshop.dart';
-// import 'package:miaid/view/user/sign_In_view/signIn.dart';
-// import 'package:miaid/view/user/travel_care_packages/Travel_care_packages.dart';
+import 'package:miaid/component/drawer.dart';
+import 'package:miaid/view/user/calling/call_micure_assistant.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -34,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      drawer: Drawer(),
+      drawer: drawer(context),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
@@ -45,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
           style: GoogleFonts.rubik(
             color: Color(0xFF010101),
             fontSize: 15,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w500,
           ),
         ),
         actions: [
@@ -148,7 +144,6 @@ class _HomeScreenState extends State<HomeScreen> {
           },
         ),
       ),
-     
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -300,7 +295,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       InkWell(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => MapScreen(),),);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MapScreen(),
+                            ),
+                          );
                         },
                         child: miAidCard(
                           Padding(
@@ -332,29 +332,39 @@ class _HomeScreenState extends State<HomeScreen> {
                       SizedBox(
                         width: 15,
                       ),
-                      miAidCard(
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              left: 16, top: 16, bottom: 16, right: 65),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'MiAid \nAssistance',
-                                style: GoogleFonts.rubik(
-                                  color: Color(0xFF010101),
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w700,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CallScreen(),
+                            ),
+                          );
+                        },
+                        child: miAidCard(
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                left: 16, top: 16, bottom: 16, right: 65),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'MiAid \nAssistance',
+                                  style: GoogleFonts.rubik(
+                                    color: Color(0xFF010101),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                height: 33,
-                              ),
-                              Image(
-                                image: AssetImage(
-                                    'assets/images/ic_service_assistance.png'),
-                              ),
-                            ],
+                                SizedBox(
+                                  height: 33,
+                                ),
+                                Image(
+                                  image: AssetImage(
+                                      'assets/images/ic_service_assistance.png'),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -367,7 +377,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         InkWell(
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>EShop(),),);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => EShop(),
+                              ),
+                            );
                           },
                           child: miAidCard(
                             Padding(

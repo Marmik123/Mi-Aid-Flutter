@@ -375,6 +375,7 @@ class _MapScreenState extends State<MapScreen> {
                 ],
               ),
             ),
+          
           ),
           SlidingUpPanel(
             minHeight: 180,
@@ -488,6 +489,7 @@ class _MapScreenState extends State<MapScreen> {
                               ),
                             ],
                           ),
+                        
                         ],
                       )
                     ],

@@ -8,6 +8,7 @@ import 'package:miaid/view/drawer/privacy&policy.dart';
 import 'package:miaid/view/user/home_screen.dart';
 import 'package:miaid/view/user/travel_care_packages/Travel_care_packages.dart';
 import 'package:miaid/view/user/user_profile_screen/user_profile.dart';
+import 'package:miaid/view/user/calling/call_history/call_history.dart';
 
 Widget drawer(context){
   return Drawer(
@@ -147,7 +148,14 @@ Widget drawer(context){
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CallHistory(),
+                    ),
+                  );
+                },
                 child: ListTile(
                   title: Padding(
                     padding: const EdgeInsets.only(top: 12, bottom: 23),

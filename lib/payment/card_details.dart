@@ -95,7 +95,7 @@ class _CardDetailsState extends State<CardDetails> {
                   }
                   if (value.length < 8) {
                     return "Please a valid card number";
-                  }
+                  }else{return null;}
                 },
                 inputFormatters: [
                   maskFormatter,
@@ -156,6 +156,7 @@ class _CardDetailsState extends State<CardDetails> {
                   if (value.isEmpty) {
                     return "Please enter name";
                   }
+                  else{return null;}
                 },
                 keyboardType: TextInputType.text,
                 onChanged: (value) {
@@ -312,7 +313,7 @@ class _CardDetailsState extends State<CardDetails> {
                             }
                             if (value.length < 3 || value.length > 4) {
                               return "Please enter a valid CVV";
-                            }
+                            }else{return null;}
                           },
                           inputFormatters: [
                             cvvMask,
