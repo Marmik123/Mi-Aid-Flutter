@@ -14,7 +14,7 @@ class EShop extends StatefulWidget {
 
 class _EShopState extends State<EShop> {
   TextEditingController searchController = TextEditingController();
-  String _selectedValue;
+  String _selectedValue = '0';
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +90,6 @@ class _EShopState extends State<EShop> {
           ),
         ],
       ),
-     
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -159,8 +158,6 @@ class _EShopState extends State<EShop> {
                 ],
               ),
             ),
-            
-            
             Container(
               width: MediaQuery.of(context).size.width,
               height: 50,
@@ -200,8 +197,8 @@ class _EShopState extends State<EShop> {
                               image: AssetImage(
                                   'assets/images/ic_pharmacy_currentlocation.png'),
                             ),
-                            Text(_selectedValue == '1' ?
-                              'Clarkfield' : 'Location' ,
+                            Text(
+                              _selectedValue == '1' ? 'Clarkfield' : 'Location',
                               style: GoogleFonts.rubik(
                                 color: color,
                                 fontSize: 14,
@@ -217,70 +214,73 @@ class _EShopState extends State<EShop> {
                   ),
                   Container(
                     alignment: Alignment.center,
-                    child: CupertinoSegmentedControl(
-                      selectedColor: color,
-                      unselectedColor: Colors.white,
-                      borderColor: Color(0xFF0CBCC5),
-                      children: {
-                        '0': Container(
-                          decoration: BoxDecoration(
-                            color: _selectedValue == '0'
-                                ? Color(0xFF0CBCC5)
-                                : Colors.white,
-                            borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(0),
-                              topRight: Radius.circular(0),
+                    child: ClipRRect(
+                       borderRadius: BorderRadius.circular(5),
+                      child: CupertinoSegmentedControl(
+                        selectedColor: color,
+                        unselectedColor: Colors.white,
+                        borderColor: Color(0xFF0CBCC5),
+                        children: {
+                          '0': Container(
+                            decoration: BoxDecoration(
+                              color: _selectedValue == '0'
+                                  ? Color(0xFF0CBCC5)
+                                  : Colors.white,
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(5),
+                                topLeft: Radius.circular(5),
+                              ),
+                              border: Border.all(
+                                width: 0.5,
+                                color: Color(0xFF0CBCC5),
+                              ),
                             ),
-                            border: Border.all(
-                              width: 0.5,
-                              color: Color(0xFF0CBCC5),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 13,
-                              vertical: 4,
-                            ),
-                            child: Image(
-                              image: AssetImage(_selectedValue == '0'
-                                  ? 'assets/images/ic_eshop_listview_normal.png'
-                                  : 'assets/images/ic_eshop_listview_active.png'),
-                            ),
-                          ),
-                        ),
-                        '1': Container(
-                          decoration: BoxDecoration(
-                            color: _selectedValue == '1'
-                                ? Color(0xFF0CBCC5)
-                                : Colors.white,
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0),
-                              topLeft: Radius.circular(0),
-                            ),
-                            border: Border.all(
-                              width: 0.5,
-                              color: Color(0xFF0CBCC5),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 13,
+                                vertical: 4,
+                              ),
+                              child: Image(
+                                image: AssetImage(_selectedValue == '0'
+                                    ? 'assets/images/ic_eshop_listview_normal.png'
+                                    : 'assets/images/ic_eshop_listview_active.png'),
+                              ),
                             ),
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 13,
-                              vertical: 4,
+                          '1': Container(
+                            decoration: BoxDecoration(
+                              color: _selectedValue == '1'
+                                  ? Color(0xFF0CBCC5)
+                                  : Colors.white,
+                              borderRadius: BorderRadius.only(
+                                bottomRight: Radius.circular(5),
+                                topRight: Radius.circular(5),
+                              ),
+                              border: Border.all(
+                                width: 0.5,
+                                color: Color(0xFF0CBCC5),
+                              ),
                             ),
-                            child: Image(
-                              image: AssetImage(_selectedValue == '1'
-                                  ? 'assets/images/ic_eshop_mapview_normal.png'
-                                  : 'assets/images/ic_eshop_mapview_active.png'),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 13,
+                                vertical: 4,
+                              ),
+                              child: Image(
+                                image: AssetImage(_selectedValue == '1'
+                                    ? 'assets/images/ic_eshop_mapview_normal.png'
+                                    : 'assets/images/ic_eshop_mapview_active.png'),
+                              ),
                             ),
                           ),
-                        ),
-                      },
-                      onValueChanged: (value) {
-                        setState(() {
-                          _selectedValue = value;
-                        });
-                      },
-                      groupValue: _selectedValue,
+                        },
+                        onValueChanged: (value) {
+                          setState(() {
+                            _selectedValue = value;
+                          });
+                        },
+                        groupValue: _selectedValue,
+                      ),
                     ),
                   ),
                 ],

@@ -26,10 +26,9 @@ class _SignUpState extends State<SignUp> {
   bool _obsecurePasswordText = true;
   bool _obsecureConfirmPasswordText = true;
 
-  String _selectedValue;
+  String _selectedValue = "0";
 
   static const color = Color(0xFF0CBCC5);
-  
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +86,6 @@ class _SignUpState extends State<SignUp> {
           ),
         ],
       ),
-     
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -99,73 +97,74 @@ class _SignUpState extends State<SignUp> {
                   right: 20,
                   top: 10,
                 ),
-                child: CupertinoSegmentedControl(
-                  selectedColor: color,
-                  unselectedColor: Colors.white,
-                  borderColor: Color(0xFF0CBCC5),
-                  children: {
-                    '0': Container(
-                      decoration: BoxDecoration(
-                        color: _selectedValue == '0'
-                            ? Color(0xFF0CBCC5)
-                            : Colors.white,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(0),
-                          topLeft: Radius.circular(0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: CupertinoSegmentedControl(
+                    selectedColor: color,
+                    unselectedColor: Colors.white,
+                    borderColor: Color(0xFF0CBCC5),
+                    children: {
+                      '0': Container(
+                        decoration: BoxDecoration(
+                          color: _selectedValue == '0'
+                              ? Color(0xFF0CBCC5)
+                              : Colors.white,
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(10),
+                            topLeft: Radius.circular(10),
+                          ),
+                          border: Border.all(
+                            color: Color(0xFF0CBCC5),
+                          ),
                         ),
-                        border: Border.all(
-                          color: Color(0xFF0CBCC5),
-                        ),
-                      ),
-                      width: MediaQuery.of(context).size.width,
-                      padding: EdgeInsets.all(8),
-                      child: Text(
-                        'Individual User',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.rubik(
-                            fontSize: 17,
-                            color: _selectedValue == '0'
-                                ? Color(0xFFFFFFFF)
-                                : Color(0xFF0CBCC5)),
-                      ),
-                    ),
-                    '1': Container(
-                      decoration: BoxDecoration(
-                        color: _selectedValue == '1'
-                            ? Color(0xFF0CBCC5)
-                            : Colors.white,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(0),
-                          topLeft: Radius.circular(0),
-                        ),
-                        border: Border.all(
-                          color: Color(0xFF0CBCC5),
+                        width: MediaQuery.of(context).size.width,
+                        padding: EdgeInsets.all(8),
+                        child: Text(
+                          'Individual User',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.rubik(
+                              fontSize: 17,
+                              color: _selectedValue == '0'
+                                  ? Color(0xFFFFFFFF)
+                                  : Color(0xFF0CBCC5)),
                         ),
                       ),
-                      width: MediaQuery.of(context).size.width,
-                      padding: EdgeInsets.all(8),
-                      child: Text(
-                        'Corporate User',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.rubik(
-                            fontSize: 17,
-                            color: _selectedValue == '1'
-                                ? Color(0xFFFFFFFF)
-                                : Color(0xFF0CBCC5)),
+                      '1': Container(
+                        decoration: BoxDecoration(
+                          color: _selectedValue == '1'
+                              ? Color(0xFF0CBCC5)
+                              : Colors.white,
+                          borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(10),
+                            topRight: Radius.circular(10),
+                          ),
+                          border: Border.all(
+                            color: Color(0xFF0CBCC5),
+                          ),
+                        ),
+                        width: MediaQuery.of(context).size.width,
+                        padding: EdgeInsets.all(8),
+                        child: Text(
+                          'Corporate User',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.rubik(
+                              fontSize: 17,
+                              color: _selectedValue == '1'
+                                  ? Color(0xFFFFFFFF)
+                                  : Color(0xFF0CBCC5)),
+                        ),
                       ),
-                    ),
-                  },
-                  onValueChanged: (value) {
-                    setState(() {
-                      _selectedValue = value;
-                    });
-                  },
-                  groupValue: _selectedValue,
-                
+                    },
+                    onValueChanged: (value) {
+                      setState(() {
+                        _selectedValue = value;
+                      });
+                    },
+                    groupValue: _selectedValue,
+                  ),
                 ),
               ),
             ),
-           
             SizedBox(
               height: 20,
             ),
@@ -243,7 +242,6 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
-               
                 ],
               ),
             ),
@@ -482,7 +480,6 @@ class _SignUpState extends State<SignUp> {
                                   color: Color(0xFFb1b1b1).withOpacity(0.1),
                                 )
                               ],
-                           
                             );
                           },
                         ),
@@ -652,8 +649,7 @@ class _SignUpState extends State<SignUp> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 48, right: 48),
-              child: 
-              RichText(
+              child: RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
                   style: GoogleFonts.rubik(
@@ -698,7 +694,6 @@ class _SignUpState extends State<SignUp> {
                   ],
                 ),
               ),
-           
             ),
             SizedBox(
               height: 22,
