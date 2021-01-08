@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/config/app_colors.dart';
 import 'dart:async';
 import 'package:miaid/view/user/calling/call_started.dart';
 
@@ -32,8 +32,7 @@ class _CallScreenState extends State<CallScreen> {
         title: Text(
           'MiAid Assistance',
           style: GoogleFonts.rubik(
-            color: kffffff,
-            fontSize: 15,
+            color: AppColors.kffffff,      fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -97,7 +96,7 @@ class _CallScreenState extends State<CallScreen> {
                   ),
                   child: Text(
                     'Calling ...',
-                    style: GoogleFonts.rubik(color: kffffff, fontSize: 12),
+                    style: GoogleFonts.rubik(color: AppColors.kffffff, fontSize: 12),
                   ),
                 ),
               ),
@@ -128,7 +127,7 @@ class _CallScreenState extends State<CallScreen> {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            color: Color(0xFF003f51).withOpacity(0.2),
+                            color: AppColors.k003f51.withOpacity(0.2),
                             blurRadius: 25.0, // soften the shadow
                             spreadRadius: 5.0, //extend the shadow
                             offset: Offset(
@@ -137,8 +136,7 @@ class _CallScreenState extends State<CallScreen> {
                             ),
                           )
                         ],
-                        color: kffffff,
-                        borderRadius: BorderRadius.circular(10),
+                        color: AppColors.kffffff            ,            borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -190,7 +188,7 @@ class _CallScreenState extends State<CallScreen> {
                         decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
-                              color: Color(0xFF003f51).withOpacity(0.2),
+                              color: AppColors.k003f51.withOpacity(0.2),
                               blurRadius: 25.0, // soften the shadow
                               spreadRadius: 5.0, //extend the shadow
                               offset: Offset(

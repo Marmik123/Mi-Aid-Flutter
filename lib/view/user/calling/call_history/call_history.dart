@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/component/miaid_card.dart';
-
+import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/view/user/sign_In_view/signIn.dart';
 import 'package:miaid/component/drawer.dart';
 import './callViewReceipt.dart';
@@ -28,7 +27,7 @@ class _CallHistoryState extends State<CallHistory> {
               color: Colors.white,
               boxShadow: [
                 new BoxShadow(
-                  color: Color(0xFF0cbcc5).withOpacity(0.2),
+                  color: AppColors.k0cbcc5.withOpacity(0.2),
                   blurRadius: 10.0,
                   spreadRadius: 0.0, //extend the shadow
                   offset: Offset(
@@ -42,14 +41,14 @@ class _CallHistoryState extends State<CallHistory> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(9),
               ),
-              color: Color(0xFF0CBCC5),
+              color: AppColors.k0cbcc5,
               onPressed: () {
                 Navigator.pop(context);
               },
               child: Text(
                 'No',
                 style: GoogleFonts.rubik(
-                  color: Color(0xFFFFFFFF),
+                  color: AppColors.kffffff,
                   fontSize: 14,
                 ),
               ),
@@ -71,7 +70,7 @@ class _CallHistoryState extends State<CallHistory> {
               child: Text(
                 'Yes',
                 style: GoogleFonts.rubik(
-                  color: Color(0xFF0CBCC5),
+                  color: AppColors.k0cbcc5,
                   fontSize: 14,
                 ),
               ),
@@ -89,7 +88,7 @@ class _CallHistoryState extends State<CallHistory> {
         'Log out',
         textAlign: TextAlign.center,
         style: GoogleFonts.rubik(
-            color: Color(0xFF010101), fontWeight: FontWeight.w700),
+            color: AppColors.k010101, fontWeight: FontWeight.w700),
       ),
       content: Text(
         'Are you sure you want to log out?',
@@ -338,10 +337,10 @@ class _CallHistoryState extends State<CallHistory> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(9),
                           side: BorderSide(
-                            color: Color(0xFF30BEE6),
+                            color: AppColors.k30bee6,
                           ),
                         ),
-                        color: Color(0xFFFFFFFF),
+                        color: AppColors.kffffff,
                         onPressed: () {
                           Navigator.push(
                             context,

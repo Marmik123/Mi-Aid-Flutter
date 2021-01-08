@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/component/payment_bootomsheet.dart';
 import 'package:miaid/view/user/home_screen.dart';
+import 'package:miaid/config/app_colors.dart';
 
 
 class AdditionalServices extends StatelessWidget {
@@ -12,7 +13,7 @@ class AdditionalServices extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.kffffff,
           elevation: 0,
           leading: InkWell(
             onTap: () {
@@ -30,7 +31,7 @@ class AdditionalServices extends StatelessWidget {
           title: Text(
             "Other MiAid Services",
             style: GoogleFonts.rubik(
-              color: Color(0xff010101),
+              color: AppColors.k010101,
               fontSize: 15,
             ),
           ),
@@ -52,7 +53,7 @@ class AdditionalServices extends StatelessWidget {
                     children: [
                       Text('Additional Video Consultations',
                           style: GoogleFonts.rubik(
-                            color: Color(0xff010101),
+                            color: AppColors.k010101,
                             fontSize: 18,
                             fontWeight: FontWeight.w500,
                           )),
@@ -62,7 +63,7 @@ class AdditionalServices extends StatelessWidget {
                       Text(
                         "Description with features goes here, Lorem ipsum dolor sit amet, consectetur adipisicing elit consectetur adipisicing",
                         style: GoogleFonts.rubik(
-                          color: Color(0xff5E5E5E),
+                          color: AppColors.k5e5e5e,
                           fontSize: 14,
                         ),
                       ),
@@ -73,7 +74,7 @@ class AdditionalServices extends StatelessWidget {
                         leading: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(4),
-                            color: Color(0xffF4F4F4),
+                            color: AppColors.kf4f4f4,
                           ),
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(7, 9, 7, 9),
@@ -111,7 +112,7 @@ class AdditionalServices extends StatelessWidget {
                             padding: EdgeInsets.all(10),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(9),
-                              color: Color(0xff0CBCC5),
+                              color: AppColors.k0cbcc5,
                             ),
                             child: Text(
                               "Get This Service",

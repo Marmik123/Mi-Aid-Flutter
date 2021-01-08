@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/config/app_colors.dart';
 
 class Locations extends StatefulWidget {
   @override
@@ -20,16 +21,16 @@ class _LocationsState extends State<Locations> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kffffff,
+      backgroundColor: AppColors.kffffff,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
           'Choose Location',
           style: GoogleFonts.rubik(
-            color: Color(0xFF010101),
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -80,7 +81,7 @@ class _LocationsState extends State<Locations> {
           Text(
             'or select a location',
             style: GoogleFonts.rubik(
-              color: k5e5e5e,
+              color: AppColors.k5e5e5e,
               fontSize: 14,
               fontWeight: FontWeight.w300,
             ),
@@ -115,7 +116,7 @@ class _LocationsState extends State<Locations> {
                     decoration: InputDecoration(
                       hintText: 'Search',
                       hintStyle: GoogleFonts.rubik(
-                        color: Color(0xFfB1B1B1),
+                        color: AppColors.kb1b1b1,
                         fontSize: 14,
                       ),
                       contentPadding: EdgeInsets.only(
@@ -128,14 +129,14 @@ class _LocationsState extends State<Locations> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color(0xFF010101),
+                          color: AppColors.k010101,
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: kb1b1b1,
+                          color: AppColors.kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -168,16 +169,15 @@ class _LocationsState extends State<Locations> {
                   padding:
                       EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
                   decoration: BoxDecoration(
-                    color: _expand
-                        ? Color.fromRGBO(90, 177, 255, 0.1)
-                        : kffffff,
-                  ),
+                      color: _expand
+                          ? Color.fromRGBO(90, 177, 255, 0.1)
+                          : AppColors.kffffff),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text('Australia Capital Territory',
                           style: GoogleFonts.rubik(
-                            color: k5e5e5e,
+                            color: AppColors.k5e5e5e,
                             fontSize: 14,
                           )),
                       InkWell(
@@ -195,7 +195,6 @@ class _LocationsState extends State<Locations> {
                     ],
                   ),
                 ),
-              
                 _expand
                     ? Container(
                         width: MediaQuery.of(context).size.width,
@@ -220,13 +219,13 @@ class _LocationsState extends State<Locations> {
                                         value_1 = value;
                                       });
                                     },
-                                    activeColor: Color(0xff0CBCC5),
+                                    activeColor: AppColors.k0cbcc5,
                                     toggleable: true,
                                   ),
                                   Text(
                                     'Canberra',
                                     style: GoogleFonts.rubik(
-                                      color: Color(0xff5E5E5E),
+                                      color: AppColors.k5e5e5e,
                                       fontSize: 14,
                                     ),
                                   )
@@ -240,7 +239,7 @@ class _LocationsState extends State<Locations> {
                               Row(
                                 children: [
                                   Radio(
-                                    activeColor: Color(0xff0CBCC5),
+                                    activeColor: AppColors.k0cbcc5,
                                     value: 1,
                                     focusColor: AppColors.k0cbcc5,
                                     groupValue: value_2,
@@ -254,7 +253,7 @@ class _LocationsState extends State<Locations> {
                                   Text(
                                     'Oaks Esate',
                                     style: GoogleFonts.rubik(
-                                      color: Color(0xff5E5E5E),
+                                      color: AppColors.k5e5e5e,
                                       fontSize: 14,
                                     ),
                                   )
@@ -276,11 +275,11 @@ class _LocationsState extends State<Locations> {
     );
   }
 
-  Widget divider(){
+  Widget divider() {
     return Container(
-                  height: 0.5,
-                  width: MediaQuery.of(context).size.width,
-                  color: k5e5e5e.withOpacity(0.3),
-                );
+      height: 0.5,
+      width: MediaQuery.of(context).size.width,
+      color: AppColors.k5e5e5e.withOpacity(0.3),
+    );
   }
 }

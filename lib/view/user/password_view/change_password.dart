@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/config/app_colors.dart';
 
 class ChangePassword extends StatefulWidget {
   @override
@@ -21,12 +22,12 @@ class _ChangePasswordState extends State<ChangePassword> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
           'Change Password',
           style: GoogleFonts.rubik(
-            color: Color(0xFF010101),
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -62,8 +63,8 @@ class _ChangePasswordState extends State<ChangePassword> {
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color: passwordController.text.trim().length > 0
-                              ? Color(0xFFB1B1B1)
-                              : Color(0xFF010101),
+                              ? AppColors.kb1b1b1
+                              : AppColors.k010101,
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
                         ),
@@ -87,7 +88,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                         decoration: InputDecoration(
                           hintText: '**********',
                           hintStyle: TextStyle(
-                            color: Color(0xFfB1B1B1),
+                            color: AppColors.kb1b1b1,
                             fontSize: 14,
                           ),
                           contentPadding: EdgeInsets.only(
@@ -97,25 +98,25 @@ class _ChangePasswordState extends State<ChangePassword> {
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFF010101),
+                              color: AppColors.k010101,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: Color(0xFFB1B1B1),
+                              color: AppColors.kb1b1b1,
                             ),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFFFA0020),
+                              color: AppColors.kfa0020,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFFFA0020),
+                              color: AppColors.kfa0020,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -144,8 +145,8 @@ class _ChangePasswordState extends State<ChangePassword> {
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color: passwordController.text.trim().length > 0
-                              ? Color(0xFFB1B1B1)
-                              : Color(0xFF010101),
+                              ? AppColors.kb1b1b1
+                              : AppColors.k010101,
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
                         ),
@@ -169,7 +170,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                         decoration: InputDecoration(
                           hintText: 'must have atleast 8 characters',
                           hintStyle: TextStyle(
-                            color: Color(0xFfB1B1B1),
+                            color: AppColors.kb1b1b1,
                             fontSize: 14,
                           ),
                           contentPadding: EdgeInsets.only(
@@ -179,25 +180,25 @@ class _ChangePasswordState extends State<ChangePassword> {
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFF010101),
+                              color: AppColors.k010101,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: Color(0xFFB1B1B1),
+                              color: AppColors.kb1b1b1,
                             ),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFFFA0020),
+                              color: AppColors.kfa0020,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFFFA0020),
+                              color: AppColors.kfa0020,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -227,8 +228,8 @@ class _ChangePasswordState extends State<ChangePassword> {
                         style: GoogleFonts.rubik(
                           color:
                               confirmPasswordController.text.trim().length > 0
-                                  ? Color(0xFFB1B1B1)
-                                  : Color(0xFF010101),
+                                  ? AppColors.kb1b1b1
+                                  : AppColors.k010101,
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
                         ),
@@ -252,7 +253,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                         decoration: InputDecoration(
                           hintText: 'Re-type your new password here',
                           hintStyle: TextStyle(
-                            color: Color(0xFFB1B1B1),
+                            color: AppColors.kb1b1b1,
                             fontSize: 14,
                           ),
                           contentPadding: EdgeInsets.only(
@@ -262,25 +263,25 @@ class _ChangePasswordState extends State<ChangePassword> {
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFF010101),
+                              color: AppColors.k010101,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: Color(0xFFB1B1B1),
+                              color: AppColors.kb1b1b1,
                             ),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFFFA0020),
+                              color: AppColors.kfa0020,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFFFA0020),
+                              color: AppColors.kfa0020,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -317,7 +318,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(9),
                     ),
-                    color: Color(0xFF0CBCC5),
+                    color: AppColors.k0cbcc5,
                     onPressed: () {
                       // if (formKey.currentState.validate()) {
                       //   showAlertDialog(context);
@@ -326,7 +327,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                     child: Text(
                       'Save Password',
                       style: GoogleFonts.rubik(
-                        color: Color(0xFFFFFFFF),
+                        color: AppColors.kffffff,
                         fontSize: 17,
                         fontWeight: FontWeight.bold,
                       ),

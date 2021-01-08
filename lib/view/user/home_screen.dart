@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/payment/additional_services.dart';
 import 'package:miaid/view/drawer/about.dart';
 import 'package:miaid/view/user/calling/call.dart';
@@ -21,9 +22,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  static const color = Color(0xFF0CBCC5);
-  static const colorBlack = Color(0xFF010101);
-  static const colorRed = Color(0xFFE63030);
+  
 
   int remainingVideoConsultations = 10;
   @override
@@ -34,12 +33,12 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
           'MiAid',
           style: GoogleFonts.rubik(
-            color: Color(0xFF010101),
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -58,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     "Change Language",
                     style: TextStyle(
                       fontSize: 13.0,
-                      color: Color(0xFF8F8E94),
+                      color: AppColors.k8f8e94,
                     ),
                   ),
                   actions: <Widget>[
@@ -66,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Text(
                         "English",
                         style: GoogleFonts.rubik(
-                          color: color,
+                          color: AppColors.k0cbcc5,
                           fontSize: 24,
                         ),
                       ),
@@ -79,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Text(
                         "中文",
                         style: GoogleFonts.rubik(
-                          color: color,
+                          color: AppColors.k0cbcc5,
                           fontSize: 24,
                         ),
                       ),
@@ -93,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Text(
                       "Cancel",
                       style: GoogleFonts.rubik(
-                        color: color,
+                        color: AppColors.k0cbcc5,
                         fontSize: 20,
                       ),
                     ),
@@ -108,11 +107,11 @@ class _HomeScreenState extends State<HomeScreen> {
               child: 
               Container(
                 decoration: new BoxDecoration(
-                  color: Color(0xFFEEFEFF),
+                  color: AppColors.keefeff,
                   borderRadius: BorderRadius.circular(6),
                   boxShadow: [
                     new BoxShadow(
-                      color: Color(0xFF003f51).withOpacity(0.1),
+                      color: AppColors.k003f51.withOpacity(0.1),
                       blurRadius: 10.0,
                       spreadRadius: 0.0, //extend the shadow
                       offset: Offset(
@@ -131,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Text(
                       'EN',
                       style: GoogleFonts.rubik(
-                        color: color,
+                        color: AppColors.k0cbcc5,
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
                       ),
@@ -159,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             Container(
-              color: Color(0xFF2E2E2E),
+              color: AppColors.k2e2e2e,
               child: Column(
                 children: [
                   Padding(
@@ -175,14 +174,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               RichText(
                                 text: TextSpan(
                                   style: GoogleFonts.rubik(
-                                    color: Color(0xFFFFFFFF),
+                                    color: AppColors.kffffff,
                                   ),
                                   children: [
                                     TextSpan(text: 'Hi'),
                                     TextSpan(
                                       text: ' John',
                                       style: GoogleFonts.rubik(
-                                        color: color,
+                                        color: AppColors.k0cbcc5,
                                         fontSize: 21,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -197,7 +196,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Text(
                                 'You are in Australia',
                                 style: GoogleFonts.rubik(
-                                  color: Color(0xFFFFFFFF),
+                                  color: AppColors.kffffff,
                                   fontSize: 14,
                                 ),
                               ),
@@ -207,7 +206,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Text(
                                 'How can we help you today?',
                                 style: GoogleFonts.rubik(
-                                  color: Color(0xFFFFFFFF),
+                                  color: AppColors.kffffff,
                                   fontSize: 14,
                                 ),
                               ),
@@ -232,7 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 RichText(
                                   text: TextSpan(
                                     style: GoogleFonts.rubik(
-                                      color: Color(0xFFFFFFFF),
+                                      color: AppColors.kffffff,
                                       fontSize: 12,
                                     ),
                                     children: [
@@ -240,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       TextSpan(
                                         text: ' 000',
                                         style: GoogleFonts.rubik(
-                                          color: Color(0xFFE63030),
+                                          color: AppColors.ke63030,
                                           fontSize: 14,
                                         ),
                                       ),
@@ -250,7 +249,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Text(
                                   'in an Emergency',
                                   style: GoogleFonts.rubik(
-                                    color: Color(0xFFFFFFFF),
+                                    color: AppColors.kffffff,
                                     fontSize: 12,
                                   ),
                                 )
@@ -273,7 +272,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   textAlign: TextAlign.center,
                   text: TextSpan(
                     style: GoogleFonts.rubik(
-                      color: Color(0xFF5E5E5E),
+                      color: AppColors.k5e5e5e,
                       fontSize: 13,
                     ),
                     children: [
@@ -282,8 +281,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         text: ' $remainingVideoConsultations out of 10',
                         style: GoogleFonts.rubik(
                           color: remainingVideoConsultations == 0
-                              ? colorRed
-                              : colorBlack,
+                              ? AppColors.ke63030
+                              : AppColors.k010101,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -323,7 +322,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Text(
                                   'ED and Clinics \nNear Me',
                                   style: GoogleFonts.rubik(
-                                    color: Color(0xFF010101),
+                                    color: AppColors.k010101,
                                     fontSize: 14,
                                     fontWeight: FontWeight.w700,
                                   ),
@@ -362,7 +361,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Text(
                                   'MiAid \nAssistance',
                                   style: GoogleFonts.rubik(
-                                    color: Color(0xFF010101),
+                                    color: AppColors.k010101,
                                     fontSize: 14,
                                     fontWeight: FontWeight.w700,
                                   ),
@@ -405,7 +404,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Text(
                                     'E - Shop',
                                     style: GoogleFonts.rubik(
-                                      color: Color(0xFF010101),
+                                      color: AppColors.k010101,
                                       fontSize: 14,
                                       fontWeight: FontWeight.w700,
                                     ),
@@ -452,7 +451,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Text(
                                     'Video Consult \nA Doctor',
                                     style: GoogleFonts.rubik(
-                                      color: Color(0xFF010101),
+                                      color: AppColors.k010101,
                                       fontSize: 14,
                                       fontWeight: FontWeight.w700,
                                     ),
@@ -503,7 +502,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Text(
                                 'Other MiAid Services',
                                 style: GoogleFonts.rubik(
-                                  color: Color(0xFF010101),
+                                  color: AppColors.k010101,
                                   fontSize: 14,
                                   fontWeight: FontWeight.w700,
                                 ),
@@ -531,7 +530,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ));
                 },
                 child: Container(
-                  color: Color(0xFF2E2E2E),
+                  color: AppColors.k2e2e2e,
                   child: Center(
                     child: Padding(
                       padding: const EdgeInsets.only(
@@ -551,7 +550,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text(
                             'About MiAid',
                             style: GoogleFonts.rubik(
-                              color: color,
+                              color: AppColors.k0cbcc5,
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
                             ),
@@ -584,7 +583,7 @@ showAlertDialog(BuildContext context) {
             color: Colors.white,
             boxShadow: [
               new BoxShadow(
-                color: Color(0xFF0cbcc5).withOpacity(0.2),
+                color: AppColors.k0cbcc5.withOpacity(0.2),
                 blurRadius: 10.0,
                 spreadRadius: 0.0, //extend the shadow
                 offset: Offset(
@@ -598,14 +597,14 @@ showAlertDialog(BuildContext context) {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(9),
             ),
-            color: Color(0xFF0CBCC5),
+            color: AppColors.k0cbcc5,
             onPressed: () {
               Navigator.pop(context);
             },
             child: Text(
               'No',
               style: GoogleFonts.rubik(
-                color: Color(0xFFFFFFFF),
+                color: AppColors.kffffff,
                 fontSize: 14,
               ),
             ),
@@ -627,7 +626,7 @@ showAlertDialog(BuildContext context) {
             child: Text(
               'Yes',
               style: GoogleFonts.rubik(
-                color: Color(0xFF0CBCC5),
+                color: AppColors.k0cbcc5,
                 fontSize: 14,
               ),
             ),
@@ -645,7 +644,7 @@ showAlertDialog(BuildContext context) {
       'Log out',
       textAlign: TextAlign.center,
       style: GoogleFonts.rubik(
-          color: Color(0xFF010101), fontWeight: FontWeight.w700),
+          color: AppColors.k010101, fontWeight: FontWeight.w700),
     ),
     content: Text(
       'Are you sure you want to log out?',
@@ -678,7 +677,7 @@ videoConsultationsAlert(BuildContext context) {
             color: Colors.white,
             boxShadow: [
               new BoxShadow(
-                color: Color(0xFF0cbcc5).withOpacity(0.2),
+                color: AppColors.k0cbcc5.withOpacity(0.2),
                 blurRadius: 10.0,
                 spreadRadius: 0.0, //extend the shadow
                 offset: Offset(
@@ -692,7 +691,7 @@ videoConsultationsAlert(BuildContext context) {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(9),
             ),
-            color: Color(0xFF0CBCC5),
+            color: AppColors.k0cbcc5,
             onPressed: () {
               Navigator.pop(context);
               individualUserSubscriptionAlert(context);
@@ -700,7 +699,7 @@ videoConsultationsAlert(BuildContext context) {
             child: Text(
               'Yes',
               style: GoogleFonts.rubik(
-                color: Color(0xFFFFFFFF),
+                color: AppColors.kffffff,
                 fontSize: 14,
               ),
             ),
@@ -717,7 +716,7 @@ videoConsultationsAlert(BuildContext context) {
             child: Text(
               'Cancel',
               style: GoogleFonts.rubik(
-                color: Color(0xFF0CBCC5),
+                color: AppColors.k0cbcc5,
                 fontSize: 14,
               ),
             ),
@@ -735,7 +734,7 @@ videoConsultationsAlert(BuildContext context) {
       'Alert',
       textAlign: TextAlign.center,
       style: GoogleFonts.rubik(
-          color: Color(0xFF010101), fontWeight: FontWeight.w700),
+          color: AppColors.k010101, fontWeight: FontWeight.w700),
     ),
     content: Text(
       'You don’t have any available video consultations left. You may get the required service through MiAid Services. Do you want to access MiAid Services?',
@@ -768,7 +767,7 @@ individualUserSubscriptionAlert(BuildContext context) {
             color: Colors.white,
             boxShadow: [
               new BoxShadow(
-                color: Color(0xFF0cbcc5).withOpacity(0.2),
+                color: AppColors.k0cbcc5.withOpacity(0.2),
                 blurRadius: 10.0,
                 spreadRadius: 0.0, //extend the shadow
                 offset: Offset(
@@ -782,7 +781,7 @@ individualUserSubscriptionAlert(BuildContext context) {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(9),
             ),
-            color: Color(0xFF0CBCC5),
+            color: AppColors.k0cbcc5,
             onPressed: () {
               Navigator.pushReplacement(
                 context,
@@ -794,7 +793,7 @@ individualUserSubscriptionAlert(BuildContext context) {
             child: Text(
               'Subscribe',
               style: GoogleFonts.rubik(
-                color: Color(0xFFFFFFFF),
+                color: AppColors.kffffff,
                 fontSize: 14,
               ),
             ),
@@ -811,7 +810,7 @@ individualUserSubscriptionAlert(BuildContext context) {
             child: Text(
               'Cancel',
               style: GoogleFonts.rubik(
-                color: Color(0xFF0CBCC5),
+                color: AppColors.k0cbcc5,
                 fontSize: 14,
               ),
             ),
@@ -829,7 +828,7 @@ individualUserSubscriptionAlert(BuildContext context) {
       'Alert',
       textAlign: TextAlign.center,
       style: GoogleFonts.rubik(
-          color: Color(0xFF010101), fontWeight: FontWeight.w700),
+          color: AppColors.k010101, fontWeight: FontWeight.w700),
     ),
     content: Text(
       'To be eligible for these services you should be subscribed to a travel care package',
@@ -928,7 +927,7 @@ callAlertDialog(BuildContext context) {
       'Scheduled Call',
       textAlign: TextAlign.center,
       style: GoogleFonts.rubik(
-        color: Color(0xFF010101),
+        color: AppColors.k010101,
         fontSize: 14,
       ),
     ),

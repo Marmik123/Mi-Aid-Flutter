@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/config/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:miaid/view/user/e_shop/purchase.dart';
 import 'package:miaid/view/user/e_shop/cart_eshop.dart';
@@ -21,12 +21,12 @@ class _EShopState extends State<EShop> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
           'E - Shop',
           style: GoogleFonts.rubik(
-            color: Color(0xFF010101),
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -120,7 +120,7 @@ class _EShopState extends State<EShop> {
                       decoration: InputDecoration(
                         hintText: 'Search',
                         hintStyle: GoogleFonts.rubik(
-                          color: Color(0xFfB1B1B1),
+                          color: AppColors.kb1b1b1,
                           fontSize: 14,
                         ),
                         contentPadding: EdgeInsets.only(
@@ -133,14 +133,14 @@ class _EShopState extends State<EShop> {
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0xFF010101),
+                            color: AppColors.k010101,
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(
-                            color: kb1b1b1,
+                            color: AppColors.kb1b1b1,
                             width: 0.5,
                           ),
                         ),
@@ -224,16 +224,16 @@ class _EShopState extends State<EShop> {
                         child: CupertinoSegmentedControl(
                           selectedColor: AppColors.k0cbcc5,
                           unselectedColor: Colors.white,
-                          borderColor: Color(0xFF0CBCC5),
+                          borderColor: AppColors.k0cbcc5,
                           children: {
                             '0': Container(
                               decoration: BoxDecoration(
                                 border: Border.all(
                                   width: 0.5,
-                                  color: Color(0xFF0CBCC5),
+                                  color: AppColors.k0cbcc5,
                                 ),
                                 color: _selectedValue == '0'
-                                    ? Color(0xFF0CBCC5)
+                                    ? AppColors.k0cbcc5
                                     : Colors.white,
                                 borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(5),
@@ -255,7 +255,7 @@ class _EShopState extends State<EShop> {
                             '1': Container(
                               decoration: BoxDecoration(
                                 color: _selectedValue == '1'
-                                    ? Color(0xFF0CBCC5)
+                                    ? AppColors.k0cbcc5
                                     : Colors.white,
                                 borderRadius: BorderRadius.only(
                                   bottomRight: Radius.circular(5),
@@ -263,7 +263,7 @@ class _EShopState extends State<EShop> {
                                 ),
                                 border: Border.all(
                                   width: 0.5,
-                                  color: Color(0xFF0CBCC5),
+                                  color: AppColors.k0cbcc5,
                                 ),
                               ),
                               child: Padding(
@@ -341,7 +341,7 @@ class _EShopState extends State<EShop> {
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
-              color: Color(0xff003f51).withOpacity(0.15),
+              color: AppColors.k003f51.withOpacity(0.15),
               offset: Offset(
                 0,
                 4,
@@ -391,7 +391,7 @@ class _EShopState extends State<EShop> {
               Text(
                 '+612 3456 7890',
                 style: GoogleFonts.rubik(
-                  color: Color(0xFF5E5E5E),
+                  color: AppColors.k5e5e5e,
                   fontSize: 12,
                   fontWeight: FontWeight.normal,
                 ),
@@ -402,7 +402,7 @@ class _EShopState extends State<EShop> {
               Text(
                 'Clayton, VIC 3168',
                 style: GoogleFonts.rubik(
-                  color: Color(0xFFB1B1B1),
+                  color: AppColors.kb1b1b1,
                   fontSize: 12,
                   fontWeight: FontWeight.normal,
                 ),

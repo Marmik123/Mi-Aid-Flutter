@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'additional_services.dart';
+import 'package:miaid/config/app_colors.dart';
 
 class PaymentInterface extends StatelessWidget {
   @override
@@ -23,7 +24,7 @@ class PaymentInterface extends StatelessWidget {
         title: Text(
           "Payment",
           style: GoogleFonts.rubik(
-            color: Color(0xff010101),
+            color: AppColors.k010101,
             fontSize: 15,
           ),
         ),
@@ -34,7 +35,7 @@ class PaymentInterface extends StatelessWidget {
             child: Text(
           "Paypal, Braintree, Stripe, Wechat, allpay payment interface will appear here",
           style: GoogleFonts.rubik(
-            color: Color(0xffB1B1B1),
+            color: AppColors.kb1b1b1,
             fontSize: 21,
             letterSpacing: -0.13,
           ),

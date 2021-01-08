@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/view/user/password_view/reset_password.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -11,19 +12,19 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   TextEditingController forgotEmailController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
-  static const borderColor = Color(0xFFB1B1B1);
+  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
           'Forgot Password',
           style: GoogleFonts.rubik(
-            color: Color(0xFF010101),
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -69,7 +70,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     'An Email with link to reset password has been sent to your email. Please check and try again',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
+                      color: AppColors.k010101,
                       fontSize: 12,
                     ),
                   ),
@@ -90,8 +91,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color: forgotEmailController.text.trim().length > 0
-                              ? Color(0xFFB1B1B1)
-                              : Color(0xFF010101),
+                              ? AppColors.kb1b1b1
+                              : AppColors.k010101,
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                         ),
@@ -114,7 +115,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         decoration: InputDecoration(
                           hintText: 'yourname@example.com',
                           hintStyle: TextStyle(
-                            color: Color(0xFfB1B1B1),
+                            color: AppColors.kb1b1b1,
                             fontSize: 14,
                           ),
                           contentPadding: EdgeInsets.only(
@@ -124,14 +125,14 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFFB1B1B1),
+                              color: AppColors.kb1b1b1,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: borderColor,
+                              color: AppColors.kb1b1b1,
                               width: 0.5,
                             ),
                           ),
@@ -156,7 +157,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(9),
                     ),
-                    color: Color(0xFF0CBCC5),
+                    color: AppColors.k0cbcc5,
                     onPressed: () {
                       // if (formKey.currentState.validate()) {}
                       showAlertDialog(context);
@@ -164,7 +165,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     child: Text(
                       'Reset Password',
                       style: GoogleFonts.rubik(
-                        color: Color(0xFFFFFFFF),
+                        color: AppColors.kffffff,
                         fontSize: 17,
                       ),
                     ),
@@ -190,7 +191,7 @@ showAlertDialog(BuildContext context) {
         color: Colors.white,
         boxShadow: [
           new BoxShadow(
-            color: Color(0xFF0cbcc5).withOpacity(0.2),
+            color: AppColors.k0cbcc5.withOpacity(0.2),
             blurRadius: 10.0,
             spreadRadius: 0.0, //extend the shadow
             offset: Offset(
@@ -204,7 +205,7 @@ showAlertDialog(BuildContext context) {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(9),
         ),
-        color: Color(0xFF0CBCC5),
+        color: AppColors.k0cbcc5,
         onPressed: () {
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) => ResetPassword()));
@@ -212,7 +213,7 @@ showAlertDialog(BuildContext context) {
         child: Text(
           'Okay',
           style: GoogleFonts.rubik(
-            color: Color(0xFFFFFFFF),
+            color: AppColors.kffffff,
             fontSize: 17,
           ),
         ),
@@ -230,7 +231,7 @@ showAlertDialog(BuildContext context) {
       style: GoogleFonts.rubik(
         fontWeight: FontWeight.w500,
         fontSize: 17,
-        color: Color(0xFF010101),
+        color: AppColors.k010101,
       ),
     ),
     content: Text(
@@ -238,7 +239,7 @@ showAlertDialog(BuildContext context) {
       textAlign: TextAlign.center,
       style: GoogleFonts.rubik(
         fontSize: 13,
-        color: Color(0xFF010101),
+        color: AppColors.k010101,
       ),
     ),
     actions: [okButton],

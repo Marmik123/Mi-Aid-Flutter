@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/component/payment_bootomsheet.dart';
 import 'package:miaid/view/drawer/Terms&Cond.dart';
+import 'package:miaid/config/app_colors.dart';
 
 class CartEShop extends StatefulWidget {
   @override
@@ -31,7 +32,7 @@ class _CartEShopState extends State<CartEShop> {
                   child: Text(
                     "Remove",
                     style: GoogleFonts.rubik(
-                      color: Color(0xffFA0020),
+                      color: AppColors.kfa0020,
                       fontSize: 17,
                       fontWeight: FontWeight.w600,
                       letterSpacing: -0.41,
@@ -89,14 +90,14 @@ class _CartEShopState extends State<CartEShop> {
                     Text(
                       "Order Number ",
                       style: GoogleFonts.rubik(
-                        color: Color(0xff5E5E5E),
+                        color: AppColors.k5e5e5e,
                         fontSize: 14,
                       ),
                     ),
                     Text(
                       "0000012 ",
                       style: GoogleFonts.rubik(
-                        color: Color(0xff010101),
+                        color: AppColors.k010101,
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                       ),
@@ -125,7 +126,7 @@ class _CartEShopState extends State<CartEShop> {
                               Text(
                                 'Market City Pharmacy',
                                 style: GoogleFonts.rubik(
-                                  color: Color(0xff5E5E5E),
+                                  color: AppColors.k5e5e5e,
                                   fontSize: 14,
                                 ),
                               ),
@@ -161,7 +162,7 @@ class _CartEShopState extends State<CartEShop> {
                                               child: Text(
                                                   "Panadol Rapid Parace Panadol Rapid Paracetamol Pain Relief Caplets 500 mg",
                                                   style: GoogleFonts.rubik(
-                                                    color: Color(0xff010101),
+                                                    color: AppColors.k010101,
                                                     fontSize: 14,
                                                     fontWeight: FontWeight.w500,
                                                   )),
@@ -179,7 +180,7 @@ class _CartEShopState extends State<CartEShop> {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             4),
-                                                    color: Color(0xffF4F4F4),
+                                                    color: AppColors.kf4f4f4,
                                                   ),
                                                   child: Padding(
                                                     padding:
@@ -295,7 +296,7 @@ class _CartEShopState extends State<CartEShop> {
                     Text(
                       "Delivery Option",
                       style: GoogleFonts.rubik(
-                        color: Color(0xff010101),
+                        color: AppColors.k010101,
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
                       ),
@@ -306,7 +307,7 @@ class _CartEShopState extends State<CartEShop> {
                     radiobuttonContainer(Row(
                       children: [
                         Radio(
-                          // focusColor: Color(0xff0CBCC5),
+                          // focusColor: AppColors.k0cbcc5,
                           value: 0,
                           groupValue: value_1,
                           onChanged: (value) {
@@ -314,13 +315,13 @@ class _CartEShopState extends State<CartEShop> {
                               value_1 = value;
                             });
                           },
-                          activeColor: Color(0xff0CBCC5),
+                          activeColor: AppColors.k0cbcc5,
                           toggleable: true,
                         ),
                         Text(
                           "Deliver",
                           style: GoogleFonts.rubik(
-                            color: Color(0xff5E5E5E),
+                            color: AppColors.k5e5e5e,
                             fontSize: 14,
                           ),
                         )
@@ -332,7 +333,7 @@ class _CartEShopState extends State<CartEShop> {
                     radiobuttonContainer(Row(
                       children: [
                         Radio(
-                          activeColor: Color(0xff0CBCC5),
+                          activeColor: AppColors.k0cbcc5,
                           value: 1,
                           groupValue: value_2,
                           onChanged: (value) {
@@ -345,7 +346,7 @@ class _CartEShopState extends State<CartEShop> {
                         Text(
                           "Collect From the Pharmacy",
                           style: GoogleFonts.rubik(
-                            color: Color(0xff5E5E5E),
+                            color: AppColors.k5e5e5e,
                             fontSize: 14,
                           ),
                         )
@@ -357,7 +358,7 @@ class _CartEShopState extends State<CartEShop> {
                     Text(
                       "Order Summary",
                       style: GoogleFonts.rubik(
-                        color: Color(0xff010101),
+                        color: AppColors.k010101,
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
                       ),
@@ -371,7 +372,7 @@ class _CartEShopState extends State<CartEShop> {
                         Text(
                           "Sub Total",
                           style: GoogleFonts.rubik(
-                            color: Color(0xff010101),
+                            color: AppColors.k010101,
                             fontSize: 12,
                           ),
                         ),
@@ -393,7 +394,7 @@ class _CartEShopState extends State<CartEShop> {
                         Text(
                           "Delivery Fee",
                           style: GoogleFonts.rubik(
-                            color: Color(0xff010101),
+                            color: AppColors.k010101,
                             fontSize: 12,
                           ),
                         ),
@@ -424,7 +425,7 @@ class _CartEShopState extends State<CartEShop> {
                             textAlign: TextAlign.center,
                             text: TextSpan(
                               style: GoogleFonts.rubik(
-                                color: Color(0xFF5E5E5E),
+                                color: AppColors.k5e5e5e,
                                 fontSize: 12,
                               ),
                               children: [
@@ -459,7 +460,7 @@ class _CartEShopState extends State<CartEShop> {
             ),
           ),
           Divider(
-            color: Color(0xff010101),
+            color: AppColors.k010101,
             height: 0,
           ),
           Padding(
@@ -472,7 +473,7 @@ class _CartEShopState extends State<CartEShop> {
                     Text(
                       "Order Total  ",
                       style: GoogleFonts.rubik(
-                        color: Color(0xff010101),
+                        color: AppColors.k010101,
                         fontSize: 12,
                       ),
                     ),
@@ -486,7 +487,7 @@ class _CartEShopState extends State<CartEShop> {
                   ],
                 ),
                 FlatButton(
-                  color: Color(0xff0CBCC5),
+                  color: AppColors.k0cbcc5,
                   onPressed: () {
                     showModalBottomSheet(
                         backgroundColor: Colors.white,
@@ -510,7 +511,7 @@ class _CartEShopState extends State<CartEShop> {
                     child: Text(
                       "Checkout",
                       style: GoogleFonts.rubik(
-                        color: Color(0xffFFFFFF),
+                        color: AppColors.kffffff,
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
                       ),
@@ -542,7 +543,7 @@ class _CartEShopState extends State<CartEShop> {
               color: Colors.white,
               boxShadow: [
                 new BoxShadow(
-                  color: Color(0xFF0cbcc5).withOpacity(0.2),
+                  color: AppColors.k0cbcc5.withOpacity(0.2),
                   blurRadius: 10.0,
                   spreadRadius: 0.0, //extend the shadow
                   offset: Offset(
@@ -556,7 +557,7 @@ class _CartEShopState extends State<CartEShop> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(9),
               ),
-              color: Color(0xFF0CBCC5),
+              color: AppColors.k0cbcc5,
               onPressed: () {
                 setState(() {
                   remove = false;
@@ -566,7 +567,7 @@ class _CartEShopState extends State<CartEShop> {
               child: Text(
                 'No',
                 style: GoogleFonts.rubik(
-                  color: Color(0xFFFFFFFF),
+                  color: AppColors.kffffff,
                   fontSize: 14,
                 ),
               ),
@@ -583,7 +584,7 @@ class _CartEShopState extends State<CartEShop> {
               child: Text(
                 'Remove',
                 style: GoogleFonts.rubik(
-                  color: Color(0xFF0CBCC5),
+                  color: AppColors.k0cbcc5,
                   fontSize: 14,
                 ),
               ),
@@ -601,7 +602,7 @@ class _CartEShopState extends State<CartEShop> {
         'Remove',
         textAlign: TextAlign.center,
         style: GoogleFonts.rubik(
-            color: Color(0xFF010101), fontWeight: FontWeight.w700),
+            color: AppColors.k010101, fontWeight: FontWeight.w700),
       ),
       content: Text(
         'Are you sure you want to delete item "Panadol Rapid Parace Panadol Rap.." from cart?',

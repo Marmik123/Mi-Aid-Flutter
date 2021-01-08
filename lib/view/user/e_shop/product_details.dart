@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:flutter/cupertino.dart';
-import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/view/user/e_shop/cart_eshop.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -21,15 +21,15 @@ class _ProductDetailsState extends State<ProductDetails> {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-        backgroundColor: kffffff,
+        backgroundColor: AppColors.kffffff,
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Color(0xFFFFFFFF),
+          backgroundColor: AppColors.kffffff,
           centerTitle: true,
           title: Text(
             'View Details',
             style: GoogleFonts.rubik(
-              color: Color(0xFF010101),
+              color: AppColors.k010101,
               fontSize: 15,
               fontWeight: FontWeight.w500,
             ),
@@ -100,7 +100,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             Text(
                               "A\$ ",
                               style: TextStyle(
-                                color: kffffff,
+                                color: AppColors.kffffff,
                               ),
                             ),
                             Text(
@@ -108,7 +108,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18,
-                                color: kffffff,
+                                color: AppColors.kffffff,
                               ),
                             ),
                           ],
@@ -138,7 +138,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           child: Text(
                             "$quentity",
                             style: TextStyle(
-                              color: Color(0xff010101),
+                              color: AppColors.k010101,
                               fontWeight: FontWeight.bold,
                               fontSize: 14,
                             ),
@@ -181,7 +181,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 child: Text(
                   'Market City Pharmacy',
                   style: GoogleFonts.rubik(
-                    color: k5e5e5e,
+                    color: AppColors.k5e5e5e,
                     fontSize: 14,
                   ),
                 ),
@@ -190,7 +190,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 height: 10,
               ),
               Container(
-                color: Color(0xFF0cbcc5).withOpacity(0.1),
+                color: AppColors.k0cbcc5.withOpacity(0.1),
                 child: TabBar(
                   onTap: (index) {
                     setState(() {
@@ -199,7 +199,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   },
                   labelColor: AppColors.k0cbcc5,
                   indicatorColor: AppColors.k0cbcc5,
-                  unselectedLabelColor: Color(0xFF5E5E5E),
+                  unselectedLabelColor: AppColors.k5e5e5e,
                   labelStyle: GoogleFonts.rubik(
                     fontSize: 13,
                   ),
@@ -277,13 +277,13 @@ class _ProductDetailsState extends State<ProductDetails> {
                       padding:
                           EdgeInsets.symmetric(vertical: 16, horizontal: 40),
                       decoration: BoxDecoration(
-                        color: Color(0xFF0CBCC5),
+                        color: AppColors.k0cbcc5,
                         borderRadius: BorderRadius.circular(9),
                       ),
                       child: Text(
                         'Buy Now',
                         style: GoogleFonts.rubik(
-                          color: Color(0xFFFFFFFF),
+                          color: AppColors.kffffff,
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
                         ),
@@ -306,10 +306,10 @@ class _ProductDetailsState extends State<ProductDetails> {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(4),
-        color: Color(0xffFFFFFF),
+        color: AppColors.kffffff,
         boxShadow: [
           BoxShadow(
-            color: Color(0xff003f51).withOpacity(0.1),
+            color: AppColors.k003f51.withOpacity(0.1),
             offset: Offset(
               0,
               4,
@@ -598,7 +598,7 @@ class _ProductDetailsState extends State<ProductDetails> {
     return Container(
       height: 0.5,
       width: MediaQuery.of(context).size.width,
-      color: k5e5e5e.withOpacity(0.3),
+      color: AppColors.k5e5e5e.withOpacity(0.3),
     );
   }
 }

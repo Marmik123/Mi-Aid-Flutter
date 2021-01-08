@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/config/app_colors.dart';
 import 'dart:async';
 import 'package:miaid/view/user/calling/call_no_video_placeholder.dart';
 
@@ -32,8 +32,7 @@ class _CallStartedState extends State<CallStarted> {
         title: Text(
           'MiAid Assistance',
           style: GoogleFonts.rubik(
-            color: kffffff,
-            fontSize: 15,
+            color: AppColors.kffffff,            fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -100,7 +99,7 @@ class _CallStartedState extends State<CallStarted> {
                   ),
                   child: Text(
                     '5:00',
-                    style: GoogleFonts.rubik(color: kffffff, fontSize: 12),
+                    style: GoogleFonts.rubik(color: AppColors.kffffff, fontSize: 12),
                   ),
                 ),
               ),
@@ -118,13 +117,12 @@ class _CallStartedState extends State<CallStarted> {
                       decoration: new BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         border: Border.all(
-                          color: kffffff,
-                          width: 2,
+                          color: AppColors.kffffff       ,                   width: 2,
                         ),
                         color: Colors.white,
                         boxShadow: [
                           new BoxShadow(
-                            color: Color(0xFF000000).withOpacity(0.24),
+                            color: AppColors.k000000.withOpacity(0.24),
                             blurRadius: 15.0,
                             spreadRadius: 0.0, //extend the shadow
                             offset: Offset(
@@ -155,7 +153,7 @@ class _CallStartedState extends State<CallStarted> {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            color: Color(0xFF003f51).withOpacity(0.2),
+                            color: AppColors.k003f51.withOpacity(0.2),
                             blurRadius: 25.0, // soften the shadow
                             spreadRadius: 5.0, //extend the shadow
                             offset: Offset(
@@ -164,8 +162,7 @@ class _CallStartedState extends State<CallStarted> {
                             ),
                           )
                         ],
-                        color: kffffff,
-                        borderRadius: BorderRadius.circular(10),
+                        color: AppColors.kffffff        ,                borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -220,7 +217,7 @@ class _CallStartedState extends State<CallStarted> {
                         decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
-                              color: Color(0xFF003f51).withOpacity(0.2),
+                              color: AppColors.k003f51.withOpacity(0.2),
                               blurRadius: 25.0, // soften the shadow
                               spreadRadius: 5.0, //extend the shadow
                               offset: Offset(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:miaid/component/miaid_card.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:miaid/config/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:miaid/view/user/e_shop/purchase.dart';
 import 'package:miaid/view/user/e_shop/cart_eshop.dart';
@@ -16,20 +16,18 @@ class ProductCategoryDetails extends StatefulWidget {
 class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
   TextEditingController searchController = TextEditingController();
 
- 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kffffff,
+      backgroundColor: AppColors.kffffff,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
           'E - Shop',
           style: GoogleFonts.rubik(
-            color: Color(0xFF010101),
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -124,11 +122,10 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Image(
-                                    height: 70,
-                                    width: 70,
-                                    image:
-                                        AssetImage('assets/images/panadol.png'),
-                                  ),
+                            height: 70,
+                            width: 70,
+                            image: AssetImage('assets/images/panadol.png'),
+                          ),
                           Expanded(
                             child: Padding(
                               padding: const EdgeInsets.only(
@@ -148,7 +145,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                     child: Text(
                                       '34 Clarfield, Clayton, VIC 3168,\nAustralia.',
                                       style: GoogleFonts.rubik(
-                                        color: Color(0xff747474),
+                                        color: AppColors.k747474,
                                         fontSize: 14,
                                       ),
                                     ),
@@ -165,14 +162,14 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                           Text(
                                             'Open',
                                             style: GoogleFonts.rubik(
-                                              color: Color(0xFF25D000),
+                                              color:AppColors.k25d000,
                                               fontSize: 14,
                                             ),
                                           ),
                                           Text(
                                             '(9:00 AM - 7:00 PM)',
                                             style: GoogleFonts.rubik(
-                                              color: Color(0xFFB1B1B1),
+                                              color: AppColors.kb1b1b1,
                                               fontSize: 12,
                                             ),
                                           ),
@@ -230,7 +227,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                       decoration: InputDecoration(
                         hintText: 'Search',
                         hintStyle: GoogleFonts.rubik(
-                          color: Color(0xFfB1B1B1),
+                          color: AppColors.kb1b1b1,
                           fontSize: 14,
                         ),
                         contentPadding: EdgeInsets.only(
@@ -243,14 +240,14 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0xFF010101),
+                            color: AppColors.k010101,
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(
-                            color: kb1b1b1,
+                            color: AppColors.kb1b1b1,
                             width: 0.5,
                           ),
                         ),
@@ -289,7 +286,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                       border: Border.all(width: 0.5, color: AppColors.k0cbcc5),
                       boxShadow: [
                         BoxShadow(
-                          color: Color(0xff003f51).withOpacity(0.1),
+                          color: AppColors.k003f51.withOpacity(0.1),
                           offset: Offset(
                             0,
                             4,
@@ -311,7 +308,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                           Text(
                             'All Categories',
                             style: GoogleFonts.rubik(
-                              color: kffffff,
+                              color: AppColors.kffffff,
                               fontWeight: FontWeight.w500,
                               fontSize: 13,
                             ),
@@ -325,12 +322,12 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: kffffff,
+                      color: AppColors.kffffff,
                       borderRadius: BorderRadius.circular(6),
                       border: Border.all(width: 0.5, color: AppColors.k0cbcc5),
                       boxShadow: [
                         BoxShadow(
-                          color: Color(0xff003f51).withOpacity(0.1),
+                          color: AppColors.k003f51.withOpacity(0.1),
                           offset: Offset(
                             0,
                             4,
@@ -366,12 +363,12 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: kffffff,
+                      color: AppColors.kffffff,
                       borderRadius: BorderRadius.circular(6),
                       border: Border.all(width: 0.5, color: AppColors.k0cbcc5),
                       boxShadow: [
                         BoxShadow(
-                          color: Color(0xff003f51).withOpacity(0.1),
+                          color: AppColors.k003f51.withOpacity(0.1),
                           offset: Offset(
                             0,
                             4,
@@ -407,12 +404,12 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: kffffff,
+                      color: AppColors.kffffff,
                       borderRadius: BorderRadius.circular(6),
                       border: Border.all(width: 0.5, color: AppColors.k0cbcc5),
                       boxShadow: [
                         BoxShadow(
-                          color: Color(0xff003f51).withOpacity(0.1),
+                          color: AppColors.k003f51.withOpacity(0.1),
                           offset: Offset(
                             0,
                             4,
@@ -448,12 +445,12 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: kffffff,
+                      color: AppColors.kffffff,
                       borderRadius: BorderRadius.circular(6),
                       border: Border.all(width: 0.5, color: AppColors.k0cbcc5),
                       boxShadow: [
                         BoxShadow(
-                          color: Color(0xff003f51).withOpacity(0.1),
+                          color: AppColors.k003f51.withOpacity(0.1),
                           offset: Offset(
                             0,
                             4,
@@ -558,7 +555,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                             child: Text(
                                                 "Panadol Rapid Parace Panadol Rapid Paracetamol Pain Relief Caplets 500 mg",
                                                 style: GoogleFonts.rubik(
-                                                  color: Color(0xff010101),
+                                                  color: AppColors.k010101,
                                                   fontSize: 14,
                                                   fontWeight: FontWeight.w500,
                                                 )),
@@ -571,7 +568,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                                 decoration: BoxDecoration(
                                                   borderRadius:
                                                       BorderRadius.circular(4),
-                                                  color: Color(0xffF4F4F4),
+                                                  color: AppColors.kf4f4f4,
                                                 ),
                                                 child: Padding(
                                                   padding:
@@ -601,20 +598,21 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                               Container(
                                                 height: 28,
                                                 child: FlatButton(
-                                                  splashColor:
-                                                      AppColors.k0cbcc5.withOpacity(0.1),
-                                                  highlightColor:
-                                                      AppColors.k0cbcc5.withOpacity(0.2),
+                                                  splashColor: AppColors.k0cbcc5
+                                                      .withOpacity(0.1),
+                                                  highlightColor: AppColors
+                                                      .k0cbcc5
+                                                      .withOpacity(0.2),
                                                   shape: RoundedRectangleBorder(
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             9),
                                                     side: BorderSide(
-                                                      color: Color(0xFF30BEE6),
+                                                      color: AppColors.k30bee6,
                                                       width: 0.5,
                                                     ),
                                                   ),
-                                                  color: Color(0xFFFFFFFF),
+                                                  color: AppColors.kffffff,
                                                   onPressed: () {
                                                     // Navigator.push(
                                                     //   context,
@@ -626,7 +624,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                                   child: Text(
                                                     'Add to Cart',
                                                     style: GoogleFonts.rubik(
-                                                      color: Color(0xFF0CBCC5),
+                                                      color: AppColors.k0cbcc5,
                                                       fontSize: 17,
                                                       fontWeight:
                                                           FontWeight.w500,
@@ -722,7 +720,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                             child: Text(
                                                 "Panadol Rapid Parace Panadol Rapid Paracetamol Pain Relief Caplets 500 mg",
                                                 style: GoogleFonts.rubik(
-                                                  color: Color(0xff010101),
+                                                  color: AppColors.k010101,
                                                   fontSize: 14,
                                                   fontWeight: FontWeight.w500,
                                                 )),
@@ -735,7 +733,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                                 decoration: BoxDecoration(
                                                   borderRadius:
                                                       BorderRadius.circular(4),
-                                                  color: Color(0xffF4F4F4),
+                                                  color: AppColors.kf4f4f4,
                                                 ),
                                                 child: Padding(
                                                   padding:
@@ -765,20 +763,21 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                               Container(
                                                 height: 28,
                                                 child: FlatButton(
-                                                  splashColor:
-                                                      AppColors.k0cbcc5.withOpacity(0.1),
-                                                  highlightColor:
-                                                      AppColors.k0cbcc5.withOpacity(0.2),
+                                                  splashColor: AppColors.k0cbcc5
+                                                      .withOpacity(0.1),
+                                                  highlightColor: AppColors
+                                                      .k0cbcc5
+                                                      .withOpacity(0.2),
                                                   shape: RoundedRectangleBorder(
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             9),
                                                     side: BorderSide(
-                                                      color: Color(0xFF30BEE6),
+                                                      color: AppColors.k30bee6,
                                                       width: 0.5,
                                                     ),
                                                   ),
-                                                  color: Color(0xFFFFFFFF),
+                                                  color: AppColors.kffffff,
                                                   onPressed: () {
                                                     // Navigator.push(
                                                     //   context,
@@ -790,7 +789,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                                   child: Text(
                                                     'Add to Cart',
                                                     style: GoogleFonts.rubik(
-                                                      color: Color(0xFF0CBCC5),
+                                                      color: AppColors.k0cbcc5,
                                                       fontSize: 17,
                                                       fontWeight:
                                                           FontWeight.w500,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/view/user/e_shop/purchase_view_receipt.dart';
 
 class PurchaseItem extends StatefulWidget {
@@ -83,7 +83,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                                   textAlign: TextAlign.left,
                                   text: TextSpan(
                                     style: GoogleFonts.rubik(
-                                      color: Color(0xFF5E5E5E),
+                                      color: AppColors.k5e5e5e,
                                       fontSize: 12,
                                       fontWeight: FontWeight.w300,
                                     ),
@@ -109,7 +109,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                                   textAlign: TextAlign.left,
                                   text: TextSpan(
                                     style: GoogleFonts.rubik(
-                                      color: Color(0xFF5E5E5E),
+                                      color: AppColors.k5e5e5e,
                                       fontSize: 14,
                                     ),
                                     children: [
@@ -162,7 +162,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                       textAlign: TextAlign.left,
                       text: TextSpan(
                         style: GoogleFonts.rubik(
-                          color: Color(0xFF5E5E5E),
+                          color: AppColors.k5e5e5e,
                           fontSize: 14,
                         ),
                         children: [
@@ -184,7 +184,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                       textAlign: TextAlign.left,
                       text: TextSpan(
                         style: GoogleFonts.rubik(
-                          color: Color(0xFF5E5E5E),
+                          color: AppColors.k5e5e5e,
                           fontSize: 14,
                         ),
                         children: [
@@ -210,7 +210,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
               itemBuilder: (BuildContext context, index) => Column(
                 children: [
                   Container(
-                    color: Color(0xFF0cbcc5).withOpacity(0.1),
+                    color: AppColors.k0cbcc5.withOpacity(0.1),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20, vertical: 15),
@@ -220,7 +220,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                         children: [
                           Text(' Market City Pharmacy',
                               style: GoogleFonts.rubik(
-                                color: Color(0xff5E5E5E),
+                                color: AppColors.k5e5e5e,
                                 fontSize: 14,
                               )),
                           Padding(
@@ -253,7 +253,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                                           child: Text(
                                               "Panadol Rapid Parace Panadol Rapid Paracetamol Pain Relief Caplets 500 mg",
                                               style: GoogleFonts.rubik(
-                                                color: Color(0xff010101),
+                                                color: AppColors.k010101,
                                                 fontSize: 14,
                                                 fontWeight: FontWeight.w500,
                                               )),
@@ -269,7 +269,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                                               decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(4),
-                                                color: Color(0xffF4F4F4),
+                                                color: AppColors.kf4f4f4,
                                               ),
                                               child: Padding(
                                                 padding: const EdgeInsets.only(
@@ -314,7 +314,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
               ),
             ),
             Container(
-              color: Color(0xFF0cbcc5).withOpacity(0.1),
+              color: AppColors.k0cbcc5.withOpacity(0.1),
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 20,
@@ -381,10 +381,10 @@ class _PurchaseItemState extends State<PurchaseItem> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(9),
                             side: BorderSide(
-                              color: Color(0xFF30BEE6),
+                              color: AppColors.k30bee6,
                             ),
                           ),
-                          color: Color(0xFFFFFFFF),
+                          color: AppColors.kffffff,
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -409,7 +409,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(9),
                           ),
-                          color: Color(0xFF0CBCC5),
+                          color: AppColors.k0cbcc5,
                           onPressed: () {
                             // Navigator.pushReplacement(
                             //     context,
@@ -421,7 +421,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                             child: Text(
                               'Order Again',
                               style: GoogleFonts.rubik(
-                                color: Color(0xFFFFFFFF),
+                                color: AppColors.kffffff,
                                 fontSize: 17,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -444,7 +444,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
     return Container(
       height: 0.5,
       width: MediaQuery.of(context).size.width,
-      color: k5e5e5e.withOpacity(0.3),
+      color: AppColors.k5e5e5e.withOpacity(0.3),
     );
   }
 }

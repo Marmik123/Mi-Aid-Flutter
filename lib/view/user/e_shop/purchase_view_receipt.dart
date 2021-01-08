@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/config/app_colors.dart';
 
 class PurchaseViewReceipt extends StatefulWidget {
   @override
@@ -104,7 +104,7 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
                           textAlign: TextAlign.left,
                           text: TextSpan(
                             style: GoogleFonts.rubik(
-                              color: Color(0xFF5E5E5E),
+                              color: AppColors.k5e5e5e,
                               fontSize: 12,
                             ),
                             children: [
@@ -140,7 +140,7 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
                           textAlign: TextAlign.left,
                           text: TextSpan(
                             style: GoogleFonts.rubik(
-                              color: Color(0xFF5E5E5E),
+                              color: AppColors.k5e5e5e,
                               fontSize: 14,
                             ),
                             children: [

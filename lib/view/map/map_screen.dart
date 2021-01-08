@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/drawer.dart';
-import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/config/app_colors.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class MapScreen extends StatefulWidget {
@@ -15,17 +15,17 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kffffff,
+      backgroundColor: AppColors.kffffff,
       drawer: drawer(context),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
           'ED and Clinics Near Me',
           style: GoogleFonts.rubik(
-            color: Color(0xFF010101),
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.bold,
           ),
@@ -76,7 +76,7 @@ class _MapScreenState extends State<MapScreen> {
                       decoration: InputDecoration(
                         hintText: 'Search',
                         hintStyle: GoogleFonts.rubik(
-                          color: Color(0xFfB1B1B1),
+                          color: AppColors.kb1b1b1,
                           fontSize: 14,
                         ),
                         contentPadding: EdgeInsets.only(
@@ -89,14 +89,14 @@ class _MapScreenState extends State<MapScreen> {
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0xFF010101),
+                            color: AppColors.k010101,
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(
-                            color: kb1b1b1,
+                            color: AppColors.kb1b1b1,
                             width: 0.5,
                           ),
                         ),
@@ -114,7 +114,6 @@ class _MapScreenState extends State<MapScreen> {
                 ],
               ),
             ),
-          
           ),
           Positioned(
             top: 50,
@@ -136,10 +135,10 @@ class _MapScreenState extends State<MapScreen> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(6),
-                      border: Border.all(width: 0.5, color: ke63030),
+                      border: Border.all(width: 0.5, color: AppColors.ke63030),
                       boxShadow: [
                         BoxShadow(
-                          color: Color(0xff003f51).withOpacity(0.1),
+                          color: AppColors.k003f51.withOpacity(0.1),
                           offset: Offset(
                             0,
                             4,
@@ -162,11 +161,11 @@ class _MapScreenState extends State<MapScreen> {
                             height: 9,
                             width: 9,
                             decoration: BoxDecoration(
-                              color: ke63030,
+                              color: AppColors.ke63030,
                               borderRadius: BorderRadius.circular(2),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Color(0xff003f51).withOpacity(0.1),
+                                  color: AppColors.k003f51.withOpacity(0.1),
                                   offset: Offset(
                                     0,
                                     4,
@@ -198,10 +197,11 @@ class _MapScreenState extends State<MapScreen> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(6),
-                        border: Border.all(width: 0.5, color: AppColors.k0cbcc5),
+                        border:
+                            Border.all(width: 0.5, color: AppColors.k0cbcc5),
                         boxShadow: [
                           BoxShadow(
-                            color: Color(0xff003f51).withOpacity(0.1),
+                            color: AppColors.k003f51.withOpacity(0.1),
                             offset: Offset(
                               0,
                               4,
@@ -259,10 +259,10 @@ class _MapScreenState extends State<MapScreen> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(6),
-                      border: Border.all(width: 0.5, color: ke68c30),
+                      border: Border.all(width: 0.5, color: AppColors.ke68c30),
                       boxShadow: [
                         BoxShadow(
-                          color: Color(0xff003f51).withOpacity(0.1),
+                          color: AppColors.k003f51.withOpacity(0.1),
                           offset: Offset(
                             0,
                             4,
@@ -285,11 +285,11 @@ class _MapScreenState extends State<MapScreen> {
                             height: 9,
                             width: 9,
                             decoration: BoxDecoration(
-                              color: ke68c30,
+                              color: AppColors.ke68c30,
                               borderRadius: BorderRadius.circular(2),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Color(0xff003f51).withOpacity(0.1),
+                                  color: AppColors.k003f51.withOpacity(0.1),
                                   offset: Offset(
                                     0,
                                     4,
@@ -319,10 +319,10 @@ class _MapScreenState extends State<MapScreen> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(6),
-                      border: Border.all(width: 0.5, color: k5251f7),
+                      border: Border.all(width: 0.5, color: AppColors.k5251f7),
                       boxShadow: [
                         BoxShadow(
-                          color: Color(0xff003f51).withOpacity(0.1),
+                          color: AppColors.k003f51.withOpacity(0.1),
                           offset: Offset(
                             0,
                             4,
@@ -345,11 +345,11 @@ class _MapScreenState extends State<MapScreen> {
                             height: 9,
                             width: 9,
                             decoration: BoxDecoration(
-                              color: k5251f7,
+                              color: AppColors.k5251f7,
                               borderRadius: BorderRadius.circular(2),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Color(0xff003f51).withOpacity(0.1),
+                                  color: AppColors.k003f51.withOpacity(0.1),
                                   offset: Offset(
                                     0,
                                     4,
@@ -375,7 +375,6 @@ class _MapScreenState extends State<MapScreen> {
                 ],
               ),
             ),
-          
           ),
           SlidingUpPanel(
             minHeight: 180,
@@ -398,11 +397,13 @@ class _MapScreenState extends State<MapScreen> {
                       width: 53,
                       height: 5,
                       decoration: BoxDecoration(
-                          color: Color(0xFF010101).withOpacity(0.09),
+                          color: AppColors.k010101.withOpacity(0.09),
                           borderRadius: BorderRadius.circular(2.5)),
                     ),
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Text(
                     'Corburg Medical Clinic',
                     style: GoogleFonts.rubik(
@@ -440,7 +441,7 @@ class _MapScreenState extends State<MapScreen> {
                           Text(
                             '31 Oakland St, Maribyrnong VIC 3032 \nAustralia',
                             style: GoogleFonts.rubik(
-                              color: Color(0xFF747474),
+                              color: AppColors.k747474,
                               fontSize: 14,
                             ),
                           ),
@@ -454,13 +455,13 @@ class _MapScreenState extends State<MapScreen> {
                                 padding: EdgeInsets.symmetric(
                                     vertical: 5, horizontal: 45),
                                 decoration: BoxDecoration(
-                                  color: Color(0xFF0CBCC5),
+                                  color: AppColors.k0cbcc5,
                                   borderRadius: BorderRadius.circular(9),
                                 ),
                                 child: Text(
                                   'Call',
                                   style: GoogleFonts.rubik(
-                                    color: Color(0xFFFFFFFF),
+                                    color: AppColors.kffffff,
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -489,7 +490,6 @@ class _MapScreenState extends State<MapScreen> {
                               ),
                             ],
                           ),
-                        
                         ],
                       )
                     ],
@@ -504,7 +504,7 @@ class _MapScreenState extends State<MapScreen> {
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       height: 1,
-                      color: Color(0xFF0cbcc5).withOpacity(0.2),
+                      color: AppColors.k0cbcc5.withOpacity(0.2),
                     ),
                   ),
                   SizedBox(
@@ -534,7 +534,7 @@ class _MapScreenState extends State<MapScreen> {
                                 'Monday',
                                 style: GoogleFonts.rubik(
                                   fontSize: 14,
-                                  color: Color(0xFF696969),
+                                  color: AppColors.k696969,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -545,7 +545,7 @@ class _MapScreenState extends State<MapScreen> {
                                 'Tuesday',
                                 style: GoogleFonts.rubik(
                                   fontSize: 14,
-                                  color: Color(0xFF696969),
+                                  color: AppColors.k696969,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -556,7 +556,7 @@ class _MapScreenState extends State<MapScreen> {
                                 'Wednesday',
                                 style: GoogleFonts.rubik(
                                   fontSize: 14,
-                                  color: Color(0xFF696969),
+                                  color: AppColors.k696969,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -567,7 +567,7 @@ class _MapScreenState extends State<MapScreen> {
                                 'Thursday',
                                 style: GoogleFonts.rubik(
                                   fontSize: 14,
-                                  color: Color(0xFF696969),
+                                  color: AppColors.k696969,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -578,7 +578,7 @@ class _MapScreenState extends State<MapScreen> {
                                 'Friday',
                                 style: GoogleFonts.rubik(
                                   fontSize: 14,
-                                  color: Color(0xFF696969),
+                                  color: AppColors.k696969,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -589,7 +589,7 @@ class _MapScreenState extends State<MapScreen> {
                                 'Saturday',
                                 style: GoogleFonts.rubik(
                                   fontSize: 14,
-                                  color: Color(0xFF696969),
+                                  color: AppColors.k696969,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -600,7 +600,7 @@ class _MapScreenState extends State<MapScreen> {
                                 'Sunday',
                                 style: GoogleFonts.rubik(
                                   fontSize: 14,
-                                  color: Color(0xFF696969),
+                                  color: AppColors.k696969,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -619,7 +619,7 @@ class _MapScreenState extends State<MapScreen> {
                                 '9:00 AM - 7:00 PM',
                                 style: GoogleFonts.rubik(
                                   fontSize: 14,
-                                  color: Color(0xFF5E5E5E),
+                                  color: AppColors.k5e5e5e,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -630,7 +630,7 @@ class _MapScreenState extends State<MapScreen> {
                                 '9:00 AM - 7:00 PM',
                                 style: GoogleFonts.rubik(
                                   fontSize: 14,
-                                  color: Color(0xFF5E5E5E),
+                                  color: AppColors.k5e5e5e,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -641,7 +641,7 @@ class _MapScreenState extends State<MapScreen> {
                                 '9:00 AM - 7:00 PM',
                                 style: GoogleFonts.rubik(
                                   fontSize: 14,
-                                  color: Color(0xFF5E5E5E),
+                                  color: AppColors.k5e5e5e,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -652,7 +652,7 @@ class _MapScreenState extends State<MapScreen> {
                                 '9:00 AM - 7:00 PM',
                                 style: GoogleFonts.rubik(
                                   fontSize: 14,
-                                  color: Color(0xFF5E5E5E),
+                                  color: AppColors.k5e5e5e,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -663,7 +663,7 @@ class _MapScreenState extends State<MapScreen> {
                                 '9:00 AM - 7:00 PM',
                                 style: GoogleFonts.rubik(
                                   fontSize: 14,
-                                  color: Color(0xFF5E5E5E),
+                                  color: AppColors.k5e5e5e,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -674,7 +674,7 @@ class _MapScreenState extends State<MapScreen> {
                                 '9:00 AM - 7:00 PM',
                                 style: GoogleFonts.rubik(
                                   fontSize: 14,
-                                  color: Color(0xFF5E5E5E),
+                                  color: AppColors.k5e5e5e,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -685,7 +685,7 @@ class _MapScreenState extends State<MapScreen> {
                                 '9:00 AM - 7:00 PM',
                                 style: GoogleFonts.rubik(
                                   fontSize: 14,
-                                  color: Color(0xFF5E5E5E),
+                                  color: AppColors.k5e5e5e,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),

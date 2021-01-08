@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:miaid/config/app_colors.dart';
+
 
 Widget miAidCard(Widget child) {
   return Container(
@@ -8,7 +10,7 @@ Widget miAidCard(Widget child) {
     borderRadius: BorderRadius.circular(15),
     boxShadow: [
       BoxShadow(
-        color: Color(0xff003f51).withOpacity(0.19),
+        color: AppColors.k003f51.withOpacity(0.19),
         offset: Offset(
           0,
           4,
@@ -29,7 +31,7 @@ Widget activeSubscriptionCard(Widget child) {
       color: AppColors.k0cbcc5,
       boxShadow: [
         new BoxShadow(
-          color: Color(0xFF003f51).withOpacity(0.15),
+          color: AppColors.k003f51.withOpacity(0.15),
           blurRadius: 15.0,
           spreadRadius: 0.0, //extend the shadow
           offset: Offset(
@@ -47,10 +49,10 @@ Widget radiobuttonContainer(Widget child) {
   return Container(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(8),
-      color: Color(0xffFFFFFF),
+      color: AppColors.kffffff,
       boxShadow: [
         BoxShadow(
-          color: Color(0xff003f51).withOpacity(0.1),
+          color: AppColors.k003f51.withOpacity(0.1),
           offset: Offset(
             0,
             4,
@@ -68,10 +70,10 @@ Widget buttonContainer(Widget child) {
   return Container(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(4),
-      color: Color(0xffFFFFFF),
+      color: AppColors.kffffff,
       boxShadow: [
         BoxShadow(
-          color: Color(0xff003f51).withOpacity(0.1),
+          color: AppColors.k003f51.withOpacity(0.1),
           offset: Offset(
             0,
             4,
