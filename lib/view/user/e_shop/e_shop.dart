@@ -218,7 +218,6 @@ class _EShopState extends State<EShop> {
                       padding: const EdgeInsets.only(
                         left: 5,
                         right: 5,
-                        top: 10,
                       ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
@@ -229,6 +228,10 @@ class _EShopState extends State<EShop> {
                           children: {
                             '0': Container(
                               decoration: BoxDecoration(
+                                border: Border.all(
+                                  width: 0.5,
+                                  color: Color(0xFF0CBCC5),
+                                ),
                                 color: _selectedValue == '0'
                                     ? Color(0xFF0CBCC5)
                                     : Colors.white,
@@ -367,8 +370,7 @@ class _EShopState extends State<EShop> {
                   alignment: Alignment.center,
                   child: Image(
                     fit: BoxFit.cover,
-                    image: AssetImage(
-                        'assets/images/Img_signin_corporateuser.png'),
+                    image: AssetImage('assets/images/panadol.png'),
                   ),
                 ),
               ),

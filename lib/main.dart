@@ -5,7 +5,7 @@ import 'package:miaid/view/user/sign_In_view/signIn.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: SplashScreen(),
+    home: SignIn(),
   ));
 }
 

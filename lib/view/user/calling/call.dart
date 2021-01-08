@@ -170,8 +170,39 @@ class _CallState extends State<Call> {
                         ),
                       ),
                     ),
+                   
                     SizedBox(
                       width: 16,
+                    ),
+                    Container(
+                      height: 98,
+                      width: 98,
+                      decoration: new BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(
+                          color: colorWhite,
+                          width: 2,
+                        ),
+                        color: Colors.white,
+                        boxShadow: [
+                          new BoxShadow(
+                            color: Color(0xFF000000).withOpacity(0.24),
+                            blurRadius: 15.0,
+                            spreadRadius: 0.0, //extend the shadow
+                            offset: Offset(
+                              0.0, // Move to right 10  horizontally
+                              8, // Move to bottom 10 Vertically
+                            ),
+                          ),
+                        ],
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image(
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/images/female_doctor.jpg'),
+                        ),
+                      ),
                     ),
                     
                     

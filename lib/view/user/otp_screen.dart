@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/view/user/sign_In_view/signUp_2.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:miaid/view/user/sign_In_view/signIn.dart';
 
 class OTPScreen extends StatefulWidget {
   @override
@@ -87,7 +88,7 @@ class _OTPScreenState extends State<OTPScreen> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SignUp2(),
+                        builder: (context) => SignIn(),
                       ),
                     );
                   },
