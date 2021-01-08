@@ -28,7 +28,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
         title: Text(
           "Purchases",
           style: GoogleFonts.rubik(
-            color: colorBlack,
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -53,7 +53,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                       children: [
                         Text('Pharmacy Name',
                             style: GoogleFonts.rubik(
-                              color: colorBlack,
+                              color: AppColors.k010101,
                               fontSize: 18,
                             )),
                         InkWell(
@@ -94,7 +94,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                                       TextSpan(
                                         text: '000000012',
                                         style: GoogleFonts.rubik(
-                                          color: colorBlack,
+                                          color: AppColors.k010101,
                                           fontSize: 14,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -117,7 +117,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                                       TextSpan(
                                         text: DateTime.now().toString(),
                                         style: GoogleFonts.rubik(
-                                          color: colorBlack,
+                                          color: AppColors.k010101,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
@@ -148,7 +148,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                       children: [
                         Text('Market City Pharmacy',
                             style: GoogleFonts.rubik(
-                              color: colorBlack,
+                              color: AppColors.k010101,
                               fontSize: 18,
                             )),
                         Image(image : AssetImage(
@@ -170,7 +170,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                           TextSpan(
                             text: '000000012',
                             style: GoogleFonts.rubik(
-                              color: colorBlack,
+                              color: AppColors.k010101,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -192,7 +192,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                           TextSpan(
                             text: DateTime.now().toString(),
                             style: GoogleFonts.rubik(
-                              color: colorBlack,
+                              color: AppColors.k010101,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -376,8 +376,8 @@ class _PurchaseItemState extends State<PurchaseItem> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         FlatButton(
-                          splashColor: color.withOpacity(0.1),
-                          highlightColor: color.withOpacity(0.2),
+                          splashColor: AppColors.k0cbcc5.withOpacity(0.1),
+                          highlightColor: AppColors.k0cbcc5.withOpacity(0.2),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(9),
                             side: BorderSide(
@@ -398,7 +398,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                             child: Text(
                               'View Receipt',
                               style: GoogleFonts.rubik(
-                                color: color,
+                                color: AppColors.k0cbcc5,
                                 fontSize: 17,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -444,7 +444,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
     return Container(
       height: 0.5,
       width: MediaQuery.of(context).size.width,
-      color: colorFont.withOpacity(0.3),
+      color: k5e5e5e.withOpacity(0.3),
     );
   }
 }

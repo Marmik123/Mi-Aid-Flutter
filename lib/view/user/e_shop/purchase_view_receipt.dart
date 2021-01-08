@@ -26,7 +26,7 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
         title: Text(
           "View Receipt",
           style: GoogleFonts.rubik(
-            color: colorBlack,
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -112,7 +112,7 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
                               TextSpan(
                                 text: '000000012',
                                 style: GoogleFonts.rubik(
-                                  color: colorBlack,
+                                  color: AppColors.k010101,
                                 ),
                               ),
                             ],
@@ -148,7 +148,7 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
                               TextSpan(
                                 text: '40.0',
                                 style: GoogleFonts.rubik(
-                                    color: colorBlack,
+                                    color: AppColors.k010101,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 18),
                               ),

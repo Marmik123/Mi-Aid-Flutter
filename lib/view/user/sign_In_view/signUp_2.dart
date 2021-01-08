@@ -694,7 +694,7 @@ class _SignUp2State extends State<SignUp2> {
                     showCountryOnly: false,
                     closeIcon: const Icon(
                       Icons.close,
-                      color: color,
+                      color: AppColors.k0cbcc5,
                     ),
                     showOnlyCountryWhenClosed: false,
                     padding: EdgeInsets.zero,
@@ -898,7 +898,7 @@ class _SignUp2State extends State<SignUp2> {
         Container(
           height: 30,
           decoration: BoxDecoration(
-            color: color,
+            color: AppColors.k0cbcc5,
             borderRadius: BorderRadius.circular(22),
             boxShadow: [
               BoxShadow(
@@ -918,7 +918,7 @@ class _SignUp2State extends State<SignUp2> {
             child: Text(
               'Any',
               textAlign: TextAlign.left,
-              style: GoogleFonts.rubik(color: colorWhite, fontSize: 14),
+              style: GoogleFonts.rubik(color: kffffff, fontSize: 14),
             ),
           ),
         ),
@@ -936,9 +936,9 @@ class _SignUp2State extends State<SignUp2> {
                 ),
               )
             ],
-            color: colorWhite,
+            color: kffffff,
             border: Border.all(
-              color: color,
+              color: AppColors.k0cbcc5,
             ),
             borderRadius: BorderRadius.circular(22),
           ),
@@ -951,7 +951,7 @@ class _SignUp2State extends State<SignUp2> {
             ),
             child: Text(
               'Male',
-              style: GoogleFonts.rubik(color: color, fontSize: 14),
+              style: GoogleFonts.rubik(color: AppColors.k0cbcc5, fontSize: 14),
             ),
           ),
         ),
@@ -969,9 +969,9 @@ class _SignUp2State extends State<SignUp2> {
                 ),
               )
             ],
-            color: colorWhite,
+            color: kffffff,
             border: Border.all(
-              color: color,
+              color: AppColors.k0cbcc5,
             ),
             borderRadius: BorderRadius.circular(22),
           ),
@@ -984,7 +984,7 @@ class _SignUp2State extends State<SignUp2> {
             ),
             child: Text(
               'Female',
-              style: GoogleFonts.rubik(color: color, fontSize: 14),
+              style: GoogleFonts.rubik(color: AppColors.k0cbcc5, fontSize: 14),
             ),
           ),
         ),

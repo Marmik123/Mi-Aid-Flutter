@@ -164,7 +164,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     },
                     controller: accountFirstNameController..text = 'John',
                     style: GoogleFonts.rubik(
-                      color: colorBlack,
+                      color: AppColors.k010101,
                       fontSize: 14,
                     ),
                     decoration: InputDecoration(
@@ -182,7 +182,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -225,7 +225,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     },
                     controller: accountLastNameController..text = 'Doe',
                     style: GoogleFonts.rubik(
-                      color: colorBlack,
+                      color: AppColors.k010101,
                       fontSize: 14,
                     ),
                     decoration: InputDecoration(
@@ -243,7 +243,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -287,7 +287,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     controller: accountEmailController
                       ..text = 'Johndoe@mail.com',
                     style: GoogleFonts.rubik(
-                      color: colorBlack,
+                      color: AppColors.k010101,
                       fontSize: 14,
                     ),
                     decoration: InputDecoration(
@@ -305,7 +305,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -349,7 +349,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     keyboardType: TextInputType.phone,
                     controller: accountPhoneController..text = '1 23456 7890',
                     style: GoogleFonts.rubik(
-                      color: colorBlack,
+                      color: AppColors.k010101,
                       fontSize: 14,
                     ),
                     decoration: InputDecoration(
@@ -367,7 +367,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -387,7 +387,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                           showCountryOnly: false,
                           closeIcon: const Icon(
                             Icons.close,
-                            color: color,
+                            color: AppColors.k0cbcc5,
                           ),
                           showOnlyCountryWhenClosed: false,
                           padding: EdgeInsets.zero,
@@ -520,7 +520,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -575,7 +575,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               },
               controller: languageController..text = 'English',
               style: GoogleFonts.rubik(
-                color: colorBlack,
+                color: AppColors.k010101,
                 fontSize: 14,
               ),
               decoration: InputDecoration(
@@ -593,7 +593,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: kb1b1b1,
                     width: 0.5,
                   ),
                 ),
@@ -629,7 +629,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               },
               controller: genderController..text = 'Male',
               style: GoogleFonts.rubik(
-                color: colorBlack,
+                color: AppColors.k010101,
                 fontSize: 14,
               ),
               decoration: InputDecoration(
@@ -647,7 +647,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: kb1b1b1,
                     width: 0.5,
                   ),
                 ),
@@ -683,7 +683,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               },
               controller: doctorPreferenceController..text = 'Any',
               style: GoogleFonts.rubik(
-                color: colorBlack,
+                color: AppColors.k010101,
                 fontSize: 14,
               ),
               decoration: InputDecoration(
@@ -701,7 +701,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: kb1b1b1,
                     width: 0.5,
                   ),
                 ),
@@ -738,7 +738,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               controller: travelAgencyNameController
                 ..text = 'First Class tours',
               style: GoogleFonts.rubik(
-                color: colorBlack,
+                color: AppColors.k010101,
                 fontSize: 14,
               ),
               decoration: InputDecoration(
@@ -756,7 +756,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: kb1b1b1,
                     width: 0.5,
                   ),
                 ),
@@ -813,7 +813,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               },
               controller: fullNameController..text = 'Lucinda Mendez',
               style: GoogleFonts.rubik(
-                color: colorBlack,
+                color: AppColors.k010101,
                 fontSize: 14,
               ),
               decoration: InputDecoration(
@@ -831,7 +831,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: kb1b1b1,
                     width: 0.5,
                   ),
                 ),
@@ -873,7 +873,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               keyboardType: TextInputType.emailAddress,
               controller: emailController..text = 'lucinda.m@mail.com',
               style: GoogleFonts.rubik(
-                color: colorBlack,
+                color: AppColors.k010101,
                 fontSize: 14,
               ),
               decoration: InputDecoration(
@@ -897,7 +897,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: kb1b1b1,
                     width: 0.5,
                   ),
                 ),
@@ -944,7 +944,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     keyboardType: TextInputType.phone,
                     controller: phoneController..text = '1 23456 7890',
                     style: GoogleFonts.rubik(
-                      color: colorBlack,
+                      color: AppColors.k010101,
                       fontSize: 14,
                     ),
                     decoration: InputDecoration(
@@ -962,7 +962,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -982,7 +982,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                           showCountryOnly: false,
                           closeIcon: const Icon(
                             Icons.close,
-                            color: color,
+                            color: AppColors.k0cbcc5,
                           ),
                           showOnlyCountryWhenClosed: false,
                           padding: EdgeInsets.zero,
@@ -1080,7 +1080,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               controller: regularDoctorFullNameController
                 ..text = 'Theresa Warren',
               style: GoogleFonts.rubik(
-                color: colorBlack,
+                color: AppColors.k010101,
                 fontSize: 14,
               ),
               decoration: InputDecoration(
@@ -1098,7 +1098,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: kb1b1b1,
                     width: 0.5,
                   ),
                 ),
@@ -1140,7 +1140,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               controller: regularDoctorEmailController
                 ..text = 'theresawarren@mail.com',
               style: GoogleFonts.rubik(
-                color: colorBlack,
+                color: AppColors.k010101,
                 fontSize: 14,
               ),
               decoration: InputDecoration(
@@ -1164,7 +1164,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: kb1b1b1,
                     width: 0.5,
                   ),
                 ),

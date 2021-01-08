@@ -56,7 +56,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
           child: Text(
             'Active Package',
             style: GoogleFonts.rubik(
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 18,
               fontWeight: FontWeight.w700,
             ),
@@ -108,7 +108,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                           child: Text(
                             '2 Weeks Package',
                             style: GoogleFonts.rubik(
-                              color: colorWhite,
+                              color: kffffff,
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
                             ),
@@ -117,14 +117,14 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                         Text(
                           '• Description with features goes here.',
                           style: GoogleFonts.rubik(
-                            color: colorWhite.withOpacity(0.75),
+                            color: kffffff.withOpacity(0.75),
                             fontSize: 14,
                           ),
                         ),
                         Text(
                           '• Lorem ipsum dolor it amet',
                           style: GoogleFonts.rubik(
-                            color: colorWhite.withOpacity(0.75),
+                            color: kffffff.withOpacity(0.75),
                             fontSize: 14,
                           ),
                         ),
@@ -140,7 +140,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                               Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(4),
-                                  color: colorWhite.withOpacity(0.3),
+                                  color: kffffff.withOpacity(0.3),
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.only(
@@ -152,7 +152,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                                   child: RichText(
                                     text: TextSpan(
                                       style: GoogleFonts.rubik(
-                                        color: colorWhite.withOpacity(0.75),
+                                        color: kffffff.withOpacity(0.75),
                                       ),
                                       children: [
                                         TextSpan(
@@ -164,7 +164,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                                         TextSpan(
                                           text: ' 200.0',
                                           style: GoogleFonts.rubik(
-                                            color: colorWhite,
+                                            color: kffffff,
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -178,7 +178,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                                 height: 24,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(3),
-                                  color: colorWhite.withOpacity(0.3),
+                                  color: kffffff.withOpacity(0.3),
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.only(
@@ -190,7 +190,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                                     child: Text(
                                       '10 days remaining',
                                       style: GoogleFonts.rubik(
-                                        color: colorWhite,
+                                        color: kffffff,
                                         fontSize: 12,
                                       ),
                                     ),
@@ -220,7 +220,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
           child: Text(
             'Available Packages',
             style: GoogleFonts.rubik(
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 18,
               fontWeight: FontWeight.w700,
             ),
@@ -256,7 +256,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                           child: Text(
                             '4 Weeks Package',
                             style: GoogleFonts.rubik(
-                              color: colorBlack,
+                              color: AppColors.k010101,
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
                             ),
@@ -265,14 +265,14 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                         Text(
                           '• Description with features goes here.',
                           style: GoogleFonts.rubik(
-                            color: colorgrey,
+                            color: k696969,
                             fontSize: 14,
                           ),
                         ),
                         Text(
                           '• Lorem ipsum dolor it amet',
                           style: GoogleFonts.rubik(
-                            color: colorgrey,
+                            color: k696969,
                             fontSize: 14,
                           ),
                         ),
@@ -300,7 +300,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                                   child: RichText(
                                     text: TextSpan(
                                       style: GoogleFonts.rubik(
-                                        color: colorBlack,
+                                        color: AppColors.k010101,
                                       ),
                                       children: [
                                         TextSpan(
@@ -324,7 +324,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                               Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(9),
-                                  color: color,
+                                  color: AppColors.k0cbcc5,
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.only(
@@ -336,7 +336,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                                   child: Text(
                                     'Subscribe',
                                     style: GoogleFonts.rubik(
-                                      color: colorWhite,
+                                      color: kffffff,
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500,
                                     ),

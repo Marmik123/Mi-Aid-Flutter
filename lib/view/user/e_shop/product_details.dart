@@ -21,7 +21,7 @@ class _ProductDetailsState extends State<ProductDetails> {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-        backgroundColor: colorWhite,
+        backgroundColor: kffffff,
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Color(0xFFFFFFFF),
@@ -87,7 +87,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(4),
-                        color: color,
+                        color: AppColors.k0cbcc5,
                       ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
@@ -100,7 +100,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             Text(
                               "A\$ ",
                               style: TextStyle(
-                                color: colorWhite,
+                                color: kffffff,
                               ),
                             ),
                             Text(
@@ -108,7 +108,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18,
-                                color: colorWhite,
+                                color: kffffff,
                               ),
                             ),
                           ],
@@ -168,7 +168,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 child: Text(
                   'Panadol Rapid Paracetamol Pain Relief Caplets 500mg',
                   style: GoogleFonts.rubik(
-                    color: colorBlack,
+                    color: AppColors.k010101,
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
                   ),
@@ -181,7 +181,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 child: Text(
                   'Market City Pharmacy',
                   style: GoogleFonts.rubik(
-                    color: colorFont,
+                    color: k5e5e5e,
                     fontSize: 14,
                   ),
                 ),
@@ -197,8 +197,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                       tabindex = index;
                     });
                   },
-                  labelColor: color,
-                  indicatorColor: color,
+                  labelColor: AppColors.k0cbcc5,
+                  indicatorColor: AppColors.k0cbcc5,
                   unselectedLabelColor: Color(0xFF5E5E5E),
                   labelStyle: GoogleFonts.rubik(
                     fontSize: 13,
@@ -253,12 +253,12 @@ class _ProductDetailsState extends State<ProductDetails> {
                         borderRadius: BorderRadius.circular(9),
                         border: Border.all(
                           width: 0.5,
-                          color: color,
+                          color: AppColors.k0cbcc5,
                         )),
                     child: Text(
                       'Add to Cart',
                       style: GoogleFonts.rubik(
-                        color: color,
+                        color: AppColors.k0cbcc5,
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                       ),
@@ -335,7 +335,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -346,7 +346,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -357,7 +357,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             '• Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -368,7 +368,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             '• Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -389,7 +389,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -400,7 +400,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -411,7 +411,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             '• Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -422,7 +422,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             '• Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -433,7 +433,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             'Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -454,7 +454,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             '• Ingredient 1',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -465,7 +465,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             '• Ingredient 2',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -476,7 +476,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             '• Ingredient 3',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -487,7 +487,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             '• Ingredient 4',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -498,7 +498,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             '• Ingredient 5',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -509,7 +509,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             '• Ingredient 6',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -530,7 +530,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             '• Direction 1',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -541,7 +541,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             '• Direction 2',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -552,7 +552,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             '• Direction 3',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -563,7 +563,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             '• Direction 4',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -574,7 +574,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             '• Direction 5',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -585,7 +585,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             '• Direction 6',
             style: GoogleFonts.rubik(
               letterSpacing: -0.09,
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 14,
             ),
           ),
@@ -598,7 +598,7 @@ class _ProductDetailsState extends State<ProductDetails> {
     return Container(
       height: 0.5,
       width: MediaQuery.of(context).size.width,
-      color: colorFont.withOpacity(0.3),
+      color: k5e5e5e.withOpacity(0.3),
     );
   }
 }

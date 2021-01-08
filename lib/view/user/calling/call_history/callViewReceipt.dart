@@ -26,7 +26,7 @@ class _CallViewReceiptState extends State<CallViewReceipt> {
         title: Text(
           "View Receipt",
           style: GoogleFonts.rubik(
-            color: colorBlack,
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -91,7 +91,7 @@ class _CallViewReceiptState extends State<CallViewReceipt> {
                       style: GoogleFonts.rubik(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
-                        color: colorBlack,
+                        color: AppColors.k010101,
                       ),
                     ),
                     SizedBox(
@@ -112,7 +112,7 @@ class _CallViewReceiptState extends State<CallViewReceipt> {
                               TextSpan(
                                 text: '000000012',
                                 style: GoogleFonts.rubik(
-                                  color: colorBlack,
+                                  color: AppColors.k010101,
                                 ),
                               ),
                             ],

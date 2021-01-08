@@ -47,7 +47,7 @@ class _CartEShopState extends State<CartEShop> {
                   child: Text(
                     "Done",
                     style: GoogleFonts.rubik(
-                      color: color,
+                      color: AppColors.k0cbcc5,
                       fontSize: 17,
                       fontWeight: FontWeight.w600,
                       letterSpacing: -0.41,
@@ -69,7 +69,7 @@ class _CartEShopState extends State<CartEShop> {
         title: Text(
           "Cart",
           style: GoogleFonts.rubik(
-            color: colorBlack,
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -443,7 +443,7 @@ class _CartEShopState extends State<CartEShop> {
                                       );
                                     },
                                   style: GoogleFonts.rubik(
-                                    color: color,
+                                    color: AppColors.k0cbcc5,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),

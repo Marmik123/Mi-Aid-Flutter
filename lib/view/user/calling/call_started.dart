@@ -32,7 +32,7 @@ class _CallStartedState extends State<CallStarted> {
         title: Text(
           'MiAid Assistance',
           style: GoogleFonts.rubik(
-            color: colorWhite,
+            color: kffffff,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -65,7 +65,7 @@ class _CallStartedState extends State<CallStarted> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [colorBlack, color],
+            colors: [AppColors.k010101, AppColors.k0cbcc5],
             stops: [
               0.0,
               0.18,
@@ -89,7 +89,7 @@ class _CallStartedState extends State<CallStarted> {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: colorBlack.withOpacity(0.3),
+                  color: AppColors.k010101.withOpacity(0.3),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(
@@ -100,7 +100,7 @@ class _CallStartedState extends State<CallStarted> {
                   ),
                   child: Text(
                     '5:00',
-                    style: GoogleFonts.rubik(color: colorWhite, fontSize: 12),
+                    style: GoogleFonts.rubik(color: kffffff, fontSize: 12),
                   ),
                 ),
               ),
@@ -118,7 +118,7 @@ class _CallStartedState extends State<CallStarted> {
                       decoration: new BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         border: Border.all(
-                          color: colorWhite,
+                          color: kffffff,
                           width: 2,
                         ),
                         color: Colors.white,
@@ -164,7 +164,7 @@ class _CallStartedState extends State<CallStarted> {
                             ),
                           )
                         ],
-                        color: colorWhite,
+                        color: kffffff,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(

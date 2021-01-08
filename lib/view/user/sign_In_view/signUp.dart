@@ -239,7 +239,7 @@ class _SignUpState extends State<SignUp> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -301,7 +301,7 @@ class _SignUpState extends State<SignUp> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -364,7 +364,7 @@ class _SignUpState extends State<SignUp> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -427,7 +427,7 @@ class _SignUpState extends State<SignUp> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -546,7 +546,7 @@ class _SignUpState extends State<SignUp> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -623,7 +623,7 @@ class _SignUpState extends State<SignUp> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: kb1b1b1,
                           width: 0.5,
                         ),
                       ),

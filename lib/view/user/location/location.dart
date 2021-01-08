@@ -20,7 +20,7 @@ class _LocationsState extends State<Locations> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorWhite,
+      backgroundColor: kffffff,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
@@ -68,7 +68,7 @@ class _LocationsState extends State<Locations> {
                   style: GoogleFonts.rubik(
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
-                    color: color,
+                    color: AppColors.k0cbcc5,
                   ),
                 ),
               ],
@@ -80,7 +80,7 @@ class _LocationsState extends State<Locations> {
           Text(
             'or select a location',
             style: GoogleFonts.rubik(
-              color: colorFont,
+              color: k5e5e5e,
               fontSize: 14,
               fontWeight: FontWeight.w300,
             ),
@@ -135,7 +135,7 @@ class _LocationsState extends State<Locations> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -170,14 +170,14 @@ class _LocationsState extends State<Locations> {
                   decoration: BoxDecoration(
                     color: _expand
                         ? Color.fromRGBO(90, 177, 255, 0.1)
-                        : colorWhite,
+                        : kffffff,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text('Australia Capital Territory',
                           style: GoogleFonts.rubik(
-                            color: colorFont,
+                            color: k5e5e5e,
                             fontSize: 14,
                           )),
                       InkWell(
@@ -212,7 +212,7 @@ class _LocationsState extends State<Locations> {
                               Row(
                                 children: [
                                   Radio(
-                                    focusColor: color,
+                                    focusColor: AppColors.k0cbcc5,
                                     value: 0,
                                     groupValue: value_1,
                                     onChanged: (value) {
@@ -242,7 +242,7 @@ class _LocationsState extends State<Locations> {
                                   Radio(
                                     activeColor: Color(0xff0CBCC5),
                                     value: 1,
-                                    focusColor: color,
+                                    focusColor: AppColors.k0cbcc5,
                                     groupValue: value_2,
                                     onChanged: (value) {
                                       setState(() {
@@ -280,7 +280,7 @@ class _LocationsState extends State<Locations> {
     return Container(
                   height: 0.5,
                   width: MediaQuery.of(context).size.width,
-                  color: colorFont.withOpacity(0.3),
+                  color: k5e5e5e.withOpacity(0.3),
                 );
   }
 }

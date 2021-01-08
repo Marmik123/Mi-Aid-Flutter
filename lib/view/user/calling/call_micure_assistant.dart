@@ -32,7 +32,7 @@ class _CallScreenState extends State<CallScreen> {
         title: Text(
           'MiAid Assistance',
           style: GoogleFonts.rubik(
-            color: colorWhite,
+            color: kffffff,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -66,7 +66,7 @@ class _CallScreenState extends State<CallScreen> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [colorBlack, color],
+            colors: [AppColors.k010101, AppColors.k0cbcc5],
             stops: [
               0.0,
               0.18,
@@ -86,7 +86,7 @@ class _CallScreenState extends State<CallScreen> {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: colorBlack.withOpacity(0.3),
+                  color: AppColors.k010101.withOpacity(0.3),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(
@@ -97,7 +97,7 @@ class _CallScreenState extends State<CallScreen> {
                   ),
                   child: Text(
                     'Calling ...',
-                    style: GoogleFonts.rubik(color: colorWhite, fontSize: 12),
+                    style: GoogleFonts.rubik(color: kffffff, fontSize: 12),
                   ),
                 ),
               ),
@@ -137,7 +137,7 @@ class _CallScreenState extends State<CallScreen> {
                             ),
                           )
                         ],
-                        color: colorWhite,
+                        color: kffffff,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(

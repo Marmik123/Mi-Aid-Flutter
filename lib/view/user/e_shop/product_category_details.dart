@@ -21,7 +21,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorWhite,
+      backgroundColor: kffffff,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Color(0xFFFFFFFF),
@@ -111,7 +111,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                   children: [
                     Text('Market City Pharmacy',
                         style: GoogleFonts.rubik(
-                          color: colorBlack,
+                          color: AppColors.k010101,
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                         )),
@@ -250,7 +250,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(
-                            color: borderColor,
+                            color: kb1b1b1,
                             width: 0.5,
                           ),
                         ),
@@ -284,9 +284,9 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      color: color,
+                      color: AppColors.k0cbcc5,
                       borderRadius: BorderRadius.circular(6),
-                      border: Border.all(width: 0.5, color: color),
+                      border: Border.all(width: 0.5, color: AppColors.k0cbcc5),
                       boxShadow: [
                         BoxShadow(
                           color: Color(0xff003f51).withOpacity(0.1),
@@ -311,7 +311,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                           Text(
                             'All Categories',
                             style: GoogleFonts.rubik(
-                              color: colorWhite,
+                              color: kffffff,
                               fontWeight: FontWeight.w500,
                               fontSize: 13,
                             ),
@@ -325,9 +325,9 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: colorWhite,
+                      color: kffffff,
                       borderRadius: BorderRadius.circular(6),
-                      border: Border.all(width: 0.5, color: color),
+                      border: Border.all(width: 0.5, color: AppColors.k0cbcc5),
                       boxShadow: [
                         BoxShadow(
                           color: Color(0xff003f51).withOpacity(0.1),
@@ -352,7 +352,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                           Text(
                             'Category 2',
                             style: GoogleFonts.rubik(
-                              color: color,
+                              color: AppColors.k0cbcc5,
                               fontWeight: FontWeight.w500,
                               fontSize: 13,
                             ),
@@ -366,9 +366,9 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: colorWhite,
+                      color: kffffff,
                       borderRadius: BorderRadius.circular(6),
-                      border: Border.all(width: 0.5, color: color),
+                      border: Border.all(width: 0.5, color: AppColors.k0cbcc5),
                       boxShadow: [
                         BoxShadow(
                           color: Color(0xff003f51).withOpacity(0.1),
@@ -393,7 +393,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                           Text(
                             'Category 3',
                             style: GoogleFonts.rubik(
-                              color: color,
+                              color: AppColors.k0cbcc5,
                               fontWeight: FontWeight.w500,
                               fontSize: 13,
                             ),
@@ -407,9 +407,9 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: colorWhite,
+                      color: kffffff,
                       borderRadius: BorderRadius.circular(6),
-                      border: Border.all(width: 0.5, color: color),
+                      border: Border.all(width: 0.5, color: AppColors.k0cbcc5),
                       boxShadow: [
                         BoxShadow(
                           color: Color(0xff003f51).withOpacity(0.1),
@@ -434,7 +434,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                           Text(
                             'Category 4',
                             style: GoogleFonts.rubik(
-                              color: color,
+                              color: AppColors.k0cbcc5,
                               fontWeight: FontWeight.w500,
                               fontSize: 13,
                             ),
@@ -448,9 +448,9 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: colorWhite,
+                      color: kffffff,
                       borderRadius: BorderRadius.circular(6),
-                      border: Border.all(width: 0.5, color: color),
+                      border: Border.all(width: 0.5, color: AppColors.k0cbcc5),
                       boxShadow: [
                         BoxShadow(
                           color: Color(0xff003f51).withOpacity(0.1),
@@ -475,7 +475,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                           Text(
                             'Category 5',
                             style: GoogleFonts.rubik(
-                              color: color,
+                              color: AppColors.k0cbcc5,
                               fontWeight: FontWeight.w500,
                               fontSize: 13,
                             ),
@@ -492,7 +492,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
               child: Text(
                 'Category 1',
                 style: GoogleFonts.rubik(
-                  color: colorBlack,
+                  color: AppColors.k010101,
                   letterSpacing: 0.37,
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
@@ -602,9 +602,9 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                                 height: 28,
                                                 child: FlatButton(
                                                   splashColor:
-                                                      color.withOpacity(0.1),
+                                                      AppColors.k0cbcc5.withOpacity(0.1),
                                                   highlightColor:
-                                                      color.withOpacity(0.2),
+                                                      AppColors.k0cbcc5.withOpacity(0.2),
                                                   shape: RoundedRectangleBorder(
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -656,7 +656,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
               child: Text(
                 'Category 2',
                 style: GoogleFonts.rubik(
-                  color: colorBlack,
+                  color: AppColors.k010101,
                   letterSpacing: 0.37,
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
@@ -766,9 +766,9 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                                 height: 28,
                                                 child: FlatButton(
                                                   splashColor:
-                                                      color.withOpacity(0.1),
+                                                      AppColors.k0cbcc5.withOpacity(0.1),
                                                   highlightColor:
-                                                      color.withOpacity(0.2),
+                                                      AppColors.k0cbcc5.withOpacity(0.2),
                                                   shape: RoundedRectangleBorder(
                                                     borderRadius:
                                                         BorderRadius.circular(

@@ -15,7 +15,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorWhite,
+      backgroundColor: kffffff,
       drawer: drawer(context),
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -96,7 +96,7 @@ class _MapScreenState extends State<MapScreen> {
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(
-                            color: borderColor,
+                            color: kb1b1b1,
                             width: 0.5,
                           ),
                         ),
@@ -136,7 +136,7 @@ class _MapScreenState extends State<MapScreen> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(6),
-                      border: Border.all(width: 0.5, color: colorRed),
+                      border: Border.all(width: 0.5, color: ke63030),
                       boxShadow: [
                         BoxShadow(
                           color: Color(0xff003f51).withOpacity(0.1),
@@ -162,7 +162,7 @@ class _MapScreenState extends State<MapScreen> {
                             height: 9,
                             width: 9,
                             decoration: BoxDecoration(
-                              color: colorRed,
+                              color: ke63030,
                               borderRadius: BorderRadius.circular(2),
                               boxShadow: [
                                 BoxShadow(
@@ -198,7 +198,7 @@ class _MapScreenState extends State<MapScreen> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(6),
-                        border: Border.all(width: 0.5, color: color),
+                        border: Border.all(width: 0.5, color: AppColors.k0cbcc5),
                         boxShadow: [
                           BoxShadow(
                             color: Color(0xff003f51).withOpacity(0.1),
@@ -224,11 +224,11 @@ class _MapScreenState extends State<MapScreen> {
                               height: 9,
                               width: 9,
                               decoration: BoxDecoration(
-                                color: color,
+                                color: AppColors.k0cbcc5,
                                 borderRadius: BorderRadius.circular(2),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: color.withOpacity(0.1),
+                                    color: AppColors.k0cbcc5.withOpacity(0.1),
                                     offset: Offset(
                                       0,
                                       4,
@@ -259,7 +259,7 @@ class _MapScreenState extends State<MapScreen> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(6),
-                      border: Border.all(width: 0.5, color: colorYellow),
+                      border: Border.all(width: 0.5, color: ke68c30),
                       boxShadow: [
                         BoxShadow(
                           color: Color(0xff003f51).withOpacity(0.1),
@@ -285,7 +285,7 @@ class _MapScreenState extends State<MapScreen> {
                             height: 9,
                             width: 9,
                             decoration: BoxDecoration(
-                              color: colorYellow,
+                              color: ke68c30,
                               borderRadius: BorderRadius.circular(2),
                               boxShadow: [
                                 BoxShadow(
@@ -319,7 +319,7 @@ class _MapScreenState extends State<MapScreen> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(6),
-                      border: Border.all(width: 0.5, color: colorPurple),
+                      border: Border.all(width: 0.5, color: k5251f7),
                       boxShadow: [
                         BoxShadow(
                           color: Color(0xff003f51).withOpacity(0.1),
@@ -345,7 +345,7 @@ class _MapScreenState extends State<MapScreen> {
                             height: 9,
                             width: 9,
                             decoration: BoxDecoration(
-                              color: colorPurple,
+                              color: k5251f7,
                               borderRadius: BorderRadius.circular(2),
                               boxShadow: [
                                 BoxShadow(
@@ -406,7 +406,7 @@ class _MapScreenState extends State<MapScreen> {
                   Text(
                     'Corburg Medical Clinic',
                     style: GoogleFonts.rubik(
-                      color: colorBlack,
+                      color: AppColors.k010101,
                       fontSize: 17,
                       fontWeight: FontWeight.w500,
                     ),
@@ -420,7 +420,7 @@ class _MapScreenState extends State<MapScreen> {
                         decoration: BoxDecoration(
                           border: Border.all(
                             width: 0.5,
-                            color: color,
+                            color: AppColors.k0cbcc5,
                           ),
                           borderRadius: BorderRadius.circular(4),
                         ),
@@ -476,12 +476,12 @@ class _MapScreenState extends State<MapScreen> {
                                     borderRadius: BorderRadius.circular(9),
                                     border: Border.all(
                                       width: 0.5,
-                                      color: color,
+                                      color: AppColors.k0cbcc5,
                                     )),
                                 child: Text(
                                   'Get Directions',
                                   style: GoogleFonts.rubik(
-                                    color: color,
+                                    color: AppColors.k0cbcc5,
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -513,7 +513,7 @@ class _MapScreenState extends State<MapScreen> {
                   Text(
                     'Opening hours',
                     style: GoogleFonts.rubik(
-                      color: colorBlack,
+                      color: AppColors.k010101,
                       fontWeight: FontWeight.w500,
                       fontSize: 14,
                     ),

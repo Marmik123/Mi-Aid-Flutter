@@ -940,7 +940,7 @@ callAlertDialog(BuildContext context) {
         style: GoogleFonts.rubik(
           fontSize: 18,
           fontWeight: FontWeight.w500,
-          color: color,
+          color: AppColors.k0cbcc5,
         ),
       ),
     ),

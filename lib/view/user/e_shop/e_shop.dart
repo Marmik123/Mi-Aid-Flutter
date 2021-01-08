@@ -140,7 +140,7 @@ class _EShopState extends State<EShop> {
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(
-                            color: borderColor,
+                            color: kb1b1b1,
                             width: 0.5,
                           ),
                         ),
@@ -185,7 +185,7 @@ class _EShopState extends State<EShop> {
                           borderRadius: BorderRadius.circular(6),
                           border: Border.all(
                             width: 1,
-                            color: color,
+                            color: AppColors.k0cbcc5,
                           ),
                         ),
                         padding: EdgeInsets.only(
@@ -200,7 +200,7 @@ class _EShopState extends State<EShop> {
                             Text(
                               _selectedValue == '1' ? 'Clarkfield' : 'Location',
                               style: GoogleFonts.rubik(
-                                color: color,
+                                color: AppColors.k0cbcc5,
                                 fontSize: 14,
                               ),
                             )
@@ -222,7 +222,7 @@ class _EShopState extends State<EShop> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: CupertinoSegmentedControl(
-                          selectedColor: color,
+                          selectedColor: AppColors.k0cbcc5,
                           unselectedColor: Colors.white,
                           borderColor: Color(0xFF0CBCC5),
                           children: {
@@ -361,7 +361,7 @@ class _EShopState extends State<EShop> {
                 width: 133,
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: color,
+                    color: AppColors.k0cbcc5,
                     width: 1,
                   ),
                   borderRadius: BorderRadius.circular(8),
@@ -380,7 +380,7 @@ class _EShopState extends State<EShop> {
               Text(
                 'Market City \nPharmacy',
                 style: GoogleFonts.rubik(
-                  color: colorBlack,
+                  color: AppColors.k010101,
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                 ),

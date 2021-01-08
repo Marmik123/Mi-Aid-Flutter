@@ -22,7 +22,7 @@ class _CallState extends State<Call> {
         title: Text(
           'MiAid Assistance',
           style: GoogleFonts.rubik(
-            color: colorWhite,
+            color: kffffff,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -56,7 +56,7 @@ class _CallState extends State<Call> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [colorBlack, color],
+            colors: [AppColors.k010101, AppColors.k0cbcc5],
             stops: [
               0.0,
               0.18,
@@ -80,7 +80,7 @@ class _CallState extends State<Call> {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: colorBlack.withOpacity(0.3),
+                  color: AppColors.k010101.withOpacity(0.3),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(
@@ -91,7 +91,7 @@ class _CallState extends State<Call> {
                   ),
                   child: Text(
                     '4:36',
-                    style: GoogleFonts.rubik(color: colorWhite, fontSize: 12),
+                    style: GoogleFonts.rubik(color: kffffff, fontSize: 12),
                   ),
                 ),
               ),
@@ -113,7 +113,7 @@ class _CallState extends State<Call> {
                       decoration: new BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         border: Border.all(
-                          color: colorWhite,
+                          color: kffffff,
                           width: 2,
                         ),
                         color: Colors.white,
@@ -146,7 +146,7 @@ class _CallState extends State<Call> {
                       decoration: new BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         border: Border.all(
-                          color: colorWhite,
+                          color: kffffff,
                           width: 2,
                         ),
                         color: Colors.white,
@@ -180,7 +180,7 @@ class _CallState extends State<Call> {
                       decoration: new BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         border: Border.all(
-                          color: colorWhite,
+                          color: kffffff,
                           width: 2,
                         ),
                         color: Colors.white,
@@ -230,7 +230,7 @@ class _CallState extends State<Call> {
                             ),
                           )
                         ],
-                        color: colorWhite,
+                        color: kffffff,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(

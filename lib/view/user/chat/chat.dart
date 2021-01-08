@@ -40,7 +40,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   child: Text(
                     'Chat',
                     style: GoogleFonts.rubik(
-                      color: colorBlack,
+                      color: AppColors.k010101,
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
                     ),
@@ -51,7 +51,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   child: Text(
                     'Chat',
                     style: GoogleFonts.rubik(
-                      color: colorWhite,
+                      color: kffffff,
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
                     ),
@@ -95,7 +95,7 @@ class _ChatScreenState extends State<ChatScreen> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              color: colorWhite,
+              color: kffffff,
               child: Row(
                 children: [
                   Expanded(
@@ -150,7 +150,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             child: Text(
                               "Camera",
                               style: GoogleFonts.rubik(
-                                color: color,
+                                color: AppColors.k0cbcc5,
                                 fontSize: 20,
                                 fontWeight: FontWeight.normal,
                               ),
@@ -164,7 +164,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             child: Text(
                               "Choose from Albums",
                               style: GoogleFonts.rubik(
-                                color: color,
+                                color: AppColors.k0cbcc5,
                                 fontSize: 20,
                               ),
                             ),
@@ -178,7 +178,7 @@ class _ChatScreenState extends State<ChatScreen> {
                           child: Text(
                             "Cancel",
                             style: GoogleFonts.rubik(
-                              color: color,
+                              color: AppColors.k0cbcc5,
                               fontSize: 20,
                             ),
                           ),
@@ -219,7 +219,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   borderRadius: BorderRadius.circular(15),
                   border: Border.all(
                     width: 1,
-                    color: color,
+                    color: AppColors.k0cbcc5,
                   ),
                 ),
                 child: InkWell(
@@ -242,7 +242,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         right: 0,
                         child: Container(
                             decoration: BoxDecoration(
-                              color: color.withOpacity(0.5),
+                              color: AppColors.k0cbcc5.withOpacity(0.5),
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(5),
                                 // topRight: Radius.circular(10),
@@ -287,10 +287,10 @@ Widget senderTextMessage() {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: color,
+                  color: AppColors.k0cbcc5,
                   boxShadow: [
                     BoxShadow(
-                      color: colorBlack.withOpacity(0.18),
+                      color: AppColors.k010101.withOpacity(0.18),
                       offset: Offset(
                         0,
                         0,
@@ -316,7 +316,7 @@ Widget senderTextMessage() {
                     'Hi ',
                     style: GoogleFonts.sourceSerifPro(
                       fontSize: 14,
-                      color: colorBlack,
+                      color: AppColors.k010101,
                       fontWeight: FontWeight.w300,
                     ),
                   ),
@@ -391,10 +391,10 @@ Widget receiverTextMessage() {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: colorWhite,
+                  color: kffffff,
                   boxShadow: [
                     BoxShadow(
-                      color: colorBlack.withOpacity(0.18),
+                      color: AppColors.k010101.withOpacity(0.18),
                       offset: Offset(
                         0,
                         0,
@@ -420,7 +420,7 @@ Widget receiverTextMessage() {
                     'Hello',
                     style: GoogleFonts.sourceSerifPro(
                       fontSize: 14,
-                      color: colorBlack,
+                      color: AppColors.k010101,
                       fontWeight: FontWeight.w300,
                     ),
                   ),
@@ -469,10 +469,10 @@ Widget receiverDocument() {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: colorWhite,
+                  color: kffffff,
                   boxShadow: [
                     BoxShadow(
-                      color: colorBlack.withOpacity(0.18),
+                      color: AppColors.k010101.withOpacity(0.18),
                       offset: Offset(
                         0,
                         0,
@@ -506,7 +506,7 @@ Widget receiverDocument() {
                         'Document goes here...',
                         style: GoogleFonts.sourceSerifPro(
                           fontSize: 14,
-                          color: colorBlack,
+                          color: AppColors.k010101,
                           fontWeight: FontWeight.w300,
                         ),
                       ),
@@ -557,10 +557,10 @@ Widget receiverImage() {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: colorWhite,
+                  color: kffffff,
                   boxShadow: [
                     BoxShadow(
-                      color: colorBlack.withOpacity(0.18),
+                      color: AppColors.k010101.withOpacity(0.18),
                       offset: Offset(
                         0,
                         0,
@@ -631,10 +631,10 @@ Widget receiverVideo() {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: colorWhite,
+                  color: kffffff,
                   boxShadow: [
                     BoxShadow(
-                      color: colorBlack.withOpacity(0.18),
+                      color: AppColors.k010101.withOpacity(0.18),
                       offset: Offset(
                         0,
                         0,

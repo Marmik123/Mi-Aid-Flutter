@@ -179,7 +179,7 @@ class _CallHistoryState extends State<CallHistory> {
         title: Text(
           'Call History',
           style: GoogleFonts.rubik(
-            color: colorBlack,
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -272,7 +272,7 @@ class _CallHistoryState extends State<CallHistory> {
                             style: GoogleFonts.rubik(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
-                              color: colorBlack,
+                              color: AppColors.k010101,
                             ),
                           ),
                         ],
@@ -299,7 +299,7 @@ class _CallHistoryState extends State<CallHistory> {
                             style: GoogleFonts.rubik(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
-                              color: colorBlack,
+                              color: AppColors.k010101,
                             ),
                           ),
                         ],
@@ -326,14 +326,14 @@ class _CallHistoryState extends State<CallHistory> {
                             style: GoogleFonts.rubik(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
-                              color: colorBlack,
+                              color: AppColors.k010101,
                             ),
                           ),
                         ],
                       ),
                       FlatButton(
-                        splashColor: color.withOpacity(0.1),
-                        highlightColor: color.withOpacity(0.2),
+                        splashColor: AppColors.k0cbcc5.withOpacity(0.1),
+                        highlightColor: AppColors.k0cbcc5.withOpacity(0.2),
                         minWidth: double.infinity,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(9),
