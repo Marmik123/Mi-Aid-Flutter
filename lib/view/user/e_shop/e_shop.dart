@@ -214,72 +214,75 @@ class _EShopState extends State<EShop> {
                   ),
                   Container(
                     alignment: Alignment.center,
-                    child: ClipRRect(
-                       borderRadius: BorderRadius.circular(5),
-                      child: CupertinoSegmentedControl(
-                        selectedColor: color,
-                        unselectedColor: Colors.white,
-                        borderColor: Color(0xFF0CBCC5),
-                        children: {
-                          '0': Container(
-                            decoration: BoxDecoration(
-                              color: _selectedValue == '0'
-                                  ? Color(0xFF0CBCC5)
-                                  : Colors.white,
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(5),
-                                topLeft: Radius.circular(5),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 5,
+                        right: 5,
+                        top: 10,
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: CupertinoSegmentedControl(
+                          selectedColor: color,
+                          unselectedColor: Colors.white,
+                          borderColor: Color(0xFF0CBCC5),
+                          children: {
+                            '0': Container(
+                              decoration: BoxDecoration(
+                                color: _selectedValue == '0'
+                                    ? Color(0xFF0CBCC5)
+                                    : Colors.white,
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(5),
+                                  topLeft: Radius.circular(5),
+                                ),
                               ),
-                              border: Border.all(
-                                width: 0.5,
-                                color: Color(0xFF0CBCC5),
-                              ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 13,
-                                vertical: 4,
-                              ),
-                              child: Image(
-                                image: AssetImage(_selectedValue == '0'
-                                    ? 'assets/images/ic_eshop_listview_normal.png'
-                                    : 'assets/images/ic_eshop_listview_active.png'),
-                              ),
-                            ),
-                          ),
-                          '1': Container(
-                            decoration: BoxDecoration(
-                              color: _selectedValue == '1'
-                                  ? Color(0xFF0CBCC5)
-                                  : Colors.white,
-                              borderRadius: BorderRadius.only(
-                                bottomRight: Radius.circular(5),
-                                topRight: Radius.circular(5),
-                              ),
-                              border: Border.all(
-                                width: 0.5,
-                                color: Color(0xFF0CBCC5),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 13,
+                                  vertical: 4,
+                                ),
+                                child: Image(
+                                  image: AssetImage(_selectedValue == '0'
+                                      ? 'assets/images/ic_eshop_listview_normal.png'
+                                      : 'assets/images/ic_eshop_listview_active.png'),
+                                ),
                               ),
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 13,
-                                vertical: 4,
+                            '1': Container(
+                              decoration: BoxDecoration(
+                                color: _selectedValue == '1'
+                                    ? Color(0xFF0CBCC5)
+                                    : Colors.white,
+                                borderRadius: BorderRadius.only(
+                                  bottomRight: Radius.circular(5),
+                                  topRight: Radius.circular(5),
+                                ),
+                                border: Border.all(
+                                  width: 0.5,
+                                  color: Color(0xFF0CBCC5),
+                                ),
                               ),
-                              child: Image(
-                                image: AssetImage(_selectedValue == '1'
-                                    ? 'assets/images/ic_eshop_mapview_normal.png'
-                                    : 'assets/images/ic_eshop_mapview_active.png'),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 13,
+                                  vertical: 4,
+                                ),
+                                child: Image(
+                                  image: AssetImage(_selectedValue == '1'
+                                      ? 'assets/images/ic_eshop_mapview_normal.png'
+                                      : 'assets/images/ic_eshop_mapview_active.png'),
+                                ),
                               ),
                             ),
-                          ),
-                        },
-                        onValueChanged: (value) {
-                          setState(() {
-                            _selectedValue = value;
-                          });
-                        },
-                        groupValue: _selectedValue,
+                          },
+                          onValueChanged: (value) {
+                            setState(() {
+                              _selectedValue = value;
+                            });
+                          },
+                          groupValue: _selectedValue,
+                        ),
                       ),
                     ),
                   ),

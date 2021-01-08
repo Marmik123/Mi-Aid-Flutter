@@ -152,13 +152,13 @@ class _OTPScreenState extends State<OTPScreen> {
                   obscureText: false,
                   obscuringCharacter: '*',
                   // animationType: AnimationType.fade,
-                  validator: (v) {
-                    if (v.length < 3) {
-                      return "I'm from validator";
-                    } else {
-                      return null;
-                    }
-                  },
+                  // validator: (v) {
+                  //   if (v.length < 3) {
+                  //     return "I'm from validator";
+                  //   } else {
+                  //     return null;
+                  //   }
+                  // },
                   pinTheme: PinTheme(
                     shape: PinCodeFieldShape.box,
                     borderRadius: BorderRadius.circular(10),

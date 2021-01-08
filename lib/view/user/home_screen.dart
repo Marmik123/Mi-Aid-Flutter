@@ -48,6 +48,8 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: const EdgeInsets.only(
               right: 13,
+              top: 10,
+              bottom: 10,
             ),
             child: InkWell(
               onTap: () {
@@ -103,28 +105,37 @@ class _HomeScreenState extends State<HomeScreen> {
                 showCupertinoModalPopup(
                     context: context, builder: (context) => action);
               },
-              child: Padding(
-                padding: const EdgeInsets.only(right: 13, top: 4, bottom: 4),
-                child: Container(
-                  height: 36,
-                  width: 36,
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0xFF003f51).withOpacity(0.1),
-                        blurRadius: 10.0, // soften the shadow
-                        spreadRadius: 0.0, //extend the shadow
-                        offset: Offset(
-                          0.0, // Move to right 10  horizontally
-                          0.4, // Move to bottom 10 Vertically
-                        ),
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Image(
-                    image:
-                        AssetImage('assets/images/NavBar/ic_nb_language.png'),
+              child: 
+              Container(
+                decoration: new BoxDecoration(
+                  color: Color(0xFFEEFEFF),
+                  borderRadius: BorderRadius.circular(6),
+                  boxShadow: [
+                    new BoxShadow(
+                      color: Color(0xFF003f51).withOpacity(0.1),
+                      blurRadius: 10.0,
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        0, // Move to right 10  horizontally
+                        4, // Move to bottom 10 Vertically
+                      ),
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 0,
+                    ),
+                    child: Text(
+                      'EN',
+                      style: GoogleFonts.rubik(
+                        color: color,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
                   ),
                 ),
               ),

@@ -93,8 +93,8 @@ class _SignUpState extends State<SignUp> {
               alignment: Alignment.center,
               child: Padding(
                 padding: const EdgeInsets.only(
-                  left: 20,
-                  right: 20,
+                  left: 5,
+                  right: 5,
                   top: 10,
                 ),
                 child: ClipRRect(
@@ -155,6 +155,8 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                     },
+                    
+                    
                     onValueChanged: (value) {
                       setState(() {
                         _selectedValue = value;
@@ -165,6 +167,7 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
             ),
+            
             SizedBox(
               height: 20,
             ),
