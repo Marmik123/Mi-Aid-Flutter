@@ -6,7 +6,7 @@ void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: SignIn(),
-  ));
+  ),);
 }
 
 class SplashScreen extends StatefulWidget {
