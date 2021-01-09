@@ -9,7 +9,7 @@ import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/payment/additional_services.dart';
 import 'package:miaid/view/drawer/about.dart';
 import 'package:miaid/view/user/calling/call.dart';
-import 'package:miaid/view/user/sign_In_view/signIn.dart';
+import 'package:miaid/view/user/sign_In_view/sign_In.dart';
 import 'package:miaid/view/user/travel_care_packages/Travel_care_packages.dart';
 import 'package:miaid/view/map/map_screen.dart';
 import 'package:miaid/generated/l10n.dart';

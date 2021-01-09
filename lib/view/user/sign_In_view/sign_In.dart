@@ -7,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/view/user/password_view/forgot_password.dart';
-import 'package:miaid/view/user/sign_In_view/signUp.dart';
+import 'package:miaid/view/user/sign_In_view/sign_Up.dart';
 import 'package:miaid/view/user/home_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:miaid/view/user/password_view/reset_password.dart';

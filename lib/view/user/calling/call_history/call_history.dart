@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 //import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/config/app_colors.dart';
-import 'package:miaid/view/user/sign_In_view/signIn.dart';
+import 'package:miaid/view/user/sign_In_view/sign_In.dart';
 import 'package:miaid/component/drawer.dart';
 import './callViewReceipt.dart';
 

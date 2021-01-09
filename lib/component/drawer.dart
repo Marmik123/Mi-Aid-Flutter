@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/view/drawer/Terms&Cond.dart';
 import 'package:miaid/view/drawer/about.dart';
-import 'package:miaid/view/drawer/privacy&policy.dart';
+import 'package:miaid/view/drawer/privacy_&_policy.dart';
 import 'package:miaid/view/user/home_screen.dart';
 import 'package:miaid/view/user/travel_care_packages/Travel_care_packages.dart';
 import 'package:miaid/view/user/user_profile_screen/user_profile.dart';
