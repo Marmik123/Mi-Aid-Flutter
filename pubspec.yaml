@@ -28,6 +28,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_native_splash: ^0.2.2
 
 flutter:
   uses-material-design: true
@@ -37,5 +38,11 @@ flutter:
     - assets/icons/
     - assets/images/NavBar/
     - assets/
+
+flutter_native_splash:
+  image: assets/splash/splash.png
+  color: "ffffff"
+  fill: true
+
 flutter_intl:
   enabled: true
