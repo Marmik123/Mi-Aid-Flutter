@@ -3,8 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/view/user/home_screen.dart';
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:miaid/component/miaid_card.dart';
+//import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/config/app_colors.dart';
 
 class SignUp2 extends StatefulWidget {
   @override
@@ -28,9 +29,6 @@ class _SignUp2State extends State<SignUp2> {
   final nextOfKinKey = GlobalKey<FormState>();
   final regularDoctorKey = GlobalKey<FormState>();
 
-  static const fontColor = Color(0xFF010101);
-  static const borderColor = Color(0xFFB1B1B1);
-
   DateTime _dateTime = DateTime.now();
 
   @override
@@ -39,12 +37,12 @@ class _SignUp2State extends State<SignUp2> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
           S.of(context).completeYourProfile,
           style: GoogleFonts.rubik(
-            color: Color(0xFF010101),
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -83,7 +81,7 @@ class _SignUp2State extends State<SignUp2> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(9),
                   ),
-                  color: Color(0xFF0CBCC5),
+                  color: AppColors.k0cbcc5,
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -95,7 +93,7 @@ class _SignUp2State extends State<SignUp2> {
                   child: Text(
                     S.of(context).completeProfile,
                     style: GoogleFonts.rubik(
-                      color: Color(0xFFFFFFFF),
+                      color: AppColors.kffffff,
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
                     ),
@@ -146,7 +144,7 @@ class _SignUp2State extends State<SignUp2> {
                     child: Text(
                       S.of(context).generalDetail,
                       style: GoogleFonts.rubik(
-                        color: Color(0xFF010101),
+                        color: AppColors.k010101,
                         fontSize: 17,
                         fontWeight: FontWeight.bold,
                       ),
@@ -160,8 +158,8 @@ class _SignUp2State extends State<SignUp2> {
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: dobController.text.trim().length > 0
-                          ? Color(0xFFB1B1B1)
-                          : Color(0xFF010101),
+                          ? AppColors.kb1b1b1
+                          : AppColors.k010101,
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                     ),
@@ -191,7 +189,7 @@ class _SignUp2State extends State<SignUp2> {
                     decoration: InputDecoration(
                       hintText: 'Ex: 01 Jan 1990',
                       hintStyle: GoogleFonts.rubik(
-                        color: Color(0xFfB1B1B1),
+                        color: AppColors.kb1b1b1,
                         fontSize: 14,
                       ),
                       contentPadding: EdgeInsets.only(
@@ -201,14 +199,14 @@ class _SignUp2State extends State<SignUp2> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color(0xFF010101),
+                          color: AppColors.k010101,
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: AppColors.kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -246,8 +244,8 @@ class _SignUp2State extends State<SignUp2> {
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: languageController.text.trim().length > 0
-                          ? Color(0xFFB1B1B1)
-                          : Color(0xFF010101),
+                          ? AppColors.kb1b1b1
+                          : AppColors.k010101,
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                     ),
@@ -259,7 +257,7 @@ class _SignUp2State extends State<SignUp2> {
                     width: 335,
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: borderColor,
+                        color: AppColors.kb1b1b1,
                         width: 0.5,
                       ),
                       borderRadius: BorderRadius.circular(10),
@@ -273,7 +271,7 @@ class _SignUp2State extends State<SignUp2> {
                             'assets/images/ic_pharmacy_location_expand.png'),
                         iconSize: 24,
                         elevation: 16,
-                        style: GoogleFonts.rubik(color: fontColor),
+                        style: GoogleFonts.rubik(color: AppColors.k5e5e5e),
                         underline: SizedBox.shrink(),
                         onChanged: (String newValue) {
                           setState(() {
@@ -286,7 +284,7 @@ class _SignUp2State extends State<SignUp2> {
                               alignment: Alignment.centerLeft,
                               child: Text(
                                 dropDownLanguage,
-                                style: TextStyle(color: fontColor),
+                                style: TextStyle(color: AppColors.k5e5e5e),
                               ),
                             );
                           }).toList();
@@ -298,7 +296,7 @@ class _SignUp2State extends State<SignUp2> {
                             child: Text(
                               value,
                               style: GoogleFonts.rubik(
-                                color: fontColor,
+                                color: AppColors.k5e5e5e,
                                 fontSize: 14,
                               ),
                             ),
@@ -322,8 +320,8 @@ class _SignUp2State extends State<SignUp2> {
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: genderController.text.trim().length > 0
-                          ? Color(0xFFB1B1B1)
-                          : Color(0xFF010101),
+                          ? AppColors.kb1b1b1
+                          : AppColors.k010101,
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                     ),
@@ -334,7 +332,7 @@ class _SignUp2State extends State<SignUp2> {
                   Container(
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: borderColor,
+                        color: AppColors.kb1b1b1,
                         width: 0.5,
                       ),
                       borderRadius: BorderRadius.circular(10),
@@ -348,7 +346,7 @@ class _SignUp2State extends State<SignUp2> {
                         underline: SizedBox.shrink(),
                         value: dropDownGender,
                         isExpanded: true,
-                        style: GoogleFonts.rubik(color: fontColor),
+                        style: GoogleFonts.rubik(color: AppColors.k5e5e5e),
                         icon: Image.asset(
                             'assets/images/ic_pharmacy_location_expand.png'),
                         iconSize: 24,
@@ -364,7 +362,7 @@ class _SignUp2State extends State<SignUp2> {
                               alignment: Alignment.centerLeft,
                               child: Text(
                                 dropDownGender,
-                                style: TextStyle(color: fontColor),
+                                style: TextStyle(color: AppColors.k5e5e5e),
                               ),
                             );
                           }).toList();
@@ -376,7 +374,7 @@ class _SignUp2State extends State<SignUp2> {
                             child: Text(
                               value,
                               style: GoogleFonts.rubik(
-                                color: fontColor,
+                                color: AppColors.k5e5e5e,
                                 fontSize: 14,
                               ),
                             ),
@@ -400,8 +398,8 @@ class _SignUp2State extends State<SignUp2> {
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: doctorPreferenceController.text.trim().length > 0
-                          ? Color(0xFFB1B1B1)
-                          : Color(0xFF010101),
+                          ? AppColors.kb1b1b1
+                          : AppColors.k010101,
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                     ),
@@ -425,8 +423,8 @@ class _SignUp2State extends State<SignUp2> {
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: travelAgencyNameController.text.trim().length > 0
-                          ? Color(0xFFB1B1B1)
-                          : Color(0xFF010101),
+                          ? AppColors.kb1b1b1
+                          : AppColors.k010101,
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                     ),
@@ -449,7 +447,7 @@ class _SignUp2State extends State<SignUp2> {
                     decoration: InputDecoration(
                       hintText: S.of(context).sample,
                       hintStyle: GoogleFonts.rubik(
-                        color: Color(0xFfB1B1B1),
+                        color: AppColors.kb1b1b1,
                         fontSize: 14,
                       ),
                       contentPadding: EdgeInsets.only(
@@ -459,14 +457,14 @@ class _SignUp2State extends State<SignUp2> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color(0xFF010101),
+                          color: AppColors.k010101,
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: AppColors.kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -497,7 +495,7 @@ class _SignUp2State extends State<SignUp2> {
               child: Text(
                 S.of(context).nextOfKin,
                 style: GoogleFonts.rubik(
-                  color: Color(0xFF010101),
+                  color: AppColors.k010101,
                   fontSize: 17,
                   fontWeight: FontWeight.bold,
                 ),
@@ -511,8 +509,8 @@ class _SignUp2State extends State<SignUp2> {
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
                 color: fullNameController.text.trim().length > 0
-                    ? Color(0xFFB1B1B1)
-                    : Color(0xFF010101),
+                    ? AppColors.kb1b1b1
+                    : AppColors.k010101,
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),
@@ -528,7 +526,7 @@ class _SignUp2State extends State<SignUp2> {
               decoration: InputDecoration(
                 hintText: 'Ex: Kelly Babara',
                 hintStyle: GoogleFonts.rubik(
-                  color: Color(0xFFB1B1B1),
+                  color: AppColors.kb1b1b1,
                   fontSize: 14,
                 ),
                 contentPadding: EdgeInsets.only(
@@ -538,26 +536,26 @@ class _SignUp2State extends State<SignUp2> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: AppColors.kb1b1b1,
                     width: 0.5,
                   ),
                 ),
                 errorBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFFFA0020),
+                    color: AppColors.kfa0020,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFFFA0020),
+                    color: AppColors.kfa0020,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -571,8 +569,8 @@ class _SignUp2State extends State<SignUp2> {
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
                 color: emailController.text.trim().length > 0
-                    ? Color(0xFFB1B1B1)
-                    : Color(0xFF010101),
+                    ? AppColors.kb1b1b1
+                    : AppColors.k010101,
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),
@@ -589,7 +587,7 @@ class _SignUp2State extends State<SignUp2> {
               decoration: InputDecoration(
                 hintText: 'samplemail@example.com',
                 hintStyle: GoogleFonts.rubik(
-                  color: Color(0xFfB1B1B1),
+                  color: AppColors.kb1b1b1,
                   fontSize: 14,
                 ),
                 contentPadding: EdgeInsets.only(
@@ -599,26 +597,26 @@ class _SignUp2State extends State<SignUp2> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 errorBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFFFA0020),
+                    color: AppColors.kfa0020,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: AppColors.kb1b1b1,
                     width: 0.5,
                   ),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFFFA0020),
+                    color: AppColors.kfa0020,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -632,8 +630,8 @@ class _SignUp2State extends State<SignUp2> {
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
                 color: phoneController.text.trim().length > 0
-                    ? Color(0xFFB1B1B1)
-                    : Color(0xFF010101),
+                    ? AppColors.kb1b1b1
+                    : AppColors.k010101,
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),
@@ -657,7 +655,7 @@ class _SignUp2State extends State<SignUp2> {
               decoration: InputDecoration(
                 hintText: '1234567890',
                 hintStyle: GoogleFonts.rubik(
-                  color: Color(0xFfB1B1B1),
+                  color: AppColors.kb1b1b1,
                   fontSize: 14,
                 ),
                 contentPadding: EdgeInsets.only(
@@ -667,14 +665,14 @@ class _SignUp2State extends State<SignUp2> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: AppColors.kb1b1b1,
                     width: 0.5,
                   ),
                 ),
@@ -687,14 +685,14 @@ class _SignUp2State extends State<SignUp2> {
                     showDropDownButton: true,
                     alignLeft: false,
                     textStyle: GoogleFonts.rubik(
-                      color: Color(0xFFB1B1B1),
+                      color: AppColors.kb1b1b1,
                       fontSize: 14,
                     ),
                     initialSelection: 'au',
                     showCountryOnly: false,
-                    closeIcon: const Icon(
+                    closeIcon: Icon(
                       Icons.close,
-                      color: color,
+                      color: AppColors.k0cbcc5,
                     ),
                     showOnlyCountryWhenClosed: false,
                     padding: EdgeInsets.zero,
@@ -712,7 +710,7 @@ class _SignUp2State extends State<SignUp2> {
                           Text(
                             country.dialCode,
                             style: GoogleFonts.rubik(
-                              color: Color(0xFFB1B1B1),
+                              color: AppColors.kb1b1b1,
                               fontSize: 14,
                             ),
                           ),
@@ -727,7 +725,7 @@ class _SignUp2State extends State<SignUp2> {
                           Container(
                             height: 35,
                             width: 1,
-                            color: Color(0xFFb1b1b1).withOpacity(0.1),
+                            color: AppColors.kb1b1b1.withOpacity(0.1),
                           )
                         ],
                       );
@@ -758,7 +756,7 @@ class _SignUp2State extends State<SignUp2> {
               child: Text(
                 S.of(context).regularDoctor,
                 style: GoogleFonts.rubik(
-                  color: Color(0xFF010101),
+                  color: AppColors.k010101,
                   fontSize: 17,
                   fontWeight: FontWeight.bold,
                 ),
@@ -772,8 +770,8 @@ class _SignUp2State extends State<SignUp2> {
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
                 color: regularDoctorFullNameController.text.trim().length > 0
-                    ? Color(0xFFB1B1B1)
-                    : Color(0xFF010101),
+                    ? AppColors.kb1b1b1
+                    : AppColors.k010101,
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),
@@ -789,7 +787,7 @@ class _SignUp2State extends State<SignUp2> {
               decoration: InputDecoration(
                 hintText: 'Ex: Kelly Babara',
                 hintStyle: GoogleFonts.rubik(
-                  color: Color(0xFFB1B1B1),
+                  color: AppColors.kb1b1b1,
                   fontSize: 14,
                 ),
                 contentPadding: EdgeInsets.only(
@@ -799,26 +797,26 @@ class _SignUp2State extends State<SignUp2> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: AppColors.kb1b1b1,
                     width: 0.5,
                   ),
                 ),
                 errorBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFFFA0020),
+                    color: AppColors.kfa0020,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFFFA0020),
+                    color: AppColors.kfa0020,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -832,8 +830,8 @@ class _SignUp2State extends State<SignUp2> {
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
                 color: regularDoctorEmailController.text.trim().length > 0
-                    ? Color(0xFFB1B1B1)
-                    : Color(0xFF010101),
+                    ? AppColors.kb1b1b1
+                    : AppColors.k010101,
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),
@@ -849,7 +847,7 @@ class _SignUp2State extends State<SignUp2> {
               decoration: InputDecoration(
                 hintText: 'samplemail@example.com',
                 hintStyle: GoogleFonts.rubik(
-                  color: Color(0xFfB1B1B1),
+                  color: AppColors.kb1b1b1,
                   fontSize: 14,
                 ),
                 contentPadding: EdgeInsets.only(
@@ -859,26 +857,26 @@ class _SignUp2State extends State<SignUp2> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 errorBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFFFA0020),
+                    color: AppColors.kfa0020,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: AppColors.kb1b1b1,
                     width: 0.5,
                   ),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFFFA0020),
+                    color: AppColors.kfa0020,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -897,11 +895,11 @@ class _SignUp2State extends State<SignUp2> {
         Container(
           height: 30,
           decoration: BoxDecoration(
-            color: color,
+            color: AppColors.k0cbcc5,
             borderRadius: BorderRadius.circular(22),
             boxShadow: [
               BoxShadow(
-                color: Color(0xFF0cbcc5).withOpacity(0.2),
+                color: AppColors.k0cbcc5.withOpacity(0.2),
                 blurRadius: 10.0, // soften the shadow
                 spreadRadius: 0.0, //extend the shadow
                 offset: Offset(
@@ -917,7 +915,7 @@ class _SignUp2State extends State<SignUp2> {
             child: Text(
               S.of(context).anys,
               textAlign: TextAlign.left,
-              style: GoogleFonts.rubik(color: colorWhite, fontSize: 14),
+              style: GoogleFonts.rubik(color: AppColors.kffffff, fontSize: 14),
             ),
           ),
         ),
@@ -926,7 +924,7 @@ class _SignUp2State extends State<SignUp2> {
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                color: Color(0xFF0cbcc5).withOpacity(0.2),
+                color: AppColors.k0cbcc5.withOpacity(0.2),
                 blurRadius: 10.0, // soften the shadow
                 spreadRadius: 0.0, //extend the shadow
                 offset: Offset(
@@ -935,9 +933,9 @@ class _SignUp2State extends State<SignUp2> {
                 ),
               )
             ],
-            color: colorWhite,
+            color: AppColors.kffffff,
             border: Border.all(
-              color: color,
+              color: AppColors.k0cbcc5,
             ),
             borderRadius: BorderRadius.circular(22),
           ),
@@ -950,7 +948,7 @@ class _SignUp2State extends State<SignUp2> {
             ),
             child: Text(
               S.of(context).male,
-              style: GoogleFonts.rubik(color: color, fontSize: 14),
+              style: GoogleFonts.rubik(color: AppColors.k0cbcc5, fontSize: 14),
             ),
           ),
         ),
@@ -959,7 +957,7 @@ class _SignUp2State extends State<SignUp2> {
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                color: Color(0xFF0cbcc5).withOpacity(0.2),
+                color: AppColors.k0cbcc5.withOpacity(0.2),
                 blurRadius: 10.0, // soften the shadow
                 spreadRadius: 0.0, //extend the shadow
                 offset: Offset(
@@ -968,9 +966,9 @@ class _SignUp2State extends State<SignUp2> {
                 ),
               )
             ],
-            color: colorWhite,
+            color: AppColors.kffffff,
             border: Border.all(
-              color: color,
+              color: AppColors.k0cbcc5,
             ),
             borderRadius: BorderRadius.circular(22),
           ),
@@ -983,7 +981,7 @@ class _SignUp2State extends State<SignUp2> {
             ),
             child: Text(
               S.of(context).female,
-              style: GoogleFonts.rubik(color: color, fontSize: 14),
+              style: GoogleFonts.rubik(color: AppColors.k0cbcc5, fontSize: 14),
             ),
           ),
         ),

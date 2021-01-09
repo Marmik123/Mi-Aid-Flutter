@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/config/app_colors.dart';
 
 class TermsConditions extends StatefulWidget {
   @override
@@ -14,12 +15,12 @@ class _TermsConditionsState extends State<TermsConditions> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
           S.of(context).tandc,
           style: GoogleFonts.rubik(
-            color: Color(0xFF010101),
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),

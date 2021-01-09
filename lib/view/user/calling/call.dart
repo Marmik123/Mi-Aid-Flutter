@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/view/user/chat/chat.dart';
 import 'package:miaid/generated/l10n.dart';
 
@@ -23,7 +23,7 @@ class _CallState extends State<Call> {
         title: Text(
           S.of(context).assistant,
           style: GoogleFonts.rubik(
-            color: colorWhite,
+            color: AppColors.kffffff,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -57,7 +57,7 @@ class _CallState extends State<Call> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [colorBlack, color],
+            colors: [AppColors.k010101, AppColors.k0cbcc5],
             stops: [
               0.0,
               0.18,
@@ -81,7 +81,7 @@ class _CallState extends State<Call> {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: colorBlack.withOpacity(0.3),
+                  color: AppColors.k010101.withOpacity(0.3),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(
@@ -92,7 +92,8 @@ class _CallState extends State<Call> {
                   ),
                   child: Text(
                     '4:36',
-                    style: GoogleFonts.rubik(color: colorWhite, fontSize: 12),
+                    style: GoogleFonts.rubik(
+                        color: AppColors.kffffff, fontSize: 12),
                   ),
                 ),
               ),
@@ -114,13 +115,13 @@ class _CallState extends State<Call> {
                       decoration: new BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         border: Border.all(
-                          color: colorWhite,
+                          color: AppColors.kffffff,
                           width: 2,
                         ),
                         color: Colors.white,
                         boxShadow: [
                           new BoxShadow(
-                            color: Color(0xFF000000).withOpacity(0.24),
+                            color: AppColors.k000000.withOpacity(0.24),
                             blurRadius: 15.0,
                             spreadRadius: 0.0, //extend the shadow
                             offset: Offset(
@@ -147,13 +148,13 @@ class _CallState extends State<Call> {
                       decoration: new BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         border: Border.all(
-                          color: colorWhite,
+                          color: AppColors.kffffff,
                           width: 2,
                         ),
                         color: Colors.white,
                         boxShadow: [
                           new BoxShadow(
-                            color: Color(0xFF000000).withOpacity(0.24),
+                            color: AppColors.k000000.withOpacity(0.24),
                             blurRadius: 15.0,
                             spreadRadius: 0.0, //extend the shadow
                             offset: Offset(
@@ -180,13 +181,13 @@ class _CallState extends State<Call> {
                       decoration: new BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         border: Border.all(
-                          color: colorWhite,
+                          color: AppColors.kffffff,
                           width: 2,
                         ),
                         color: Colors.white,
                         boxShadow: [
                           new BoxShadow(
-                            color: Color(0xFF000000).withOpacity(0.24),
+                            color: AppColors.k000000.withOpacity(0.24),
                             blurRadius: 15.0,
                             spreadRadius: 0.0, //extend the shadow
                             offset: Offset(
@@ -218,7 +219,7 @@ class _CallState extends State<Call> {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            color: Color(0xFF003f51).withOpacity(0.2),
+                            color: AppColors.k003f51.withOpacity(0.2),
                             blurRadius: 25.0, // soften the shadow
                             spreadRadius: 5.0, //extend the shadow
                             offset: Offset(
@@ -227,7 +228,7 @@ class _CallState extends State<Call> {
                             ),
                           )
                         ],
-                        color: colorWhite,
+                        color: AppColors.kffffff,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(
@@ -295,7 +296,7 @@ class _CallState extends State<Call> {
                         decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
-                              color: Color(0xFF003f51).withOpacity(0.2),
+                              color: AppColors.k003f51.withOpacity(0.2),
                               blurRadius: 25.0, // soften the shadow
                               spreadRadius: 5.0, //extend the shadow
                               offset: Offset(
@@ -321,7 +322,7 @@ class _CallState extends State<Call> {
             //   child: Container(
             //     decoration: BoxDecoration(
             //       borderRadius: BorderRadius.circular(10),
-            //       color: Color(0xFFEEFEFF),
+            //       color: AppColors.keefeff,
             //     ),
             //     child: bottomNavigation(),
             //   ),

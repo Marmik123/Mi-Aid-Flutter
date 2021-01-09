@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/view/user/sign_In_view/signIn.dart';
 import 'package:miaid/view/user/password_view/forgot_password.dart';
 import 'package:miaid/generated/l10n.dart';
@@ -15,7 +16,7 @@ class _ResetPasswordState extends State<ResetPassword> {
 
   final formKey = GlobalKey<FormState>();
 
-  static const borderColor = Color(0xFFB1B1B1);
+  
 
   bool _obsecurePasswordText = true;
   bool _obsecureConfirmPasswordText = true;
@@ -25,12 +26,12 @@ class _ResetPasswordState extends State<ResetPassword> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
           S.of(context).resetPass,
           style: GoogleFonts.rubik(
-            color: Color(0xFF010101),
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -71,8 +72,8 @@ class _ResetPasswordState extends State<ResetPassword> {
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color: passwordController.text.trim().length > 0
-                              ? Color(0xFFB1B1B1)
-                              : Color(0xFF010101),
+                              ? AppColors.kb1b1b1
+                              : AppColors.k010101,
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                         ),
@@ -96,7 +97,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                         decoration: InputDecoration(
                           hintText: S.of(context).passHint,
                           hintStyle: TextStyle(
-                            color: Color(0xFfB1B1B1),
+                            color: AppColors.kb1b1b1,
                             fontSize: 14,
                           ),
                           contentPadding: EdgeInsets.only(
@@ -106,26 +107,26 @@ class _ResetPasswordState extends State<ResetPassword> {
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFF010101),
+                              color: AppColors.k010101,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: borderColor,
+                              color: AppColors.kb1b1b1,
                               width: 0.5,
                             ),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFFFA0020),
+                              color: AppColors.kfa0020,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFFFA0020),
+                              color: AppColors.kfa0020,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -155,8 +156,8 @@ class _ResetPasswordState extends State<ResetPassword> {
                         style: GoogleFonts.rubik(
                           color:
                               confirmPasswordController.text.trim().length > 0
-                                  ? Color(0xFFB1B1B1)
-                                  : Color(0xFF010101),
+                                  ? AppColors.kb1b1b1
+                                  : AppColors.k010101,
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                         ),
@@ -180,7 +181,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                         decoration: InputDecoration(
                           hintText: S.of(context).rePass,
                           hintStyle: TextStyle(
-                            color: Color(0xFFB1B1B1),
+                            color: AppColors.kb1b1b1,
                             fontSize: 14,
                           ),
                           contentPadding: EdgeInsets.only(
@@ -190,26 +191,26 @@ class _ResetPasswordState extends State<ResetPassword> {
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFF010101),
+                              color: AppColors.k010101,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: borderColor,
+                              color: AppColors.kb1b1b1,
                               width: 0.5,
                             ),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFFFA0020),
+                              color: AppColors.kfa0020,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFFFA0020),
+                              color: AppColors.kfa0020,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -246,7 +247,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(9),
                     ),
-                    color: Color(0xFF0CBCC5),
+                    color: AppColors.k0cbcc5,
                     onPressed: () {
                       if (formKey.currentState.validate()) {
                         showAlertDialog(context);
@@ -255,7 +256,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                     child: Text(
                       S.of(context).savePass,
                       style: GoogleFonts.rubik(
-                        color: Color(0xFFFFFFFF),
+                        color: AppColors.kffffff,
                         fontSize: 17,
                       ),
                     ),
@@ -281,7 +282,7 @@ showAlertDialog(BuildContext context) {
         color: Colors.white,
         boxShadow: [
           new BoxShadow(
-            color: Color(0xFF0cbcc5).withOpacity(0.2),
+            color: AppColors.k0cbcc5.withOpacity(0.2),
             blurRadius: 10.0,
             spreadRadius: 0.0, //extend the shadow
             offset: Offset(
@@ -295,7 +296,7 @@ showAlertDialog(BuildContext context) {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(9),
         ),
-        color: Color(0xFF0CBCC5),
+        color: AppColors.k0cbcc5,
         onPressed: () {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => SignIn()));
@@ -303,7 +304,7 @@ showAlertDialog(BuildContext context) {
         child: Text(
           S.of(context).okay,
           style: GoogleFonts.rubik(
-            color: Color(0xFFFFFFFF),
+            color: AppColors.kffffff,
             fontSize: 17,
           ),
         ),
@@ -321,7 +322,7 @@ showAlertDialog(BuildContext context) {
       style: GoogleFonts.rubik(
         fontSize: 17,
         fontWeight: FontWeight.w500,
-        color: Color(0xFF010101),
+        color: AppColors.k010101,
       ),
     ),
     content: Text(
@@ -329,7 +330,7 @@ showAlertDialog(BuildContext context) {
       textAlign: TextAlign.center,
       style: GoogleFonts.rubik(
         fontSize: 13,
-        color: Color(0xFF010101),
+        color: AppColors.k010101,
       ),
     ),
     actions: [okButton],

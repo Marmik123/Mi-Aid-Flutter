@@ -7,6 +7,7 @@ import 'package:miaid/view/user/sign_In_view/signUp_2.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:miaid/view/user/sign_In_view/signIn.dart';
 import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/config/app_colors.dart';
 
 class OTPScreen extends StatefulWidget {
   @override
@@ -52,12 +53,12 @@ class _OTPScreenState extends State<OTPScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
           S.of(context).signUp,
           style: GoogleFonts.rubik(
-            color: Color(0xFF010101),
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -95,7 +96,7 @@ class _OTPScreenState extends State<OTPScreen> {
                   },
                   child: Text(S.of(context).logout,
                       style: GoogleFonts.rubik(
-                        color: Color(0xFF0CBCC5),
+                        color: AppColors.k0cbcc5,
                         fontSize: 17,
                         fontWeight: FontWeight.bold,
                       )),
@@ -117,7 +118,7 @@ class _OTPScreenState extends State<OTPScreen> {
                   '${S.of(context).verifyAccountText} \n ${S.of(context).continues}',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.rubik(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                     fontWeight: FontWeight.bold,
                     fontSize: 17,
                   ),
@@ -132,7 +133,7 @@ class _OTPScreenState extends State<OTPScreen> {
                   '${S.of(context).veryfyOTPText} \n ${S.of(context).dedicatedEmail}',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.rubik(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                     fontSize: 14,
                   ),
                 ),
@@ -145,7 +146,7 @@ class _OTPScreenState extends State<OTPScreen> {
                 child: PinCodeTextField(
                   appContext: context,
                   pastedTextStyle: TextStyle(
-                    color: Color(0xFF0CBCC5),
+                    color: AppColors.k0cbcc5,
                     fontWeight: FontWeight.bold,
                   ),
                   length: 4,
@@ -165,26 +166,20 @@ class _OTPScreenState extends State<OTPScreen> {
                     borderRadius: BorderRadius.circular(10),
                     fieldHeight: 70,
                     fieldWidth: 50,
-                    // inactiveColor: Color(0xFF0CBCC5),
-                    // inactiveFillColor: Color(0xFFD2D5DB),
-                    // activeColor: Color(0xFF0CBCC5),
-                    // activeFillColor: Color(0xFFD2D5DB),
-                    // selectedColor: Color(0xFF0CBCC5),
-                    // selectedFillColor: Color(0xFFD2D5DB),
-                    inactiveColor: Color(0xFF0CBCC5),
-                    inactiveFillColor: Color(0xFF0cbcc5).withOpacity(0.1),
-                    activeColor: Color(0xFF0cbcc5).withOpacity(0.1),
-                    activeFillColor: Color(0xFF0cbcc5).withOpacity(0.1),
-                    selectedColor: Color(0xFF0cbcc5).withOpacity(0.1),
-                    selectedFillColor: Color(0xFF0cbcc5).withOpacity(0.1),
+                    inactiveColor: AppColors.k0cbcc5,
+                    inactiveFillColor: AppColors.k0cbcc5.withOpacity(0.1),
+                    activeColor: AppColors.k0cbcc5.withOpacity(0.1),
+                    activeFillColor: AppColors.k0cbcc5.withOpacity(0.1),
+                    selectedColor: AppColors.k0cbcc5.withOpacity(0.1),
+                    selectedFillColor: AppColors.k0cbcc5.withOpacity(0.1),
                   ),
-                  cursorColor: Color(0xFF0CBCC5),
+                  cursorColor: AppColors.k0cbcc5,
 
                   animationDuration: Duration(milliseconds: 300),
                   textStyle: TextStyle(
                     fontSize: 20,
                     height: 1.6,
-                    color: Color(0xFF0CBCC5),
+                    color: AppColors.k0cbcc5,
                   ),
 
                   enableActiveFill: true,
@@ -221,7 +216,7 @@ class _OTPScreenState extends State<OTPScreen> {
                   S.of(context).dontHaveCode,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.rubik(
-                    color: Color(0xFF5E5E5E),
+                    color: AppColors.k5e5e5e,
                     fontSize: 12,
                   ),
                 ),
@@ -234,7 +229,7 @@ class _OTPScreenState extends State<OTPScreen> {
                   S.of(context).resendOtp,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.rubik(
-                    color: Color(0xFF5E5E5E),
+                    color: AppColors.k5e5e5e,
                     fontSize: 12,
                   ),
                 ),
@@ -250,7 +245,7 @@ class _OTPScreenState extends State<OTPScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(9),
                   ),
-                  color: Color(0xFF0CBCC5),
+                  color: AppColors.k0cbcc5,
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -262,7 +257,7 @@ class _OTPScreenState extends State<OTPScreen> {
                   child: Text(
                     S.of(context).verifyOTP,
                     style: GoogleFonts.rubik(
-                      color: Color(0xFFFFFFFF),
+                      color: AppColors.kffffff,
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
                     ),

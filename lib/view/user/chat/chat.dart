@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/config/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/generated/l10n.dart';
 
@@ -41,7 +41,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   child: Text(
                     S.of(context).chat,
                     style: GoogleFonts.rubik(
-                      color: colorBlack,
+                      color: AppColors.k010101,
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
                     ),
@@ -52,8 +52,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   child: Text(
                     S.of(context).chat,
                     style: GoogleFonts.rubik(
-                      color: colorWhite,
-                      fontSize: 15,
+                      color: AppColors.kffffff     ,                 fontSize: 15,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -74,7 +73,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   'Today',
                   style: GoogleFonts.rubik(
                     fontSize: 12,
-                    color: Color(0xFFB1B1B1),
+                    color: AppColors.kb1b1b1,
                   ),
                 ),
               ),
@@ -96,8 +95,7 @@ class _ChatScreenState extends State<ChatScreen> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              color: colorWhite,
-              child: Row(
+              color: AppColors.kffffff    ,          child: Row(
                 children: [
                   Expanded(
                     child: TextField(
@@ -111,7 +109,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         hintText: 'Type a message...',
                         hintStyle: GoogleFonts.sourceSerifPro(
                           fontSize: 11,
-                          color: Color(0xFF808080).withOpacity(0.8),
+                          color: AppColors.k808080.withOpacity(0.8),
                           fontWeight: FontWeight.w300,
                         ),
                         filled: true,
@@ -143,7 +141,7 @@ class _ChatScreenState extends State<ChatScreen> {
                           S.of(context).select,
                           style: TextStyle(
                             fontSize: 13.0,
-                            color: Color(0xFF8F8E94),
+                            color: AppColors.k8f8e94,
                           ),
                         ),
                         actions: <Widget>[
@@ -151,7 +149,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             child: Text(
                               S.of(context).camera,
                               style: GoogleFonts.rubik(
-                                color: color,
+                                color: AppColors.k0cbcc5,
                                 fontSize: 20,
                                 fontWeight: FontWeight.normal,
                               ),
@@ -165,7 +163,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             child: Text(
                               S.of(context).chooseFromAlbums,
                               style: GoogleFonts.rubik(
-                                color: color,
+                                color: AppColors.k0cbcc5,
                                 fontSize: 20,
                               ),
                             ),
@@ -179,7 +177,7 @@ class _ChatScreenState extends State<ChatScreen> {
                           child: Text(
                             S.of(context).cancel,
                             style: GoogleFonts.rubik(
-                              color: color,
+                              color: AppColors.k0cbcc5,
                               fontSize: 20,
                             ),
                           ),
@@ -220,7 +218,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   borderRadius: BorderRadius.circular(15),
                   border: Border.all(
                     width: 1,
-                    color: color,
+                    color: AppColors.k0cbcc5,
                   ),
                 ),
                 child: InkWell(
@@ -243,7 +241,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         right: 0,
                         child: Container(
                             decoration: BoxDecoration(
-                              color: color.withOpacity(0.5),
+                              color: AppColors.k0cbcc5.withOpacity(0.5),
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(5),
                                 // topRight: Radius.circular(10),
@@ -288,10 +286,10 @@ Widget senderTextMessage() {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: color,
+                  color: AppColors.k0cbcc5,
                   boxShadow: [
                     BoxShadow(
-                      color: colorBlack.withOpacity(0.18),
+                      color: AppColors.k010101.withOpacity(0.18),
                       offset: Offset(
                         0,
                         0,
@@ -317,7 +315,7 @@ Widget senderTextMessage() {
                     'Hi ',
                     style: GoogleFonts.sourceSerifPro(
                       fontSize: 14,
-                      color: colorBlack,
+                      color: AppColors.k010101,
                       fontWeight: FontWeight.w300,
                     ),
                   ),
@@ -333,7 +331,7 @@ Widget senderTextMessage() {
                     '10:09 AM',
                     style: GoogleFonts.sourceSerifPro(
                       fontSize: 11,
-                      color: Color(0xFF808080).withOpacity(0.8),
+                      color: AppColors.k808080.withOpacity(0.8),
                       fontWeight: FontWeight.w300,
                     ),
                   ),
@@ -392,10 +390,9 @@ Widget receiverTextMessage() {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: colorWhite,
-                  boxShadow: [
+                  color: AppColors.kffffff    ,              boxShadow: [
                     BoxShadow(
-                      color: colorBlack.withOpacity(0.18),
+                      color: AppColors.k010101.withOpacity(0.18),
                       offset: Offset(
                         0,
                         0,
@@ -421,7 +418,7 @@ Widget receiverTextMessage() {
                     'Hello',
                     style: GoogleFonts.sourceSerifPro(
                       fontSize: 14,
-                      color: colorBlack,
+                      color: AppColors.k010101,
                       fontWeight: FontWeight.w300,
                     ),
                   ),
@@ -437,7 +434,7 @@ Widget receiverTextMessage() {
                     '10:09 AM',
                     style: GoogleFonts.sourceSerifPro(
                       fontSize: 11,
-                      color: Color(0xFF808080).withOpacity(0.8),
+                      color: AppColors.k808080.withOpacity(0.8),
                       fontWeight: FontWeight.w300,
                     ),
                   ),
@@ -470,10 +467,9 @@ Widget receiverDocument() {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: colorWhite,
-                  boxShadow: [
+                  color: AppColors.kffffff ,                 boxShadow: [
                     BoxShadow(
-                      color: colorBlack.withOpacity(0.18),
+                      color: AppColors.k010101.withOpacity(0.18),
                       offset: Offset(
                         0,
                         0,
@@ -507,7 +503,7 @@ Widget receiverDocument() {
                         'Document goes here...',
                         style: GoogleFonts.sourceSerifPro(
                           fontSize: 14,
-                          color: colorBlack,
+                          color: AppColors.k010101,
                           fontWeight: FontWeight.w300,
                         ),
                       ),
@@ -525,7 +521,7 @@ Widget receiverDocument() {
                     '10:10 AM',
                     style: GoogleFonts.sourceSerifPro(
                       fontSize: 11,
-                      color: Color(0xFF808080).withOpacity(0.8),
+                      color: AppColors.k808080.withOpacity(0.8),
                       fontWeight: FontWeight.w300,
                     ),
                   ),
@@ -558,10 +554,9 @@ Widget receiverImage() {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: colorWhite,
-                  boxShadow: [
+                  color:AppColors.kffffff    ,              boxShadow: [
                     BoxShadow(
-                      color: colorBlack.withOpacity(0.18),
+                      color: AppColors.k010101.withOpacity(0.18),
                       offset: Offset(
                         0,
                         0,
@@ -599,7 +594,7 @@ Widget receiverImage() {
                     '10:10 AM',
                     style: GoogleFonts.sourceSerifPro(
                       fontSize: 11,
-                      color: Color(0xFF808080).withOpacity(0.8),
+                      color: AppColors.k808080.withOpacity(0.8),
                       fontWeight: FontWeight.w300,
                     ),
                   ),
@@ -632,10 +627,9 @@ Widget receiverVideo() {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: colorWhite,
-                  boxShadow: [
+                  color: AppColors.kffffff,                  boxShadow: [
                     BoxShadow(
-                      color: colorBlack.withOpacity(0.18),
+                      color: AppColors.k010101.withOpacity(0.18),
                       offset: Offset(
                         0,
                         0,
@@ -687,7 +681,7 @@ Widget receiverVideo() {
                     '10:10 AM',
                     style: GoogleFonts.sourceSerifPro(
                       fontSize: 11,
-                      color: Color(0xFF808080).withOpacity(0.8),
+                      color: AppColors.k808080.withOpacity(0.8),
                       fontWeight: FontWeight.w300,
                     ),
                   ),

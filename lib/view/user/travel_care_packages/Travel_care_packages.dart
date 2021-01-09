@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/component/drawer.dart';
 import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/config/app_colors.dart';
 
 class TravelCarePackages extends StatefulWidget {
   @override
@@ -18,12 +19,12 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
           '${S.of(context).travelCare} ${S.of(context).package}s',
           style: GoogleFonts.rubik(
-            color: Color(0xFF010101),
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -53,7 +54,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
           child: Text(
             S.of(context).activePackage,
             style: GoogleFonts.rubik(
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 18,
               fontWeight: FontWeight.w700,
             ),
@@ -72,7 +73,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
               child: Text(
                 '${S.of(context).no} ${S.of(context).activePackage}',
                 style: GoogleFonts.rubik(
-                  color: Color(0xFF696969),
+                  color: AppColors.k696969,
                   fontSize: 17,
                 ),
               ),
@@ -105,7 +106,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                           child: Text(
                             '2 ${S.of(context).weeks} ${S.of(context).package}',
                             style: GoogleFonts.rubik(
-                              color: colorWhite,
+                              color: AppColors.kffffff,
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
                             ),
@@ -114,14 +115,14 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                         Text(
                           '• Description with features goes here.',
                           style: GoogleFonts.rubik(
-                            color: colorWhite.withOpacity(0.75),
+                            color: AppColors.kffffff.withOpacity(0.75),
                             fontSize: 14,
                           ),
                         ),
                         Text(
                           '• Lorem ipsum dolor it amet',
                           style: GoogleFonts.rubik(
-                            color: colorWhite.withOpacity(0.75),
+                            color: AppColors.kffffff.withOpacity(0.75),
                             fontSize: 14,
                           ),
                         ),
@@ -137,7 +138,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                               Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(4),
-                                  color: colorWhite.withOpacity(0.3),
+                                  color: AppColors.kffffff.withOpacity(0.3),
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.only(
@@ -149,7 +150,8 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                                   child: RichText(
                                     text: TextSpan(
                                       style: GoogleFonts.rubik(
-                                        color: colorWhite.withOpacity(0.75),
+                                        color:
+                                            AppColors.kffffff.withOpacity(0.75),
                                       ),
                                       children: [
                                         TextSpan(
@@ -161,7 +163,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                                         TextSpan(
                                           text: ' 200.0',
                                           style: GoogleFonts.rubik(
-                                            color: colorWhite,
+                                            color: AppColors.kffffff,
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -175,7 +177,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                                 height: 24,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(3),
-                                  color: colorWhite.withOpacity(0.3),
+                                  color: AppColors.kffffff.withOpacity(0.3),
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.only(
@@ -187,7 +189,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                                     child: Text(
                                       '10 days remaining',
                                       style: GoogleFonts.rubik(
-                                        color: colorWhite,
+                                        color: AppColors.kffffff,
                                         fontSize: 12,
                                       ),
                                     ),
@@ -216,7 +218,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
           child: Text(
             '${S.of(context).available} ${S.of(context).package}s',
             style: GoogleFonts.rubik(
-              color: colorBlack,
+              color: AppColors.k010101,
               fontSize: 18,
               fontWeight: FontWeight.w700,
             ),
@@ -252,7 +254,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                           child: Text(
                             '4 ${S.of(context).weeks} ${S.of(context).package}',
                             style: GoogleFonts.rubik(
-                              color: colorBlack,
+                              color: AppColors.k010101,
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
                             ),
@@ -261,14 +263,14 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                         Text(
                           '• Description with features goes here.',
                           style: GoogleFonts.rubik(
-                            color: colorgrey,
+                            color: AppColors.k696969,
                             fontSize: 14,
                           ),
                         ),
                         Text(
                           '• Lorem ipsum dolor it amet',
                           style: GoogleFonts.rubik(
-                            color: colorgrey,
+                            color: AppColors.k696969,
                             fontSize: 14,
                           ),
                         ),
@@ -284,7 +286,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                               Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(4),
-                                  color: Color(0xFFF4F4F4),
+                                  color: AppColors.kf4f4f4,
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.only(
@@ -296,7 +298,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                                   child: RichText(
                                     text: TextSpan(
                                       style: GoogleFonts.rubik(
-                                        color: colorBlack,
+                                        color: AppColors.k010101,
                                       ),
                                       children: [
                                         TextSpan(
@@ -320,7 +322,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                               Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(9),
-                                  color: color,
+                                  color: AppColors.k0cbcc5,
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.only(
@@ -332,7 +334,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                                   child: Text(
                                     S.of(context).subscribe,
                                     style: GoogleFonts.rubik(
-                                      color: colorWhite,
+                                      color: AppColors.kffffff,
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500,
                                     ),

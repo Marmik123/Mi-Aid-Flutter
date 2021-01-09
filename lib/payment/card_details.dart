@@ -9,6 +9,7 @@ import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/payment/additional_services.dart';
 import 'package:miaid/utils/card_utils.dart';
 import 'package:miaid/view/user/e_shop/purchase.dart';
+import 'package:miaid/config/app_colors.dart';
 
 enum CardType {
   Master,
@@ -63,7 +64,7 @@ class _CardDetailsState extends State<CardDetails> {
         title: Text(
           S.of(context).addCardDetails,
           style: GoogleFonts.rubik(
-            color: Color(0xff010101),
+            color: AppColors.k010101,
             fontSize: 15,
           ),
         ),
@@ -78,8 +79,8 @@ class _CardDetailsState extends State<CardDetails> {
                 S.of(context).cardName,
                 style: GoogleFonts.rubik(
                   color: cardNumber.text.trim().length > 0
-                      ? Color(0xffB1B1B1)
-                      : Color(0xff010101),
+                      ? AppColors.kb1b1b1
+                      : AppColors.k010101,
                   fontSize: 12,
                   letterSpacing: 0.4,
                 ),
@@ -117,20 +118,20 @@ class _CardDetailsState extends State<CardDetails> {
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
-                      color: Color(0xff010101),
+                      color: AppColors.k010101,
                       width: 0.5,
                     ),
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
-                      color: Color(0xffB1B1B1),
+                      color: AppColors.kb1b1b1,
                       width: 0.5,
                     ),
                   ),
                   hintText: "EX: 1234 5678 8901 234",
                   hintStyle: GoogleFonts.rubik(
-                    color: Color(0xffB1B1B1),
+                    color: AppColors.kb1b1b1,
                     fontSize: 14,
                   ),
                   suffixIcon: getCardIcon(cardType),
@@ -143,8 +144,8 @@ class _CardDetailsState extends State<CardDetails> {
                 S.of(context).cardName,
                 style: GoogleFonts.rubik(
                   color: cardHolderName.text.trim().length > 0
-                      ? Color(0xffB1B1B1)
-                      : Color(0xff010101),
+                      ? AppColors.kb1b1b1
+                      : AppColors.k010101,
                   fontSize: 12,
                   letterSpacing: 0.4,
                 ),
@@ -174,20 +175,20 @@ class _CardDetailsState extends State<CardDetails> {
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
-                      color: Color(0xff010101),
+                      color: AppColors.k010101,
                       width: 0.5,
                     ),
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
-                      color: Color(0xffB1B1B1),
+                      color: AppColors.kb1b1b1,
                       width: 0.5,
                     ),
                   ),
                   hintText: "Ex: Kelly Babara",
                   hintStyle: GoogleFonts.rubik(
-                    color: Color(0xffB1B1B1),
+                    color: AppColors.kb1b1b1,
                     fontSize: 14,
                   ),
                 ),
@@ -206,8 +207,8 @@ class _CardDetailsState extends State<CardDetails> {
                           S.of(context).expiryDate,
                           style: GoogleFonts.rubik(
                             color: expiry.text.trim().length > 0
-                                ? Color(0xffB1B1B1)
-                                : Color(0xff010101),
+                                ? AppColors.kb1b1b1
+                                : AppColors.k010101,
                             fontSize: 12,
                             letterSpacing: 0.4,
                           ),
@@ -264,20 +265,20 @@ class _CardDetailsState extends State<CardDetails> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
-                                color: Color(0xff010101),
+                                color: AppColors.k010101,
                                 width: 0.5,
                               ),
                             ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
-                                color: Color(0xffB1B1B1),
+                                color: AppColors.kb1b1b1,
                                 width: 0.5,
                               ),
                             ),
                             hintText: "MM/YY",
                             hintStyle: GoogleFonts.rubik(
-                              color: Color(0xffB1B1B1),
+                              color: AppColors.kb1b1b1,
                               fontSize: 14,
                             ),
                           ),
@@ -300,8 +301,8 @@ class _CardDetailsState extends State<CardDetails> {
                           S.of(context).cvv,
                           style: GoogleFonts.rubik(
                             color: cvv.text.trim().length > 0
-                                ? Color(0xffB1B1B1)
-                                : Color(0xff010101),
+                                ? AppColors.kb1b1b1
+                                : AppColors.k010101,
                             fontSize: 12,
                             letterSpacing: 0.4,
                           ),
@@ -337,20 +338,20 @@ class _CardDetailsState extends State<CardDetails> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
-                                color: Color(0xff010101),
+                                color: AppColors.k010101,
                                 width: 0.5,
                               ),
                             ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
-                                color: Color(0xffB1B1B1),
+                                color: AppColors.kb1b1b1,
                                 width: 0.5,
                               ),
                             ),
                             hintText: "Ex:123",
                             hintStyle: GoogleFonts.rubik(
-                              color: Color(0xffB1B1B1),
+                              color: AppColors.kb1b1b1,
                               fontSize: 14,
                             ),
                           ),
@@ -365,7 +366,7 @@ class _CardDetailsState extends State<CardDetails> {
               ),
               FlatButton(
                 padding: EdgeInsets.only(bottom: 15, top: 15),
-                color: Color(0xff0CBCC5),
+                color: AppColors.k0cbcc5,
                 onPressed: () {
                   if (formKey.currentState.validate()) {
                     paymentConfirmationDialog();
@@ -374,7 +375,7 @@ class _CardDetailsState extends State<CardDetails> {
                 child: Text(
                   S.of(context).payandContinue,
                   style: GoogleFonts.rubik(
-                    color: Color(0xffFFFFFF),
+                    color: AppColors.kffffff,
                     fontSize: 17,
                     fontWeight: FontWeight.w500,
                   ),
@@ -399,7 +400,7 @@ class _CardDetailsState extends State<CardDetails> {
               child: Text(
                 S.of(context).confirmation,
                 style: GoogleFonts.rubik(
-                  color: Color(0xff010101),
+                  color: AppColors.k010101,
                   fontSize: 17,
                   fontWeight: FontWeight.w500,
                 ),
@@ -412,7 +413,7 @@ class _CardDetailsState extends State<CardDetails> {
                 Text(
                   "You are about to make payment of \$20.00 for “Additional Video Consultations” Service.",
                   style: GoogleFonts.rubik(
-                    color: Color(0xff010101),
+                    color: AppColors.k010101,
                     fontSize: 13,
                     letterSpacing: -0.08,
                   ),
@@ -425,7 +426,7 @@ class _CardDetailsState extends State<CardDetails> {
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                        color: Color(0xff0cbcc5).withOpacity(0.2),
+                        color: AppColors.k0cbcc5.withOpacity(0.2),
                         offset: Offset(
                           0,
                           0.4,
@@ -436,7 +437,7 @@ class _CardDetailsState extends State<CardDetails> {
                     ],
                   ),
                   child: FlatButton(
-                    color: Color(0xff0CBCC5),
+                    color: AppColors.k0cbcc5,
                     onPressed: () {
                       Navigator.pop(context);
                       successDialog();
@@ -451,7 +452,7 @@ class _CardDetailsState extends State<CardDetails> {
                       child: Text(
                         S.of(context).confirm,
                         style: GoogleFonts.rubik(
-                          color: Color(0xffFFFFFF),
+                          color: AppColors.kffffff,
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
@@ -470,7 +471,7 @@ class _CardDetailsState extends State<CardDetails> {
                   child: Text(
                     S.of(context).cancel,
                     style: GoogleFonts.rubik(
-                      color: Color(0xff0CBCC5),
+                      color: AppColors.k0cbcc5,
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
                     ),
@@ -497,7 +498,7 @@ class _CardDetailsState extends State<CardDetails> {
               child: Text(
                 S.of(context).error,
                 style: GoogleFonts.rubik(
-                  color: Color(0xff010101),
+                  color: AppColors.k010101,
                   fontSize: 17,
                   fontWeight: FontWeight.w500,
                 ),
@@ -510,7 +511,7 @@ class _CardDetailsState extends State<CardDetails> {
                 Text(
                   S.of(context).errorMessage,
                   style: GoogleFonts.rubik(
-                    color: Color(0xff010101),
+                    color: AppColors.k010101,
                     fontSize: 13,
                     letterSpacing: -0.08,
                   ),
@@ -523,7 +524,7 @@ class _CardDetailsState extends State<CardDetails> {
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                        color: Color(0xff0cbcc5).withOpacity(0.2),
+                        color: AppColors.k0cbcc5.withOpacity(0.2),
                         offset: Offset(
                           0,
                           0.4,
@@ -534,7 +535,7 @@ class _CardDetailsState extends State<CardDetails> {
                     ],
                   ),
                   child: FlatButton(
-                    color: Color(0xff0CBCC5),
+                    color: AppColors.k0cbcc5,
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -548,7 +549,7 @@ class _CardDetailsState extends State<CardDetails> {
                       child: Text(
                         S.of(context).okay,
                         style: GoogleFonts.rubik(
-                          color: Color(0xffFFFFFF),
+                          color: AppColors.kffffff,
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
@@ -577,7 +578,7 @@ class _CardDetailsState extends State<CardDetails> {
               child: Text(
                 S.of(context).successs,
                 style: GoogleFonts.rubik(
-                  color: Color(0xff010101),
+                  color: AppColors.k010101,
                   fontSize: 17,
                   fontWeight: FontWeight.w500,
                 ),
@@ -590,7 +591,7 @@ class _CardDetailsState extends State<CardDetails> {
                 Text(
                   S.of(context).successMessage,
                   style: GoogleFonts.rubik(
-                    color: Color(0xff010101),
+                    color: AppColors.k010101,
                     fontSize: 13,
                   ),
                   textAlign: TextAlign.center,
@@ -602,7 +603,7 @@ class _CardDetailsState extends State<CardDetails> {
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                        color: Color(0xff0cbcc5).withOpacity(0.2),
+                        color: AppColors.k0cbcc5.withOpacity(0.2),
                         offset: Offset(
                           0,
                           0.4,
@@ -613,7 +614,7 @@ class _CardDetailsState extends State<CardDetails> {
                     ],
                   ),
                   child: FlatButton(
-                    color: Color(0xff0CBCC5),
+                    color: AppColors.k0cbcc5,
                     onPressed: () {
                       Navigator.of(context).push(CupertinoPageRoute(
                           builder: (context) => PurchaseItem()));
@@ -628,7 +629,7 @@ class _CardDetailsState extends State<CardDetails> {
                       child: Text(
                         S.of(context).okay,
                         style: GoogleFonts.rubik(
-                          color: Color(0xffFFFFFF),
+                          color: AppColors.kffffff,
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),

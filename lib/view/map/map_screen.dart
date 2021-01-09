@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/drawer.dart';
-import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/config/app_colors.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:miaid/generated/l10n.dart';
 
@@ -16,17 +16,17 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorWhite,
+      backgroundColor: AppColors.kffffff,
       drawer: drawer(context),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
           S.of(context).eandc,
           style: GoogleFonts.rubik(
-            color: Color(0xFF010101),
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.bold,
           ),
@@ -77,7 +77,7 @@ class _MapScreenState extends State<MapScreen> {
                       decoration: InputDecoration(
                         hintText: S.of(context).search,
                         hintStyle: GoogleFonts.rubik(
-                          color: Color(0xFfB1B1B1),
+                          color: AppColors.kb1b1b1,
                           fontSize: 14,
                         ),
                         contentPadding: EdgeInsets.only(
@@ -90,14 +90,14 @@ class _MapScreenState extends State<MapScreen> {
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0xFF010101),
+                            color: AppColors.k010101,
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(
-                            color: borderColor,
+                            color: AppColors.kb1b1b1,
                             width: 0.5,
                           ),
                         ),
@@ -136,10 +136,10 @@ class _MapScreenState extends State<MapScreen> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(6),
-                      border: Border.all(width: 0.5, color: colorRed),
+                      border: Border.all(width: 0.5, color: AppColors.ke63030),
                       boxShadow: [
                         BoxShadow(
-                          color: Color(0xff003f51).withOpacity(0.1),
+                          color: AppColors.k003f51.withOpacity(0.1),
                           offset: Offset(
                             0,
                             4,
@@ -162,11 +162,11 @@ class _MapScreenState extends State<MapScreen> {
                             height: 9,
                             width: 9,
                             decoration: BoxDecoration(
-                              color: colorRed,
+                              color: AppColors.ke63030,
                               borderRadius: BorderRadius.circular(2),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Color(0xff003f51).withOpacity(0.1),
+                                  color: AppColors.k003f51.withOpacity(0.1),
                                   offset: Offset(
                                     0,
                                     4,
@@ -198,10 +198,11 @@ class _MapScreenState extends State<MapScreen> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(6),
-                        border: Border.all(width: 0.5, color: color),
+                        border:
+                            Border.all(width: 0.5, color: AppColors.k0cbcc5),
                         boxShadow: [
                           BoxShadow(
-                            color: Color(0xff003f51).withOpacity(0.1),
+                            color: AppColors.k003f51.withOpacity(0.1),
                             offset: Offset(
                               0,
                               4,
@@ -224,11 +225,11 @@ class _MapScreenState extends State<MapScreen> {
                               height: 9,
                               width: 9,
                               decoration: BoxDecoration(
-                                color: color,
+                                color: AppColors.k0cbcc5,
                                 borderRadius: BorderRadius.circular(2),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: color.withOpacity(0.1),
+                                    color: AppColors.k0cbcc5.withOpacity(0.1),
                                     offset: Offset(
                                       0,
                                       4,
@@ -259,10 +260,10 @@ class _MapScreenState extends State<MapScreen> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(6),
-                      border: Border.all(width: 0.5, color: colorYellow),
+                      border: Border.all(width: 0.5, color: AppColors.ke68c30),
                       boxShadow: [
                         BoxShadow(
-                          color: Color(0xff003f51).withOpacity(0.1),
+                          color: AppColors.k003f51.withOpacity(0.1),
                           offset: Offset(
                             0,
                             4,
@@ -285,11 +286,11 @@ class _MapScreenState extends State<MapScreen> {
                             height: 9,
                             width: 9,
                             decoration: BoxDecoration(
-                              color: colorYellow,
+                              color: AppColors.ke68c30,
                               borderRadius: BorderRadius.circular(2),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Color(0xff003f51).withOpacity(0.1),
+                                  color: AppColors.k003f51.withOpacity(0.1),
                                   offset: Offset(
                                     0,
                                     4,
@@ -319,10 +320,10 @@ class _MapScreenState extends State<MapScreen> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(6),
-                      border: Border.all(width: 0.5, color: colorPurple),
+                      border: Border.all(width: 0.5, color: AppColors.k5251f7),
                       boxShadow: [
                         BoxShadow(
-                          color: Color(0xff003f51).withOpacity(0.1),
+                          color: AppColors.k003f51.withOpacity(0.1),
                           offset: Offset(
                             0,
                             4,
@@ -345,11 +346,11 @@ class _MapScreenState extends State<MapScreen> {
                             height: 9,
                             width: 9,
                             decoration: BoxDecoration(
-                              color: colorPurple,
+                              color: AppColors.k5251f7,
                               borderRadius: BorderRadius.circular(2),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Color(0xff003f51).withOpacity(0.1),
+                                  color: AppColors.k003f51.withOpacity(0.1),
                                   offset: Offset(
                                     0,
                                     4,
@@ -376,331 +377,340 @@ class _MapScreenState extends State<MapScreen> {
               ),
             ),
           ),
-          Expanded(
-            child: SlidingUpPanel(
-              minHeight: 180,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                topRight: Radius.circular(20),
+          SlidingUpPanel(
+            minHeight: 180,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+            maxHeight: MediaQuery.of(context).size.height / 1.7,
+            panel: Padding(
+              padding: const EdgeInsets.only(
+                left: 0,
+                top: 10,
               ),
-              maxHeight: MediaQuery.of(context).size.height / 1.7,
-              panel: Padding(
-                padding: const EdgeInsets.only(
-                  left: 20,
-                  top: 3,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                        width: 53,
-                        height: 5,
-                        decoration: BoxDecoration(
-                            color: Color(0xFF010101).withOpacity(0.09),
-                            borderRadius: BorderRadius.circular(2.5)),
-                      ),
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.center,
+                    child: Container(
+                      width: 53,
+                      height: 5,
+                      decoration: BoxDecoration(
+                          color: AppColors.k010101.withOpacity(0.09),
+                          borderRadius: BorderRadius.circular(2.5)),
                     ),
-                    SizedBox(
-                      height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 10,
+                      left: 20,
                     ),
-                    Text(
-                      'Corburg Medical Clinic',
-                      style: GoogleFonts.rubik(
-                        color: colorBlack,
-                        fontSize: 17,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Row(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              width: 0.5,
-                              color: color,
-                            ),
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          child: Image(
-                            height: 75,
-                            width: 75,
-                            image: AssetImage(
-                                'assets/images/Img_signin_corporateuser.png'),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          'Corburg Medical Clinic',
+                          style: GoogleFonts.rubik(
+                            color: AppColors.k010101,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                         SizedBox(
-                          width: 15,
+                          height: 15,
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        Row(
                           children: [
-                            Text(
-                              '31 Oakland St, Maribyrnong VIC 3032 \nAustralia',
-                              style: GoogleFonts.rubik(
-                                color: Color(0xFF747474),
-                                fontSize: 14,
+                            Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  width: 0.5,
+                                  color: AppColors.k0cbcc5,
+                                ),
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              child: Image(
+                                height: 75,
+                                width: 75,
+                                image: AssetImage(
+                                    'assets/images/Img_signin_corporateuser.png'),
                               ),
                             ),
                             SizedBox(
-                              height: 18,
-                            ),
-                            Row(
-                              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 5, horizontal: 45),
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFF0CBCC5),
-                                    borderRadius: BorderRadius.circular(9),
-                                  ),
-                                  child: Text(
-                                    S.of(context).call,
-                                    style: GoogleFonts.rubik(
-                                      color: Color(0xFFFFFFFF),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Container(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 5, horizontal: 10),
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(9),
-                                      border: Border.all(
-                                        width: 0.5,
-                                        color: color,
-                                      )),
-                                  child: Text(
-                                    S.of(context).getDirection,
-                                    style: GoogleFonts.rubik(
-                                      color: color,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        right: 20,
-                      ),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 1,
-                        color: Color(0xFF0cbcc5).withOpacity(0.2),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      S.of(context).openingHr,
-                      style: GoogleFonts.rubik(
-                        color: colorBlack,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 14,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 14,
-                    ),
-                    Column(
-                      children: [
-                        Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  S.of(context).monday,
-                                  style: GoogleFonts.rubik(
-                                    fontSize: 14,
-                                    color: Color(0xFF696969),
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 11,
-                                ),
-                                Text(
-                                  S.of(context).tuesday,
-                                  style: GoogleFonts.rubik(
-                                    fontSize: 14,
-                                    color: Color(0xFF696969),
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 11,
-                                ),
-                                Text(
-                                  S.of(context).wednesday,
-                                  style: GoogleFonts.rubik(
-                                    fontSize: 14,
-                                    color: Color(0xFF696969),
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 11,
-                                ),
-                                Text(
-                                  S.of(context).thursday,
-                                  style: GoogleFonts.rubik(
-                                    fontSize: 14,
-                                    color: Color(0xFF696969),
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 11,
-                                ),
-                                Text(
-                                  S.of(context).firday,
-                                  style: GoogleFonts.rubik(
-                                    fontSize: 14,
-                                    color: Color(0xFF696969),
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 11,
-                                ),
-                                Text(
-                                  S.of(context).saturday,
-                                  style: GoogleFonts.rubik(
-                                    fontSize: 14,
-                                    color: Color(0xFF696969),
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 11,
-                                ),
-                                Text(
-                                  S.of(context).sunday,
-                                  style: GoogleFonts.rubik(
-                                    fontSize: 14,
-                                    color: Color(0xFF696969),
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              width: 38,
+                              width: 15,
                             ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  '9:00 AM - 7:00 PM',
+                                  '31 Oakland St, Maribyrnong VIC 3032 \nAustralia',
                                   style: GoogleFonts.rubik(
+                                    color: AppColors.k747474,
                                     fontSize: 14,
-                                    color: Color(0xFF5E5E5E),
-                                    fontWeight: FontWeight.w500,
                                   ),
                                 ),
                                 SizedBox(
-                                  height: 11,
+                                  height: 18,
                                 ),
-                                Text(
-                                  '9:00 AM - 7:00 PM',
-                                  style: GoogleFonts.rubik(
-                                    fontSize: 14,
-                                    color: Color(0xFF5E5E5E),
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 11,
-                                ),
-                                Text(
-                                  '9:00 AM - 7:00 PM',
-                                  style: GoogleFonts.rubik(
-                                    fontSize: 14,
-                                    color: Color(0xFF5E5E5E),
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 11,
-                                ),
-                                Text(
-                                  '9:00 AM - 7:00 PM',
-                                  style: GoogleFonts.rubik(
-                                    fontSize: 14,
-                                    color: Color(0xFF5E5E5E),
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 11,
-                                ),
-                                Text(
-                                  '9:00 AM - 7:00 PM',
-                                  style: GoogleFonts.rubik(
-                                    fontSize: 14,
-                                    color: Color(0xFF5E5E5E),
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 11,
-                                ),
-                                Text(
-                                  '9:00 AM - 7:00 PM',
-                                  style: GoogleFonts.rubik(
-                                    fontSize: 14,
-                                    color: Color(0xFF5E5E5E),
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 11,
-                                ),
-                                Text(
-                                  '9:00 AM - 7:00 PM',
-                                  style: GoogleFonts.rubik(
-                                    fontSize: 14,
-                                    color: Color(0xFF5E5E5E),
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 20,
+                                Row(
+                                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.symmetric(
+                                          vertical: 5, horizontal: 45),
+                                      decoration: BoxDecoration(
+                                        color: AppColors.k0cbcc5,
+                                        borderRadius: BorderRadius.circular(9),
+                                      ),
+                                      child: Text(
+                                        S.of(context).call,
+                                        style: GoogleFonts.rubik(
+                                          color: AppColors.kffffff,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.symmetric(
+                                          vertical: 5, horizontal: 10),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(9),
+                                          border: Border.all(
+                                            width: 0.5,
+                                            color: AppColors.k0cbcc5,
+                                          )),
+                                      child: Text(
+                                        S.of(context).getDirection,
+                                        style: GoogleFonts.rubik(
+                                          color: AppColors.k0cbcc5,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             )
                           ],
-                        )
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            right: 20,
+                          ),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 1,
+                            color: AppColors.k0cbcc5.withOpacity(0.2),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Text(
+                          S.of(context).openingHr,
+                          style: GoogleFonts.rubik(
+                            color: AppColors.k010101,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 14,
+                        ),
+                        Column(
+                          children: [
+                            Row(
+                              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      S.of(context).monday,
+                                      style: GoogleFonts.rubik(
+                                        fontSize: 14,
+                                        color: AppColors.k696969,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 11,
+                                    ),
+                                    Text(
+                                      S.of(context).tuesday,
+                                      style: GoogleFonts.rubik(
+                                        fontSize: 14,
+                                        color: AppColors.k696969,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 11,
+                                    ),
+                                    Text(
+                                      S.of(context).wednesday,
+                                      style: GoogleFonts.rubik(
+                                        fontSize: 14,
+                                        color: AppColors.k696969,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 11,
+                                    ),
+                                    Text(
+                                      S.of(context).thursday,
+                                      style: GoogleFonts.rubik(
+                                        fontSize: 14,
+                                        color: AppColors.k696969,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 11,
+                                    ),
+                                    Text(
+                                      S.of(context).firday,
+                                      style: GoogleFonts.rubik(
+                                        fontSize: 14,
+                                        color: AppColors.k696969,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 11,
+                                    ),
+                                    Text(
+                                      S.of(context).saturday,
+                                      style: GoogleFonts.rubik(
+                                        fontSize: 14,
+                                        color: AppColors.k696969,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 11,
+                                    ),
+                                    Text(
+                                      S.of(context).sunday,
+                                      style: GoogleFonts.rubik(
+                                        fontSize: 14,
+                                        color: AppColors.k696969,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  width: 38,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      '9:00 AM - 7:00 PM',
+                                      style: GoogleFonts.rubik(
+                                        fontSize: 14,
+                                        color: AppColors.k5e5e5e,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 11,
+                                    ),
+                                    Text(
+                                      '9:00 AM - 7:00 PM',
+                                      style: GoogleFonts.rubik(
+                                        fontSize: 14,
+                                        color: AppColors.k5e5e5e,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 11,
+                                    ),
+                                    Text(
+                                      '9:00 AM - 7:00 PM',
+                                      style: GoogleFonts.rubik(
+                                        fontSize: 14,
+                                        color: AppColors.k5e5e5e,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 11,
+                                    ),
+                                    Text(
+                                      '9:00 AM - 7:00 PM',
+                                      style: GoogleFonts.rubik(
+                                        fontSize: 14,
+                                        color: AppColors.k5e5e5e,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 11,
+                                    ),
+                                    Text(
+                                      '9:00 AM - 7:00 PM',
+                                      style: GoogleFonts.rubik(
+                                        fontSize: 14,
+                                        color: AppColors.k5e5e5e,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 11,
+                                    ),
+                                    Text(
+                                      '9:00 AM - 7:00 PM',
+                                      style: GoogleFonts.rubik(
+                                        fontSize: 14,
+                                        color: AppColors.k5e5e5e,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 11,
+                                    ),
+                                    Text(
+                                      '9:00 AM - 7:00 PM',
+                                      style: GoogleFonts.rubik(
+                                        fontSize: 14,
+                                        color: AppColors.k5e5e5e,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                  ],
+                                )
+                              ],
+                            )
+                          ],
+                        ),
                       ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),

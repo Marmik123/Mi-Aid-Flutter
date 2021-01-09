@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/component/miaid_card.dart';
+//import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/config/app_colors.dart';
 
 class CallViewReceipt extends StatefulWidget {
   @override
@@ -27,7 +28,7 @@ class _CallViewReceiptState extends State<CallViewReceipt> {
         title: Text(
           S.of(context).viewReceipt,
           style: GoogleFonts.rubik(
-            color: colorBlack,
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -92,7 +93,7 @@ class _CallViewReceiptState extends State<CallViewReceipt> {
                       style: GoogleFonts.rubik(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
-                        color: colorBlack,
+                        color: AppColors.k010101,
                       ),
                     ),
                     SizedBox(
@@ -105,7 +106,7 @@ class _CallViewReceiptState extends State<CallViewReceipt> {
                           textAlign: TextAlign.left,
                           text: TextSpan(
                             style: GoogleFonts.rubik(
-                                color: Color(0xFF5E5E5E),
+                                color: AppColors.k5e5e5e,
                                 fontSize: 12,
                                 fontWeight: FontWeight.w300),
                             children: [
@@ -113,7 +114,7 @@ class _CallViewReceiptState extends State<CallViewReceipt> {
                               TextSpan(
                                 text: ' 000000012',
                                 style: GoogleFonts.rubik(
-                                  color: colorBlack,
+                                  color: AppColors.k010101,
                                 ),
                               ),
                             ],

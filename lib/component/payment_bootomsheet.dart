@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/payment/card_details.dart';
 import 'package:miaid/payment/payment_interface.dart';
 import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/config/app_colors.dart';
 
 class PaymentBottomSheet extends StatefulWidget {
   @override
@@ -20,14 +21,14 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
           child: Container(
             child: Text(S.of(context).chooseAPayment,
                 style: GoogleFonts.rubik(
-                  color: Color(0xff010101),
+                  color: AppColors.k010101,
                   fontSize: 17,
                   fontWeight: FontWeight.w500,
                 )),
           ),
         ),
         Divider(
-          color: Color(0xff010101),
+          color: AppColors.k010101,
           height: 0,
         ),
         Padding(
@@ -39,7 +40,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
             ),
             title: Text(S.of(context).paypal,
                 style: GoogleFonts.rubik(
-                  color: Color(0xff010101),
+                  color: AppColors.k010101,
                   fontSize: 14,
                 )),
             // contentPadding: EdgeInsets.zero,
@@ -51,7 +52,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
           ),
         ),
         Divider(
-          color: Color(0xff010101),
+          color: AppColors.k010101,
           height: 0,
         ),
         Padding(
@@ -63,7 +64,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
 
             title: Text(S.of(context).wechatPay,
                 style: GoogleFonts.rubik(
-                  color: Color(0xff010101),
+                  color: AppColors.k010101,
                   fontSize: 14,
                 )),
             // contentPadding: EdgeInsets.zero,
@@ -75,7 +76,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
           ),
         ),
         Divider(
-          color: Color(0xff010101),
+          color: AppColors.k010101,
           height: 0,
         ),
         Padding(
@@ -86,7 +87,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
             ),
             title: Text(S.of(context).allpay,
                 style: GoogleFonts.rubik(
-                  color: Color(0xff010101),
+                  color: AppColors.k010101,
                   fontSize: 14,
                 )),
             // contentPadding: EdgeInsets.zero,
@@ -98,7 +99,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
           ),
         ),
         Divider(
-          color: Color(0xff010101),
+          color: AppColors.k010101,
           height: 0,
         ),
         Padding(
@@ -110,7 +111,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
 
             title: Text(S.of(context).creditOrDebit,
                 style: GoogleFonts.rubik(
-                  color: Color(0xff010101),
+                  color: AppColors.k010101,
                   fontSize: 14,
                 )),
             // contentPadding: EdgeInsets.zero,
@@ -122,7 +123,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
           ),
         ),
         Divider(
-          color: Color(0xff010101),
+          color: AppColors.k010101,
           height: 0,
         ),
       ],

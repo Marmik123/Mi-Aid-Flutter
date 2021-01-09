@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/view/drawer/Terms&Cond.dart';
 import 'package:miaid/view/drawer/about.dart';
 import 'package:miaid/view/drawer/privacy&policy.dart';
@@ -34,7 +34,7 @@ Widget drawer(context) {
               child: Container(
                 margin: EdgeInsets.all(4),
                 decoration: BoxDecoration(
-                  border: Border.all(color: color),
+                  border: Border.all(color: AppColors.k0cbcc5),
                   shape: BoxShape.circle,
                   image: DecorationImage(
                       image: AssetImage('assets/images/logo_auth.png'),
@@ -49,7 +49,7 @@ Widget drawer(context) {
           Text(
             'john Doe',
             style: GoogleFonts.rubik(
-              color: Color(0xFF010101),
+              color: AppColors.k010101,
               fontSize: 17,
               fontWeight: FontWeight.w700,
             ),
@@ -75,7 +75,7 @@ Widget drawer(context) {
                 child: Text(
                   S.of(context).home,
                   style: GoogleFonts.rubik(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                     fontSize: 14,
                   ),
                 ),
@@ -103,7 +103,7 @@ Widget drawer(context) {
                 child: Text(
                   S.of(context).myProfile,
                   style: GoogleFonts.rubik(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                     fontSize: 14,
                   ),
                 ),
@@ -131,7 +131,7 @@ Widget drawer(context) {
                 child: Text(
                   S.of(context).travelCare,
                   style: GoogleFonts.rubik(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                     fontSize: 14,
                   ),
                 ),
@@ -159,7 +159,7 @@ Widget drawer(context) {
                 child: Text(
                   S.of(context).callHistory,
                   style: GoogleFonts.rubik(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                     fontSize: 14,
                   ),
                 ),
@@ -187,7 +187,7 @@ Widget drawer(context) {
                 child: Text(
                   S.of(context).tandc,
                   style: GoogleFonts.rubik(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                     fontSize: 14,
                   ),
                 ),
@@ -215,7 +215,7 @@ Widget drawer(context) {
                 child: Text(
                   S.of(context).privacy,
                   style: GoogleFonts.rubik(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                     fontSize: 14,
                   ),
                 ),
@@ -243,7 +243,7 @@ Widget drawer(context) {
                 child: Text(
                   S.of(context).about,
                   style: GoogleFonts.rubik(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                     fontSize: 14,
                   ),
                 ),
@@ -266,7 +266,7 @@ Widget drawer(context) {
                 child: Text(
                   S.of(context).logout,
                   style: GoogleFonts.rubik(
-                    color: Color(0xFFFA0020),
+                    color: AppColors.kfa0020,
                     fontSize: 14,
                   ),
                 ),

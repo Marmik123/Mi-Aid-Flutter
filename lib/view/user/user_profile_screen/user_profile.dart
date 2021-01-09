@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/config/app_colors.dart';
 
 import 'package:miaid/view/user/user_profile_screen/edit_user_profile.dart';
 import 'package:miaid/view/user/password_view/change_password.dart';
@@ -25,9 +26,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       TextEditingController();
   TextEditingController regularDoctorEmailController = TextEditingController();
 
-  static const colorBlue = Color(0xFF0CBCC5);
-  static const colorBlack = Color(0xFF010101);
-  static const colorGrey = Color(0xFF5E5E5E);
+  
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +36,12 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
           S.of(context).myProfile,
           style: GoogleFonts.rubik(
-            color: Color(0xFF010101),
+            color: AppColors.k010101,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -64,7 +63,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 },
                 child: Text(S.of(context).editProfile,
                     style: GoogleFonts.rubik(
-                      color: Color(0xFF0CBCC5),
+                      color: AppColors.k0cbcc5,
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
                     )),
@@ -103,7 +102,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           width: 79,
                           margin: EdgeInsets.all(4),
                           decoration: BoxDecoration(
-                            border: Border.all(color: colorBlue),
+                            border: Border.all(color: AppColors.k0cbcc5),
                             shape: BoxShape.circle,
                             image: DecorationImage(
                                 image:
@@ -130,7 +129,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       Text(
                         'John Doe',
                         style: GoogleFonts.rubik(
-                          color: colorBlack,
+                          color: AppColors.k010101,
                           fontSize: 21,
                           fontWeight: FontWeight.bold,
                         ),
@@ -141,7 +140,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       Text(
                         'johndoe@gmail.com',
                         style: GoogleFonts.rubik(
-                          color: colorGrey,
+                          color: AppColors.k696969,
                           fontSize: 14,
                         ),
                       ),
@@ -151,7 +150,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       Text(
                         '+612 3456 4567',
                         style: GoogleFonts.rubik(
-                          color: colorGrey,
+                          color: AppColors.k696969,
                           fontSize: 14,
                         ),
                       ),
@@ -171,7 +170,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               child: Text(
                 S.of(context).otherSettings,
                 style: GoogleFonts.rubik(
-                  color: Color(0xFF010101),
+                  color: AppColors.k010101,
                   fontSize: 17,
                   fontWeight: FontWeight.bold,
                 ),
@@ -188,15 +187,15 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 width: MediaQuery.of(context).size.width,
                 height: 44,
                 child: FlatButton(
-                  splashColor: colorBlue.withOpacity(0.1),
-                  highlightColor: colorBlue.withOpacity(0.2),
+                  splashColor: AppColors.k0cbcc5.withOpacity(0.1),
+                  highlightColor: AppColors.k0cbcc5.withOpacity(0.2),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(9),
                     side: BorderSide(
-                      color: Color(0xFF30BEE6),
+                      color: AppColors.k30bee6,
                     ),
                   ),
-                  color: Color(0xFFFFFFFF),
+                  color: AppColors.kffffff,
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -208,7 +207,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   child: Text(
                     S.of(context).changePass,
                     style: GoogleFonts.rubik(
-                      color: colorBlue,
+                      color: AppColors.k0cbcc5,
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
                     ),
@@ -235,7 +234,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 child: Text(
                   S.of(context).generalDetail,
                   style: GoogleFonts.rubik(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                     fontSize: 17,
                     fontWeight: FontWeight.w500,
                   ),
@@ -259,7 +258,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                               S.of(context).dob,
                               textAlign: TextAlign.left,
                               style: GoogleFonts.rubik(
-                                color: colorGrey,
+                                color: AppColors.k696969,
                                 fontSize: 14,
                               ),
                             ),
@@ -281,7 +280,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                             enabled: false,
                             controller: dobController..text = '24 Aug 1986',
                             style: GoogleFonts.rubik(
-                              color: colorBlack,
+                              color: AppColors.k010101,
                               fontSize: 14,
                             ),
                           ),
@@ -309,7 +308,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                               S.of(context).preLanguage,
                               textAlign: TextAlign.left,
                               style: GoogleFonts.rubik(
-                                color: colorGrey,
+                                color: AppColors.k696969,
                                 fontSize: 14,
                               ),
                             ),
@@ -331,7 +330,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                             enabled: false,
                             controller: languageController..text = 'English',
                             style: GoogleFonts.rubik(
-                              color: colorBlack,
+                              color: AppColors.k010101,
                               fontSize: 14,
                             ),
                           ),
@@ -359,7 +358,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                               S.of(context).gender,
                               textAlign: TextAlign.left,
                               style: GoogleFonts.rubik(
-                                color: colorGrey,
+                                color: AppColors.k696969,
                                 fontSize: 14,
                               ),
                             ),
@@ -384,7 +383,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                             enabled: false,
                             controller: genderController..text = 'Male',
                             style: GoogleFonts.rubik(
-                              color: colorBlack,
+                              color: AppColors.k010101,
                               fontSize: 14,
                             ),
                           ),
@@ -412,7 +411,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                               S.of(context).doctorPre,
                               textAlign: TextAlign.left,
                               style: GoogleFonts.rubik(
-                                color: colorGrey,
+                                color: AppColors.k696969,
                                 fontSize: 14,
                               ),
                             ),
@@ -438,7 +437,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                             controller: doctorPreferenceController
                               ..text = 'Any',
                             style: GoogleFonts.rubik(
-                              color: colorBlack,
+                              color: AppColors.k010101,
                               fontSize: 14,
                             ),
                           ),
@@ -466,7 +465,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                               S.of(context).travelAgencyName,
                               textAlign: TextAlign.left,
                               style: GoogleFonts.rubik(
-                                color: colorGrey,
+                                color: AppColors.k696969,
                                 fontSize: 14,
                               ),
                             ),
@@ -492,7 +491,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                             controller: travelAgencyNameController
                               ..text = 'First Class tour',
                             style: GoogleFonts.rubik(
-                              color: colorBlack,
+                              color: AppColors.k010101,
                               fontSize: 14,
                             ),
                           ),
@@ -522,7 +521,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 child: Text(
                   S.of(context).nextOfKin,
                   style: GoogleFonts.rubik(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                     fontSize: 17,
                     fontWeight: FontWeight.w500,
                   ),
@@ -542,7 +541,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         S.of(context).fullName,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
-                          color: colorGrey,
+                          color: AppColors.k696969,
                           fontSize: 14,
                         ),
                       ),
@@ -564,7 +563,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       enabled: false,
                       controller: fullNameController..text = 'Lucinda Mendez',
                       style: GoogleFonts.rubik(
-                        color: colorBlack,
+                        color: AppColors.k010101,
                         fontSize: 14,
                       ),
                     ),
@@ -592,7 +591,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         S.of(context).email,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
-                          color: colorGrey,
+                          color: AppColors.k696969,
                           fontSize: 14,
                         ),
                       ),
@@ -614,7 +613,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       enabled: false,
                       controller: emailController..text = 'lucinda.m@mail.com',
                       style: GoogleFonts.rubik(
-                        color: colorBlack,
+                        color: AppColors.k010101,
                         fontSize: 14,
                       ),
                     ),
@@ -642,7 +641,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         S.of(context).phone,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
-                          color: colorGrey,
+                          color: AppColors.k696969,
                           fontSize: 14,
                         ),
                       ),
@@ -664,7 +663,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       enabled: false,
                       controller: phoneController..text = '+612 2277 6241',
                       style: GoogleFonts.rubik(
-                        color: colorBlack,
+                        color: AppColors.k010101,
                         fontSize: 14,
                       ),
                     ),
@@ -694,7 +693,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 child: Text(
                   S.of(context).regularDoctor,
                   style: GoogleFonts.rubik(
-                      color: Color(0xFF010101),
+                      color: AppColors.k010101,
                       fontSize: 17,
                       fontWeight: FontWeight.w500),
                 ),
@@ -713,7 +712,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         S.of(context).fullName,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
-                          color: colorGrey,
+                          color: AppColors.k696969,
                           fontSize: 14,
                         ),
                       ),
@@ -736,7 +735,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       controller: regularDoctorFullNameController
                         ..text = 'Theresa Warren',
                       style: GoogleFonts.rubik(
-                        color: colorBlack,
+                        color: AppColors.k010101,
                         fontSize: 14,
                       ),
                     ),
@@ -764,7 +763,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         S.of(context).email,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
-                          color: colorGrey,
+                          color: AppColors.k696969,
                           fontSize: 14,
                         ),
                       ),
@@ -787,7 +786,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       controller: regularDoctorEmailController
                         ..text = 'theresawarren@mail.com',
                       style: GoogleFonts.rubik(
-                        color: colorBlack,
+                        color: AppColors.k010101,
                         fontSize: 14,
                       ),
                     ),
