@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/view/user/user_profile_screen/edit_user_profile.dart';
 import 'package:miaid/view/user/password_view/change_password.dart';
 import 'package:miaid/component/drawer.dart';
-
+import 'package:miaid/generated/l10n.dart';
 
 class UserProfileScreen extends StatefulWidget {
   @override
@@ -40,7 +40,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         backgroundColor: Color(0xFFFFFFFF),
         centerTitle: true,
         title: Text(
-          'My Profile',
+          S.of(context).myProfile,
           style: GoogleFonts.rubik(
             color: Color(0xFF010101),
             fontSize: 15,
@@ -62,7 +62,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     ),
                   );
                 },
-                child: Text('Edit Profile',
+                child: Text(S.of(context).editProfile,
                     style: GoogleFonts.rubik(
                       color: Color(0xFF0CBCC5),
                       fontSize: 17,
@@ -85,7 +85,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           },
         ),
       ),
-      
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -170,7 +169,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             Padding(
               padding: const EdgeInsets.only(top: 20, left: 16),
               child: Text(
-                'Other Settings',
+                S.of(context).otherSettings,
                 style: GoogleFonts.rubik(
                   color: Color(0xFF010101),
                   fontSize: 17,
@@ -207,7 +206,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     );
                   },
                   child: Text(
-                    'Change Password',
+                    S.of(context).changePass,
                     style: GoogleFonts.rubik(
                       color: colorBlue,
                       fontSize: 17,
@@ -234,7 +233,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               Padding(
                 padding: const EdgeInsets.only(top: 20, left: 20),
                 child: Text(
-                  'General Details',
+                  S.of(context).generalDetail,
                   style: GoogleFonts.rubik(
                     color: Color(0xFF010101),
                     fontSize: 17,
@@ -257,7 +256,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           Padding(
                             padding: const EdgeInsets.only(left: 10),
                             child: Text(
-                              'DOB',
+                              S.of(context).dob,
                               textAlign: TextAlign.left,
                               style: GoogleFonts.rubik(
                                 color: colorGrey,
@@ -307,7 +306,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           Padding(
                             padding: const EdgeInsets.only(left: 10),
                             child: Text(
-                              'Preferred Language',
+                              S.of(context).preLanguage,
                               textAlign: TextAlign.left,
                               style: GoogleFonts.rubik(
                                 color: colorGrey,
@@ -357,7 +356,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           Padding(
                             padding: const EdgeInsets.only(left: 10),
                             child: Text(
-                              'Email',
+                              S.of(context).gender,
                               textAlign: TextAlign.left,
                               style: GoogleFonts.rubik(
                                 color: colorGrey,
@@ -410,7 +409,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           Padding(
                             padding: const EdgeInsets.only(left: 10),
                             child: Text(
-                              'Doctor Preference',
+                              S.of(context).doctorPre,
                               textAlign: TextAlign.left,
                               style: GoogleFonts.rubik(
                                 color: colorGrey,
@@ -464,7 +463,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           Padding(
                             padding: const EdgeInsets.only(left: 10),
                             child: Text(
-                              'Travel Agency Name',
+                              S.of(context).travelAgencyName,
                               textAlign: TextAlign.left,
                               style: GoogleFonts.rubik(
                                 color: colorGrey,
@@ -521,7 +520,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               Padding(
                 padding: const EdgeInsets.only(top: 20, left: 20),
                 child: Text(
-                  'Next of Kin',
+                  S.of(context).nextOfKin,
                   style: GoogleFonts.rubik(
                     color: Color(0xFF010101),
                     fontSize: 17,
@@ -540,7 +539,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: Text(
-                        'Full Name',
+                        S.of(context).fullName,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color: colorGrey,
@@ -590,7 +589,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: Text(
-                        'Email',
+                        S.of(context).email,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color: colorGrey,
@@ -640,7 +639,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: Text(
-                        'Phone',
+                        S.of(context).phone,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color: colorGrey,
@@ -693,7 +692,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               Padding(
                 padding: const EdgeInsets.only(top: 20, left: 20),
                 child: Text(
-                  'Regular Doctor',
+                  S.of(context).regularDoctor,
                   style: GoogleFonts.rubik(
                       color: Color(0xFF010101),
                       fontSize: 17,
@@ -711,7 +710,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: Text(
-                        'Full Name',
+                        S.of(context).fullName,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color: colorGrey,
@@ -762,7 +761,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: Text(
-                        'Email',
+                        S.of(context).email,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color: colorGrey,

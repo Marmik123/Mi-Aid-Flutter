@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/generated/l10n.dart';
 
 class CallViewReceipt extends StatefulWidget {
   @override
@@ -24,7 +25,7 @@ class _CallViewReceiptState extends State<CallViewReceipt> {
         ),
         centerTitle: true,
         title: Text(
-          "View Receipt",
+          S.of(context).viewReceipt,
           style: GoogleFonts.rubik(
             color: colorBlack,
             fontSize: 15,
@@ -80,7 +81,7 @@ class _CallViewReceiptState extends State<CallViewReceipt> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Appointment Receipt',
+                          S.of(context).appointmentReceipt,
                           style: GoogleFonts.rubik(fontSize: 12),
                         ),
                         Image.asset('assets/images/logo_reciept.png'),
@@ -108,9 +109,9 @@ class _CallViewReceiptState extends State<CallViewReceipt> {
                                 fontSize: 12,
                                 fontWeight: FontWeight.w300),
                             children: [
-                              TextSpan(text: 'Provider Number'),
+                              TextSpan(text: S.of(context).providerNumber),
                               TextSpan(
-                                text: '000000012',
+                                text: ' 000000012',
                                 style: GoogleFonts.rubik(
                                   color: colorBlack,
                                 ),
@@ -132,7 +133,7 @@ class _CallViewReceiptState extends State<CallViewReceipt> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Patient Name',
+                          S.of(context).patientName,
                           style: GoogleFonts.rubik(
                               fontSize: 14, fontWeight: FontWeight.w300),
                         ),
@@ -154,7 +155,7 @@ class _CallViewReceiptState extends State<CallViewReceipt> {
                 child: Column(
                   children: [
                     Text(
-                      'Video Consultation',
+                      S.of(context).videoConsult,
                       style: GoogleFonts.rubik(
                           fontSize: 14, fontWeight: FontWeight.w500),
                     ),
@@ -162,7 +163,7 @@ class _CallViewReceiptState extends State<CallViewReceipt> {
                       height: 10,
                     ),
                     Text(
-                      'Item Number : 104',
+                      '${S.of(context).itmeNumber} : 104',
                       style: GoogleFonts.rubik(
                           fontSize: 14, fontWeight: FontWeight.w500),
                     ),
@@ -184,7 +185,7 @@ class _CallViewReceiptState extends State<CallViewReceipt> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Sub Total',
+                          S.of(context).subTotal,
                           style: GoogleFonts.rubik(fontSize: 12),
                         ),
                         Text(
@@ -203,7 +204,7 @@ class _CallViewReceiptState extends State<CallViewReceipt> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Total',
+                        Text(S.of(context).total,
                             style: GoogleFonts.rubik(
                                 fontSize: 12, fontWeight: FontWeight.w500)),
                         Text(

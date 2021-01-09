@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/generated/l10n.dart';
 
 class ChangePassword extends StatefulWidget {
   @override
@@ -24,7 +25,7 @@ class _ChangePasswordState extends State<ChangePassword> {
         backgroundColor: Color(0xFFFFFFFF),
         centerTitle: true,
         title: Text(
-          'Change Password',
+          S.of(context).changePass,
           style: GoogleFonts.rubik(
             color: Color(0xFF010101),
             fontSize: 15,
@@ -58,7 +59,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Current Password',
+                        S.of(context).currPass,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color: passwordController.text.trim().length > 0
@@ -74,7 +75,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                       TextFormField(
                         validator: (value) {
                           if (value.trim().length == 0) {
-                            return 'Please enter a Password';
+                            return S.of(context).entPass;
                           } else {
                             return null;
                           }
@@ -140,7 +141,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                         height: 20,
                       ),
                       Text(
-                        'Password',
+                        S.of(context).password,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color: passwordController.text.trim().length > 0
@@ -156,7 +157,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                       TextFormField(
                         validator: (value) {
                           if (value.trim().length == 0) {
-                            return 'Please enter a Password';
+                            return S.of(context).entPass;
                           } else {
                             return null;
                           }
@@ -167,7 +168,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                         controller: passwordController,
                         obscureText: _obsecurePasswordText,
                         decoration: InputDecoration(
-                          hintText: 'must have atleast 8 characters',
+                          hintText: S.of(context).passHint,
                           hintStyle: TextStyle(
                             color: Color(0xFfB1B1B1),
                             fontSize: 14,
@@ -222,7 +223,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                         height: 20,
                       ),
                       Text(
-                        'Confirm Password',
+                        S.of(context).confirmPass,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color:
@@ -241,7 +242,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                         obscureText: _obsecureConfirmPasswordText,
                         validator: (value) {
                           if (value.trim().length == 0) {
-                            return "Please enter a Password";
+                            return S.of(context).entPass;
                           } else {
                             return null;
                           }
@@ -250,7 +251,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                           setState(() {});
                         },
                         decoration: InputDecoration(
-                          hintText: 'Re-type your new password here',
+                          hintText: S.of(context).rePass,
                           hintStyle: TextStyle(
                             color: Color(0xFFB1B1B1),
                             fontSize: 14,
@@ -324,7 +325,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                       // }
                     },
                     child: Text(
-                      'Save Password',
+                      S.of(context).savePass,
                       style: GoogleFonts.rubik(
                         color: Color(0xFFFFFFFF),
                         fontSize: 17,

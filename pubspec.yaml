@@ -1,8 +1,7 @@
 name: miaid
 description: A new Flutter project.
 
-
-publish_to: 'none' 
+publish_to: 'none'
 
 version: 1.0.0+1
 
@@ -10,8 +9,10 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  
+
   flutter:
+    sdk: flutter
+  flutter_localizations:
     sdk: flutter
   google_fonts: ^1.1.1
   cupertino_icons: ^1.0.0
@@ -22,13 +23,11 @@ dependencies:
   modal_bottom_sheet: ^1.0.0+1
   sliding_up_panel: ^1.0.2
   toggle_switch: ^0.1.8
-  
-
+  shared_preferences: ^0.5.12+4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
 
 flutter:
   uses-material-design: true
@@ -38,6 +37,5 @@ flutter:
     - assets/icons/
     - assets/images/NavBar/
     - assets/
-    
-
-  
+flutter_intl:
+  enabled: true

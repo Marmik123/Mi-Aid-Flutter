@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:miaid/view/user/user_profile_screen/user_profile.dart';
-
+import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/component/miaid_card.dart';
 
 class EditUserProfile extends StatefulWidget {
@@ -34,8 +34,6 @@ class _EditUserProfileState extends State<EditUserProfile> {
   final regularDoctorKey = GlobalKey<FormState>();
   final accountDetailsKey = GlobalKey<FormState>();
 
- 
-
   DateTime _dateTime = DateTime.now();
 
   @override
@@ -47,7 +45,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
         backgroundColor: Color(0xFFFFFFFF),
         centerTitle: true,
         title: Text(
-          'Edit Profile',
+          S.of(context).editProfile,
           style: GoogleFonts.rubik(
             color: Color(0xFF010101),
             fontSize: 15,
@@ -95,7 +93,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     // cupertinoDatePicker(context);
                   },
                   child: Text(
-                    'Save Changes',
+                    S.of(context).saveChange,
                     style: GoogleFonts.rubik(
                       color: Color(0xFFFFFFFF),
                       fontSize: 17,
@@ -126,7 +124,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   Padding(
                     padding: const EdgeInsets.only(top: 20),
                     child: Text(
-                      'Account Details',
+                      S.of(context).accountDetails,
                       style: GoogleFonts.rubik(
                         color: Color(0xFF010101),
                         fontSize: 17,
@@ -138,7 +136,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     height: 19,
                   ),
                   Text(
-                    'First Name',
+                    S.of(context).fname,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: accountFirstNameController.text.trim().length > 0
@@ -199,7 +197,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Last Name',
+                    S.of(context).lName,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: accountLastNameController.text.trim().length > 0
@@ -260,7 +258,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Email',
+                    S.of(context).email,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: accountEmailController.text.trim().length > 0
@@ -322,7 +320,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Phone',
+                    S.of(context).phone,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: accountPhoneController.text.trim().length > 0
@@ -393,7 +391,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                           padding: EdgeInsets.zero,
                           builder: (country) {
                             return Row(
-                               children: [
+                              children: [
                                 Image.asset(
                                   country.flagUri,
                                   package: 'country_code_picker',
@@ -423,7 +421,6 @@ class _EditUserProfileState extends State<EditUserProfile> {
                                   color: Color(0xFFb1b1b1).withOpacity(0.1),
                                 )
                               ],
-                           
                             );
                           },
                         ),
@@ -454,7 +451,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   Padding(
                     padding: const EdgeInsets.only(top: 20),
                     child: Text(
-                      'General Details',
+                      S.of(context).generalDetail,
                       style: GoogleFonts.rubik(
                         color: Color(0xFF010101),
                         fontSize: 17,
@@ -466,7 +463,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     height: 19,
                   ),
                   Text(
-                    'DOB',
+                    S.of(context).dob,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: dobController.text.trim().length > 0
@@ -492,7 +489,6 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     },
                     onTap: () {
                       showModalBottomSheet(
-                        
                         context: context,
                         builder: (context) => cupertinoDatePicker(context),
                       );
@@ -549,7 +545,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               height: 25,
             ),
             Text(
-              'Prefered Language',
+              S.of(context).preLanguage,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
                 color: languageController.text.trim().length > 0
@@ -603,7 +599,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               height: 25,
             ),
             Text(
-              'Gender',
+              S.of(context).gender,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
                 color: genderController.text.trim().length > 0
@@ -657,7 +653,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               height: 25,
             ),
             Text(
-              'Doctor Preference',
+              S.of(context).doctorPre,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
                 color: doctorPreferenceController.text.trim().length > 0
@@ -711,7 +707,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               height: 25,
             ),
             Text(
-              'Travel Agency Name',
+              S.of(context).travelAgencyName,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
                 color: travelAgencyNameController.text.trim().length > 0
@@ -782,7 +778,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Text(
-                'Next Of Kin',
+                S.of(context).nextOfKin,
                 style: GoogleFonts.rubik(
                   color: Color(0xFF010101),
                   fontSize: 17,
@@ -794,7 +790,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               height: 19,
             ),
             Text(
-              'Full Name',
+              S.of(context).fullName,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
                 color: fullNameController.text.trim().length > 0
@@ -853,7 +849,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               height: 25,
             ),
             Text(
-              'Email',
+              S.of(context).email,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
                 color: emailController.text.trim().length > 0
@@ -917,7 +913,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Phone',
+                    S.of(context).phone,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: phoneController.text.trim().length > 0
@@ -988,7 +984,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                           padding: EdgeInsets.zero,
                           builder: (country) {
                             return Row(
-                               children: [
+                              children: [
                                 Image.asset(
                                   country.flagUri,
                                   package: 'country_code_picker',
@@ -1018,7 +1014,6 @@ class _EditUserProfileState extends State<EditUserProfile> {
                                   color: Color(0xFFb1b1b1).withOpacity(0.1),
                                 )
                               ],
-                           
                             );
                           },
                         ),
@@ -1048,7 +1043,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Text(
-                'Regular Doctor',
+                S.of(context).regularDoctor,
                 style: GoogleFonts.rubik(
                   color: Color(0xFF010101),
                   fontSize: 17,
@@ -1060,7 +1055,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               height: 19,
             ),
             Text(
-              'Full Name',
+              S.of(context).fullName,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
                 color: regularDoctorFullNameController.text.trim().length > 0
@@ -1120,7 +1115,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               height: 25,
             ),
             Text(
-              'Email',
+              S.of(context).email,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
                 color: regularDoctorEmailController.text.trim().length > 0
@@ -1183,7 +1178,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
   }
 
   Widget cupertinoDatePicker(context) {
-      return Container(
+    return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -1199,7 +1194,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     Navigator.pop(context);
                   },
                   child: Text(
-                    'Cancel',
+                    S.of(context).cancel,
                     style: GoogleFonts.rubik(
                         fontSize: 15,
                         fontWeight: FontWeight.w300,
@@ -1211,7 +1206,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     Navigator.pop(context);
                   },
                   child: Text(
-                    'Done',
+                    S.of(context).done,
                     style: GoogleFonts.rubik(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
@@ -1240,6 +1235,5 @@ class _EditUserProfileState extends State<EditUserProfile> {
         ],
       ),
     );
-  
   }
 }

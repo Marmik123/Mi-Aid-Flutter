@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/view/user/e_shop/purchase_view_receipt.dart';
+import 'package:miaid/generated/l10n.dart';
 
 class PurchaseItem extends StatefulWidget {
   @override
@@ -26,7 +27,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
         ),
         centerTitle: true,
         title: Text(
-          "Purchases",
+          S.of(context).purchases,
           style: GoogleFonts.rubik(
             color: colorBlack,
             fontSize: 15,
@@ -89,7 +90,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                                     ),
                                     children: [
                                       TextSpan(
-                                        text: 'Order Number\n',
+                                        text: '${S.of(context).orderNumber}\n',
                                       ),
                                       TextSpan(
                                         text: '000000012',
@@ -113,7 +114,8 @@ class _PurchaseItemState extends State<PurchaseItem> {
                                       fontSize: 14,
                                     ),
                                     children: [
-                                      TextSpan(text: 'Order Date & Time\n'),
+                                      TextSpan(
+                                          text: '${S.of(context).orderDate}\n'),
                                       TextSpan(
                                         text: DateTime.now().toString(),
                                         style: GoogleFonts.rubik(
@@ -151,8 +153,9 @@ class _PurchaseItemState extends State<PurchaseItem> {
                               color: colorBlack,
                               fontSize: 18,
                             )),
-                        Image(image : AssetImage(
-                            'assets/images/ic_pharmacy_location_expand.png')),
+                        Image(
+                            image: AssetImage(
+                                'assets/images/ic_pharmacy_location_expand.png')),
                       ],
                     ),
                     SizedBox(
@@ -166,7 +169,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                           fontSize: 14,
                         ),
                         children: [
-                          TextSpan(text: 'Order Number\n'),
+                          TextSpan(text: '${S.of(context).orderNumber}\n'),
                           TextSpan(
                             text: '000000012',
                             style: GoogleFonts.rubik(
@@ -188,7 +191,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                           fontSize: 14,
                         ),
                         children: [
-                          TextSpan(text: 'Order Date & Time\n'),
+                          TextSpan(text: '${S.of(context).orderDate}\n'),
                           TextSpan(
                             text: DateTime.now().toString(),
                             style: GoogleFonts.rubik(
@@ -234,7 +237,9 @@ class _PurchaseItemState extends State<PurchaseItem> {
                                 Image(
                                   height: 70,
                                   width: 70,
-                                  image: AssetImage('assets/images/panadol.png'),),
+                                  image:
+                                      AssetImage('assets/images/panadol.png'),
+                                ),
                                 Expanded(
                                   child: Padding(
                                     padding: const EdgeInsets.only(
@@ -326,7 +331,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Sub Total',
+                          S.of(context).subTotal,
                           style: GoogleFonts.rubik(fontSize: 12),
                         ),
                         Text(
@@ -343,7 +348,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Delivery Fees',
+                          S.of(context).deliveryFees,
                           style: GoogleFonts.rubik(fontSize: 12),
                         ),
                         Text(
@@ -359,7 +364,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Order Total',
+                        Text(S.of(context).orderTotal,
                             style: GoogleFonts.rubik(
                                 fontSize: 12, fontWeight: FontWeight.w500)),
                         Text(
@@ -396,7 +401,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Text(
-                              'View Receipt',
+                              S.of(context).viewReceipt,
                               style: GoogleFonts.rubik(
                                 color: color,
                                 fontSize: 17,
@@ -419,7 +424,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Text(
-                              'Order Again',
+                              S.of(context).orderAgain,
                               style: GoogleFonts.rubik(
                                 color: Color(0xFFFFFFFF),
                                 fontSize: 17,

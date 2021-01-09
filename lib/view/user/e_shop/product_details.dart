@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:miaid/generated/l10n.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/view/user/e_shop/cart_eshop.dart';
@@ -27,7 +27,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           backgroundColor: Color(0xFFFFFFFF),
           centerTitle: true,
           title: Text(
-            'View Details',
+            S.of(context).viewDetails,
             style: GoogleFonts.rubik(
               color: Color(0xFF010101),
               fontSize: 15,
@@ -205,16 +205,16 @@ class _ProductDetailsState extends State<ProductDetails> {
                   ),
                   tabs: [
                     Tab(
-                      text: 'General',
+                      text: S.of(context).general,
                     ),
                     Tab(
-                      text: 'Warnings',
+                      text: S.of(context).warning,
                     ),
                     Tab(
-                      text: 'Ingredient',
+                      text: S.of(context).ingredient,
                     ),
                     Tab(
-                      text: 'Directions',
+                      text: S.of(context).direction,
                     ),
                   ],
                 ),
@@ -256,7 +256,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           color: color,
                         )),
                     child: Text(
-                      'Add to Cart',
+                      S.of(context).addToCart,
                       style: GoogleFonts.rubik(
                         color: color,
                         fontSize: 14,
@@ -281,7 +281,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                         borderRadius: BorderRadius.circular(9),
                       ),
                       child: Text(
-                        'Buy Now',
+                        S.of(context).buyNow,
                         style: GoogleFonts.rubik(
                           color: Color(0xFFFFFFFF),
                           fontSize: 14,

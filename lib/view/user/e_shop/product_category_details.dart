@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:miaid/component/miaid_card.dart';
-
+import 'package:miaid/generated/l10n.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -16,8 +16,6 @@ class ProductCategoryDetails extends StatefulWidget {
 class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
   TextEditingController searchController = TextEditingController();
 
- 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +25,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
         backgroundColor: Color(0xFFFFFFFF),
         centerTitle: true,
         title: Text(
-          'E - Shop',
+          S.of(context).eShop,
           style: GoogleFonts.rubik(
             color: Color(0xFF010101),
             fontSize: 15,
@@ -124,11 +122,10 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Image(
-                                    height: 70,
-                                    width: 70,
-                                    image:
-                                        AssetImage('assets/images/panadol.png'),
-                                  ),
+                            height: 70,
+                            width: 70,
+                            image: AssetImage('assets/images/panadol.png'),
+                          ),
                           Expanded(
                             child: Padding(
                               padding: const EdgeInsets.only(
@@ -163,7 +160,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'Open',
+                                            S.of(context).open,
                                             style: GoogleFonts.rubik(
                                               color: Color(0xFF25D000),
                                               fontSize: 14,
@@ -228,7 +225,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                         setState(() {});
                       },
                       decoration: InputDecoration(
-                        hintText: 'Search',
+                        hintText: S.of(context).search,
                         hintStyle: GoogleFonts.rubik(
                           color: Color(0xFfB1B1B1),
                           fontSize: 14,
@@ -309,7 +306,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                       child: Row(
                         children: [
                           Text(
-                            'All Categories',
+                            S.of(context).allCategories,
                             style: GoogleFonts.rubik(
                               color: colorWhite,
                               fontWeight: FontWeight.w500,
@@ -624,7 +621,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                                     // );
                                                   },
                                                   child: Text(
-                                                    'Add to Cart',
+                                                    S.of(context).addToCart,
                                                     style: GoogleFonts.rubik(
                                                       color: Color(0xFF0CBCC5),
                                                       fontSize: 17,

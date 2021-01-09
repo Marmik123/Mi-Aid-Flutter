@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/generated/l10n.dart';
 
 class PrivacyPolicy extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _PrivayPolicyState extends State<PrivacyPolicy> {
         backgroundColor: Color(0xFFFFFFFF),
         centerTitle: true,
         title: Text(
-          'Privacy Policy',
+          S.of(context).privacy,
           style: GoogleFonts.rubik(
             color: Color(0xFF010101),
             fontSize: 15,

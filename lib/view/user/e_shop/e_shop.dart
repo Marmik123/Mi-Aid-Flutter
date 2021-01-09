@@ -6,6 +6,7 @@ import 'package:miaid/view/user/e_shop/purchase.dart';
 import 'package:miaid/view/user/e_shop/cart_eshop.dart';
 import 'package:miaid/view/user/location/location.dart';
 import 'package:miaid/view/user/e_shop/product_category_details.dart';
+import 'package:miaid/generated/l10n.dart';
 
 class EShop extends StatefulWidget {
   @override
@@ -24,7 +25,7 @@ class _EShopState extends State<EShop> {
         backgroundColor: Color(0xFFFFFFFF),
         centerTitle: true,
         title: Text(
-          'E - Shop',
+          S.of(context).eShop,
           style: GoogleFonts.rubik(
             color: Color(0xFF010101),
             fontSize: 15,
@@ -118,7 +119,7 @@ class _EShopState extends State<EShop> {
                         setState(() {});
                       },
                       decoration: InputDecoration(
-                        hintText: 'Search',
+                        hintText: S.of(context).search,
                         hintStyle: GoogleFonts.rubik(
                           color: Color(0xFfB1B1B1),
                           fontSize: 14,
@@ -198,7 +199,9 @@ class _EShopState extends State<EShop> {
                                   'assets/images/ic_pharmacy_currentlocation.png'),
                             ),
                             Text(
-                              _selectedValue == '1' ? 'Clarkfield' : 'Location',
+                              _selectedValue == '1'
+                                  ? 'Clarkfield'
+                                  : S.of(context).location,
                               style: GoogleFonts.rubik(
                                 color: color,
                                 fontSize: 14,

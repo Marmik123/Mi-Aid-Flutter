@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/component/payment_bootomsheet.dart';
 import 'package:miaid/view/user/home_screen.dart';
-
+import 'package:miaid/generated/l10n.dart';
 
 class AdditionalServices extends StatelessWidget {
   @override
@@ -28,7 +28,7 @@ class AdditionalServices extends StatelessWidget {
           ),
           centerTitle: true,
           title: Text(
-            "Other MiAid Services",
+            S.of(context).otherService,
             style: GoogleFonts.rubik(
               color: Color(0xff010101),
               fontSize: 15,
@@ -114,7 +114,7 @@ class AdditionalServices extends StatelessWidget {
                               color: Color(0xff0CBCC5),
                             ),
                             child: Text(
-                              "Get This Service",
+                              S.of(context).getthisService,
                               style: GoogleFonts.rubik(
                                 color: Colors.white,
                                 fontSize: 14,

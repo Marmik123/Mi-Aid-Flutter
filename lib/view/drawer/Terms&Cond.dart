@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/generated/l10n.dart';
 
 class TermsConditions extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _TermsConditionsState extends State<TermsConditions> {
         backgroundColor: Color(0xFFFFFFFF),
         centerTitle: true,
         title: Text(
-          'Terms & Conditions',
+          S.of(context).tandc,
           style: GoogleFonts.rubik(
             color: Color(0xFF010101),
             fontSize: 15,

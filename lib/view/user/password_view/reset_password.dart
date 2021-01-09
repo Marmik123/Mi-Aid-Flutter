@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/view/user/sign_In_view/signIn.dart';
 import 'package:miaid/view/user/password_view/forgot_password.dart';
+import 'package:miaid/generated/l10n.dart';
 
 class ResetPassword extends StatefulWidget {
   @override
@@ -27,7 +28,7 @@ class _ResetPasswordState extends State<ResetPassword> {
         backgroundColor: Color(0xFFFFFFFF),
         centerTitle: true,
         title: Text(
-          'Reset Password',
+          S.of(context).resetPass,
           style: GoogleFonts.rubik(
             color: Color(0xFF010101),
             fontSize: 15,
@@ -66,7 +67,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Password',
+                        S.of(context).password,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color: passwordController.text.trim().length > 0
@@ -82,7 +83,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                       TextFormField(
                         validator: (value) {
                           if (value.trim().length == 0) {
-                            return 'Please enter a Password';
+                            return S.of(context).entPass;
                           } else {
                             return null;
                           }
@@ -93,7 +94,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                         controller: passwordController,
                         obscureText: _obsecurePasswordText,
                         decoration: InputDecoration(
-                          hintText: 'must have atleast 8 characters',
+                          hintText: S.of(context).passHint,
                           hintStyle: TextStyle(
                             color: Color(0xFfB1B1B1),
                             fontSize: 14,
@@ -149,7 +150,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                         height: 20,
                       ),
                       Text(
-                        'Confirm Password',
+                        S.of(context).confirmPass,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color:
@@ -168,7 +169,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                         obscureText: _obsecureConfirmPasswordText,
                         validator: (value) {
                           if (value.trim().length == 0) {
-                            return "Please enter a Password";
+                            return S.of(context).entPass;
                           } else {
                             return null;
                           }
@@ -177,7 +178,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                           setState(() {});
                         },
                         decoration: InputDecoration(
-                          hintText: 'Re-type your new password here',
+                          hintText: S.of(context).rePass,
                           hintStyle: TextStyle(
                             color: Color(0xFFB1B1B1),
                             fontSize: 14,
@@ -252,7 +253,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                       }
                     },
                     child: Text(
-                      'Save Password',
+                      S.of(context).savePass,
                       style: GoogleFonts.rubik(
                         color: Color(0xFFFFFFFF),
                         fontSize: 17,
@@ -300,7 +301,7 @@ showAlertDialog(BuildContext context) {
               context, MaterialPageRoute(builder: (context) => SignIn()));
         },
         child: Text(
-          'Okay',
+          S.of(context).okay,
           style: GoogleFonts.rubik(
             color: Color(0xFFFFFFFF),
             fontSize: 17,
@@ -315,7 +316,7 @@ showAlertDialog(BuildContext context) {
       borderRadius: BorderRadius.all(Radius.circular(12)),
     ),
     title: Text(
-      'Success!',
+      S.of(context).success,
       textAlign: TextAlign.center,
       style: GoogleFonts.rubik(
         fontSize: 17,
@@ -324,7 +325,7 @@ showAlertDialog(BuildContext context) {
       ),
     ),
     content: Text(
-      'Password has been reset successfully.',
+      S.of(context).successMessage,
       textAlign: TextAlign.center,
       style: GoogleFonts.rubik(
         fontSize: 13,

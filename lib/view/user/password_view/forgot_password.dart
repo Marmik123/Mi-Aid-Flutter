@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/view/user/password_view/reset_password.dart';
+import 'package:miaid/generated/l10n.dart';
 
 class ForgotPassword extends StatefulWidget {
   @override
@@ -21,7 +22,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
         backgroundColor: Color(0xFFFFFFFF),
         centerTitle: true,
         title: Text(
-          'Forgot Password',
+          S.of(context).forgotPass,
           style: GoogleFonts.rubik(
             color: Color(0xFF010101),
             fontSize: 15,
@@ -66,7 +67,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   height: 28,
                   width: 327,
                   child: Text(
-                    'An Email with link to reset password has been sent to your email. Please check and try again',
+                    S.of(context).forgotPassMessage,
                     textAlign: TextAlign.center,
                     style: GoogleFonts.rubik(
                       color: Color(0xFF010101),
@@ -86,7 +87,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Email',
+                        S.of(context).email,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color: forgotEmailController.text.trim().length > 0
@@ -102,7 +103,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       TextFormField(
                         validator: (value) {
                           if (value.trim().length == 0) {
-                            return 'please Enter an Email';
+                            return S.of(context).entEmail;
                           } else {
                             return null;
                           }
@@ -162,7 +163,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       showAlertDialog(context);
                     },
                     child: Text(
-                      'Reset Password',
+                      S.of(context).resetPass,
                       style: GoogleFonts.rubik(
                         color: Color(0xFFFFFFFF),
                         fontSize: 17,
@@ -210,7 +211,7 @@ showAlertDialog(BuildContext context) {
               MaterialPageRoute(builder: (context) => ResetPassword()));
         },
         child: Text(
-          'Okay',
+          S.of(context).okay,
           style: GoogleFonts.rubik(
             color: Color(0xFFFFFFFF),
             fontSize: 17,
@@ -225,7 +226,7 @@ showAlertDialog(BuildContext context) {
       borderRadius: BorderRadius.all(Radius.circular(12)),
     ),
     title: Text(
-      'Link Sent',
+      S.of(context).linkSend,
       textAlign: TextAlign.center,
       style: GoogleFonts.rubik(
         fontWeight: FontWeight.w500,
@@ -234,7 +235,7 @@ showAlertDialog(BuildContext context) {
       ),
     ),
     content: Text(
-      'A Password reset link has been sent.\nPlease check your email.',
+      S.of(context).linkSendMessage,
       textAlign: TextAlign.center,
       style: GoogleFonts.rubik(
         fontSize: 13,

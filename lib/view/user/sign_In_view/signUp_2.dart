@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/view/user/home_screen.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/generated/l10n.dart';
 
 class SignUp2 extends StatefulWidget {
   @override
@@ -27,26 +28,6 @@ class _SignUp2State extends State<SignUp2> {
   final nextOfKinKey = GlobalKey<FormState>();
   final regularDoctorKey = GlobalKey<FormState>();
 
-  String dropDownLanguage = 'Select a Language';
-  String dropDownGender = 'Select your gender';
-  List<String> languageOption = <String>[
-    'Select a Language',
-    'English',
-    'French',
-    'Spanish',
-    'Russian',
-    'Arabic ',
-    'Chinese'
-  ];
-
-  List<String> genderOption = <String>[
-    'Select your gender',
-    'Male',
-    'Female',
-    'Other'
-  ];
-
-  
   static const fontColor = Color(0xFF010101);
   static const borderColor = Color(0xFFB1B1B1);
 
@@ -61,7 +42,7 @@ class _SignUp2State extends State<SignUp2> {
         backgroundColor: Color(0xFFFFFFFF),
         centerTitle: true,
         title: Text(
-          'Complete Your Profile',
+          S.of(context).completeYourProfile,
           style: GoogleFonts.rubik(
             color: Color(0xFF010101),
             fontSize: 15,
@@ -112,7 +93,7 @@ class _SignUp2State extends State<SignUp2> {
                     );
                   },
                   child: Text(
-                    'Complete Profile',
+                    S.of(context).completeProfile,
                     style: GoogleFonts.rubik(
                       color: Color(0xFFFFFFFF),
                       fontSize: 17,
@@ -129,6 +110,26 @@ class _SignUp2State extends State<SignUp2> {
   }
 
   Widget generalDetails() {
+    String dropDownLanguage = S.of(context).selectLang;
+    String dropDownGender = S.of(context).selsctGender;
+
+    List<String> languageOption = <String>[
+      S.of(context).selectLang,
+      'English',
+      'French',
+      'Spanish',
+      'Russian',
+      'Arabic ',
+      'Chinese'
+    ];
+
+    List<String> genderOption = <String>[
+      S.of(context).selsctGender,
+      'Male',
+      'Female',
+      'Other'
+    ];
+
     return Form(
       key: generalDetailsKey,
       child: Padding(
@@ -143,7 +144,7 @@ class _SignUp2State extends State<SignUp2> {
                   Padding(
                     padding: const EdgeInsets.only(top: 20),
                     child: Text(
-                      'General Details',
+                      S.of(context).generalDetail,
                       style: GoogleFonts.rubik(
                         color: Color(0xFF010101),
                         fontSize: 17,
@@ -155,7 +156,7 @@ class _SignUp2State extends State<SignUp2> {
                     height: 19,
                   ),
                   Text(
-                    'DOB',
+                    S.of(context).dob,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: dobController.text.trim().length > 0
@@ -181,7 +182,6 @@ class _SignUp2State extends State<SignUp2> {
                     },
                     onTap: () {
                       showModalBottomSheet(
-                        
                         context: context,
                         builder: (context) => cupertinoDatePicker(context),
                       );
@@ -242,7 +242,7 @@ class _SignUp2State extends State<SignUp2> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Prefered Language',
+                    S.of(context).preLanguage,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: languageController.text.trim().length > 0
@@ -318,7 +318,7 @@ class _SignUp2State extends State<SignUp2> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Gender',
+                    S.of(context).gender,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: genderController.text.trim().length > 0
@@ -396,7 +396,7 @@ class _SignUp2State extends State<SignUp2> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Doctor Preference',
+                    S.of(context).doctorPre,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: doctorPreferenceController.text.trim().length > 0
@@ -421,7 +421,7 @@ class _SignUp2State extends State<SignUp2> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Travel Agency Name',
+                    S.of(context).travelAgencyName,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: travelAgencyNameController.text.trim().length > 0
@@ -447,7 +447,7 @@ class _SignUp2State extends State<SignUp2> {
                     },
                     controller: travelAgencyNameController,
                     decoration: InputDecoration(
-                      hintText: 'Sample',
+                      hintText: S.of(context).sample,
                       hintStyle: GoogleFonts.rubik(
                         color: Color(0xFfB1B1B1),
                         fontSize: 14,
@@ -495,7 +495,7 @@ class _SignUp2State extends State<SignUp2> {
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Text(
-                'Next Of Kin',
+                S.of(context).nextOfKin,
                 style: GoogleFonts.rubik(
                   color: Color(0xFF010101),
                   fontSize: 17,
@@ -507,7 +507,7 @@ class _SignUp2State extends State<SignUp2> {
               height: 19,
             ),
             Text(
-              'Full Name',
+              S.of(context).fullName,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
                 color: fullNameController.text.trim().length > 0
@@ -567,7 +567,7 @@ class _SignUp2State extends State<SignUp2> {
               height: 25,
             ),
             Text(
-              'Email',
+              S.of(context).email,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
                 color: emailController.text.trim().length > 0
@@ -628,7 +628,7 @@ class _SignUp2State extends State<SignUp2> {
               height: 25,
             ),
             Text(
-              'Mobile',
+              S.of(context).phone,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
                 color: phoneController.text.trim().length > 0
@@ -701,36 +701,35 @@ class _SignUp2State extends State<SignUp2> {
                     builder: (country) {
                       return Row(
                         children: [
-                                Image.asset(
-                                  country.flagUri,
-                                  package: 'country_code_picker',
-                                  width: 32,
-                                ),
-                                SizedBox(
-                                  width: 3.69,
-                                ),
-                                Text(
-                                  country.dialCode,
-                                  style: GoogleFonts.rubik(
-                                    color: Color(0xFFB1B1B1),
-                                    fontSize: 14,
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 6,
-                                ),
-                                Image.asset(
-                                    'assets/images/ic_pharmacy_location_expand.png'),
-                                SizedBox(
-                                  width: 6,
-                                ),
-                                Container(
-                                  height: 35,
-                                  width: 1,
-                                  color: Color(0xFFb1b1b1).withOpacity(0.1),
-                                )
-                              ],
-                           
+                          Image.asset(
+                            country.flagUri,
+                            package: 'country_code_picker',
+                            width: 32,
+                          ),
+                          SizedBox(
+                            width: 3.69,
+                          ),
+                          Text(
+                            country.dialCode,
+                            style: GoogleFonts.rubik(
+                              color: Color(0xFFB1B1B1),
+                              fontSize: 14,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 6,
+                          ),
+                          Image.asset(
+                              'assets/images/ic_pharmacy_location_expand.png'),
+                          SizedBox(
+                            width: 6,
+                          ),
+                          Container(
+                            height: 35,
+                            width: 1,
+                            color: Color(0xFFb1b1b1).withOpacity(0.1),
+                          )
+                        ],
                       );
                     },
                   ),
@@ -757,7 +756,7 @@ class _SignUp2State extends State<SignUp2> {
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Text(
-                'Regular Doctor',
+                S.of(context).regularDoctor,
                 style: GoogleFonts.rubik(
                   color: Color(0xFF010101),
                   fontSize: 17,
@@ -769,7 +768,7 @@ class _SignUp2State extends State<SignUp2> {
               height: 19,
             ),
             Text(
-              'Full Name',
+              S.of(context).fullName,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
                 color: regularDoctorFullNameController.text.trim().length > 0
@@ -829,7 +828,7 @@ class _SignUp2State extends State<SignUp2> {
               height: 25,
             ),
             Text(
-              'Email',
+              S.of(context).email,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
                 color: regularDoctorEmailController.text.trim().length > 0
@@ -916,7 +915,7 @@ class _SignUp2State extends State<SignUp2> {
             padding:
                 const EdgeInsets.only(left: 38, right: 37, top: 6, bottom: 5),
             child: Text(
-              'Any',
+              S.of(context).anys,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(color: colorWhite, fontSize: 14),
             ),
@@ -950,7 +949,7 @@ class _SignUp2State extends State<SignUp2> {
               bottom: 5,
             ),
             child: Text(
-              'Male',
+              S.of(context).male,
               style: GoogleFonts.rubik(color: color, fontSize: 14),
             ),
           ),
@@ -983,7 +982,7 @@ class _SignUp2State extends State<SignUp2> {
               bottom: 5,
             ),
             child: Text(
-              'Female',
+              S.of(context).female,
               style: GoogleFonts.rubik(color: color, fontSize: 14),
             ),
           ),
@@ -993,7 +992,7 @@ class _SignUp2State extends State<SignUp2> {
   }
 
   Widget cupertinoDatePicker(context) {
-      return Container(
+    return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -1009,7 +1008,7 @@ class _SignUp2State extends State<SignUp2> {
                     Navigator.pop(context);
                   },
                   child: Text(
-                    'Cancel',
+                    S.of(context).cancel,
                     style: GoogleFonts.rubik(
                         fontSize: 15,
                         fontWeight: FontWeight.w300,
@@ -1021,7 +1020,7 @@ class _SignUp2State extends State<SignUp2> {
                     Navigator.pop(context);
                   },
                   child: Text(
-                    'Done',
+                    S.of(context).done,
                     style: GoogleFonts.rubik(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
@@ -1050,6 +1049,5 @@ class _SignUp2State extends State<SignUp2> {
         ],
       ),
     );
-  
   }
 }
