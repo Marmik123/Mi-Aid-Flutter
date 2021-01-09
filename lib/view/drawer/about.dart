@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/config/app_colors.dart';
 
 class AboutMiAid extends StatefulWidget {
@@ -17,7 +18,7 @@ class _AboutMiAidState extends State<AboutMiAid> {
         backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
-          'About MiAid',
+          S.of(context).about,
           style: GoogleFonts.rubik(
             color: AppColors.k010101,
             fontSize: 15,

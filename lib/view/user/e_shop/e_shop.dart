@@ -1,7 +1,5 @@
 import 'dart:async';
-import 'dart:ui' as ui;
-import 'dart:typed_data';
-import 'package:flutter/services.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/config/app_colors.dart';
@@ -12,6 +10,7 @@ import 'package:miaid/view/user/location/location.dart';
 import 'package:miaid/view/user/e_shop/product_category_details.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:miaid/model/pin_info.dart';
+import 'package:miaid/generated/l10n.dart';
 
 class EShop extends StatefulWidget {
   @override
@@ -125,7 +124,7 @@ class _EShopState extends State<EShop> {
         backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
-          'E - Shop',
+          S.of(context).eShop,
           style: GoogleFonts.rubik(
             color: AppColors.k010101,
             fontSize: 15,
@@ -219,7 +218,7 @@ class _EShopState extends State<EShop> {
                         setState(() {});
                       },
                       decoration: InputDecoration(
-                        hintText: 'Search',
+                        hintText: S.of(context).search,
                         hintStyle: GoogleFonts.rubik(
                           color: AppColors.kb1b1b1,
                           fontSize: 14,
@@ -299,7 +298,9 @@ class _EShopState extends State<EShop> {
                                   'assets/images/ic_pharmacy_currentlocation.png'),
                             ),
                             Text(
-                              _selectedValue == '1' ? 'Clarkfield' : 'Location',
+                              _selectedValue == '1'
+                                  ? 'Clarkfield'
+                                  : S.of(context).location,
                               style: GoogleFonts.rubik(
                                 color: AppColors.k0cbcc5,
                                 fontSize: 14,

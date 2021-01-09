@@ -7,6 +7,8 @@ import 'package:miaid/view/user/otp_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:miaid/view/drawer/privacy&policy.dart';
 import 'package:miaid/view/drawer/Terms&Cond.dart';
+//import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/config/app_colors.dart';
 
 class SignUp extends StatefulWidget {
@@ -28,8 +30,6 @@ class _SignUpState extends State<SignUp> {
 
   String _selectedValue = "0";
 
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +39,7 @@ class _SignUpState extends State<SignUp> {
         backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
-          'Sign Up',
+          S.of(context).signUp,
           style: GoogleFonts.rubik(
             color: AppColors.k010101,
             fontSize: 15,
@@ -75,7 +75,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                   );
                 },
-                child: Text('Sign In',
+                child: Text(S.of(context).signIn,
                     style: GoogleFonts.rubik(
                       color: AppColors.k0cbcc5,
                       fontSize: 17,
@@ -120,7 +120,7 @@ class _SignUpState extends State<SignUp> {
                         width: MediaQuery.of(context).size.width,
                         padding: EdgeInsets.all(8),
                         child: Text(
-                          'Individual User',
+                          S.of(context).individual,
                           textAlign: TextAlign.center,
                           style: GoogleFonts.rubik(
                               fontSize: 17,
@@ -145,7 +145,7 @@ class _SignUpState extends State<SignUp> {
                         width: MediaQuery.of(context).size.width,
                         padding: EdgeInsets.all(8),
                         child: Text(
-                          'Corporate User',
+                          S.of(context).corporate,
                           textAlign: TextAlign.center,
                           style: GoogleFonts.rubik(
                               fontSize: 17,
@@ -155,8 +155,6 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                     },
-                    
-                    
                     onValueChanged: (value) {
                       setState(() {
                         _selectedValue = value;
@@ -167,7 +165,6 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
             ),
-            
             SizedBox(
               height: 20,
             ),
@@ -191,7 +188,7 @@ class _SignUpState extends State<SignUp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'First Name',
+                    S.of(context).fname,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: firstNameController.text.trim().length > 0
@@ -256,7 +253,7 @@ class _SignUpState extends State<SignUp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Last Name',
+                    S.of(context).lName,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: lastNameController.text.trim().length > 0
@@ -318,7 +315,7 @@ class _SignUpState extends State<SignUp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Email',
+                    S.of(context).email,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: emailController.text.trim().length > 0
@@ -381,7 +378,7 @@ class _SignUpState extends State<SignUp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Phone',
+                    S.of(context).phone,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: phoneController.text.trim().length > 0
@@ -500,7 +497,7 @@ class _SignUpState extends State<SignUp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Password',
+                    S.of(context).password,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: passwordController.text.trim().length > 0
@@ -527,7 +524,7 @@ class _SignUpState extends State<SignUp> {
                     controller: passwordController,
                     obscureText: _obsecurePasswordText,
                     decoration: InputDecoration(
-                      hintText: 'Must have atleast 8 characters',
+                      hintText: S.of(context).passHint,
                       hintStyle: GoogleFonts.rubik(
                         color: AppColors.kb1b1b1,
                         fontSize: 14,
@@ -577,7 +574,7 @@ class _SignUpState extends State<SignUp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Confirm Password',
+                    S.of(context).confirmPass,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
                       color: confirmPasswordController.text.trim().length > 0
@@ -604,7 +601,7 @@ class _SignUpState extends State<SignUp> {
                     controller: confirmPasswordController,
                     obscureText: _obsecureConfirmPasswordText,
                     decoration: InputDecoration(
-                      hintText: 'Re-type your new password here',
+                      hintText: S.of(context).rePass,
                       hintStyle: GoogleFonts.rubik(
                         color: AppColors.kb1b1b1,
                         fontSize: 14,
@@ -660,9 +657,9 @@ class _SignUpState extends State<SignUp> {
                     fontSize: 12,
                   ),
                   children: [
-                    TextSpan(text: 'By Submitting, You agree to'),
+                    TextSpan(text: S.of(context).bySubmit),
                     TextSpan(
-                      text: ' our Terms & Conditions',
+                      text: S.of(context).tandc,
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           Navigator.push(
@@ -677,9 +674,9 @@ class _SignUpState extends State<SignUp> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    TextSpan(text: ' and '),
+                    TextSpan(text: S.of(context).and),
                     TextSpan(
-                      text: 'Privacy Policy.',
+                      text: S.of(context).privacy,
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           Navigator.push(
@@ -720,7 +717,7 @@ class _SignUpState extends State<SignUp> {
                     );
                   },
                   child: Text(
-                    'Sign Up',
+                    S.of(context).signUp,
                     style: GoogleFonts.rubik(
                       color: AppColors.kffffff,
                       fontSize: 17,
@@ -756,7 +753,7 @@ class _SignUpState extends State<SignUp> {
             top: 21,
           ),
           child: Text(
-            'Unfortunately you are unable to sign up for a corporate account using the app. Please contact your employer to receive the login details if your company is registered with MiAid Services',
+            S.of(context).corporateText,
             textAlign: TextAlign.justify,
             style: GoogleFonts.rubik(
               color: AppColors.k5e5e5e,

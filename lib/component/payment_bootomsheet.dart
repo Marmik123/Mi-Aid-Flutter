@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/payment/card_details.dart';
 import 'package:miaid/payment/payment_interface.dart';
+import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/config/app_colors.dart';
 
 class PaymentBottomSheet extends StatefulWidget {
@@ -18,7 +19,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
         Padding(
           padding: const EdgeInsets.only(top: 20, bottom: 15),
           child: Container(
-            child: Text("Choose a Payment Method",
+            child: Text(S.of(context).chooseAPayment,
                 style: GoogleFonts.rubik(
                   color: AppColors.k010101,
                   fontSize: 17,
@@ -37,7 +38,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
               image: AssetImage("assets/images/ic_payment_paypal.png"),
               alignment: Alignment.center,
             ),
-            title: Text("PayPal",
+            title: Text(S.of(context).paypal,
                 style: GoogleFonts.rubik(
                   color: AppColors.k010101,
                   fontSize: 14,
@@ -61,7 +62,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
               image: AssetImage("assets/images/ic_payment_wechatpay.png"),
             ),
 
-            title: Text("Wechat Pay",
+            title: Text(S.of(context).wechatPay,
                 style: GoogleFonts.rubik(
                   color: AppColors.k010101,
                   fontSize: 14,
@@ -84,7 +85,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
             leading: Image(
               image: AssetImage("assets/images/ic_payment_allpay.png"),
             ),
-            title: Text("Allpay",
+            title: Text(S.of(context).allpay,
                 style: GoogleFonts.rubik(
                   color: AppColors.k010101,
                   fontSize: 14,
@@ -108,7 +109,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
               image: AssetImage("assets/images/ic_payment_card.png"),
             ),
 
-            title: Text("Credit or Debit Card",
+            title: Text(S.of(context).creditOrDebit,
                 style: GoogleFonts.rubik(
                   color: AppColors.k010101,
                   fontSize: 14,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+//import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/config/app_colors.dart';
 
 class PurchaseViewReceipt extends StatefulWidget {
@@ -24,7 +26,7 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
         ),
         centerTitle: true,
         title: Text(
-          "View Receipt",
+          S.of(context).viewReceipt,
           style: GoogleFonts.rubik(
             color: AppColors.k010101,
             fontSize: 15,
@@ -84,14 +86,14 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Purchase Receipt',
+                          S.of(context).purchaseReceipt,
                           style: GoogleFonts.rubik(fontSize: 12),
                         ),
                         Image.asset('assets/images/logo_reciept.png'),
                       ],
                     ),
                     Text(
-                      'Thank You for ordering with us',
+                      S.of(context).receiptMessage,
                       style: GoogleFonts.rubik(fontSize: 14),
                     ),
                     SizedBox(
@@ -108,7 +110,7 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
                               fontSize: 12,
                             ),
                             children: [
-                              TextSpan(text: 'Order Number'),
+                              TextSpan(text: S.of(context).orderNumber),
                               TextSpan(
                                 text: '000000012',
                                 style: GoogleFonts.rubik(
@@ -133,7 +135,7 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Total Order',
+                          S.of(context).totalOrder,
                           style: GoogleFonts.rubik(fontSize: 20),
                         ),
                         RichText(
@@ -193,7 +195,7 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Sub Total',
+                          S.of(context).subTotal,
                           style: GoogleFonts.rubik(fontSize: 12),
                         ),
                         Text(
@@ -210,7 +212,7 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Delivery Fees',
+                          S.of(context).deliveryFees,
                           style: GoogleFonts.rubik(fontSize: 12),
                         ),
                         Text(
@@ -226,7 +228,7 @@ class _PurchaseViewReceiptState extends State<PurchaseViewReceipt> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Order Total',
+                        Text(S.of(context).orderTotal,
                             style: GoogleFonts.rubik(
                                 fontSize: 12, fontWeight: FontWeight.w500)),
                         Text(

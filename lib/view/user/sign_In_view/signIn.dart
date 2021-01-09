@@ -4,13 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get_utils/get_utils.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/view/user/password_view/forgot_password.dart';
 import 'package:miaid/view/user/sign_In_view/signUp.dart';
 import 'package:miaid/view/user/home_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:miaid/view/user/password_view/reset_password.dart';
+import 'package:miaid/utils/shared_preferrences_utils.dart';
 
+//import 'package:miaid/l10n/intl_en.arb';
 
 class SignIn extends StatefulWidget {
   @override
@@ -30,7 +33,7 @@ class _SignInState extends State<SignIn> {
 
   bool _obsecurePasswordText = true;
 
-  
+  String sharedPrefs = savedLocale.languageCode;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +43,7 @@ class _SignInState extends State<SignIn> {
         backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
-          'Sign In',
+          S.of(context).signIn,
           style: GoogleFonts.rubik(
             color: AppColors.k010101,
             fontSize: 15,
@@ -58,7 +61,7 @@ class _SignInState extends State<SignIn> {
               onTap: () {
                 final action = CupertinoActionSheet(
                   message: Text(
-                    "Change Language",
+                    S.of(context).changeLanguage,
                     style: TextStyle(
                       fontSize: 13.0,
                       color: AppColors.k8f8e94,
@@ -74,8 +77,13 @@ class _SignInState extends State<SignIn> {
                         ),
                       ),
                       isDefaultAction: true,
-                      onPressed: () {
-                        print("Action 1 is been clicked");
+                      onPressed: () async {
+                        setState(() {
+                          sharedPrefs = 'en';
+                        });
+                        await setLang(Locale(sharedPrefs));
+                        setState(() {});
+                        Navigator.pop(context);
                       },
                     ),
                     CupertinoActionSheetAction(
@@ -87,14 +95,19 @@ class _SignInState extends State<SignIn> {
                         ),
                       ),
                       isDestructiveAction: true,
-                      onPressed: () {
-                        print("Action 2 is been clicked");
+                      onPressed: () async {
+                        setState(() {
+                          sharedPrefs = 'cn';
+                        });
+                        await setLang(Locale(sharedPrefs));
+                        setState(() {});
+                        Navigator.pop(context);
                       },
                     )
                   ],
                   cancelButton: CupertinoActionSheetAction(
                     child: Text(
-                      "Cancel",
+                      S.of(context).cancel,
                       style: GoogleFonts.rubik(
                         color: AppColors.k0cbcc5,
                         fontSize: 20,
@@ -131,7 +144,7 @@ class _SignInState extends State<SignIn> {
                       vertical: 0,
                     ),
                     child: Text(
-                      'EN',
+                      sharedPrefs.toUpperCase(),
                       style: GoogleFonts.rubik(
                         color: AppColors.k0cbcc5,
                         fontSize: 15,
@@ -194,11 +207,9 @@ class _SignInState extends State<SignIn> {
                                 fontSize: 12,
                               ),
                               children: [
+                                TextSpan(text: S.of(context).resetPassMessage),
                                 TextSpan(
-                                    text:
-                                        'Sorry, We couldn’t find an account with given username and/or password. We can help you to'),
-                                TextSpan(
-                                  text: ' Reset Password',
+                                  text: ' ${S.of(context).resetPass}',
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {
                                       Navigator.push(
@@ -213,9 +224,9 @@ class _SignInState extends State<SignIn> {
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                TextSpan(text: ' or create a '),
+                                TextSpan(text: S.of(context).orcreate),
                                 TextSpan(
-                                  text: 'New Account',
+                                  text: S.of(context).newAccount,
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {
                                       Navigator.push(
@@ -247,7 +258,7 @@ class _SignInState extends State<SignIn> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Email',
+                        S.of(context).email,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           // color: emailController.value.toString().length <= 0
@@ -268,9 +279,9 @@ class _SignInState extends State<SignIn> {
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
                           if (value.trim().length == 0) {
-                            return 'Please enter an Email';
+                            return S.of(context).entEmail;
                           } else if (!GetUtils.isEmail(value.trim()))
-                            return "The format doesn`t look right. Please check again";
+                            return S.of(context).entVEmain;
                           else {
                             return null;
                           }
@@ -322,7 +333,7 @@ class _SignInState extends State<SignIn> {
                         height: 20,
                       ),
                       Text(
-                        'Password',
+                        S.of(context).password,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color: passwordController.text.trim().length > 0
@@ -340,7 +351,7 @@ class _SignInState extends State<SignIn> {
                         obscureText: _obsecurePasswordText,
                         validator: (value) {
                           if (value.trim().length == 0) {
-                            return "Please enter a Password";
+                            return S.of(context).entPass;
                           } else {
                             return null;
                           }
@@ -349,7 +360,7 @@ class _SignInState extends State<SignIn> {
                           setState(() {});
                         },
                         decoration: InputDecoration(
-                            hintText: 'Must have atleast 8 characters',
+                            hintText: S.of(context).passHint,
                             hintStyle: TextStyle(
                               color: AppColors.kb1b1b1,
                               fontSize: 14,
@@ -429,7 +440,7 @@ class _SignInState extends State<SignIn> {
                       }
                     },
                     child: Text(
-                      'Sign In',
+                      S.of(context).signIn,
                       style: GoogleFonts.rubik(
                         color: AppColors.kffffff,
                         fontSize: 17,
@@ -450,7 +461,7 @@ class _SignInState extends State<SignIn> {
                           builder: (context) => ForgotPassword()));
                 },
                 child: Text(
-                  'Forgot Password ?',
+                  S.of(context).forgotPass,
                   style: GoogleFonts.rubik(
                     color: AppColors.k0cbcc5,
                     fontSize: 14,
@@ -461,7 +472,7 @@ class _SignInState extends State<SignIn> {
                 height: 45,
               ),
               Text(
-                'Don`t have an account?',
+                S.of(context).dontHaveAccount,
                 style: GoogleFonts.rubik(
                   color: AppColors.k010101,
                   fontSize: 14,
@@ -496,7 +507,7 @@ class _SignInState extends State<SignIn> {
                       );
                     },
                     child: Text(
-                      'Sign Up',
+                      S.of(context).signUp,
                       style: GoogleFonts.rubik(
                         color: AppColors.k0cbcc5,
                         fontSize: 17,

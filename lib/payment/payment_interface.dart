@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:miaid/generated/l10n.dart';
 import 'additional_services.dart';
 import 'package:miaid/config/app_colors.dart';
 
@@ -22,7 +22,7 @@ class PaymentInterface extends StatelessWidget {
         ),
         centerTitle: true,
         title: Text(
-          "Payment",
+          S.of(context).payment,
           style: GoogleFonts.rubik(
             color: AppColors.k010101,
             fontSize: 15,

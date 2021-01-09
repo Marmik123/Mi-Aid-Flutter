@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/view/user/sign_In_view/signUp_2.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:miaid/view/user/sign_In_view/signIn.dart';
+import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/config/app_colors.dart';
 
 class OTPScreen extends StatefulWidget {
@@ -55,7 +56,7 @@ class _OTPScreenState extends State<OTPScreen> {
         backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
-          'Sign Up',
+          S.of(context).signUp,
           style: GoogleFonts.rubik(
             color: AppColors.k010101,
             fontSize: 15,
@@ -93,7 +94,7 @@ class _OTPScreenState extends State<OTPScreen> {
                       ),
                     );
                   },
-                  child: Text('Log out',
+                  child: Text(S.of(context).logout,
                       style: GoogleFonts.rubik(
                         color: AppColors.k0cbcc5,
                         fontSize: 17,
@@ -105,7 +106,6 @@ class _OTPScreenState extends State<OTPScreen> {
           ),
         ],
       ),
-     
       resizeToAvoidBottomPadding: true,
       body: SingleChildScrollView(
         child: Column(
@@ -115,7 +115,7 @@ class _OTPScreenState extends State<OTPScreen> {
                   const EdgeInsets.only(top: 24.1, left: 41.5, right: 41.5),
               child: Center(
                 child: Text(
-                  'Please Verify Your Account to \n Continue',
+                  '${S.of(context).verifyAccountText} \n ${S.of(context).continues}',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.rubik(
                     color: AppColors.k010101,
@@ -130,7 +130,7 @@ class _OTPScreenState extends State<OTPScreen> {
                   const EdgeInsets.only(top: 24.1, left: 41.5, right: 41.5),
               child: Center(
                 child: Text(
-                  'The verification code has been send to your \n dedicated mail',
+                  '${S.of(context).veryfyOTPText} \n ${S.of(context).dedicatedEmail}',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.rubik(
                     color: AppColors.k010101,
@@ -166,7 +166,6 @@ class _OTPScreenState extends State<OTPScreen> {
                     borderRadius: BorderRadius.circular(10),
                     fieldHeight: 70,
                     fieldWidth: 50,
-                    
                     inactiveColor: AppColors.k0cbcc5,
                     inactiveFillColor: AppColors.k0cbcc5.withOpacity(0.1),
                     activeColor: AppColors.k0cbcc5.withOpacity(0.1),
@@ -214,7 +213,7 @@ class _OTPScreenState extends State<OTPScreen> {
                   const EdgeInsets.only(top: 24.1, left: 41.5, right: 41.5),
               child: Center(
                 child: Text(
-                  'Didn`t receive the verification code?',
+                  S.of(context).dontHaveCode,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.rubik(
                     color: AppColors.k5e5e5e,
@@ -227,7 +226,7 @@ class _OTPScreenState extends State<OTPScreen> {
               padding: const EdgeInsets.only(top: 10, left: 41.5, right: 41.5),
               child: Center(
                 child: Text(
-                  'Resend Code',
+                  S.of(context).resendOtp,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.rubik(
                     color: AppColors.k5e5e5e,
@@ -256,7 +255,7 @@ class _OTPScreenState extends State<OTPScreen> {
                     );
                   },
                   child: Text(
-                    'Verify OTP',
+                    S.of(context).verifyOTP,
                     style: GoogleFonts.rubik(
                       color: AppColors.kffffff,
                       fontSize: 17,

@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/component/payment_bootomsheet.dart';
 import 'package:miaid/view/drawer/Terms&Cond.dart';
+import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/config/app_colors.dart';
 
 class CartEShop extends StatefulWidget {
@@ -30,7 +31,7 @@ class _CartEShopState extends State<CartEShop> {
                     });
                   },
                   child: Text(
-                    "Remove",
+                    S.of(context).remove,
                     style: GoogleFonts.rubik(
                       color: AppColors.kfa0020,
                       fontSize: 17,
@@ -46,7 +47,7 @@ class _CartEShopState extends State<CartEShop> {
                     });
                   },
                   child: Text(
-                    "Done",
+                    S.of(context).done,
                     style: GoogleFonts.rubik(
                       color: AppColors.k0cbcc5,
                       fontSize: 17,
@@ -68,7 +69,7 @@ class _CartEShopState extends State<CartEShop> {
         ),
         centerTitle: true,
         title: Text(
-          "Cart",
+          S.of(context).cart,
           style: GoogleFonts.rubik(
             color: AppColors.k010101,
             fontSize: 15,
@@ -88,14 +89,14 @@ class _CartEShopState extends State<CartEShop> {
                 Row(
                   children: [
                     Text(
-                      "Order Number ",
+                      S.of(context).orderNumber,
                       style: GoogleFonts.rubik(
                         color: AppColors.k5e5e5e,
                         fontSize: 14,
                       ),
                     ),
                     Text(
-                      "0000012 ",
+                      " 0000012 ",
                       style: GoogleFonts.rubik(
                         color: AppColors.k010101,
                         fontSize: 14,
@@ -294,7 +295,7 @@ class _CartEShopState extends State<CartEShop> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Delivery Option",
+                      S.of(context).deliveryOption,
                       style: GoogleFonts.rubik(
                         color: AppColors.k010101,
                         fontSize: 18,
@@ -319,7 +320,7 @@ class _CartEShopState extends State<CartEShop> {
                           toggleable: true,
                         ),
                         Text(
-                          "Deliver",
+                          S.of(context).delivery,
                           style: GoogleFonts.rubik(
                             color: AppColors.k5e5e5e,
                             fontSize: 14,
@@ -344,7 +345,7 @@ class _CartEShopState extends State<CartEShop> {
                           toggleable: true,
                         ),
                         Text(
-                          "Collect From the Pharmacy",
+                          S.of(context).inStore,
                           style: GoogleFonts.rubik(
                             color: AppColors.k5e5e5e,
                             fontSize: 14,
@@ -356,7 +357,7 @@ class _CartEShopState extends State<CartEShop> {
                       height: 20,
                     ),
                     Text(
-                      "Order Summary",
+                      S.of(context).orderSummary,
                       style: GoogleFonts.rubik(
                         color: AppColors.k010101,
                         fontSize: 18,
@@ -370,7 +371,7 @@ class _CartEShopState extends State<CartEShop> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Sub Total",
+                          S.of(context).subTotal,
                           style: GoogleFonts.rubik(
                             color: AppColors.k010101,
                             fontSize: 12,
@@ -392,7 +393,7 @@ class _CartEShopState extends State<CartEShop> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Delivery Fee",
+                          S.of(context).deliveryFees,
                           style: GoogleFonts.rubik(
                             color: AppColors.k010101,
                             fontSize: 12,
@@ -429,10 +430,9 @@ class _CartEShopState extends State<CartEShop> {
                                 fontSize: 12,
                               ),
                               children: [
+                                TextSpan(text: S.of(context).bySubmit),
                                 TextSpan(
-                                    text: 'By Submitting, You agree to our'),
-                                TextSpan(
-                                  text: ' Terms & Conditions',
+                                  text: S.of(context).tandc,
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {
                                       Navigator.push(
@@ -471,14 +471,14 @@ class _CartEShopState extends State<CartEShop> {
                 Row(
                   children: [
                     Text(
-                      "Order Total  ",
+                      S.of(context).orderTotal,
                       style: GoogleFonts.rubik(
                         color: AppColors.k010101,
                         fontSize: 12,
                       ),
                     ),
                     Text(
-                      "A\$ 20.0",
+                      "  A\$ 20.0",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 17,
@@ -509,7 +509,7 @@ class _CartEShopState extends State<CartEShop> {
                       bottom: 12,
                     ),
                     child: Text(
-                      "Checkout",
+                      S.of(context).checkout,
                       style: GoogleFonts.rubik(
                         color: AppColors.kffffff,
                         fontSize: 14,
@@ -565,7 +565,7 @@ class _CartEShopState extends State<CartEShop> {
                 Navigator.pop(context);
               },
               child: Text(
-                'No',
+                S.of(context).no,
                 style: GoogleFonts.rubik(
                   color: AppColors.kffffff,
                   fontSize: 14,
@@ -582,7 +582,7 @@ class _CartEShopState extends State<CartEShop> {
                 //Navigator.pop(context);
               },
               child: Text(
-                'Remove',
+                S.of(context).remove,
                 style: GoogleFonts.rubik(
                   color: AppColors.k0cbcc5,
                   fontSize: 14,
@@ -599,13 +599,13 @@ class _CartEShopState extends State<CartEShop> {
         borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
       title: Text(
-        'Remove',
+        S.of(context).remove,
         textAlign: TextAlign.center,
         style: GoogleFonts.rubik(
             color: AppColors.k010101, fontWeight: FontWeight.w700),
       ),
       content: Text(
-        'Are you sure you want to delete item "Panadol Rapid Parace Panadol Rap.." from cart?',
+        S.of(context).removeAlertMessage,
         textAlign: TextAlign.center,
         style: GoogleFonts.rubik(
           fontSize: 13,

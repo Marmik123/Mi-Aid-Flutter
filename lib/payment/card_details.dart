@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-
+import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/payment/additional_services.dart';
 import 'package:miaid/utils/card_utils.dart';
 import 'package:miaid/view/user/e_shop/purchase.dart';
@@ -62,7 +62,7 @@ class _CardDetailsState extends State<CardDetails> {
         ),
         centerTitle: true,
         title: Text(
-          "Add Card Details",
+          S.of(context).addCardDetails,
           style: GoogleFonts.rubik(
             color: AppColors.k010101,
             fontSize: 15,
@@ -76,7 +76,7 @@ class _CardDetailsState extends State<CardDetails> {
           child: ListView(
             children: [
               Text(
-                "Card Number",
+                S.of(context).cardName,
                 style: GoogleFonts.rubik(
                   color: cardNumber.text.trim().length > 0
                       ? AppColors.kb1b1b1
@@ -92,11 +92,13 @@ class _CardDetailsState extends State<CardDetails> {
                 controller: cardNumber,
                 validator: (value) {
                   if (value.isEmpty) {
-                    return "Please enter a value";
+                    return S.of(context).cardNumberMessage;
                   }
                   if (value.length < 8) {
-                    return "Please a valid card number";
-                  }else{return null;}
+                    return S.of(context).cardNumberValidate;
+                  } else {
+                    return null;
+                  }
                 },
                 inputFormatters: [
                   maskFormatter,
@@ -139,7 +141,7 @@ class _CardDetailsState extends State<CardDetails> {
                 height: 25,
               ),
               Text(
-                "Card Holder's Name",
+                S.of(context).cardName,
                 style: GoogleFonts.rubik(
                   color: cardHolderName.text.trim().length > 0
                       ? AppColors.kb1b1b1
@@ -155,9 +157,10 @@ class _CardDetailsState extends State<CardDetails> {
                 controller: cardHolderName,
                 validator: (value) {
                   if (value.isEmpty) {
-                    return "Please enter name";
+                    return S.of(context).cardNameMessage;
+                  } else {
+                    return null;
                   }
-                  else{return null;}
                 },
                 keyboardType: TextInputType.text,
                 onChanged: (value) {
@@ -201,7 +204,7 @@ class _CardDetailsState extends State<CardDetails> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Expiry Date",
+                          S.of(context).expiryDate,
                           style: GoogleFonts.rubik(
                             color: expiry.text.trim().length > 0
                                 ? AppColors.kb1b1b1
@@ -217,10 +220,10 @@ class _CardDetailsState extends State<CardDetails> {
                           controller: expiry,
                           validator: (value) {
                             if (value.isEmpty) {
-                              return "Please enter a value";
+                              return S.of(context).cardNumberMessage;
                             }
                             if (value.length != 5) {
-                              return "Enter Valid Expiry  ";
+                              return S.of(context).expiryValidate;
                             }
                             if (value.contains(new RegExp(r'(\/)'))) {
                               var split = value.split(new RegExp(r'(\/)'));
@@ -239,10 +242,10 @@ class _CardDetailsState extends State<CardDetails> {
                             }
                             if ((month < 1) || (month > 12)) {
                               // A valid month is between 1 (January) and 12 (December)
-                              return 'Expiry month is invalid';
+                              return S.of(context).expiryMonth;
                             }
                             if (year == null) {
-                              return "Enter Expiry year";
+                              return S.of(context).expiryYear;
                             }
                             return null;
                           },
@@ -295,7 +298,7 @@ class _CardDetailsState extends State<CardDetails> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "CVV",
+                          S.of(context).cvv,
                           style: GoogleFonts.rubik(
                             color: cvv.text.trim().length > 0
                                 ? AppColors.kb1b1b1
@@ -311,11 +314,13 @@ class _CardDetailsState extends State<CardDetails> {
                           controller: cvv,
                           validator: (value) {
                             if (value.isEmpty) {
-                              return "Please enter a value";
+                              return S.of(context).cardNumberMessage;
                             }
                             if (value.length < 3 || value.length > 4) {
-                              return "Please enter a valid CVV";
-                            }else{return null;}
+                              return S.of(context).cvvValidate;
+                            } else {
+                              return null;
+                            }
                           },
                           inputFormatters: [
                             cvvMask,
@@ -368,7 +373,7 @@ class _CardDetailsState extends State<CardDetails> {
                   }
                 },
                 child: Text(
-                  "Pay and Continue",
+                  S.of(context).payandContinue,
                   style: GoogleFonts.rubik(
                     color: AppColors.kffffff,
                     fontSize: 17,
@@ -393,7 +398,7 @@ class _CardDetailsState extends State<CardDetails> {
           return AlertDialog(
             title: Center(
               child: Text(
-                "Confirmation",
+                S.of(context).confirmation,
                 style: GoogleFonts.rubik(
                   color: AppColors.k010101,
                   fontSize: 17,
@@ -445,7 +450,7 @@ class _CardDetailsState extends State<CardDetails> {
                         bottom: 8,
                       ),
                       child: Text(
-                        "Confirm",
+                        S.of(context).confirm,
                         style: GoogleFonts.rubik(
                           color: AppColors.kffffff,
                           fontSize: 14,
@@ -464,7 +469,7 @@ class _CardDetailsState extends State<CardDetails> {
                     errorDialog();
                   },
                   child: Text(
-                    "Cancel",
+                    S.of(context).cancel,
                     style: GoogleFonts.rubik(
                       color: AppColors.k0cbcc5,
                       fontSize: 14,
@@ -491,7 +496,7 @@ class _CardDetailsState extends State<CardDetails> {
           return AlertDialog(
             title: Center(
               child: Text(
-                "Error",
+                S.of(context).error,
                 style: GoogleFonts.rubik(
                   color: AppColors.k010101,
                   fontSize: 17,
@@ -504,7 +509,7 @@ class _CardDetailsState extends State<CardDetails> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Please file the payment details accurately to continue",
+                  S.of(context).errorMessage,
                   style: GoogleFonts.rubik(
                     color: AppColors.k010101,
                     fontSize: 13,
@@ -542,7 +547,7 @@ class _CardDetailsState extends State<CardDetails> {
                         bottom: 8,
                       ),
                       child: Text(
-                        "Ok",
+                        S.of(context).okay,
                         style: GoogleFonts.rubik(
                           color: AppColors.kffffff,
                           fontSize: 14,
@@ -571,7 +576,7 @@ class _CardDetailsState extends State<CardDetails> {
           return AlertDialog(
             title: Center(
               child: Text(
-                "Success",
+                S.of(context).successs,
                 style: GoogleFonts.rubik(
                   color: AppColors.k010101,
                   fontSize: 17,
@@ -584,7 +589,7 @@ class _CardDetailsState extends State<CardDetails> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Payment has been done.",
+                  S.of(context).successMessage,
                   style: GoogleFonts.rubik(
                     color: AppColors.k010101,
                     fontSize: 13,
@@ -611,7 +616,8 @@ class _CardDetailsState extends State<CardDetails> {
                   child: FlatButton(
                     color: AppColors.k0cbcc5,
                     onPressed: () {
-                      Navigator.of(context).push(CupertinoPageRoute(builder: (context)=>PurchaseItem()));
+                      Navigator.of(context).push(CupertinoPageRoute(
+                          builder: (context) => PurchaseItem()));
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(
@@ -621,7 +627,7 @@ class _CardDetailsState extends State<CardDetails> {
                         bottom: 8,
                       ),
                       child: Text(
-                        "Ok",
+                        S.of(context).okay,
                         style: GoogleFonts.rubik(
                           color: AppColors.kffffff,
                           fontSize: 14,

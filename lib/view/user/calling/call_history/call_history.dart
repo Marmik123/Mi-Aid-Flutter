@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
+//import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/view/user/sign_In_view/signIn.dart';
 import 'package:miaid/component/drawer.dart';
@@ -46,7 +48,7 @@ class _CallHistoryState extends State<CallHistory> {
                 Navigator.pop(context);
               },
               child: Text(
-                'No',
+                S.of(context).no,
                 style: GoogleFonts.rubik(
                   color: AppColors.kffffff,
                   fontSize: 14,
@@ -68,7 +70,7 @@ class _CallHistoryState extends State<CallHistory> {
                 );
               },
               child: Text(
-                'Yes',
+                S.of(context).yes,
                 style: GoogleFonts.rubik(
                   color: AppColors.k0cbcc5,
                   fontSize: 14,
@@ -85,13 +87,13 @@ class _CallHistoryState extends State<CallHistory> {
         borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
       title: Text(
-        'Log out',
+        S.of(context).logout,
         textAlign: TextAlign.center,
         style: GoogleFonts.rubik(
             color: AppColors.k010101, fontWeight: FontWeight.w700),
       ),
       content: Text(
-        'Are you sure you want to log out?',
+        S.of(context).logoutAlertMessage,
         textAlign: TextAlign.center,
         style: GoogleFonts.rubik(
           fontSize: 13,
@@ -124,7 +126,7 @@ class _CallHistoryState extends State<CallHistory> {
                     Navigator.pop(context);
                   },
                   child: Text(
-                    'Cancel',
+                    S.of(context).cancel,
                     style: GoogleFonts.rubik(
                         fontSize: 15,
                         fontWeight: FontWeight.w300,
@@ -136,7 +138,7 @@ class _CallHistoryState extends State<CallHistory> {
                     Navigator.pop(context);
                   },
                   child: Text(
-                    'Done',
+                    S.of(context).done,
                     style: GoogleFonts.rubik(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
@@ -165,7 +167,6 @@ class _CallHistoryState extends State<CallHistory> {
         ],
       ),
     );
-  
   }
 
   @override
@@ -176,7 +177,7 @@ class _CallHistoryState extends State<CallHistory> {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          'Call History',
+          S.of(context).callHistory,
           style: GoogleFonts.rubik(
             color: AppColors.k010101,
             fontSize: 15,
@@ -241,7 +242,6 @@ class _CallHistoryState extends State<CallHistory> {
                     ],
                   ),
                 ),
-                
                 SizedBox(
                   height: 10,
                 ),
@@ -255,7 +255,7 @@ class _CallHistoryState extends State<CallHistory> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('MiAid Assistant',
+                          Text(S.of(context).assistant,
                               style: GoogleFonts.rubik(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w300,
@@ -282,7 +282,7 @@ class _CallHistoryState extends State<CallHistory> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Doctor',
+                          Text(S.of(context).doctor,
                               style: GoogleFonts.rubik(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w300,
@@ -309,7 +309,7 @@ class _CallHistoryState extends State<CallHistory> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Translator',
+                          Text(S.of(context).tranlator,
                               style: GoogleFonts.rubik(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w300,
@@ -350,7 +350,7 @@ class _CallHistoryState extends State<CallHistory> {
                           );
                         },
                         child: Text(
-                          'View Receipt',
+                          S.of(context).viewReceipt,
                           style: GoogleFonts.rubik(
                             color: Color.fromRGBO(12, 188, 197, 1),
                             fontSize: 14,

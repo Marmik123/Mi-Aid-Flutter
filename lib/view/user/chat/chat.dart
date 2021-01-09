@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:miaid/config/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/generated/l10n.dart';
 
 class ChatScreen extends StatefulWidget {
   @override
@@ -38,7 +39,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 Padding(
                   padding: const EdgeInsets.only(top: 10),
                   child: Text(
-                    'Chat',
+                    S.of(context).chat,
                     style: GoogleFonts.rubik(
                       color: AppColors.k010101,
                       fontSize: 15,
@@ -49,7 +50,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 Padding(
                   padding: const EdgeInsets.only(top: 10),
                   child: Text(
-                    'Chat',
+                    S.of(context).chat,
                     style: GoogleFonts.rubik(
                       color: AppColors.kffffff     ,                 fontSize: 15,
                       fontWeight: FontWeight.w500,
@@ -137,7 +138,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     onTap: () {
                       final action = CupertinoActionSheet(
                         message: Text(
-                          "Select",
+                          S.of(context).select,
                           style: TextStyle(
                             fontSize: 13.0,
                             color: AppColors.k8f8e94,
@@ -146,7 +147,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         actions: <Widget>[
                           CupertinoActionSheetAction(
                             child: Text(
-                              "Camera",
+                              S.of(context).camera,
                               style: GoogleFonts.rubik(
                                 color: AppColors.k0cbcc5,
                                 fontSize: 20,
@@ -160,7 +161,7 @@ class _ChatScreenState extends State<ChatScreen> {
                           ),
                           CupertinoActionSheetAction(
                             child: Text(
-                              "Choose from Albums",
+                              S.of(context).chooseFromAlbums,
                               style: GoogleFonts.rubik(
                                 color: AppColors.k0cbcc5,
                                 fontSize: 20,
@@ -174,7 +175,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         ],
                         cancelButton: CupertinoActionSheetAction(
                           child: Text(
-                            "Cancel",
+                            S.of(context).cancel,
                             style: GoogleFonts.rubik(
                               color: AppColors.k0cbcc5,
                               fontSize: 20,

@@ -6,6 +6,7 @@ import 'package:miaid/component/drawer.dart';
 import 'package:miaid/config/app_colors.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:miaid/model/pin_info.dart';
+import 'package:miaid/generated/l10n.dart';
 
 class MapScreen extends StatefulWidget {
   @override
@@ -111,7 +112,7 @@ class _MapScreenState extends State<MapScreen> {
         backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
-          'ED and Clinics Near Me',
+          S.of(context).eandc,
           style: GoogleFonts.rubik(
             color: AppColors.k010101,
             fontSize: 15,
@@ -198,7 +199,7 @@ class _MapScreenState extends State<MapScreen> {
                         setState(() {});
                       },
                       decoration: InputDecoration(
-                        hintText: 'Search',
+                        hintText: S.of(context).search,
                         hintStyle: GoogleFonts.rubik(
                           color: AppColors.kb1b1b1,
                           fontSize: 14,
@@ -300,7 +301,7 @@ class _MapScreenState extends State<MapScreen> {
                           ),
                           SizedBox(width: 6),
                           Text(
-                            'Emergency',
+                            S.of(context).emergencys,
                             style: GoogleFonts.rubik(
                               fontWeight: FontWeight.w500,
                               fontSize: 13,
@@ -363,7 +364,7 @@ class _MapScreenState extends State<MapScreen> {
                             ),
                             SizedBox(width: 6),
                             Text(
-                              'Clinic',
+                              S.of(context).clinic,
                               style: GoogleFonts.rubik(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 13,
@@ -424,7 +425,7 @@ class _MapScreenState extends State<MapScreen> {
                           ),
                           SizedBox(width: 6),
                           Text(
-                            'Dentist',
+                            S.of(context).dentist,
                             style: GoogleFonts.rubik(
                               fontWeight: FontWeight.w500,
                               fontSize: 13,
@@ -484,7 +485,7 @@ class _MapScreenState extends State<MapScreen> {
                           ),
                           SizedBox(width: 6),
                           Text(
-                            'Physiotherapy',
+                            S.of(context).physiotherapy,
                             style: GoogleFonts.rubik(
                               fontWeight: FontWeight.w500,
                               fontSize: 13,
@@ -588,7 +589,7 @@ class _MapScreenState extends State<MapScreen> {
                                         borderRadius: BorderRadius.circular(9),
                                       ),
                                       child: Text(
-                                        'Call',
+                                        S.of(context).call,
                                         style: GoogleFonts.rubik(
                                           color: AppColors.kffffff,
                                           fontSize: 14,
@@ -610,7 +611,7 @@ class _MapScreenState extends State<MapScreen> {
                                             color: AppColors.k0cbcc5,
                                           )),
                                       child: Text(
-                                        'Get Directions',
+                                        S.of(context).getDirection,
                                         style: GoogleFonts.rubik(
                                           color: AppColors.k0cbcc5,
                                           fontSize: 14,
@@ -641,7 +642,7 @@ class _MapScreenState extends State<MapScreen> {
                           height: 15,
                         ),
                         Text(
-                          'Opening hours',
+                          S.of(context).openingHr,
                           style: GoogleFonts.rubik(
                             color: AppColors.k010101,
                             fontWeight: FontWeight.w500,
@@ -661,7 +662,7 @@ class _MapScreenState extends State<MapScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Monday',
+                                      S.of(context).monday,
                                       style: GoogleFonts.rubik(
                                         fontSize: 14,
                                         color: AppColors.k696969,
@@ -672,7 +673,7 @@ class _MapScreenState extends State<MapScreen> {
                                       height: 11,
                                     ),
                                     Text(
-                                      'Tuesday',
+                                      S.of(context).tuesday,
                                       style: GoogleFonts.rubik(
                                         fontSize: 14,
                                         color: AppColors.k696969,
@@ -683,7 +684,7 @@ class _MapScreenState extends State<MapScreen> {
                                       height: 11,
                                     ),
                                     Text(
-                                      'Wednesday',
+                                      S.of(context).wednesday,
                                       style: GoogleFonts.rubik(
                                         fontSize: 14,
                                         color: AppColors.k696969,
@@ -694,7 +695,7 @@ class _MapScreenState extends State<MapScreen> {
                                       height: 11,
                                     ),
                                     Text(
-                                      'Thursday',
+                                      S.of(context).thursday,
                                       style: GoogleFonts.rubik(
                                         fontSize: 14,
                                         color: AppColors.k696969,
@@ -705,7 +706,7 @@ class _MapScreenState extends State<MapScreen> {
                                       height: 11,
                                     ),
                                     Text(
-                                      'Friday',
+                                      S.of(context).firday,
                                       style: GoogleFonts.rubik(
                                         fontSize: 14,
                                         color: AppColors.k696969,
@@ -716,7 +717,7 @@ class _MapScreenState extends State<MapScreen> {
                                       height: 11,
                                     ),
                                     Text(
-                                      'Saturday',
+                                      S.of(context).saturday,
                                       style: GoogleFonts.rubik(
                                         fontSize: 14,
                                         color: AppColors.k696969,
@@ -727,7 +728,7 @@ class _MapScreenState extends State<MapScreen> {
                                       height: 11,
                                     ),
                                     Text(
-                                      'Sunday',
+                                      S.of(context).sunday,
                                       style: GoogleFonts.rubik(
                                         fontSize: 14,
                                         color: AppColors.k696969,

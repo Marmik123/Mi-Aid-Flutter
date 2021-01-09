@@ -9,6 +9,7 @@ import 'package:miaid/view/user/home_screen.dart';
 import 'package:miaid/view/user/travel_care_packages/Travel_care_packages.dart';
 import 'package:miaid/view/user/user_profile_screen/user_profile.dart';
 import 'package:miaid/view/user/calling/call_history/call_history.dart';
+import 'package:miaid/generated/l10n.dart';
 
 Widget drawer(context) {
   return Drawer(
@@ -72,7 +73,7 @@ Widget drawer(context) {
               title: Padding(
                 padding: const EdgeInsets.only(top: 12, bottom: 23),
                 child: Text(
-                  'Home',
+                  S.of(context).home,
                   style: GoogleFonts.rubik(
                     color: AppColors.k010101,
                     fontSize: 14,
@@ -100,7 +101,7 @@ Widget drawer(context) {
               title: Padding(
                 padding: const EdgeInsets.only(top: 12, bottom: 23),
                 child: Text(
-                  'My Profile',
+                  S.of(context).myProfile,
                   style: GoogleFonts.rubik(
                     color: AppColors.k010101,
                     fontSize: 14,
@@ -128,7 +129,7 @@ Widget drawer(context) {
               title: Padding(
                 padding: const EdgeInsets.only(top: 12, bottom: 23),
                 child: Text(
-                  'Travel Care',
+                  S.of(context).travelCare,
                   style: GoogleFonts.rubik(
                     color: AppColors.k010101,
                     fontSize: 14,
@@ -156,7 +157,7 @@ Widget drawer(context) {
               title: Padding(
                 padding: const EdgeInsets.only(top: 12, bottom: 23),
                 child: Text(
-                  'Call History',
+                  S.of(context).callHistory,
                   style: GoogleFonts.rubik(
                     color: AppColors.k010101,
                     fontSize: 14,
@@ -184,7 +185,7 @@ Widget drawer(context) {
               title: Padding(
                 padding: const EdgeInsets.only(top: 12, bottom: 23),
                 child: Text(
-                  'Terms & Conditions',
+                  S.of(context).tandc,
                   style: GoogleFonts.rubik(
                     color: AppColors.k010101,
                     fontSize: 14,
@@ -212,7 +213,7 @@ Widget drawer(context) {
               title: Padding(
                 padding: const EdgeInsets.only(top: 12, bottom: 23),
                 child: Text(
-                  'Privacy Policy',
+                  S.of(context).privacy,
                   style: GoogleFonts.rubik(
                     color: AppColors.k010101,
                     fontSize: 14,
@@ -240,7 +241,7 @@ Widget drawer(context) {
               title: Padding(
                 padding: const EdgeInsets.only(top: 12, bottom: 23),
                 child: Text(
-                  'About MiAid',
+                  S.of(context).about,
                   style: GoogleFonts.rubik(
                     color: AppColors.k010101,
                     fontSize: 14,
@@ -263,7 +264,7 @@ Widget drawer(context) {
               title: Padding(
                 padding: const EdgeInsets.only(top: 12, bottom: 23),
                 child: Text(
-                  'Log out',
+                  S.of(context).logout,
                   style: GoogleFonts.rubik(
                     color: AppColors.kfa0020,
                     fontSize: 14,

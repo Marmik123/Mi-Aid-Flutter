@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/component/drawer.dart';
+import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/config/app_colors.dart';
 
 class TravelCarePackages extends StatefulWidget {
@@ -10,8 +11,6 @@ class TravelCarePackages extends StatefulWidget {
 }
 
 class _TravelCarePackagesState extends State<TravelCarePackages> {
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +22,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
         backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
-          'Travel Care Packages',
+          '${S.of(context).travelCare} ${S.of(context).package}s',
           style: GoogleFonts.rubik(
             color: AppColors.k010101,
             fontSize: 15,
@@ -37,8 +36,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                 Scaffold.of(context).openDrawer();
               },
               child: Image(
-                image:
-                    const AssetImage('assets/images/NavBar/ic_nb_menu.png'),
+                image: const AssetImage('assets/images/NavBar/ic_nb_menu.png'),
               ),
             );
           },
@@ -54,7 +52,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
             right: 20,
           ),
           child: Text(
-            'Active Package',
+            S.of(context).activePackage,
             style: GoogleFonts.rubik(
               color: AppColors.k010101,
               fontSize: 18,
@@ -65,15 +63,15 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
         Column(
           children: [
             Image(
-              image: AssetImage(
-                  'assets/images/Img_signin_travelcare_active.png'),
+              image:
+                  AssetImage('assets/images/Img_signin_travelcare_active.png'),
             ),
             SizedBox(
               height: 10,
             ),
             Center(
               child: Text(
-                'No Active Package',
+                '${S.of(context).no} ${S.of(context).activePackage}',
                 style: GoogleFonts.rubik(
                   color: AppColors.k696969,
                   fontSize: 17,
@@ -106,9 +104,10 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                             bottom: 11,
                           ),
                           child: Text(
-                            '2 Weeks Package',
+                            '2 ${S.of(context).weeks} ${S.of(context).package}',
                             style: GoogleFonts.rubik(
-                              color: AppColors.kffffff ,                               fontSize: 18,
+                              color: AppColors.kffffff,
+                              fontSize: 18,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
@@ -151,7 +150,8 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                                   child: RichText(
                                     text: TextSpan(
                                       style: GoogleFonts.rubik(
-                                        color: AppColors.kffffff.withOpacity(0.75),
+                                        color:
+                                            AppColors.kffffff.withOpacity(0.75),
                                       ),
                                       children: [
                                         TextSpan(
@@ -163,7 +163,8 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                                         TextSpan(
                                           text: ' 200.0',
                                           style: GoogleFonts.rubik(
-                                            color: AppColors.kffffff  ,                                            fontSize: 18,
+                                            color: AppColors.kffffff,
+                                            fontSize: 18,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
@@ -188,7 +189,8 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                                     child: Text(
                                       '10 days remaining',
                                       style: GoogleFonts.rubik(
-                                        color: AppColors.kffffff    ,                                      fontSize: 12,
+                                        color: AppColors.kffffff,
+                                        fontSize: 12,
                                       ),
                                     ),
                                   ),
@@ -200,7 +202,6 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                       ],
                     ),
                   ),
-               
                 ),
               ],
             ),
@@ -215,7 +216,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
             right: 20,
           ),
           child: Text(
-            'Available Packages',
+            '${S.of(context).available} ${S.of(context).package}s',
             style: GoogleFonts.rubik(
               color: AppColors.k010101,
               fontSize: 18,
@@ -251,7 +252,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                             bottom: 11,
                           ),
                           child: Text(
-                            '4 Weeks Package',
+                            '4 ${S.of(context).weeks} ${S.of(context).package}',
                             style: GoogleFonts.rubik(
                               color: AppColors.k010101,
                               fontSize: 18,
@@ -331,9 +332,10 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
                                     top: 5,
                                   ),
                                   child: Text(
-                                    'Subscribe',
+                                    S.of(context).subscribe,
                                     style: GoogleFonts.rubik(
-                                      color: AppColors.kffffff ,                                       fontSize: 14,
+                                      color: AppColors.kffffff,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),

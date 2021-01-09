@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:miaid/utils/shared_preferrences_utils.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ import 'package:miaid/view/user/calling/call.dart';
 import 'package:miaid/view/user/sign_In_view/signIn.dart';
 import 'package:miaid/view/user/travel_care_packages/Travel_care_packages.dart';
 import 'package:miaid/view/map/map_screen.dart';
-
+import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/view/user/e_shop/e_shop.dart';
 import 'package:miaid/component/drawer.dart';
 import 'package:miaid/view/user/calling/call_micure_assistant.dart';
@@ -23,6 +24,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   
+
+  String sharedPrefs = savedLocale.languageCode;
 
   int remainingVideoConsultations = 10;
   @override
@@ -54,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onTap: () {
                 final action = CupertinoActionSheet(
                   message: Text(
-                    "Change Language",
+                    S.of(context).changeLanguage,
                     style: TextStyle(
                       fontSize: 13.0,
                       color: AppColors.k8f8e94,
@@ -70,8 +73,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       isDefaultAction: true,
-                      onPressed: () {
-                        print("Action 1 is been clicked");
+                      onPressed: () async {
+                        setState(() {
+                          sharedPrefs = 'en';
+                        });
+                        await setLang(Locale(sharedPrefs));
+                        setState(() {});
+                        Navigator.pop(context);
                       },
                     ),
                     CupertinoActionSheetAction(
@@ -83,14 +91,19 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       isDestructiveAction: true,
-                      onPressed: () {
-                        print("Action 2 is been clicked");
+                      onPressed: () async {
+                        setState(() {
+                          sharedPrefs = 'en';
+                        });
+                        await setLang(Locale(sharedPrefs));
+                        setState(() {});
+                        Navigator.pop(context);
                       },
                     )
                   ],
                   cancelButton: CupertinoActionSheetAction(
                     child: Text(
-                      "Cancel",
+                      S.of(context).cancel,
                       style: GoogleFonts.rubik(
                         color: AppColors.k0cbcc5,
                         fontSize: 20,
@@ -104,8 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 showCupertinoModalPopup(
                     context: context, builder: (context) => action);
               },
-              child: 
-              Container(
+              child: Container(
                 decoration: new BoxDecoration(
                   color: AppColors.keefeff,
                   borderRadius: BorderRadius.circular(6),
@@ -177,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     color: AppColors.kffffff,
                                   ),
                                   children: [
-                                    TextSpan(text: 'Hi'),
+                                    TextSpan(text: S.of(context).hi),
                                     TextSpan(
                                       text: ' John',
                                       style: GoogleFonts.rubik(
@@ -194,7 +206,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 height: 15,
                               ),
                               Text(
-                                'You are in Australia',
+                                S.of(context).urinau,
                                 style: GoogleFonts.rubik(
                                   color: AppColors.kffffff,
                                   fontSize: 14,
@@ -204,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 height: 5,
                               ),
                               Text(
-                                'How can we help you today?',
+                                S.of(context).needHelp,
                                 style: GoogleFonts.rubik(
                                   color: AppColors.kffffff,
                                   fontSize: 14,
@@ -235,7 +247,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       fontSize: 12,
                                     ),
                                     children: [
-                                      TextSpan(text: 'Dial'),
+                                      TextSpan(text: S.of(context).dial),
                                       TextSpan(
                                         text: ' 000',
                                         style: GoogleFonts.rubik(
@@ -247,7 +259,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ),
                                 Text(
-                                  'in an Emergency',
+                                  S.of(context).emergency,
                                   style: GoogleFonts.rubik(
                                     color: AppColors.kffffff,
                                     fontSize: 12,
@@ -276,7 +288,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontSize: 13,
                     ),
                     children: [
-                      TextSpan(text: 'Remaining video consultations'),
+                      TextSpan(text: S.of(context).remainingVideo),
                       TextSpan(
                         text: ' $remainingVideoConsultations out of 10',
                         style: GoogleFonts.rubik(
@@ -320,7 +332,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'ED and Clinics \nNear Me',
+                                  S.of(context).edandClinic,
                                   style: GoogleFonts.rubik(
                                     color: AppColors.k010101,
                                     fontSize: 14,
@@ -359,7 +371,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'MiAid \nAssistance',
+                                  S.of(context).miaidAssistance,
                                   style: GoogleFonts.rubik(
                                     color: AppColors.k010101,
                                     fontSize: 14,
@@ -402,7 +414,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'E - Shop',
+                                    S.of(context).eShop,
                                     style: GoogleFonts.rubik(
                                       color: AppColors.k010101,
                                       fontSize: 14,
@@ -449,7 +461,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Video Consult \nA Doctor',
+                                    S.of(context).videoDoctor,
                                     style: GoogleFonts.rubik(
                                       color: AppColors.k010101,
                                       fontSize: 14,
@@ -500,7 +512,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 width: 19,
                               ),
                               Text(
-                                'Other MiAid Services',
+                                S.of(context).otherService,
                                 style: GoogleFonts.rubik(
                                   color: AppColors.k010101,
                                   fontSize: 14,
@@ -548,7 +560,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             width: 16.33,
                           ),
                           Text(
-                            'About MiAid',
+                            S.of(context).about,
                             style: GoogleFonts.rubik(
                               color: AppColors.k0cbcc5,
                               fontSize: 14,
@@ -602,7 +614,7 @@ showAlertDialog(BuildContext context) {
               Navigator.pop(context);
             },
             child: Text(
-              'No',
+              S.of(context).no,
               style: GoogleFonts.rubik(
                 color: AppColors.kffffff,
                 fontSize: 14,
@@ -624,7 +636,7 @@ showAlertDialog(BuildContext context) {
               );
             },
             child: Text(
-              'Yes',
+              S.of(context).yes,
               style: GoogleFonts.rubik(
                 color: AppColors.k0cbcc5,
                 fontSize: 14,
@@ -641,13 +653,13 @@ showAlertDialog(BuildContext context) {
       borderRadius: BorderRadius.all(Radius.circular(12)),
     ),
     title: Text(
-      'Log out',
+      S.of(context).logout,
       textAlign: TextAlign.center,
       style: GoogleFonts.rubik(
           color: AppColors.k010101, fontWeight: FontWeight.w700),
     ),
     content: Text(
-      'Are you sure you want to log out?',
+      S.of(context).logoutAlertMessage,
       textAlign: TextAlign.center,
       style: GoogleFonts.rubik(
         fontSize: 13,
@@ -697,7 +709,7 @@ videoConsultationsAlert(BuildContext context) {
               individualUserSubscriptionAlert(context);
             },
             child: Text(
-              'Yes',
+              S.of(context).yes,
               style: GoogleFonts.rubik(
                 color: AppColors.kffffff,
                 fontSize: 14,
@@ -714,7 +726,7 @@ videoConsultationsAlert(BuildContext context) {
               Navigator.pop(context);
             },
             child: Text(
-              'Cancel',
+              S.of(context).cancel,
               style: GoogleFonts.rubik(
                 color: AppColors.k0cbcc5,
                 fontSize: 14,
@@ -731,13 +743,13 @@ videoConsultationsAlert(BuildContext context) {
       borderRadius: BorderRadius.all(Radius.circular(12)),
     ),
     title: Text(
-      'Alert',
+      S.of(context).alert,
       textAlign: TextAlign.center,
       style: GoogleFonts.rubik(
           color: AppColors.k010101, fontWeight: FontWeight.w700),
     ),
     content: Text(
-      'You don’t have any available video consultations left. You may get the required service through MiAid Services. Do you want to access MiAid Services?',
+      S.of(context).consultAlertMessage,
       textAlign: TextAlign.center,
       style: GoogleFonts.rubik(
         fontSize: 13,
@@ -791,7 +803,7 @@ individualUserSubscriptionAlert(BuildContext context) {
               );
             },
             child: Text(
-              'Subscribe',
+              S.of(context).subscribe,
               style: GoogleFonts.rubik(
                 color: AppColors.kffffff,
                 fontSize: 14,
@@ -808,7 +820,7 @@ individualUserSubscriptionAlert(BuildContext context) {
               Navigator.pop(context);
             },
             child: Text(
-              'Cancel',
+              S.of(context).cancel,
               style: GoogleFonts.rubik(
                 color: AppColors.k0cbcc5,
                 fontSize: 14,
@@ -825,13 +837,13 @@ individualUserSubscriptionAlert(BuildContext context) {
       borderRadius: BorderRadius.all(Radius.circular(12)),
     ),
     title: Text(
-      'Alert',
+      S.of(context).alert,
       textAlign: TextAlign.center,
       style: GoogleFonts.rubik(
           color: AppColors.k010101, fontWeight: FontWeight.w700),
     ),
     content: Text(
-      'To be eligible for these services you should be subscribed to a travel care package',
+      S.of(context).travelAlertMessage,
       textAlign: TextAlign.center,
       style: GoogleFonts.rubik(
         fontSize: 13,
@@ -924,7 +936,7 @@ callAlertDialog(BuildContext context) {
       borderRadius: BorderRadius.all(Radius.circular(12)),
     ),
     title: Text(
-      'Scheduled Call',
+      S.of(context).schedualCall,
       textAlign: TextAlign.center,
       style: GoogleFonts.rubik(
         color: AppColors.k010101,

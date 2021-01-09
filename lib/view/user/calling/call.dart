@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/view/user/chat/chat.dart';
+import 'package:miaid/generated/l10n.dart';
 
 class Call extends StatefulWidget {
   @override
@@ -20,7 +21,7 @@ class _CallState extends State<Call> {
         backgroundColor: Colors.transparent,
         centerTitle: true,
         title: Text(
-          'MiAid Assistance',
+          S.of(context).assistant,
           style: GoogleFonts.rubik(
             color: AppColors.kffffff,
             fontSize: 15,
