@@ -20,27 +20,6 @@ void main() async {
     ],
     supportedLocales: S.delegate.supportedLocales,
     debugShowCheckedModeBanner: false,
-    home: SplashScreen(),
+    home: SignIn(),
   ));
-}
-
-class SplashScreen extends StatefulWidget {
-  @override
-  _SplashScreenState createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Timer(
-        Duration(seconds: 0),
-        () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => SignIn())));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
 }
