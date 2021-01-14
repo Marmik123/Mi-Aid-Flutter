@@ -1,13 +1,13 @@
 import 'dart:async';
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/view/user/sign_In_view/sign_Up_2.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:miaid/view/user/sign_In_view/sign_In.dart';
-import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
 import 'package:miaid/config/app_colors.dart';
+import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/view/user/sign_in/sign_In.dart';
+import 'package:miaid/view/user/sign_in/sign_Up_2.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OTPScreen extends StatefulWidget {
   @override
@@ -15,27 +15,27 @@ class OTPScreen extends StatefulWidget {
 }
 
 class _OTPScreenState extends State<OTPScreen> {
-  var onTapRecognizer;
+  // TapGestureRecognizer onTapRecognizer;
   TextEditingController textEditingController = TextEditingController();
   // ..text = "123456";
 
   StreamController<ErrorAnimationType> errorController;
 
   bool hasError = false;
-  String currentText = "";
+  String currentText = '';
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   final formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
-    onTapRecognizer = TapGestureRecognizer()
+    /*onTapRecognizer = TapGestureRecognizer()
       ..onTap = () {
         Navigator.pushReplacement(
             context,
-            MaterialPageRoute(
+            MaterialPageRoute<void>(
               builder: (context) => SignUp2(),
             ));
-      };
+      };*/
     errorController = StreamController<ErrorAnimationType>();
     super.initState();
   }
@@ -69,9 +69,7 @@ class _OTPScreenState extends State<OTPScreen> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Image(
-                image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
             );
           },
         ),
@@ -89,7 +87,7 @@ class _OTPScreenState extends State<OTPScreen> {
                   onTap: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(
+                      MaterialPageRoute<void>(
                         builder: (context) => SignIn(),
                       ),
                     );
@@ -188,10 +186,10 @@ class _OTPScreenState extends State<OTPScreen> {
                   keyboardType: TextInputType.number,
 
                   onCompleted: (v) {
-                    print("Completed");
+                    print('Completed');
                   },
                   onTap: () {
-                    print("Pressed");
+                    print('Pressed');
                   },
                   onChanged: (value) {
                     print(value);
@@ -200,7 +198,7 @@ class _OTPScreenState extends State<OTPScreen> {
                     });
                   },
                   beforeTextPaste: (text) {
-                    print("Allowing to paste $text");
+                    print('Allowing to paste $text');
                     //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
                     //but you can show anything you want here, like your pop up saying wrong paste format or etc
                     return true;
@@ -249,7 +247,7 @@ class _OTPScreenState extends State<OTPScreen> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
+                      MaterialPageRoute<void>(
                         builder: (context) => SignUp2(),
                       ),
                     );

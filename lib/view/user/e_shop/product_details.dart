@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/generated/l10n.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
 import 'package:miaid/config/app_colors.dart';
+import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/view/user/e_shop/cart_eshop.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -40,9 +41,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 onTap: () {
                   Navigator.pop(context);
                 },
-                child: Image(
-                  image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
-                ),
+                child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
               );
             },
           ),
@@ -98,13 +97,13 @@ class _ProductDetailsState extends State<ProductDetails> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              "A\$ ",
+                              'A\$ ',
                               style: TextStyle(
                                 color: AppColors.kffffff,
                               ),
                             ),
                             Text(
-                              "20.0",
+                              '20.0',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18,
@@ -129,14 +128,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                           },
                           child: buttonContainer(
                             Image.asset(quentity <= 1
-                                ? "assets/images/btn_medicine_quantity_minus_disabled.png"
+                                ? 'assets/images/btn_medicine_quantity_minus_disabled.png'
                                 : 'assets/images/btn_medicine_quantity_minus.png'),
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 15, right: 15),
                           child: Text(
-                            "$quentity",
+                            '$quentity',
                             style: TextStyle(
                               color: AppColors.k010101,
                               fontWeight: FontWeight.bold,
@@ -152,7 +151,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           },
                           child: buttonContainer(
                             Image.asset(
-                                "assets/images/btn_medicine_quantity_add.png"),
+                                'assets/images/btn_medicine_quantity_add.png'),
                           ),
                         ),
                       ],
@@ -268,7 +267,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
+                        MaterialPageRoute<void>(
                           builder: (context) => CartEShop(),
                         ),
                       );

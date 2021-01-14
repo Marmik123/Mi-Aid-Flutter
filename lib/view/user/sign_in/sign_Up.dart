@@ -1,15 +1,16 @@
 import 'package:country_code_picker/country_code_picker.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/view/user/sign_In_view/sign_In.dart';
-import 'package:miaid/view/user/otp_screen.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:miaid/view/drawer/privacy_&_policy.dart';
-import 'package:miaid/view/drawer/Terms&Cond.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
+import 'package:miaid/config/app_colors.dart';
 //import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/generated/l10n.dart';
-import 'package:miaid/config/app_colors.dart';
+import 'package:miaid/view/drawer/privacy_and_policy.dart';
+import 'package:miaid/view/drawer/terms_and_cond.dart';
+import 'package:miaid/view/user/otp_screen.dart';
+import 'package:miaid/view/user/sign_in/sign_In.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -28,7 +29,7 @@ class _SignUpState extends State<SignUp> {
   bool _obsecurePasswordText = true;
   bool _obsecureConfirmPasswordText = true;
 
-  String _selectedValue = "0";
+  String _selectedValue = '0';
 
   @override
   Widget build(BuildContext context) {
@@ -52,9 +53,7 @@ class _SignUpState extends State<SignUp> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Image(
-                image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
             );
           },
         ),
@@ -70,7 +69,7 @@ class _SignUpState extends State<SignUp> {
                 onTap: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(
+                    MaterialPageRoute<void>(
                       builder: (context) => SignIn(),
                     ),
                   );
@@ -191,7 +190,7 @@ class _SignUpState extends State<SignUp> {
                     S.of(context).fname,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: firstNameController.text.trim().length > 0
+                      color: firstNameController.text.trim().isNotEmpty
                           ? AppColors.kb1b1b1
                           : AppColors.k010101,
                       fontSize: 12,
@@ -202,13 +201,13 @@ class _SignUpState extends State<SignUp> {
                     height: 8,
                   ),
                   TextFormField(
-                    // validator: (value) {
-                    //   if (value.trim().length == 0) {
-                    //     return 'please Enter an Email';
-                    //   } else {
-                    //     return null;
-                    //   }
-                    // },
+                    validator: (value) {
+                      if (value.trim().isEmpty) {
+                        return 'Please enter First Name';
+                      } else {
+                        return null;
+                      }
+                    },
                     controller: firstNameController,
                     onChanged: (value) {
                       setState(() {});
@@ -240,6 +239,8 @@ class _SignUpState extends State<SignUp> {
                           width: 0.5,
                         ),
                       ),
+                      errorBorder: kErrorOutlineInputBorder,
+                      focusedErrorBorder: kErrorFocusedOutlineInputBorder,
                     ),
                   ),
                 ],
@@ -256,7 +257,7 @@ class _SignUpState extends State<SignUp> {
                     S.of(context).lName,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: lastNameController.text.trim().length > 0
+                      color: lastNameController.text.trim().isNotEmpty
                           ? AppColors.kb1b1b1
                           : AppColors.k010101,
                       fontSize: 12,
@@ -267,13 +268,13 @@ class _SignUpState extends State<SignUp> {
                     height: 8,
                   ),
                   TextFormField(
-                    // validator: (value) {
-                    //   if (value.trim().length == 0) {
-                    //     return 'please Enter an Email';
-                    //   } else {
-                    //     return null;
-                    //   }
-                    // },
+                    validator: (value) {
+                      if (value.trim().isEmpty) {
+                        return 'Please enter Last Name';
+                      } else {
+                        return null;
+                      }
+                    },
                     onChanged: (value) {
                       setState(() {});
                     },
@@ -302,6 +303,8 @@ class _SignUpState extends State<SignUp> {
                           width: 0.5,
                         ),
                       ),
+                      errorBorder: kErrorOutlineInputBorder,
+                      focusedErrorBorder: kErrorFocusedOutlineInputBorder,
                     ),
                   ),
                 ],
@@ -318,7 +321,7 @@ class _SignUpState extends State<SignUp> {
                     S.of(context).email,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: emailController.text.trim().length > 0
+                      color: emailController.text.trim().isNotEmpty
                           ? AppColors.kb1b1b1
                           : AppColors.k010101,
                       fontSize: 12,
@@ -329,13 +332,13 @@ class _SignUpState extends State<SignUp> {
                     height: 8,
                   ),
                   TextFormField(
-                    // validator: (value) {
-                    //   if (value.trim().length == 0) {
-                    //     return 'please Enter an Email';
-                    //   } else {
-                    //     return null;
-                    //   }
-                    // },
+                    validator: (value) {
+                      if (value.trim().isEmpty) {
+                        return 'Please enter an Email';
+                      } else {
+                        return null;
+                      }
+                    },
                     onChanged: (value) {
                       setState(() {});
                     },
@@ -365,6 +368,8 @@ class _SignUpState extends State<SignUp> {
                           width: 0.5,
                         ),
                       ),
+                      errorBorder: kErrorOutlineInputBorder,
+                      focusedErrorBorder: kErrorFocusedOutlineInputBorder,
                     ),
                   ),
                 ],
@@ -381,7 +386,7 @@ class _SignUpState extends State<SignUp> {
                     S.of(context).phone,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: phoneController.text.trim().length > 0
+                      color: phoneController.text.trim().isNotEmpty
                           ? AppColors.kb1b1b1
                           : AppColors.k010101,
                       fontSize: 12,
@@ -392,13 +397,13 @@ class _SignUpState extends State<SignUp> {
                     height: 8,
                   ),
                   TextFormField(
-                    // validator: (value) {
-                    //   if (value.trim().length == 0) {
-                    //     return 'please Enter an Email';
-                    //   } else {
-                    //     return null;
-                    //   }
-                    // },
+                    validator: (value) {
+                      if (value.trim().isEmpty) {
+                        return 'Please enter Phone';
+                      } else {
+                        return null;
+                      }
+                    },
                     onChanged: (value) {
                       setState(() {});
                     },
@@ -428,6 +433,8 @@ class _SignUpState extends State<SignUp> {
                           width: 0.5,
                         ),
                       ),
+                      errorBorder: kErrorOutlineInputBorder,
+                      focusedErrorBorder: kErrorFocusedOutlineInputBorder,
                       prefixIconConstraints: BoxConstraints(
                         maxWidth: 120,
                       ),
@@ -500,7 +507,7 @@ class _SignUpState extends State<SignUp> {
                     S.of(context).password,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: passwordController.text.trim().length > 0
+                      color: passwordController.text.trim().isNotEmpty
                           ? AppColors.kb1b1b1
                           : AppColors.k010101,
                       fontSize: 12,
@@ -511,13 +518,13 @@ class _SignUpState extends State<SignUp> {
                     height: 8,
                   ),
                   TextFormField(
-                    // validator: (value) {
-                    //   if (value.trim().length == 0) {
-                    //     return 'please Enter an Email';
-                    //   } else {
-                    //     return null;
-                    //   }
-                    // },
+                    validator: (value) {
+                      if (value.trim().isEmpty) {
+                        return 'Please enter Password';
+                      } else {
+                        return null;
+                      }
+                    },
                     onChanged: (value) {
                       setState(() {});
                     },
@@ -547,6 +554,8 @@ class _SignUpState extends State<SignUp> {
                           width: 0.5,
                         ),
                       ),
+                      errorBorder: kErrorOutlineInputBorder,
+                      focusedErrorBorder: kErrorFocusedOutlineInputBorder,
                       suffixIcon: Padding(
                         padding: EdgeInsets.all(0),
                         child: InkWell(
@@ -557,7 +566,7 @@ class _SignUpState extends State<SignUp> {
                           },
                           child: Image(
                             image: AssetImage(
-                                "assets/images/ic_signin_hide_password_active.png"),
+                                'assets/images/ic_signin_hide_password_active.png'),
                           ),
                         ),
                       ),
@@ -577,7 +586,7 @@ class _SignUpState extends State<SignUp> {
                     S.of(context).confirmPass,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: confirmPasswordController.text.trim().length > 0
+                      color: confirmPasswordController.text.trim().isNotEmpty
                           ? AppColors.kb1b1b1
                           : AppColors.k010101,
                       fontSize: 12,
@@ -588,13 +597,13 @@ class _SignUpState extends State<SignUp> {
                     height: 8,
                   ),
                   TextFormField(
-                    // validator: (value) {
-                    //   if (value.trim().length == 0) {
-                    //     return 'please Enter an Email';
-                    //   } else {
-                    //     return null;
-                    //   }
-                    // },
+                    validator: (value) {
+                      if (value.trim().isEmpty) {
+                        return 'Please confirm your password';
+                      } else {
+                        return null;
+                      }
+                    },
                     onChanged: (value) {
                       setState(() {});
                     },
@@ -624,6 +633,8 @@ class _SignUpState extends State<SignUp> {
                           width: 0.5,
                         ),
                       ),
+                      errorBorder: kErrorOutlineInputBorder,
+                      focusedErrorBorder: kErrorFocusedOutlineInputBorder,
                       suffixIcon: Padding(
                         padding: EdgeInsets.all(0),
                         child: InkWell(
@@ -635,7 +646,7 @@ class _SignUpState extends State<SignUp> {
                           },
                           child: Image(
                             image: AssetImage(
-                                "assets/images/ic_signin_hide_password_active.png"),
+                                'assets/images/ic_signin_hide_password_active.png'),
                           ),
                         ),
                       ),
@@ -659,12 +670,12 @@ class _SignUpState extends State<SignUp> {
                   children: [
                     TextSpan(text: S.of(context).bySubmit),
                     TextSpan(
-                      text: S.of(context).tandc,
+                      text: '${S.of(context).tandc} ',
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
+                            MaterialPageRoute<void>(
                               builder: (context) => TermsConditions(),
                             ),
                           );
@@ -676,12 +687,12 @@ class _SignUpState extends State<SignUp> {
                     ),
                     TextSpan(text: S.of(context).and),
                     TextSpan(
-                      text: S.of(context).privacy,
+                      text: ' ${S.of(context).privacy}',
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
+                            MaterialPageRoute<void>(
                               builder: (context) => PrivacyPolicy(),
                             ),
                           );
@@ -709,12 +720,14 @@ class _SignUpState extends State<SignUp> {
                   ),
                   color: AppColors.k0cbcc5,
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => OTPScreen(),
-                      ),
-                    );
+                    if (formKey.currentState.validate()) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute<void>(
+                          builder: (context) => OTPScreen(),
+                        ),
+                      );
+                    }
                   },
                   child: Text(
                     S.of(context).signUp,
@@ -733,6 +746,21 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
+  OutlineInputBorder get kErrorFocusedOutlineInputBorder => OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
+        borderSide: BorderSide(
+          color: AppColors.kff3b30,
+        ),
+      );
+
+  OutlineInputBorder get kErrorOutlineInputBorder => OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
+        borderSide: BorderSide(
+          color: AppColors.kff3b30,
+          width: 0.5,
+        ),
+      );
+
   Widget corporateUser() {
     return Container(
       child: Column(children: [
@@ -743,7 +771,7 @@ class _SignUpState extends State<SignUp> {
             top: 143,
           ),
           child: Image(
-            image: AssetImage("assets/images/Img_signin_corporateuser.png"),
+            image: AssetImage('assets/images/Img_signin_corporateuser.png'),
           ),
         ),
         Padding(

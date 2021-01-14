@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
 import 'package:miaid/component/payment_bootomsheet.dart';
-import 'package:miaid/view/user/home_screen.dart';
-import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/config/app_colors.dart';
+import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/view/user/home_screen.dart';
 
 class AdditionalServices extends StatelessWidget {
   @override
@@ -19,13 +20,11 @@ class AdditionalServices extends StatelessWidget {
             onTap: () {
               Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
+                  MaterialPageRoute<void>(
                     builder: (context) => HomeScreen(),
                   ));
             },
-            child: Image(
-              image: AssetImage("assets/images/NavBar/ic_nb_back.png"),
-            ),
+            child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
           ),
           centerTitle: true,
           title: Text(
@@ -61,7 +60,7 @@ class AdditionalServices extends StatelessWidget {
                         height: 11,
                       ),
                       Text(
-                        "Description with features goes here, Lorem ipsum dolor sit amet, consectetur adipisicing elit consectetur adipisicing",
+                        'Description with features goes here, Lorem ipsum dolor sit amet, consectetur adipisicing elit consectetur adipisicing',
                         style: GoogleFonts.rubik(
                           color: AppColors.k5e5e5e,
                           fontSize: 14,
@@ -82,9 +81,9 @@ class AdditionalServices extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.baseline,
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                Text("A\$ "),
+                                Text('A\$ '),
                                 Text(
-                                  "20.0",
+                                  '20.0',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 18,

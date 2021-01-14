@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
+import 'package:miaid/config/app_colors.dart';
 //import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/generated/l10n.dart';
-import 'package:miaid/config/app_colors.dart';
 
 class CallViewReceipt extends StatefulWidget {
   @override
@@ -20,9 +21,7 @@ class _CallViewReceiptState extends State<CallViewReceipt> {
           onTap: () {
             Navigator.pop(context);
           },
-          child: Image(
-            image: AssetImage("assets/images/NavBar/ic_nb_back.png"),
-          ),
+          child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
         ),
         centerTitle: true,
         title: Text(
@@ -41,15 +40,15 @@ class _CallViewReceiptState extends State<CallViewReceipt> {
             child: Row(
               children: [
                 InkWell(
-                  child: Image.asset(
-                      'assets/images/NavBar/ic_nb_viewreciept_print.png'),
+                  child:
+                      navBarIcon(iconAssetName: 'ic_nb_viewreciept_print.png'),
                 ),
                 SizedBox(
                   width: 20,
                 ),
                 InkWell(
-                  child: Image.asset(
-                      'assets/images/NavBar/ic_nb_viewreciept_share.png'),
+                  child:
+                      navBarIcon(iconAssetName: 'ic_nb_viewreciept_share.png'),
                 ),
               ],
             ),

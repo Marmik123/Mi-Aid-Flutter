@@ -2,35 +2,34 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:miaid/config/app_colors.dart';
 
-
 Widget miAidCard(Widget child) {
   return Container(
-  decoration: BoxDecoration(
-    color: Colors.white,
-    borderRadius: BorderRadius.circular(15),
-    boxShadow: [
-      BoxShadow(
-        color: AppColors.k003f51.withOpacity(0.19),
-        offset: Offset(
-          0,
-          4,
-        ),
-        blurRadius: 15,
-        spreadRadius: 0,
-      )
-    ],
-  ),
-  child: child,
-    );
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(15),
+      boxShadow: [
+        BoxShadow(
+          color: AppColors.k003f51.withOpacity(0.19),
+          offset: Offset(
+            0,
+            4,
+          ),
+          blurRadius: 15,
+          spreadRadius: 0,
+        )
+      ],
+    ),
+    child: child,
+  );
 }
 
 Widget activeSubscriptionCard(Widget child) {
   return Container(
-    decoration: new BoxDecoration(
+    decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(15),
       color: AppColors.k0cbcc5,
       boxShadow: [
-        new BoxShadow(
+        BoxShadow(
           color: AppColors.k003f51.withOpacity(0.15),
           blurRadius: 15.0,
           spreadRadius: 0.0, //extend the shadow
@@ -86,5 +85,3 @@ Widget buttonContainer(Widget child) {
     child: child,
   );
 }
-
-

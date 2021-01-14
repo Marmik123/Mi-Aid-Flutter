@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/config/app_colors.dart';
-
-import 'package:miaid/view/user/user_profile_screen/edit_user_profile.dart';
-import 'package:miaid/view/user/password_view/change_password.dart';
 import 'package:miaid/component/drawer.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
+import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/view/user/password/change_password.dart';
+import 'package:miaid/view/user/user_profile_screen/edit_user_profile.dart';
 
 class UserProfileScreen extends StatefulWidget {
   @override
@@ -25,8 +25,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   TextEditingController regularDoctorFullNameController =
       TextEditingController();
   TextEditingController regularDoctorEmailController = TextEditingController();
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +54,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 onTap: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(
+                    MaterialPageRoute<void>(
                       builder: (context) => EditUserProfile(),
                     ),
                   );
@@ -77,9 +75,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               onTap: () {
                 Scaffold.of(context).openDrawer();
               },
-              child: Image(
-                image: const AssetImage('assets/images/NavBar/ic_nb_menu.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_menu.png'),
             );
           },
         ),
@@ -199,7 +195,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
+                      MaterialPageRoute<void>(
                         builder: (context) => ChangePassword(),
                       ),
                     );
@@ -265,7 +261,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           ),
                           TextFormField(
                             // validator: (value) {
-                            //   if (value.trim().length == 0) {
+                            //   if (value.trim().isEmpty) {
                             //     return 'please Enter an Email';
                             //   } else {
                             //     return null;
@@ -298,7 +294,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 20),
+                      padding: const EdgeInsets.only(left: 20, right: 20),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -315,7 +311,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           ),
                           TextFormField(
                             // validator: (value) {
-                            //   if (value.trim().length == 0) {
+                            //   if (value.trim().isEmpty) {
                             //     return 'please Enter an Email';
                             //   } else {
                             //     return null;
@@ -348,7 +344,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 20),
+                      padding: const EdgeInsets.only(left: 20, right: 20),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -368,7 +364,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           ),
                           TextFormField(
                             // validator: (value) {
-                            //   if (value.trim().length == 0) {
+                            //   if (value.trim().isEmpty) {
                             //     return 'please Enter an Email';
                             //   } else {
                             //     return null;
@@ -401,7 +397,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 20),
+                      padding: const EdgeInsets.only(left: 20, right: 20),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -421,7 +417,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           ),
                           TextFormField(
                             // validator: (value) {
-                            //   if (value.trim().length == 0) {
+                            //   if (value.trim().isEmpty) {
                             //     return 'please Enter an Email';
                             //   } else {
                             //     return null;
@@ -455,7 +451,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 20),
+                      padding: const EdgeInsets.only(left: 20, right: 20),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -475,7 +471,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           ),
                           TextFormField(
                             // validator: (value) {
-                            //   if (value.trim().length == 0) {
+                            //   if (value.trim().isEmpty) {
                             //     return 'please Enter an Email';
                             //   } else {
                             //     return null;
@@ -531,7 +527,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 height: 19,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20),
+                padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -548,7 +544,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     ),
                     TextFormField(
                       // validator: (value) {
-                      //   if (value.trim().length == 0) {
+                      //   if (value.trim().isEmpty) {
                       //     return 'please Enter an Email';
                       //   } else {
                       //     return null;
@@ -581,7 +577,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 20),
+                padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -598,7 +594,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     ),
                     TextFormField(
                       // validator: (value) {
-                      //   if (value.trim().length == 0) {
+                      //   if (value.trim().isEmpty) {
                       //     return 'please Enter an Email';
                       //   } else {
                       //     return null;
@@ -631,7 +627,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 20),
+                padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -648,7 +644,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     ),
                     TextFormField(
                       // validator: (value) {
-                      //   if (value.trim().length == 0) {
+                      //   if (value.trim().isEmpty) {
                       //     return 'please Enter an Email';
                       //   } else {
                       //     return null;
@@ -702,7 +698,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 height: 19,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20),
+                padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -719,7 +715,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     ),
                     TextFormField(
                       // validator: (value) {
-                      //   if (value.trim().length == 0) {
+                      //   if (value.trim().isEmpty) {
                       //     return 'please Enter an Email';
                       //   } else {
                       //     return null;
@@ -753,7 +749,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 20),
+                padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -770,7 +766,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     ),
                     TextFormField(
                       // validator: (value) {
-                      //   if (value.trim().length == 0) {
+                      //   if (value.trim().isEmpty) {
                       //     return 'please Enter an Email';
                       //   } else {
                       //     return null;

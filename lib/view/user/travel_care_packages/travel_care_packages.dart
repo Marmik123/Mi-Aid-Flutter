@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/component/drawer.dart';
-import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
 import 'package:miaid/config/app_colors.dart';
+import 'package:miaid/generated/l10n.dart';
 
 class TravelCarePackages extends StatefulWidget {
   @override
@@ -35,9 +36,7 @@ class _TravelCarePackagesState extends State<TravelCarePackages> {
               onTap: () {
                 Scaffold.of(context).openDrawer();
               },
-              child: Image(
-                image: const AssetImage('assets/images/NavBar/ic_nb_menu.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_menu.png'),
             );
           },
         ),

@@ -1,11 +1,13 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/component/drawer.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
+import 'package:miaid/config/app_colors.dart';
 //import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/generated/l10n.dart';
-import 'package:miaid/config/app_colors.dart';
-import 'package:miaid/view/user/sign_In_view/sign_In.dart';
-import 'package:miaid/component/drawer.dart';
+import 'package:miaid/view/user/sign_in/sign_In.dart';
+
 import './callViewReceipt.dart';
 
 class CallHistory extends StatefulWidget {
@@ -15,7 +17,8 @@ class CallHistory extends StatefulWidget {
 
 class _CallHistoryState extends State<CallHistory> {
   DateTime _dateTime = DateTime.now();
-  showAlertDialog(BuildContext context) {
+
+  void showAlertDialog(BuildContext context) {
     Widget okButton = Padding(
       padding: EdgeInsets.only(left: 64.5, right: 63.5, bottom: 24.5),
       child: Column(
@@ -24,11 +27,11 @@ class _CallHistoryState extends State<CallHistory> {
           Container(
             width: MediaQuery.of(context).size.width,
             height: 36,
-            decoration: new BoxDecoration(
+            decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: Colors.white,
               boxShadow: [
-                new BoxShadow(
+                BoxShadow(
                   color: AppColors.k0cbcc5.withOpacity(0.2),
                   blurRadius: 10.0,
                   spreadRadius: 0.0, //extend the shadow
@@ -64,7 +67,7 @@ class _CallHistoryState extends State<CallHistory> {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
+                  MaterialPageRoute<void>(
                     builder: (context) => SignIn(),
                   ),
                 );
@@ -82,7 +85,7 @@ class _CallHistoryState extends State<CallHistory> {
       ),
     );
 
-    AlertDialog alert = AlertDialog(
+    var alert = AlertDialog(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
@@ -109,7 +112,7 @@ class _CallHistoryState extends State<CallHistory> {
         });
   }
 
-  Widget cupertinoDatePicker(context) {
+  Widget cupertinoDatePicker(BuildContext context) {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -194,8 +197,7 @@ class _CallHistoryState extends State<CallHistory> {
                 builder: (context) => cupertinoDatePicker(context),
               );
             },
-            child:
-                Image.asset('assets/images/NavBar/ic_nb_callhistory_date.png'),
+            child: navBarIcon(iconAssetName: 'ic_nb_callhistory_date.png'),
           ),
         ],
         leading: Builder(
@@ -204,9 +206,7 @@ class _CallHistoryState extends State<CallHistory> {
               onTap: () {
                 Scaffold.of(context).openDrawer();
               },
-              child: Image(
-                image: const AssetImage('assets/images/NavBar/ic_nb_menu.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_menu.png'),
             );
           },
         ),
@@ -344,7 +344,7 @@ class _CallHistoryState extends State<CallHistory> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
+                            MaterialPageRoute<void>(
                               builder: (context) => CallViewReceipt(),
                             ),
                           );

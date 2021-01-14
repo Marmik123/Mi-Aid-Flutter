@@ -1,12 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:miaid/component/miaid_card.dart';
-import 'package:miaid/generated/l10n.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/config/app_colors.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:miaid/view/user/e_shop/purchase.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
+import 'package:miaid/config/app_colors.dart';
+import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/view/user/e_shop/cart_eshop.dart';
 import 'package:miaid/view/user/e_shop/product_details.dart';
+import 'package:miaid/view/user/e_shop/purchase.dart';
 
 class ProductCategoryDetails extends StatefulWidget {
   @override
@@ -38,9 +39,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Image(
-                image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
             );
           },
         ),
@@ -58,15 +57,12 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
+                        MaterialPageRoute<void>(
                           builder: (context) => PurchaseItem(),
                         ),
                       );
                     },
-                    child: Image(
-                      image: AssetImage(
-                          'assets/images/NavBar/ic_nb_purchases.png'),
-                    ),
+                    child: navBarIcon(iconAssetName: 'ic_nb_purchases.png'),
                   ),
                   SizedBox(
                     width: 23,
@@ -75,15 +71,12 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
+                        MaterialPageRoute<void>(
                           builder: (context) => CartEShop(),
                         ),
                       );
                     },
-                    child: Image(
-                      image: AssetImage(
-                          'assets/images/NavBar/ic_nb_cart_normal.png'),
-                    ),
+                    child: navBarIcon(iconAssetName: 'ic_nb_cart_normal.png'),
                   ),
                 ],
               ),
@@ -162,7 +155,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                           Text(
                                             S.of(context).open,
                                             style: GoogleFonts.rubik(
-                                              color:AppColors.k25d000,
+                                              color: AppColors.k25d000,
                                               fontSize: 14,
                                             ),
                                           ),
@@ -214,7 +207,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                   Expanded(
                     child: TextField(
                       // validator: (value) {
-                      //   if (value.trim().length == 0) {
+                      //   if (value.trim().isEmpty) {
                       //     return 'please Enter an Email';
                       //   } else {
                       //     return null;
@@ -296,25 +289,24 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                         )
                       ],
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                        left: 10,
-                        right: 10,
-                        top: 10,
-                        bottom: 10,
-                      ),
-                      child: Row(
-                        children: [
-                          Text(
-                            S.of(context).allCategories,
-                            style: GoogleFonts.rubik(
-                              color: AppColors.kffffff,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13,
-                            ),
+                    padding: const EdgeInsets.only(
+                      left: 10,
+                      right: 10,
+                      // top: 10,
+                      // bottom: 10,
+                    ),
+                    alignment: Alignment.center,
+                    child: Row(
+                      children: [
+                        Text(
+                          S.of(context).allCategories,
+                          style: GoogleFonts.rubik(
+                            color: AppColors.kffffff,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 13,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(
@@ -337,25 +329,24 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                         )
                       ],
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                        left: 10,
-                        right: 10,
-                        top: 10,
-                        bottom: 10,
-                      ),
-                      child: Row(
-                        children: [
-                          Text(
-                            'Category 2',
-                            style: GoogleFonts.rubik(
-                              color: AppColors.k0cbcc5,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13,
-                            ),
+                    padding: const EdgeInsets.only(
+                      left: 10,
+                      right: 10,
+                      // top: 10,
+                      // bottom: 10,
+                    ),
+                    alignment: Alignment.center,
+                    child: Row(
+                      children: [
+                        Text(
+                          'Category 2',
+                          style: GoogleFonts.rubik(
+                            color: AppColors.k0cbcc5,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 13,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(
@@ -378,25 +369,24 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                         )
                       ],
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                        left: 10,
-                        right: 10,
-                        top: 10,
-                        bottom: 10,
-                      ),
-                      child: Row(
-                        children: [
-                          Text(
-                            'Category 3',
-                            style: GoogleFonts.rubik(
-                              color: AppColors.k0cbcc5,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13,
-                            ),
+                    padding: const EdgeInsets.only(
+                      left: 10,
+                      right: 10,
+                      // top: 10,
+                      // bottom: 10,
+                    ),
+                    alignment: Alignment.center,
+                    child: Row(
+                      children: [
+                        Text(
+                          'Category 3',
+                          style: GoogleFonts.rubik(
+                            color: AppColors.k0cbcc5,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 13,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(
@@ -419,25 +409,24 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                         )
                       ],
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                        left: 10,
-                        right: 10,
-                        top: 10,
-                        bottom: 10,
-                      ),
-                      child: Row(
-                        children: [
-                          Text(
-                            'Category 4',
-                            style: GoogleFonts.rubik(
-                              color: AppColors.k0cbcc5,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13,
-                            ),
+                    padding: const EdgeInsets.only(
+                      left: 10,
+                      right: 10,
+                      // top: 10,
+                      // bottom: 10,
+                    ),
+                    alignment: Alignment.center,
+                    child: Row(
+                      children: [
+                        Text(
+                          'Category 4',
+                          style: GoogleFonts.rubik(
+                            color: AppColors.k0cbcc5,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 13,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(
@@ -460,25 +449,24 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                         )
                       ],
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                        left: 10,
-                        right: 10,
-                        top: 10,
-                        bottom: 10,
-                      ),
-                      child: Row(
-                        children: [
-                          Text(
-                            'Category 5',
-                            style: GoogleFonts.rubik(
-                              color: AppColors.k0cbcc5,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13,
-                            ),
+                    padding: const EdgeInsets.only(
+                      left: 10,
+                      right: 10,
+                      // top: 10,
+                      // bottom: 10,
+                    ),
+                    alignment: Alignment.center,
+                    child: Row(
+                      children: [
+                        Text(
+                          'Category 5',
+                          style: GoogleFonts.rubik(
+                            color: AppColors.k0cbcc5,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 13,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -515,14 +503,14 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
+                          MaterialPageRoute<void>(
                             builder: (context) => ProductDetails(),
                           ),
                         );
                       },
                       child: miAidCard(
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(12, 12, 16, 16),
+                          padding: const EdgeInsets.fromLTRB(10, 13, 10, 13),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -553,7 +541,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                               bottom: 14,
                                             ),
                                             child: Text(
-                                                "Panadol Rapid Parace Panadol Rapid Paracetamol Pain Relief Caplets 500 mg",
+                                                'Panadol Rapid Parace Panadol Rapid Paracetamol Pain Relief Caplets 500 mg',
                                                 style: GoogleFonts.rubik(
                                                   color: AppColors.k010101,
                                                   fontSize: 14,
@@ -582,9 +570,9 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                                     mainAxisSize:
                                                         MainAxisSize.min,
                                                     children: [
-                                                      Text("A\$ "),
+                                                      Text('A\$ '),
                                                       Text(
-                                                        "20.0",
+                                                        '20.0',
                                                         style: TextStyle(
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -616,7 +604,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                                   onPressed: () {
                                                     // Navigator.push(
                                                     //   context,
-                                                    //   MaterialPageRoute(
+                                                    //   MaterialPageRoute<void>(
                                                     //     builder: (context) => SignUp(),
                                                     //   ),
                                                     // );
@@ -680,14 +668,14 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
+                          MaterialPageRoute<void>(
                             builder: (context) => ProductDetails(),
                           ),
                         );
                       },
                       child: miAidCard(
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(12, 12, 16, 16),
+                          padding: const EdgeInsets.fromLTRB(10, 13, 10, 13),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -718,7 +706,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                               bottom: 14,
                                             ),
                                             child: Text(
-                                                "Panadol Rapid Parace Panadol Rapid Paracetamol Pain Relief Caplets 500 mg",
+                                                'Panadol Rapid Parace Panadol Rapid Paracetamol Pain Relief Caplets 500 mg',
                                                 style: GoogleFonts.rubik(
                                                   color: AppColors.k010101,
                                                   fontSize: 14,
@@ -747,9 +735,9 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                                     mainAxisSize:
                                                         MainAxisSize.min,
                                                     children: [
-                                                      Text("A\$ "),
+                                                      Text('A\$ '),
                                                       Text(
-                                                        "20.0",
+                                                        '20.0',
                                                         style: TextStyle(
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -781,7 +769,7 @@ class _ProductCategoryDetailsState extends State<ProductCategoryDetails> {
                                                   onPressed: () {
                                                     // Navigator.push(
                                                     //   context,
-                                                    //   MaterialPageRoute(
+                                                    //   MaterialPageRoute<void>(
                                                     //     builder: (context) => SignUp(),
                                                     //   ),
                                                     // );

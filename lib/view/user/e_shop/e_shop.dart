@@ -1,16 +1,17 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/config/app_colors.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:miaid/view/user/e_shop/purchase.dart';
-import 'package:miaid/view/user/e_shop/cart_eshop.dart';
-import 'package:miaid/view/user/location/location.dart';
-import 'package:miaid/view/user/e_shop/product_category_details.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:miaid/model/pin_info.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
+import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/model/pin_info.dart';
+import 'package:miaid/view/user/e_shop/cart_eshop.dart';
+import 'package:miaid/view/user/e_shop/product_category_details.dart';
+import 'package:miaid/view/user/e_shop/purchase.dart';
+import 'package:miaid/view/user/location/location.dart';
 
 class EShop extends StatefulWidget {
   @override
@@ -24,7 +25,6 @@ const LatLng SOURCE_LOCATION = LatLng(42.7477863, -71.1699932);
 const LatLng DEST_LOCATION = LatLng(42.6871386, -71.2143403);
 
 Set<Marker> markers = {};
-int _index = 0;
 int indexMarker;
 ValueNotifier valueNotifier = ValueNotifier(indexMarker);
 
@@ -32,10 +32,10 @@ class _EShopState extends State<EShop> {
   TextEditingController searchController = TextEditingController();
   String _selectedValue = '0';
 
-  Completer<GoogleMapController> _controller = Completer();
+  final Completer<GoogleMapController> _controller = Completer();
   GoogleMapController mapController;
 
-  ValueNotifier<Set<Marker>> _markers = ValueNotifier<Set<Marker>>({});
+  final ValueNotifier<Set<Marker>> _markers = ValueNotifier<Set<Marker>>({});
   BitmapDescriptor sourceIcon;
   BitmapDescriptor destinationIcon;
   double pinPillPosition = -100;
@@ -65,9 +65,9 @@ class _EShopState extends State<EShop> {
         icon: sourceIcon));
 
     sourcePinInfo = PinInformation(
-        locationName: "Start Location",
+        locationName: 'Start Location',
         location: SOURCE_LOCATION,
-        pinPath: "assets/images/ic_mappin_clinic.png",
+        pinPath: 'assets/images/ic_mappin_clinic.png',
         // avatarPath: "assets/images/ic_mappin_clinic_selected.png",
         labelColor: Colors.blueAccent);
 
@@ -85,9 +85,9 @@ class _EShopState extends State<EShop> {
         icon: destinationIcon));
 
     destinationPinInfo = PinInformation(
-        locationName: "End Location",
+        locationName: 'End Location',
         location: DEST_LOCATION,
-        pinPath: "assets/images/ic_mappin_clinic_selected.png",
+        pinPath: 'assets/images/ic_mappin_clinic_selected.png',
         // avatarPath: "assets/friend2.jpg",
         labelColor: Colors.purple);
   }
@@ -137,9 +137,7 @@ class _EShopState extends State<EShop> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Image(
-                image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
             );
           },
         ),
@@ -157,15 +155,12 @@ class _EShopState extends State<EShop> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
+                        MaterialPageRoute<void>(
                           builder: (context) => PurchaseItem(),
                         ),
                       );
                     },
-                    child: Image(
-                      image: AssetImage(
-                          'assets/images/NavBar/ic_nb_purchases.png'),
-                    ),
+                    child: navBarIcon(iconAssetName: 'ic_nb_purchases.png'),
                   ),
                   SizedBox(
                     width: 23,
@@ -174,15 +169,12 @@ class _EShopState extends State<EShop> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
+                        MaterialPageRoute<void>(
                           builder: (context) => CartEShop(),
                         ),
                       );
                     },
-                    child: Image(
-                      image: AssetImage(
-                          'assets/images/NavBar/ic_nb_cart_normal.png'),
-                    ),
+                    child: navBarIcon(iconAssetName: 'ic_nb_cart_normal.png'),
                   ),
                 ],
               ),
@@ -207,7 +199,7 @@ class _EShopState extends State<EShop> {
                   Expanded(
                     child: TextField(
                       // validator: (value) {
-                      //   if (value.trim().length == 0) {
+                      //   if (value.trim().isEmpty) {
                       //     return 'please Enter an Email';
                       //   } else {
                       //     return null;
@@ -274,7 +266,7 @@ class _EShopState extends State<EShop> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
+                          MaterialPageRoute<void>(
                             builder: (context) => Locations(),
                           ),
                         );
@@ -431,7 +423,7 @@ class _EShopState extends State<EShop> {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(
+          MaterialPageRoute<void>(
             builder: (context) => ProductCategoryDetails(),
           ),
         );

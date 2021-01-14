@@ -1,17 +1,17 @@
 import 'dart:ui';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
 import 'package:get_utils/get_utils.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/config/app_colors.dart';
-import 'package:miaid/view/user/password_view/forgot_password.dart';
-import 'package:miaid/view/user/sign_In_view/sign_Up.dart';
-import 'package:miaid/view/user/home_screen.dart';
-import 'package:flutter/gestures.dart';
-import 'package:miaid/view/user/password_view/reset_password.dart';
+import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/utils/shared_preferrences_utils.dart';
+import 'package:miaid/view/user/home_screen.dart';
+import 'package:miaid/view/user/password/forgot_password.dart';
+import 'package:miaid/view/user/password/reset_password.dart';
+import 'package:miaid/view/user/sign_in/sign_Up.dart';
 
 //import 'package:miaid/l10n/intl_en.arb';
 
@@ -70,7 +70,7 @@ class _SignInState extends State<SignIn> {
                   actions: <Widget>[
                     CupertinoActionSheetAction(
                       child: Text(
-                        "English",
+                        'English',
                         style: GoogleFonts.rubik(
                           color: AppColors.k0cbcc5,
                           fontSize: 24,
@@ -88,7 +88,7 @@ class _SignInState extends State<SignIn> {
                     ),
                     CupertinoActionSheetAction(
                       child: Text(
-                        "中文",
+                        '中文',
                         style: GoogleFonts.rubik(
                           color: AppColors.k0cbcc5,
                           fontSize: 24,
@@ -122,11 +122,11 @@ class _SignInState extends State<SignIn> {
                     context: context, builder: (context) => action);
               },
               child: Container(
-                decoration: new BoxDecoration(
+                decoration: BoxDecoration(
                   color: AppColors.keefeff,
                   borderRadius: BorderRadius.circular(6),
                   boxShadow: [
-                    new BoxShadow(
+                    BoxShadow(
                       color: AppColors.k003f51.withOpacity(0.1),
                       blurRadius: 10.0,
                       spreadRadius: 0.0, //extend the shadow
@@ -171,7 +171,7 @@ class _SignInState extends State<SignIn> {
                 height: 117,
                 width: 117,
                 child: Image(
-                  image: AssetImage("assets/images/logo_auth.png"),
+                  image: AssetImage('assets/images/logo_auth.png'),
                 ),
               ),
               SizedBox(
@@ -214,7 +214,7 @@ class _SignInState extends State<SignIn> {
                                     ..onTap = () {
                                       Navigator.push(
                                         context,
-                                        MaterialPageRoute(
+                                        MaterialPageRoute<void>(
                                           builder: (context) => ResetPassword(),
                                         ),
                                       );
@@ -231,7 +231,7 @@ class _SignInState extends State<SignIn> {
                                     ..onTap = () {
                                       Navigator.push(
                                         context,
-                                        MaterialPageRoute(
+                                        MaterialPageRoute<void>(
                                           builder: (context) => SignUp(),
                                         ),
                                       );
@@ -264,7 +264,7 @@ class _SignInState extends State<SignIn> {
                           // color: emailController.value.toString().length <= 0
                           //     ? AppColors.kb1b1b1
                           //     : AppColors.k010101,
-                          color: emailController.text.trim().length > 0
+                          color: emailController.text.trim().isNotEmpty
                               ? AppColors.kb1b1b1
                               : AppColors.k010101,
 
@@ -278,11 +278,11 @@ class _SignInState extends State<SignIn> {
                       TextFormField(
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
-                          if (value.trim().length == 0) {
+                          if (value.trim().isEmpty) {
                             return S.of(context).entEmail;
-                          } else if (!GetUtils.isEmail(value.trim()))
+                          } else if (!GetUtils.isEmail(value.trim())) {
                             return S.of(context).entVEmain;
-                          else {
+                          } else {
                             return null;
                           }
                         },
@@ -336,7 +336,7 @@ class _SignInState extends State<SignIn> {
                         S.of(context).password,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
-                          color: passwordController.text.trim().length > 0
+                          color: passwordController.text.trim().isNotEmpty
                               ? AppColors.kb1b1b1
                               : AppColors.k010101,
                           fontSize: 12,
@@ -350,7 +350,7 @@ class _SignInState extends State<SignIn> {
                         controller: passwordController,
                         obscureText: _obsecurePasswordText,
                         validator: (value) {
-                          if (value.trim().length == 0) {
+                          if (value.trim().isEmpty) {
                             return S.of(context).entPass;
                           } else {
                             return null;
@@ -406,7 +406,7 @@ class _SignInState extends State<SignIn> {
                                 },
                                 child: Image(
                                   image: AssetImage(
-                                      "assets/images/ic_signin_hide_password_active.png"),
+                                      'assets/images/ic_signin_hide_password_active.png'),
                                 ),
                               ),
                             )),
@@ -435,7 +435,7 @@ class _SignInState extends State<SignIn> {
                       if (formKey.currentState.validate()) {
                         Navigator.pushReplacement(
                             context,
-                            MaterialPageRoute(
+                            MaterialPageRoute<void>(
                                 builder: (context) => HomeScreen()));
                       }
                     },
@@ -457,7 +457,7 @@ class _SignInState extends State<SignIn> {
                 onTap: () {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(
+                      MaterialPageRoute<void>(
                           builder: (context) => ForgotPassword()));
                 },
                 child: Text(
@@ -501,7 +501,7 @@ class _SignInState extends State<SignIn> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
+                        MaterialPageRoute<void>(
                           builder: (context) => SignUp(),
                         ),
                       );

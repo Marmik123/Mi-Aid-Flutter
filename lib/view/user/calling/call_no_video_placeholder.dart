@@ -1,7 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
 import 'package:miaid/config/app_colors.dart';
-import 'dart:async';
 import 'package:miaid/view/user/calling/call.dart';
 
 class NoVideoPlaceHolder extends StatefulWidget {
@@ -10,16 +12,13 @@ class NoVideoPlaceHolder extends StatefulWidget {
 }
 
 class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
-
-
   @override
   void initState() {
-  
     super.initState();
     Timer(
         Duration(seconds: 2),
         () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => Call())));
+            context, MaterialPageRoute<void>(builder: (context) => Call())));
   }
 
   @override
@@ -35,7 +34,8 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
         title: Text(
           'MiAid Assistance',
           style: GoogleFonts.rubik(
-            color: AppColors.kffffff  ,          fontSize: 15,
+            color: AppColors.kffffff,
+            fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -45,9 +45,7 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Image(
-                image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
             );
           },
         ),
@@ -56,9 +54,7 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
             padding: const EdgeInsets.only(
               right: 13,
             ),
-            child: Image(
-              image: AssetImage('assets/images/NavBar/ic_nb_call_sound.png'),
-            ),
+            child: navBarIcon(iconAssetName: 'ic_nb_call_sound.png'),
           ),
         ],
       ),
@@ -87,8 +83,9 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
               right: 150,
               child: Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: AppColors.k010101.withOpacity(0.3),),
+                  borderRadius: BorderRadius.circular(10),
+                  color: AppColors.k010101.withOpacity(0.3),
+                ),
                 child: Padding(
                   padding: const EdgeInsets.only(
                     left: 17,
@@ -98,7 +95,8 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                   ),
                   child: Text(
                     '4:36',
-                    style: GoogleFonts.rubik(color: AppColors.kffffff, fontSize: 12),
+                    style: GoogleFonts.rubik(
+                        color: AppColors.kffffff, fontSize: 12),
                   ),
                 ),
               ),
@@ -116,11 +114,11 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                     Container(
                       height: 98,
                       width: 98,
-                      decoration: new BoxDecoration(
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.white,
                         boxShadow: [
-                          new BoxShadow(
+                          BoxShadow(
                             color: AppColors.k000000.withOpacity(0.24),
                             blurRadius: 15.0,
                             spreadRadius: 0.0, //extend the shadow
@@ -141,11 +139,11 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                     Container(
                       height: 98,
                       width: 98,
-                      decoration: new BoxDecoration(
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.white,
                         boxShadow: [
-                          new BoxShadow(
+                          BoxShadow(
                             color: AppColors.k000000.withOpacity(0.24),
                             blurRadius: 15.0,
                             spreadRadius: 0.0, //extend the shadow
@@ -167,11 +165,11 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                     Container(
                       height: 98,
                       width: 98,
-                      decoration: new BoxDecoration(
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.white,
                         boxShadow: [
-                          new BoxShadow(
+                          BoxShadow(
                             color: AppColors.k000000.withOpacity(0.24),
                             blurRadius: 15.0,
                             spreadRadius: 0.0, //extend the shadow
@@ -188,7 +186,6 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                     ),
                   ],
                 ),
-              
               ),
             ),
             Positioned(
@@ -210,7 +207,8 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                             ),
                           )
                         ],
-                        color: AppColors.kffffff    ,                    borderRadius: BorderRadius.circular(10),
+                        color: AppColors.kffffff,
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

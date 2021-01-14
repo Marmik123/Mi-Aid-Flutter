@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
 import 'package:miaid/config/app_colors.dart';
-import 'package:miaid/view/user/sign_In_view/sign_In.dart';
-import 'package:miaid/view/user/password_view/forgot_password.dart';
 import 'package:miaid/generated/l10n.dart';
 
-class ResetPassword extends StatefulWidget {
+class ChangePassword extends StatefulWidget {
   @override
-  _ResetPasswordState createState() => _ResetPasswordState();
+  _ChangePasswordState createState() => _ChangePasswordState();
 }
 
-class _ResetPasswordState extends State<ResetPassword> {
+class _ChangePasswordState extends State<ChangePassword> {
+  TextEditingController currentPasswordController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
-
-  
 
   bool _obsecurePasswordText = true;
   bool _obsecureConfirmPasswordText = true;
@@ -29,7 +27,7 @@ class _ResetPasswordState extends State<ResetPassword> {
         backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
-          S.of(context).resetPass,
+          S.of(context).changePass,
           style: GoogleFonts.rubik(
             color: AppColors.k010101,
             fontSize: 15,
@@ -40,16 +38,9 @@ class _ResetPasswordState extends State<ResetPassword> {
           builder: (BuildContext context) {
             return InkWell(
               onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ForgotPassword(),
-                  ),
-                );
+                Navigator.pop(context);
               },
-              child: Image(
-                image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
             );
           },
         ),
@@ -68,14 +59,14 @@ class _ResetPasswordState extends State<ResetPassword> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        S.of(context).password,
+                        S.of(context).currPass,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
-                          color: passwordController.text.trim().length > 0
+                          color: passwordController.text.trim().isNotEmpty
                               ? AppColors.kb1b1b1
                               : AppColors.k010101,
                           fontSize: 12,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       SizedBox(
@@ -83,7 +74,89 @@ class _ResetPasswordState extends State<ResetPassword> {
                       ),
                       TextFormField(
                         validator: (value) {
-                          if (value.trim().length == 0) {
+                          if (value.trim().isEmpty) {
+                            return S.of(context).entPass;
+                          } else {
+                            return null;
+                          }
+                        },
+                        onChanged: (value) {
+                          setState(() {});
+                        },
+                        controller: currentPasswordController,
+                        obscureText: _obsecurePasswordText,
+                        decoration: InputDecoration(
+                          hintText: '**********',
+                          hintStyle: TextStyle(
+                            color: AppColors.kb1b1b1,
+                            fontSize: 14,
+                          ),
+                          contentPadding: EdgeInsets.only(
+                            left: 16,
+                            top: 5,
+                            bottom: 5,
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: AppColors.k010101,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color: AppColors.kb1b1b1,
+                            ),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: AppColors.kfa0020,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: AppColors.kfa0020,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          suffixIcon: Padding(
+                            padding: EdgeInsets.all(0),
+                            child: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  _obsecurePasswordText =
+                                      !_obsecurePasswordText;
+                                });
+                              },
+                              child: Image(
+                                image: AssetImage(
+                                    'assets/images/ic_signin_hide_password_active.png'),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        S.of(context).password,
+                        textAlign: TextAlign.left,
+                        style: GoogleFonts.rubik(
+                          color: passwordController.text.trim().isNotEmpty
+                              ? AppColors.kb1b1b1
+                              : AppColors.k010101,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      TextFormField(
+                        validator: (value) {
+                          if (value.trim().isEmpty) {
                             return S.of(context).entPass;
                           } else {
                             return null;
@@ -115,7 +188,6 @@ class _ResetPasswordState extends State<ResetPassword> {
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
                               color: AppColors.kb1b1b1,
-                              width: 0.5,
                             ),
                           ),
                           errorBorder: OutlineInputBorder(
@@ -141,7 +213,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                               },
                               child: Image(
                                 image: AssetImage(
-                                    "assets/images/ic_signin_hide_password_active.png"),
+                                    'assets/images/ic_signin_hide_password_active.png'),
                               ),
                             ),
                           ),
@@ -155,11 +227,11 @@ class _ResetPasswordState extends State<ResetPassword> {
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
                           color:
-                              confirmPasswordController.text.trim().length > 0
+                              confirmPasswordController.text.trim().isNotEmpty
                                   ? AppColors.kb1b1b1
                                   : AppColors.k010101,
                           fontSize: 12,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       SizedBox(
@@ -169,7 +241,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                         controller: confirmPasswordController,
                         obscureText: _obsecureConfirmPasswordText,
                         validator: (value) {
-                          if (value.trim().length == 0) {
+                          if (value.trim().isEmpty) {
                             return S.of(context).entPass;
                           } else {
                             return null;
@@ -199,7 +271,6 @@ class _ResetPasswordState extends State<ResetPassword> {
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
                               color: AppColors.kb1b1b1,
-                              width: 0.5,
                             ),
                           ),
                           errorBorder: OutlineInputBorder(
@@ -225,7 +296,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                               },
                               child: Image(
                                 image: AssetImage(
-                                    "assets/images/ic_signin_hide_password_active.png"),
+                                    'assets/images/ic_signin_hide_password_active.png'),
                               ),
                             ),
                           ),
@@ -249,15 +320,16 @@ class _ResetPasswordState extends State<ResetPassword> {
                     ),
                     color: AppColors.k0cbcc5,
                     onPressed: () {
-                      if (formKey.currentState.validate()) {
-                        showAlertDialog(context);
-                      }
+                      // if (formKey.currentState.validate()) {
+                      //   showAlertDialog(context);
+                      // }
                     },
                     child: Text(
                       S.of(context).savePass,
                       style: GoogleFonts.rubik(
                         color: AppColors.kffffff,
                         fontSize: 17,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
@@ -269,76 +341,4 @@ class _ResetPasswordState extends State<ResetPassword> {
       ),
     );
   }
-}
-
-showAlertDialog(BuildContext context) {
-  Widget okButton = Padding(
-    padding: EdgeInsets.only(left: 64.5, right: 63.5, bottom: 24.5),
-    child: Container(
-      width: MediaQuery.of(context).size.width,
-      height: 36,
-      decoration: new BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        color: Colors.white,
-        boxShadow: [
-          new BoxShadow(
-            color: AppColors.k0cbcc5.withOpacity(0.2),
-            blurRadius: 10.0,
-            spreadRadius: 0.0, //extend the shadow
-            offset: Offset(
-              0.0, // Move to right 10  horizontally
-              4, // Move to bottom 10 Vertically
-            ),
-          ),
-        ],
-      ),
-      child: FlatButton(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(9),
-        ),
-        color: AppColors.k0cbcc5,
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => SignIn()));
-        },
-        child: Text(
-          S.of(context).okay,
-          style: GoogleFonts.rubik(
-            color: AppColors.kffffff,
-            fontSize: 17,
-          ),
-        ),
-      ),
-    ),
-  );
-
-  AlertDialog alert = AlertDialog(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(12)),
-    ),
-    title: Text(
-      S.of(context).success,
-      textAlign: TextAlign.center,
-      style: GoogleFonts.rubik(
-        fontSize: 17,
-        fontWeight: FontWeight.w500,
-        color: AppColors.k010101,
-      ),
-    ),
-    content: Text(
-      S.of(context).successMessage,
-      textAlign: TextAlign.center,
-      style: GoogleFonts.rubik(
-        fontSize: 13,
-        color: AppColors.k010101,
-      ),
-    ),
-    actions: [okButton],
-  );
-
-  showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return alert;
-      });
 }

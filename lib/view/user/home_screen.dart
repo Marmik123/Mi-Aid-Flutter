@@ -1,21 +1,22 @@
 import 'dart:ui';
-import 'package:miaid/utils/shared_preferrences_utils.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/component/miaid_card.dart';
-import 'package:miaid/config/app_colors.dart';
-import 'package:miaid/payment/additional_services.dart';
-import 'package:miaid/view/drawer/about.dart';
-import 'package:miaid/view/user/calling/call.dart';
-import 'package:miaid/view/user/sign_In_view/sign_In.dart';
-import 'package:miaid/view/user/travel_care_packages/Travel_care_packages.dart';
-import 'package:miaid/view/map/map_screen.dart';
-import 'package:miaid/generated/l10n.dart';
-import 'package:miaid/view/user/e_shop/e_shop.dart';
 import 'package:miaid/component/drawer.dart';
+import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
+import 'package:miaid/config/app_colors.dart';
+import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/payment/additional_services.dart';
+import 'package:miaid/utils/shared_preferrences_utils.dart';
+import 'package:miaid/view/drawer/about.dart';
+import 'package:miaid/view/map/map_screen.dart';
+import 'package:miaid/view/user/calling/call.dart';
 import 'package:miaid/view/user/calling/call_micure_assistant.dart';
+import 'package:miaid/view/user/e_shop/e_shop.dart';
+import 'package:miaid/view/user/sign_in/sign_In.dart';
+import 'package:miaid/view/user/travel_care_packages/Travel_care_packages.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -23,8 +24,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  
-
   String sharedPrefs = savedLocale.languageCode;
 
   int remainingVideoConsultations = 10;
@@ -66,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   actions: <Widget>[
                     CupertinoActionSheetAction(
                       child: Text(
-                        "English",
+                        'English',
                         style: GoogleFonts.rubik(
                           color: AppColors.k0cbcc5,
                           fontSize: 24,
@@ -84,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     CupertinoActionSheetAction(
                       child: Text(
-                        "中文",
+                        '中文',
                         style: GoogleFonts.rubik(
                           color: AppColors.k0cbcc5,
                           fontSize: 24,
@@ -118,11 +117,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     context: context, builder: (context) => action);
               },
               child: Container(
-                decoration: new BoxDecoration(
+                decoration: BoxDecoration(
                   color: AppColors.keefeff,
                   borderRadius: BorderRadius.circular(6),
                   boxShadow: [
-                    new BoxShadow(
+                    BoxShadow(
                       color: AppColors.k003f51.withOpacity(0.1),
                       blurRadius: 10.0,
                       spreadRadius: 0.0, //extend the shadow
@@ -159,9 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onTap: () {
                 Scaffold.of(context).openDrawer();
               },
-              child: Image(
-                image: const AssetImage('assets/images/NavBar/ic_nb_menu.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_menu.png'),
             );
           },
         ),
@@ -319,7 +316,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
+                            MaterialPageRoute<void>(
                               builder: (context) => MapScreen(),
                             ),
                           );
@@ -358,7 +355,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
+                            MaterialPageRoute<void>(
                               builder: (context) => CallScreen(),
                             ),
                           );
@@ -401,7 +398,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
+                              MaterialPageRoute<void>(
                                 builder: (context) => EShop(),
                               ),
                             );
@@ -445,7 +442,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               } else {
                                 // Navigator.push(
                                 //   context,
-                                //   MaterialPageRoute(
+                                //   MaterialPageRoute<void>(
                                 //     builder: (context) => CallScreen(),
                                 //   ),
                                 // );
@@ -493,7 +490,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       onTap: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(
+                            MaterialPageRoute<void>(
                               builder: (context) => AdditionalServices(),
                             ));
                       },
@@ -537,7 +534,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onTap: () {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(
+                      MaterialPageRoute<void>(
                         builder: (context) => AboutMiAid(),
                       ));
                 },
@@ -581,7 +578,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-showAlertDialog(BuildContext context) {
+void showAlertDialog(BuildContext context) {
   Widget okButton = Padding(
     padding: EdgeInsets.only(left: 64.5, right: 63.5, bottom: 24.5),
     child: Column(
@@ -590,11 +587,11 @@ showAlertDialog(BuildContext context) {
         Container(
           width: MediaQuery.of(context).size.width,
           height: 36,
-          decoration: new BoxDecoration(
+          decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: Colors.white,
             boxShadow: [
-              new BoxShadow(
+              BoxShadow(
                 color: AppColors.k0cbcc5.withOpacity(0.2),
                 blurRadius: 10.0,
                 spreadRadius: 0.0, //extend the shadow
@@ -630,7 +627,7 @@ showAlertDialog(BuildContext context) {
             onTap: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<void>(
                   builder: (context) => SignIn(),
                 ),
               );
@@ -648,7 +645,7 @@ showAlertDialog(BuildContext context) {
     ),
   );
 
-  AlertDialog alert = AlertDialog(
+  var alert = AlertDialog(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(12)),
     ),
@@ -675,7 +672,7 @@ showAlertDialog(BuildContext context) {
       });
 }
 
-videoConsultationsAlert(BuildContext context) {
+void videoConsultationsAlert(BuildContext context) {
   Widget okButton = Padding(
     padding: EdgeInsets.only(left: 64.5, right: 63.5, bottom: 24.5),
     child: Column(
@@ -684,11 +681,11 @@ videoConsultationsAlert(BuildContext context) {
         Container(
           width: MediaQuery.of(context).size.width,
           height: 36,
-          decoration: new BoxDecoration(
+          decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: Colors.white,
             boxShadow: [
-              new BoxShadow(
+              BoxShadow(
                 color: AppColors.k0cbcc5.withOpacity(0.2),
                 blurRadius: 10.0,
                 spreadRadius: 0.0, //extend the shadow
@@ -738,7 +735,7 @@ videoConsultationsAlert(BuildContext context) {
     ),
   );
 
-  AlertDialog alert = AlertDialog(
+  var alert = AlertDialog(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(12)),
     ),
@@ -765,7 +762,7 @@ videoConsultationsAlert(BuildContext context) {
       });
 }
 
-individualUserSubscriptionAlert(BuildContext context) {
+void individualUserSubscriptionAlert(BuildContext context) {
   Widget okButton = Padding(
     padding: EdgeInsets.only(left: 64.5, right: 63.5, bottom: 24.5),
     child: Column(
@@ -774,11 +771,11 @@ individualUserSubscriptionAlert(BuildContext context) {
         Container(
           width: MediaQuery.of(context).size.width,
           height: 36,
-          decoration: new BoxDecoration(
+          decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: Colors.white,
             boxShadow: [
-              new BoxShadow(
+              BoxShadow(
                 color: AppColors.k0cbcc5.withOpacity(0.2),
                 blurRadius: 10.0,
                 spreadRadius: 0.0, //extend the shadow
@@ -797,7 +794,7 @@ individualUserSubscriptionAlert(BuildContext context) {
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<void>(
                   builder: (context) => TravelCarePackages(),
                 ),
               );
@@ -832,7 +829,7 @@ individualUserSubscriptionAlert(BuildContext context) {
     ),
   );
 
-  AlertDialog alert = AlertDialog(
+  var alert = AlertDialog(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(12)),
     ),
@@ -860,7 +857,7 @@ individualUserSubscriptionAlert(BuildContext context) {
       });
 }
 
-callAlertDialog(BuildContext context) {
+void callAlertDialog(BuildContext context) {
   Widget okButton = Column(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
@@ -904,7 +901,7 @@ callAlertDialog(BuildContext context) {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
+                  MaterialPageRoute<void>(
                     builder: (context) => Call(),
                   ),
                 );
@@ -931,7 +928,7 @@ callAlertDialog(BuildContext context) {
     ],
   );
 
-  AlertDialog alert = AlertDialog(
+  var alert = AlertDialog(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(12)),
     ),

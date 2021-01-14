@@ -2,22 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/config/app_colors.dart';
-import 'package:miaid/view/drawer/Terms&Cond.dart';
+import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/view/drawer/about.dart';
-import 'package:miaid/view/drawer/privacy_&_policy.dart';
+import 'package:miaid/view/drawer/privacy_and_policy.dart';
+import 'package:miaid/view/drawer/terms_and_cond.dart';
+import 'package:miaid/view/user/calling/call_history/call_history.dart';
 import 'package:miaid/view/user/home_screen.dart';
 import 'package:miaid/view/user/travel_care_packages/Travel_care_packages.dart';
 import 'package:miaid/view/user/user_profile_screen/user_profile.dart';
-import 'package:miaid/view/user/calling/call_history/call_history.dart';
-import 'package:miaid/generated/l10n.dart';
 
-Widget drawer(context) {
+Widget drawer(BuildContext context) {
   return Drawer(
     child: InkWell(
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(
+          MaterialPageRoute<void>(
             builder: (context) => UserProfileScreen(),
           ),
         );
@@ -64,7 +64,7 @@ Widget drawer(context) {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<void>(
                   builder: (context) => HomeScreen(),
                 ),
               );
@@ -92,7 +92,7 @@ Widget drawer(context) {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<void>(
                   builder: (context) => UserProfileScreen(),
                 ),
               );
@@ -120,7 +120,7 @@ Widget drawer(context) {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<void>(
                   builder: (context) => TravelCarePackages(),
                 ),
               );
@@ -148,7 +148,7 @@ Widget drawer(context) {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<void>(
                   builder: (context) => CallHistory(),
                 ),
               );
@@ -176,7 +176,7 @@ Widget drawer(context) {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<void>(
                   builder: (context) => TermsConditions(),
                 ),
               );
@@ -204,7 +204,7 @@ Widget drawer(context) {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<void>(
                   builder: (context) => PrivacyPolicy(),
                 ),
               );
@@ -232,7 +232,7 @@ Widget drawer(context) {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<void>(
                   builder: (context) => AboutMiAid(),
                 ),
               );

@@ -1,12 +1,14 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:miaid/component/drawer.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
 import 'package:miaid/config/app_colors.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
-import 'package:miaid/model/pin_info.dart';
 import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/model/pin_info.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class MapScreen extends StatefulWidget {
   @override
@@ -22,10 +24,10 @@ const LatLng DEST_LOCATION = LatLng(42.6871386, -71.2143403);
 class _MapScreenState extends State<MapScreen> {
   TextEditingController searchController = TextEditingController();
 
-  Completer<GoogleMapController> _controller = Completer();
+  final Completer<GoogleMapController> _controller = Completer();
   GoogleMapController mapController;
 
-  ValueNotifier<Set<Marker>> _markers = ValueNotifier<Set<Marker>>({});
+  final ValueNotifier<Set<Marker>> _markers = ValueNotifier<Set<Marker>>({});
   BitmapDescriptor sourceIcon;
   BitmapDescriptor destinationIcon;
 
@@ -62,9 +64,9 @@ class _MapScreenState extends State<MapScreen> {
         icon: sourceIcon));
 
     sourcePinInfo = PinInformation(
-        locationName: "Start Location",
+        locationName: 'Start Location',
         location: SOURCE_LOCATION,
-        pinPath: "assets/images/ic_mappin_clinic.png",
+        pinPath: 'assets/images/ic_mappin_clinic.png',
         // avatarPath: "assets/images/ic_mappin_clinic_selected.png",
         labelColor: Colors.blueAccent);
 
@@ -82,9 +84,9 @@ class _MapScreenState extends State<MapScreen> {
         icon: destinationIcon));
 
     destinationPinInfo = PinInformation(
-        locationName: "End Location",
+        locationName: 'End Location',
         location: DEST_LOCATION,
-        pinPath: "assets/images/ic_mappin_clinic_selected.png",
+        pinPath: 'assets/images/ic_mappin_clinic_selected.png',
         // avatarPath: "assets/friend2.jpg",
         labelColor: Colors.purple);
   }
@@ -97,11 +99,12 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    CameraPosition initialLocation = CameraPosition(
-        zoom: CAMERA_ZOOM,
-        bearing: CAMERA_BEARING,
-        tilt: CAMERA_TILT,
-        target: SOURCE_LOCATION);
+    var initialLocation = CameraPosition(
+      zoom: CAMERA_ZOOM,
+      bearing: CAMERA_BEARING,
+      tilt: CAMERA_TILT,
+      target: SOURCE_LOCATION,
+    );
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.kffffff,
@@ -125,9 +128,7 @@ class _MapScreenState extends State<MapScreen> {
               onTap: () {
                 Scaffold.of(context).openDrawer();
               },
-              child: Image(
-                image: const AssetImage('assets/images/NavBar/ic_nb_menu.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_menu.png'),
             );
           },
         ),
@@ -153,7 +154,6 @@ class _MapScreenState extends State<MapScreen> {
               ),
             ),
           ),
-          
           Positioned(
             top: 0,
             child: Container(
@@ -188,7 +188,7 @@ class _MapScreenState extends State<MapScreen> {
                   Expanded(
                     child: TextField(
                       // validator: (value) {
-                      //   if (value.trim().length == 0) {
+                      //   if (value.trim().isEmpty) {
                       //     return 'please Enter an Email';
                       //   } else {
                       //     return null;

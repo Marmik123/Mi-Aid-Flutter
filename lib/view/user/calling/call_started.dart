@@ -1,7 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
 import 'package:miaid/config/app_colors.dart';
-import 'dart:async';
 import 'package:miaid/view/user/calling/call_no_video_placeholder.dart';
 
 class CallStarted extends StatefulWidget {
@@ -15,8 +17,10 @@ class _CallStartedState extends State<CallStarted> {
     super.initState();
     Timer(
         Duration(seconds: 2),
-        () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => NoVideoPlaceHolder())));
+        () => Navigator.pushReplacement(
+            context,
+            MaterialPageRoute<void>(
+                builder: (context) => NoVideoPlaceHolder())));
   }
 
   @override
@@ -32,7 +36,8 @@ class _CallStartedState extends State<CallStarted> {
         title: Text(
           'MiAid Assistance',
           style: GoogleFonts.rubik(
-            color: AppColors.kffffff,            fontSize: 15,
+            color: AppColors.kffffff,
+            fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -42,9 +47,7 @@ class _CallStartedState extends State<CallStarted> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Image(
-                image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
             );
           },
         ),
@@ -53,9 +56,7 @@ class _CallStartedState extends State<CallStarted> {
             padding: const EdgeInsets.only(
               right: 13,
             ),
-            child: Image(
-              image: AssetImage('assets/images/NavBar/ic_nb_call_soundoff.png'),
-            ),
+            child: navBarIcon(iconAssetName: 'ic_nb_call_soundoff.png'),
           ),
         ],
       ),
@@ -99,7 +100,8 @@ class _CallStartedState extends State<CallStarted> {
                   ),
                   child: Text(
                     '5:00',
-                    style: GoogleFonts.rubik(color: AppColors.kffffff, fontSize: 12),
+                    style: GoogleFonts.rubik(
+                        color: AppColors.kffffff, fontSize: 12),
                   ),
                 ),
               ),
@@ -111,36 +113,36 @@ class _CallStartedState extends State<CallStarted> {
                 padding: const EdgeInsets.only(
                   right: 10,
                 ),
-                child:   Container(
-                      height: 98,
-                      width: 98,
-                      decoration: new BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        border: Border.all(
-                          color: AppColors.kffffff       ,                   width: 2,
-                        ),
-                        color: Colors.white,
-                        boxShadow: [
-                          new BoxShadow(
-                            color: AppColors.k000000.withOpacity(0.24),
-                            blurRadius: 15.0,
-                            spreadRadius: 0.0, //extend the shadow
-                            offset: Offset(
-                              0.0, // Move to right 10  horizontally
-                              8, // Move to bottom 10 Vertically
-                            ),
-                          ),
-                        ],
-                      ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(15),
-                        child: Image(
-                          fit: BoxFit.cover,
-                          image: AssetImage('assets/images/female_doctor.jpg'),
-                        ),
-                      ),
+                child: Container(
+                  height: 98,
+                  width: 98,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(
+                      color: AppColors.kffffff,
+                      width: 2,
                     ),
-                  
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.k000000.withOpacity(0.24),
+                        blurRadius: 15.0,
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          0.0, // Move to right 10  horizontally
+                          8, // Move to bottom 10 Vertically
+                        ),
+                      ),
+                    ],
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: Image(
+                      fit: BoxFit.cover,
+                      image: AssetImage('assets/images/female_doctor.jpg'),
+                    ),
+                  ),
+                ),
               ),
             ),
             Positioned(
@@ -162,7 +164,8 @@ class _CallStartedState extends State<CallStarted> {
                             ),
                           )
                         ],
-                        color: AppColors.kffffff        ,                borderRadius: BorderRadius.circular(10),
+                        color: AppColors.kffffff,
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

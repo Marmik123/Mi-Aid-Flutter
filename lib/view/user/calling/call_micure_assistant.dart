@@ -1,7 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
 import 'package:miaid/config/app_colors.dart';
-import 'dart:async';
 import 'package:miaid/view/user/calling/call_started.dart';
 
 class CallScreen extends StatefulWidget {
@@ -15,8 +17,8 @@ class _CallScreenState extends State<CallScreen> {
     super.initState();
     Timer(
         Duration(seconds: 2),
-        () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => CallStarted())));
+        () => Navigator.pushReplacement(context,
+            MaterialPageRoute<void>(builder: (context) => CallStarted())));
   }
 
   @override
@@ -32,7 +34,8 @@ class _CallScreenState extends State<CallScreen> {
         title: Text(
           'MiAid Assistance',
           style: GoogleFonts.rubik(
-            color: AppColors.kffffff,      fontSize: 15,
+            color: AppColors.kffffff,
+            fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -42,9 +45,7 @@ class _CallScreenState extends State<CallScreen> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Image(
-                image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
             );
           },
         ),
@@ -53,9 +54,7 @@ class _CallScreenState extends State<CallScreen> {
             padding: const EdgeInsets.only(
               right: 13,
             ),
-            child: Image(
-              image: AssetImage('assets/images/NavBar/ic_nb_call_sound.png'),
-            ),
+            child: navBarIcon(iconAssetName: 'ic_nb_call_sound.png'),
           ),
         ],
       ),
@@ -96,7 +95,8 @@ class _CallScreenState extends State<CallScreen> {
                   ),
                   child: Text(
                     'Calling ...',
-                    style: GoogleFonts.rubik(color: AppColors.kffffff, fontSize: 12),
+                    style: GoogleFonts.rubik(
+                        color: AppColors.kffffff, fontSize: 12),
                   ),
                 ),
               ),
@@ -136,7 +136,8 @@ class _CallScreenState extends State<CallScreen> {
                             ),
                           )
                         ],
-                        color: AppColors.kffffff            ,            borderRadius: BorderRadius.circular(10),
+                        color: AppColors.kffffff,
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

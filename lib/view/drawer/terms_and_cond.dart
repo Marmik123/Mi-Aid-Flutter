@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
 import 'package:miaid/config/app_colors.dart';
+import 'package:miaid/generated/l10n.dart';
 
-class PrivacyPolicy extends StatefulWidget {
+class TermsConditions extends StatefulWidget {
   @override
-  _PrivayPolicyState createState() => _PrivayPolicyState();
+  _TermsConditionsState createState() => _TermsConditionsState();
 }
 
-class _PrivayPolicyState extends State<PrivacyPolicy> {
+class _TermsConditionsState extends State<TermsConditions> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,11 +19,11 @@ class _PrivayPolicyState extends State<PrivacyPolicy> {
         backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
-          S.of(context).privacy,
+          S.of(context).tandc,
           style: GoogleFonts.rubik(
             color: AppColors.k010101,
             fontSize: 15,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w500,
           ),
         ),
         leading: Builder(
@@ -31,9 +32,7 @@ class _PrivayPolicyState extends State<PrivacyPolicy> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Image(
-                image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
             );
           },
         ),

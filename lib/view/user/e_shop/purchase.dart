@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
 import 'package:miaid/config/app_colors.dart';
-import 'package:miaid/view/user/e_shop/purchase_view_receipt.dart';
 import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/view/user/e_shop/purchase_view_receipt.dart';
 
 class PurchaseItem extends StatefulWidget {
   @override
@@ -21,9 +22,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
           onTap: () {
             Navigator.pop(context);
           },
-          child: Image(
-            image: AssetImage("assets/images/NavBar/ic_nb_back.png"),
-          ),
+          child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
         ),
         centerTitle: true,
         title: Text(
@@ -256,7 +255,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                                             bottom: 14,
                                           ),
                                           child: Text(
-                                              "Panadol Rapid Parace Panadol Rapid Paracetamol Pain Relief Caplets 500 mg",
+                                              'Panadol Rapid Parace Panadol Rapid Paracetamol Pain Relief Caplets 500 mg',
                                               style: GoogleFonts.rubik(
                                                 color: AppColors.k010101,
                                                 fontSize: 14,
@@ -287,9 +286,9 @@ class _PurchaseItemState extends State<PurchaseItem> {
                                                   mainAxisSize:
                                                       MainAxisSize.min,
                                                   children: [
-                                                    Text("A\$ "),
+                                                    Text('A\$ '),
                                                     Text(
-                                                      "20.0",
+                                                      '20.0',
                                                       style: TextStyle(
                                                         fontWeight:
                                                             FontWeight.bold,
@@ -393,7 +392,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
+                              MaterialPageRoute<void>(
                                 builder: (context) => PurchaseViewReceipt(),
                               ),
                             );
@@ -418,7 +417,7 @@ class _PurchaseItemState extends State<PurchaseItem> {
                           onPressed: () {
                             // Navigator.pushReplacement(
                             //     context,
-                            //     MaterialPageRoute(
+                            //     MaterialPageRoute<void>(
                             //         builder: (context) => HomeScreen()));
                           },
                           child: Padding(

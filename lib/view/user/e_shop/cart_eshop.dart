@@ -2,10 +2,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
 import 'package:miaid/component/payment_bootomsheet.dart';
-import 'package:miaid/view/drawer/Terms&Cond.dart';
-import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/config/app_colors.dart';
+import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/view/drawer/terms_and_cond.dart';
 
 class CartEShop extends StatefulWidget {
   @override
@@ -63,9 +64,7 @@ class _CartEShopState extends State<CartEShop> {
           onTap: () {
             Navigator.pop(context);
           },
-          child: Image(
-            image: AssetImage("assets/images/NavBar/ic_nb_back.png"),
-          ),
+          child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
         ),
         centerTitle: true,
         title: Text(
@@ -96,7 +95,7 @@ class _CartEShopState extends State<CartEShop> {
                       ),
                     ),
                     Text(
-                      " 0000012 ",
+                      ' 0000012 ',
                       style: GoogleFonts.rubik(
                         color: AppColors.k010101,
                         fontSize: 14,
@@ -161,7 +160,7 @@ class _CartEShopState extends State<CartEShop> {
                                                 bottom: 14,
                                               ),
                                               child: Text(
-                                                  "Panadol Rapid Parace Panadol Rapid Paracetamol Pain Relief Caplets 500 mg",
+                                                  'Panadol Rapid Parace Panadol Rapid Paracetamol Pain Relief Caplets 500 mg',
                                                   style: GoogleFonts.rubik(
                                                     color: AppColors.k010101,
                                                     fontSize: 14,
@@ -195,9 +194,9 @@ class _CartEShopState extends State<CartEShop> {
                                                       mainAxisSize:
                                                           MainAxisSize.min,
                                                       children: [
-                                                        Text("A\$ "),
+                                                        Text('A\$ '),
                                                         Text(
-                                                          "20.0",
+                                                          '20.0',
                                                           style: TextStyle(
                                                             fontWeight:
                                                                 FontWeight.bold,
@@ -236,7 +235,7 @@ class _CartEShopState extends State<CartEShop> {
                                                                 buttonContainer(
                                                               Image.asset(quentity <=
                                                                       1
-                                                                  ? "assets/images/btn_medicine_quantity_minus_disabled.png"
+                                                                  ? 'assets/images/btn_medicine_quantity_minus_disabled.png'
                                                                   : 'assets/images/btn_medicine_quantity_minus.png'),
                                                             ),
                                                           ),
@@ -247,7 +246,7 @@ class _CartEShopState extends State<CartEShop> {
                                                                     left: 15,
                                                                     right: 15),
                                                             child: Text(
-                                                              "$quentity",
+                                                              '$quentity',
                                                               style: TextStyle(
                                                                 color: Color(
                                                                     0xff010101),
@@ -267,7 +266,7 @@ class _CartEShopState extends State<CartEShop> {
                                                             child:
                                                                 buttonContainer(
                                                               Image.asset(
-                                                                  "assets/images/btn_medicine_quantity_add.png"),
+                                                                  'assets/images/btn_medicine_quantity_add.png'),
                                                             ),
                                                           ),
                                                         ],
@@ -378,7 +377,7 @@ class _CartEShopState extends State<CartEShop> {
                           ),
                         ),
                         Text(
-                          "A\$ 20.0",
+                          'A\$ 20.0',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 14,
@@ -400,7 +399,7 @@ class _CartEShopState extends State<CartEShop> {
                           ),
                         ),
                         Text(
-                          "A\$ 20.0",
+                          'A\$ 20.0',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 14,
@@ -416,7 +415,7 @@ class _CartEShopState extends State<CartEShop> {
                       children: [
                         Image(
                           image: AssetImage(
-                              "assets/images/ic_cart_checkbox_normal.png"),
+                              'assets/images/ic_cart_checkbox_normal.png'),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
@@ -437,7 +436,7 @@ class _CartEShopState extends State<CartEShop> {
                                     ..onTap = () {
                                       Navigator.push(
                                         context,
-                                        MaterialPageRoute(
+                                        MaterialPageRoute<void>(
                                           builder: (context) =>
                                               TermsConditions(),
                                         ),
@@ -478,7 +477,7 @@ class _CartEShopState extends State<CartEShop> {
                       ),
                     ),
                     Text(
-                      "  A\$ 20.0",
+                      '  A\$ 20.0',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 17,
@@ -529,7 +528,7 @@ class _CartEShopState extends State<CartEShop> {
     );
   }
 
-  showAlertDialog(BuildContext context) {
+  void showAlertDialog(BuildContext context) {
     Widget okButton = Padding(
       padding: EdgeInsets.only(left: 64.5, right: 63.5, bottom: 24.5),
       child: Column(
@@ -538,11 +537,11 @@ class _CartEShopState extends State<CartEShop> {
           Container(
             width: MediaQuery.of(context).size.width,
             height: 36,
-            decoration: new BoxDecoration(
+            decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: Colors.white,
               boxShadow: [
-                new BoxShadow(
+                BoxShadow(
                   color: AppColors.k0cbcc5.withOpacity(0.2),
                   blurRadius: 10.0,
                   spreadRadius: 0.0, //extend the shadow
@@ -594,7 +593,7 @@ class _CartEShopState extends State<CartEShop> {
       ),
     );
 
-    AlertDialog alert = AlertDialog(
+    var alert = AlertDialog(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(12)),
       ),

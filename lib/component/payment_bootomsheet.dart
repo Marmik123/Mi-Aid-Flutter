@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/config/app_colors.dart';
+import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/payment/card_details.dart';
 import 'package:miaid/payment/payment_interface.dart';
-import 'package:miaid/generated/l10n.dart';
-import 'package:miaid/config/app_colors.dart';
 
 class PaymentBottomSheet extends StatefulWidget {
   @override
@@ -35,7 +35,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
           padding: const EdgeInsets.only(top: 10, bottom: 10),
           child: ListTile(
             leading: Image(
-              image: AssetImage("assets/images/ic_payment_paypal.png"),
+              image: AssetImage('assets/images/ic_payment_paypal.png'),
               alignment: Alignment.center,
             ),
             title: Text(S.of(context).paypal,
@@ -46,8 +46,10 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
             // contentPadding: EdgeInsets.zero,
             dense: true,
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => PaymentInterface()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                      builder: (context) => PaymentInterface()));
             },
           ),
         ),
@@ -59,7 +61,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
           padding: const EdgeInsets.only(top: 10, bottom: 10),
           child: ListTile(
             leading: Image(
-              image: AssetImage("assets/images/ic_payment_wechatpay.png"),
+              image: AssetImage('assets/images/ic_payment_wechatpay.png'),
             ),
 
             title: Text(S.of(context).wechatPay,
@@ -70,8 +72,10 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
             // contentPadding: EdgeInsets.zero,
             dense: true,
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => PaymentInterface()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                      builder: (context) => PaymentInterface()));
             },
           ),
         ),
@@ -83,7 +87,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
           padding: const EdgeInsets.only(top: 10, bottom: 10),
           child: ListTile(
             leading: Image(
-              image: AssetImage("assets/images/ic_payment_allpay.png"),
+              image: AssetImage('assets/images/ic_payment_allpay.png'),
             ),
             title: Text(S.of(context).allpay,
                 style: GoogleFonts.rubik(
@@ -93,8 +97,10 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
             // contentPadding: EdgeInsets.zero,
             dense: true,
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => PaymentInterface()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                      builder: (context) => PaymentInterface()));
             },
           ),
         ),
@@ -106,7 +112,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
           padding: const EdgeInsets.only(top: 10, bottom: 10),
           child: ListTile(
             leading: Image(
-              image: AssetImage("assets/images/ic_payment_card.png"),
+              image: AssetImage('assets/images/ic_payment_card.png'),
             ),
 
             title: Text(S.of(context).creditOrDebit,
@@ -118,7 +124,7 @@ class _PaymentBottomSheetState extends State<PaymentBottomSheet> {
             dense: true,
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => CardDetails()));
+                  MaterialPageRoute<void>(builder: (context) => CardDetails()));
             },
           ),
         ),

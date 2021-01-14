@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
 import 'package:miaid/config/app_colors.dart';
 
 class Locations extends StatefulWidget {
@@ -21,6 +22,8 @@ class _LocationsState extends State<Locations> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomPadding: true,
       backgroundColor: AppColors.kffffff,
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -41,9 +44,7 @@ class _LocationsState extends State<Locations> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Image(
-                image: const AssetImage('assets/images/NavBar/ic_nb_close.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_close.png'),
             );
           },
         ),
@@ -103,7 +104,7 @@ class _LocationsState extends State<Locations> {
                 Expanded(
                   child: TextField(
                     // validator: (value) {
-                    //   if (value.trim().length == 0) {
+                    //   if (value.trim().isEmpty) {
                     //     return 'please Enter an Email';
                     //   } else {
                     //     return null;
@@ -157,129 +158,127 @@ class _LocationsState extends State<Locations> {
           SizedBox(
             height: 12,
           ),
-          ListView.builder(
-            shrinkWrap: true,
-            physics: ClampingScrollPhysics(),
-            itemCount: 2,
-            itemBuilder: (BuildContext context, index) => Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                divider(),
-                Container(
-                  padding:
-                      EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
-                  decoration: BoxDecoration(
-                      color: _expand
-                          ? Color.fromRGBO(90, 177, 255, 0.1)
-                          : AppColors.kffffff),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Australia Capital Territory',
-                          style: GoogleFonts.rubik(
-                            color: AppColors.k5e5e5e,
-                            fontSize: 14,
-                          )),
-                      InkWell(
-                        onTap: () {
-                          setState(() {
-                            _expand = !_expand;
-                          });
-                        },
-                        child: _expand
-                            ? Image.asset(
-                                'assets/images/ic_pharmacy_location_collapse.png')
-                            : Image.asset(
-                                'assets/images/ic_pharmacy_location_expand.png'),
-                      ),
-                    ],
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              physics: ClampingScrollPhysics(),
+              itemCount: 2,
+              itemBuilder: (BuildContext context, index) => Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Divider(
+                    height: 0,
+                    thickness: 0.5,
+                    color: AppColors.k5e5e5e.withOpacity(0.3),
                   ),
-                ),
-                _expand
-                    ? Container(
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.only(
-                            top: 10, bottom: 10, left: 20, right: 20),
-                        // decoration: BoxDecoration(
-                        //   color: Color.fromRGBO(90, 177, 255, 0.1),
-                        // ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            radiobuttonContainer(
-                              Row(
-                                children: [
-                                  Radio(
-                                    focusColor: AppColors.k0cbcc5,
-                                    value: 0,
-                                    groupValue: value_1,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        value_1 = value;
-                                      });
-                                    },
-                                    activeColor: AppColors.k0cbcc5,
-                                    toggleable: true,
-                                  ),
-                                  Text(
-                                    'Canberra',
-                                    style: GoogleFonts.rubik(
-                                      color: AppColors.k5e5e5e,
-                                      fontSize: 14,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            radiobuttonContainer(
-                              Row(
-                                children: [
-                                  Radio(
-                                    activeColor: AppColors.k0cbcc5,
-                                    value: 1,
-                                    focusColor: AppColors.k0cbcc5,
-                                    groupValue: value_2,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        value_2 = value;
-                                      });
-                                    },
-                                    toggleable: true,
-                                  ),
-                                  Text(
-                                    'Oaks Esate',
-                                    style: GoogleFonts.rubik(
-                                      color: AppColors.k5e5e5e,
-                                      fontSize: 14,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                          ],
+                  Container(
+                    padding: EdgeInsets.only(
+                        top: 10, bottom: 10, left: 20, right: 20),
+                    decoration: BoxDecoration(
+                        color: _expand
+                            ? Color.fromRGBO(90, 177, 255, 0.1)
+                            : AppColors.kffffff),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Australia Capital Territory',
+                            style: GoogleFonts.rubik(
+                              color: AppColors.k5e5e5e,
+                              fontSize: 14,
+                            )),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              _expand = !_expand;
+                            });
+                          },
+                          child: _expand
+                              ? Image.asset(
+                                  'assets/images/ic_pharmacy_location_collapse.png')
+                              : Image.asset(
+                                  'assets/images/ic_pharmacy_location_expand.png'),
                         ),
-                      )
-                    : SizedBox.shrink()
-              ],
+                      ],
+                    ),
+                  ),
+                  _expand
+                      ? Container(
+                          width: MediaQuery.of(context).size.width,
+                          padding: EdgeInsets.only(
+                              top: 10, bottom: 10, left: 20, right: 20),
+                          // decoration: BoxDecoration(
+                          //   color: Color.fromRGBO(90, 177, 255, 0.1),
+                          // ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              radiobuttonContainer(
+                                Row(
+                                  children: [
+                                    Radio(
+                                      focusColor: AppColors.k0cbcc5,
+                                      value: 0,
+                                      groupValue: value_1,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          value_1 = value;
+                                        });
+                                      },
+                                      activeColor: AppColors.k0cbcc5,
+                                      toggleable: true,
+                                    ),
+                                    Text(
+                                      'Canberra',
+                                      style: GoogleFonts.rubik(
+                                        color: AppColors.k5e5e5e,
+                                        fontSize: 14,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              radiobuttonContainer(
+                                Row(
+                                  children: [
+                                    Radio(
+                                      activeColor: AppColors.k0cbcc5,
+                                      value: 1,
+                                      focusColor: AppColors.k0cbcc5,
+                                      groupValue: value_2,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          value_2 = value;
+                                        });
+                                      },
+                                      toggleable: true,
+                                    ),
+                                    Text(
+                                      'Oaks Esate',
+                                      style: GoogleFonts.rubik(
+                                        color: AppColors.k5e5e5e,
+                                        fontSize: 14,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                            ],
+                          ),
+                        )
+                      : SizedBox.shrink()
+                ],
+              ),
             ),
           ),
         ],
       ),
-    );
-  }
-
-  Widget divider() {
-    return Container(
-      height: 0.5,
-      width: MediaQuery.of(context).size.width,
-      color: AppColors.k5e5e5e.withOpacity(0.3),
     );
   }
 }

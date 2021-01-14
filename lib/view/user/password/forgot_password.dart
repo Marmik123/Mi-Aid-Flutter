@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
 import 'package:miaid/config/app_colors.dart';
-import 'package:miaid/view/user/password_view/reset_password.dart';
 import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/view/user/password/reset_password.dart';
 
 class ForgotPassword extends StatefulWidget {
   @override
@@ -13,7 +14,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   TextEditingController forgotEmailController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
-  
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +36,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Image(
-                image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
             );
           },
         ),
@@ -56,7 +54,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 height: 117,
                 width: 117,
                 child: Image(
-                  image: AssetImage("assets/images/logo_forgot Password.png"),
+                  image: AssetImage('assets/images/logo_forgot Password.png'),
                 ),
               ),
               SizedBox(
@@ -91,7 +89,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         S.of(context).email,
                         textAlign: TextAlign.left,
                         style: GoogleFonts.rubik(
-                          color: forgotEmailController.text.trim().length > 0
+                          color: forgotEmailController.text.trim().isNotEmpty
                               ? AppColors.kb1b1b1
                               : AppColors.k010101,
                           fontSize: 12,
@@ -103,7 +101,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       ),
                       TextFormField(
                         validator: (value) {
-                          if (value.trim().length == 0) {
+                          if (value.trim().isEmpty) {
                             return S.of(context).entEmail;
                           } else {
                             return null;
@@ -181,17 +179,17 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   }
 }
 
-showAlertDialog(BuildContext context) {
+void showAlertDialog(BuildContext context) {
   Widget okButton = Padding(
     padding: EdgeInsets.only(left: 64.5, right: 63.5, bottom: 24.5),
     child: Container(
       width: MediaQuery.of(context).size.width,
       height: 36,
-      decoration: new BoxDecoration(
+      decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: Colors.white,
         boxShadow: [
-          new BoxShadow(
+          BoxShadow(
             color: AppColors.k0cbcc5.withOpacity(0.2),
             blurRadius: 10.0,
             spreadRadius: 0.0, //extend the shadow
@@ -209,7 +207,7 @@ showAlertDialog(BuildContext context) {
         color: AppColors.k0cbcc5,
         onPressed: () {
           Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => ResetPassword()));
+              MaterialPageRoute<void>(builder: (context) => ResetPassword()));
         },
         child: Text(
           S.of(context).okay,
@@ -222,7 +220,7 @@ showAlertDialog(BuildContext context) {
     ),
   );
 
-  AlertDialog alert = AlertDialog(
+  var alert = AlertDialog(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(12)),
     ),

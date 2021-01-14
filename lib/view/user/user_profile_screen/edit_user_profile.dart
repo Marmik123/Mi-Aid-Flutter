@@ -1,11 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:miaid/view/user/user_profile_screen/user_profile.dart';
-import 'package:miaid/generated/l10n.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
 //import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/config/app_colors.dart';
+import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/view/user/user_profile_screen/user_profile.dart';
 
 class EditUserProfile extends StatefulWidget {
   @override
@@ -59,9 +60,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Image(
-                image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
             );
           },
         ),
@@ -87,7 +86,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
+                      MaterialPageRoute<void>(
                         builder: (context) => UserProfileScreen(),
                       ),
                     );
@@ -140,7 +139,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     S.of(context).fname,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: accountFirstNameController.text.trim().length > 0
+                      color: accountFirstNameController.text.trim().isNotEmpty
                           ? AppColors.kb1b1b1
                           : AppColors.k010101,
                       fontSize: 12,
@@ -152,7 +151,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   ),
                   TextFormField(
                     // validator: (value) {
-                    //   if (value.trim().length == 0) {
+                    //   if (value.trim().isEmpty) {
                     //     return 'please Enter an Email';
                     //   } else {
                     //     return null;
@@ -201,7 +200,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     S.of(context).lName,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: accountLastNameController.text.trim().length > 0
+                      color: accountLastNameController.text.trim().isNotEmpty
                           ? AppColors.kb1b1b1
                           : AppColors.k010101,
                       fontSize: 12,
@@ -213,7 +212,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   ),
                   TextFormField(
                     // validator: (value) {
-                    //   if (value.trim().length == 0) {
+                    //   if (value.trim().isEmpty) {
                     //     return 'please Enter an Email';
                     //   } else {
                     //     return null;
@@ -262,7 +261,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     S.of(context).email,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: accountEmailController.text.trim().length > 0
+                      color: accountEmailController.text.trim().isNotEmpty
                           ? AppColors.kb1b1b1
                           : AppColors.k010101,
                       fontSize: 12,
@@ -274,7 +273,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   ),
                   TextFormField(
                     // validator: (value) {
-                    //   if (value.trim().length == 0) {
+                    //   if (value.trim().isEmpty) {
                     //     return 'please Enter an Email';
                     //   } else {
                     //     return null;
@@ -324,7 +323,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     S.of(context).phone,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: accountPhoneController.text.trim().length > 0
+                      color: accountPhoneController.text.trim().isNotEmpty
                           ? AppColors.kb1b1b1
                           : AppColors.k010101,
                       fontSize: 12,
@@ -336,7 +335,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   ),
                   TextFormField(
                     // validator: (value) {
-                    //   if (value.trim().length == 0) {
+                    //   if (value.trim().isEmpty) {
                     //     return 'please Enter an Email';
                     //   } else {
                     //     return null;
@@ -467,7 +466,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     S.of(context).dob,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: dobController.text.trim().length > 0
+                      color: dobController.text.trim().isNotEmpty
                           ? AppColors.kb1b1b1
                           : AppColors.k010101,
                       fontSize: 12,
@@ -479,7 +478,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   ),
                   TextFormField(
                     // validator: (value) {
-                    //   if (value.trim().length == 0) {
+                    //   if (value.trim().isEmpty) {
                     //     return 'please Enter an Email';
                     //   } else {
                     //     return null;
@@ -531,10 +530,8 @@ class _EditUserProfileState extends State<EditUserProfile> {
                           //         cupertinoDatePicker(context),
                           //   );
                           // },
-                          child: Image(
-                            image: AssetImage(
-                                'assets/images/NavBar/ic_nb_callhistory_date.png'),
-                          ),
+                          child: navBarIcon(
+                              iconAssetName: 'ic_nb_callhistory_date.png'),
                         ),
                       ),
                     ),
@@ -549,7 +546,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               S.of(context).preLanguage,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: languageController.text.trim().length > 0
+                color: languageController.text.trim().isNotEmpty
                     ? AppColors.kb1b1b1
                     : AppColors.k010101,
                 fontSize: 12,
@@ -561,7 +558,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
             ),
             TextFormField(
               // validator: (value) {
-              //   if (value.trim().length == 0) {
+              //   if (value.trim().isEmpty) {
               //     return 'please Enter an Email';
               //   } else {
               //     return null;
@@ -603,7 +600,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               S.of(context).gender,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: genderController.text.trim().length > 0
+                color: genderController.text.trim().isNotEmpty
                     ? AppColors.kb1b1b1
                     : AppColors.k010101,
                 fontSize: 12,
@@ -615,7 +612,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
             ),
             TextFormField(
               // validator: (value) {
-              //   if (value.trim().length == 0) {
+              //   if (value.trim().isEmpty) {
               //     return 'please Enter an Email';
               //   } else {
               //     return null;
@@ -657,7 +654,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               S.of(context).doctorPre,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: doctorPreferenceController.text.trim().length > 0
+                color: doctorPreferenceController.text.trim().isNotEmpty
                     ? AppColors.kb1b1b1
                     : AppColors.k010101,
                 fontSize: 12,
@@ -669,7 +666,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
             ),
             TextFormField(
               // validator: (value) {
-              //   if (value.trim().length == 0) {
+              //   if (value.trim().isEmpty) {
               //     return 'please Enter an Email';
               //   } else {
               //     return null;
@@ -711,7 +708,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               S.of(context).travelAgencyName,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: travelAgencyNameController.text.trim().length > 0
+                color: travelAgencyNameController.text.trim().isNotEmpty
                     ? AppColors.kb1b1b1
                     : AppColors.k010101,
                 fontSize: 12,
@@ -723,7 +720,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
             ),
             TextFormField(
               // validator: (value) {
-              //   if (value.trim().length == 0) {
+              //   if (value.trim().isEmpty) {
               //     return 'please Enter an Email';
               //   } else {
               //     return null;
@@ -794,7 +791,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               S.of(context).fullName,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: fullNameController.text.trim().length > 0
+                color: fullNameController.text.trim().isNotEmpty
                     ? AppColors.kb1b1b1
                     : AppColors.k010101,
                 fontSize: 12,
@@ -853,7 +850,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               S.of(context).email,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: emailController.text.trim().length > 0
+                color: emailController.text.trim().isNotEmpty
                     ? AppColors.kb1b1b1
                     : AppColors.k010101,
                 fontSize: 12,
@@ -917,7 +914,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     S.of(context).phone,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: phoneController.text.trim().length > 0
+                      color: phoneController.text.trim().isNotEmpty
                           ? AppColors.kb1b1b1
                           : AppColors.k010101,
                       fontSize: 12,
@@ -929,7 +926,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   ),
                   TextFormField(
                     // validator: (value) {
-                    //   if (value.trim().length == 0) {
+                    //   if (value.trim().isEmpty) {
                     //     return 'please Enter an Email';
                     //   } else {
                     //     return null;
@@ -1059,7 +1056,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               S.of(context).fullName,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: regularDoctorFullNameController.text.trim().length > 0
+                color: regularDoctorFullNameController.text.trim().isNotEmpty
                     ? AppColors.kb1b1b1
                     : AppColors.k010101,
                 fontSize: 12,
@@ -1119,7 +1116,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               S.of(context).email,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: regularDoctorEmailController.text.trim().length > 0
+                color: regularDoctorEmailController.text.trim().isNotEmpty
                     ? AppColors.kb1b1b1
                     : AppColors.k010101,
                 fontSize: 12,
@@ -1178,7 +1175,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
     );
   }
 
-  Widget cupertinoDatePicker(context) {
+  Widget cupertinoDatePicker(BuildContext context) {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

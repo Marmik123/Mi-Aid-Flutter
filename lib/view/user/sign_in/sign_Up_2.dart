@@ -1,11 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:miaid/view/user/home_screen.dart';
 import 'package:country_code_picker/country_code_picker.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
+import 'package:miaid/config/app_colors.dart';
 //import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/generated/l10n.dart';
-import 'package:miaid/config/app_colors.dart';
+import 'package:miaid/view/user/home_screen.dart';
 
 class SignUp2 extends StatefulWidget {
   @override
@@ -53,9 +54,7 @@ class _SignUp2State extends State<SignUp2> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Image(
-                image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
             );
           },
         ),
@@ -85,7 +84,7 @@ class _SignUp2State extends State<SignUp2> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
+                      MaterialPageRoute<void>(
                         builder: (context) => HomeScreen(),
                       ),
                     );
@@ -108,10 +107,10 @@ class _SignUp2State extends State<SignUp2> {
   }
 
   Widget generalDetails() {
-    String dropDownLanguage = S.of(context).selectLang;
-    String dropDownGender = S.of(context).selsctGender;
+    var dropDownLanguage = S.of(context).selectLang;
+    var dropDownGender = S.of(context).selsctGender;
 
-    List<String> languageOption = <String>[
+    var languageOption = <String>[
       S.of(context).selectLang,
       'English',
       'French',
@@ -121,7 +120,7 @@ class _SignUp2State extends State<SignUp2> {
       'Chinese'
     ];
 
-    List<String> genderOption = <String>[
+    var genderOption = <String>[
       S.of(context).selsctGender,
       'Male',
       'Female',
@@ -157,7 +156,7 @@ class _SignUp2State extends State<SignUp2> {
                     S.of(context).dob,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: dobController.text.trim().length > 0
+                      color: dobController.text.trim().isNotEmpty
                           ? AppColors.kb1b1b1
                           : AppColors.k010101,
                       fontSize: 12,
@@ -169,7 +168,7 @@ class _SignUp2State extends State<SignUp2> {
                   ),
                   TextFormField(
                     // validator: (value) {
-                    //   if (value.trim().length == 0) {
+                    //   if (value.trim().isEmpty) {
                     //     return 'please Enter an Email';
                     //   } else {
                     //     return null;
@@ -221,10 +220,8 @@ class _SignUp2State extends State<SignUp2> {
                           //         cupertinoDatePicker(context),
                           //   );
                           // },
-                          child: Image(
-                            image: AssetImage(
-                                'assets/images/NavBar/ic_nb_callhistory_date.png'),
-                          ),
+                          child: navBarIcon(
+                              iconAssetName: 'ic_nb_callhistory_date.png'),
                         ),
                       ),
                     ),
@@ -243,7 +240,7 @@ class _SignUp2State extends State<SignUp2> {
                     S.of(context).preLanguage,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: languageController.text.trim().length > 0
+                      color: languageController.text.trim().isNotEmpty
                           ? AppColors.kb1b1b1
                           : AppColors.k010101,
                       fontSize: 12,
@@ -319,7 +316,7 @@ class _SignUp2State extends State<SignUp2> {
                     S.of(context).gender,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: genderController.text.trim().length > 0
+                      color: genderController.text.trim().isNotEmpty
                           ? AppColors.kb1b1b1
                           : AppColors.k010101,
                       fontSize: 12,
@@ -397,7 +394,7 @@ class _SignUp2State extends State<SignUp2> {
                     S.of(context).doctorPre,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: doctorPreferenceController.text.trim().length > 0
+                      color: doctorPreferenceController.text.trim().isNotEmpty
                           ? AppColors.kb1b1b1
                           : AppColors.k010101,
                       fontSize: 12,
@@ -422,7 +419,7 @@ class _SignUp2State extends State<SignUp2> {
                     S.of(context).travelAgencyName,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: travelAgencyNameController.text.trim().length > 0
+                      color: travelAgencyNameController.text.trim().isNotEmpty
                           ? AppColors.kb1b1b1
                           : AppColors.k010101,
                       fontSize: 12,
@@ -434,7 +431,7 @@ class _SignUp2State extends State<SignUp2> {
                   ),
                   TextFormField(
                     // validator: (value) {
-                    //   if (value.trim().length == 0) {
+                    //   if (value.trim().isEmpty) {
                     //     return 'please Enter an Email';
                     //   } else {
                     //     return null;
@@ -508,7 +505,7 @@ class _SignUp2State extends State<SignUp2> {
               S.of(context).fullName,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: fullNameController.text.trim().length > 0
+                color: fullNameController.text.trim().isNotEmpty
                     ? AppColors.kb1b1b1
                     : AppColors.k010101,
                 fontSize: 12,
@@ -568,7 +565,7 @@ class _SignUp2State extends State<SignUp2> {
               S.of(context).email,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: emailController.text.trim().length > 0
+                color: emailController.text.trim().isNotEmpty
                     ? AppColors.kb1b1b1
                     : AppColors.k010101,
                 fontSize: 12,
@@ -629,7 +626,7 @@ class _SignUp2State extends State<SignUp2> {
               S.of(context).phone,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: phoneController.text.trim().length > 0
+                color: phoneController.text.trim().isNotEmpty
                     ? AppColors.kb1b1b1
                     : AppColors.k010101,
                 fontSize: 12,
@@ -641,7 +638,7 @@ class _SignUp2State extends State<SignUp2> {
             ),
             TextFormField(
               // validator: (value) {
-              //   if (value.trim().length == 0) {
+              //   if (value.trim().isEmpty) {
               //     return 'please Enter an Email';
               //   } else {
               //     return null;
@@ -769,7 +766,7 @@ class _SignUp2State extends State<SignUp2> {
               S.of(context).fullName,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: regularDoctorFullNameController.text.trim().length > 0
+                color: regularDoctorFullNameController.text.trim().isNotEmpty
                     ? AppColors.kb1b1b1
                     : AppColors.k010101,
                 fontSize: 12,
@@ -829,7 +826,7 @@ class _SignUp2State extends State<SignUp2> {
               S.of(context).email,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: regularDoctorEmailController.text.trim().length > 0
+                color: regularDoctorEmailController.text.trim().isNotEmpty
                     ? AppColors.kb1b1b1
                     : AppColors.k010101,
                 fontSize: 12,
@@ -989,7 +986,7 @@ class _SignUp2State extends State<SignUp2> {
     );
   }
 
-  Widget cupertinoDatePicker(context) {
+  Widget cupertinoDatePicker(BuildContext context) {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

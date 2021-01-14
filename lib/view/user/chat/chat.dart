@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:miaid/config/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
+import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/generated/l10n.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -18,84 +19,91 @@ class _ChatScreenState extends State<ChatScreen> {
 
       body: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(
-              top: 20,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Column(
               children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 10, left: 13),
-                    child: Image(
-                      image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
-                    ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 20,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 10, left: 13),
+                          child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Text(
+                          S.of(context).chat,
+                          style: GoogleFonts.rubik(
+                            color: AppColors.k010101,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Text(
+                          S.of(context).chat,
+                          style: GoogleFonts.rubik(
+                            color: AppColors.kffffff,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: Text(
-                    S.of(context).chat,
-                    style: GoogleFonts.rubik(
-                      color: AppColors.k010101,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: Text(
-                    S.of(context).chat,
-                    style: GoogleFonts.rubik(
-                      color: AppColors.kffffff     ,                 fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                    ),
+                Expanded(
+                  child: ListView(
+                    shrinkWrap: true,
+                    physics: ClampingScrollPhysics(),
+                    children: [
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Today',
+                          style: GoogleFonts.rubik(
+                            fontSize: 12,
+                            color: AppColors.kb1b1b1,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 18),
+                      receiverTextMessage(),
+                      senderTextMessage(),
+                      receiverTextMessage(),
+                      receiverDocument(),
+                      receiverImage(),
+                      receiverVideo(),
+                      senderTextMessage(),
+                      receiverTextMessage(),
+                      receiverDocument(),
+                      receiverImage(),
+                      receiverVideo(),
+                      SizedBox(height: 50),
+                    ],
                   ),
                 ),
               ],
             ),
           ),
-          ListView(
-            shrinkWrap: true,
-            physics: ClampingScrollPhysics(),
-            children: [
-              SizedBox(
-                height: 50,
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: Text(
-                  'Today',
-                  style: GoogleFonts.rubik(
-                    fontSize: 12,
-                    color: AppColors.kb1b1b1,
-                  ),
-                ),
-              ),
-              SizedBox(height: 18),
-              receiverTextMessage(),
-              senderTextMessage(),
-              receiverTextMessage(),
-              receiverDocument(),
-              receiverImage(),
-              receiverVideo(),
-              senderTextMessage(),
-              receiverTextMessage(),
-              receiverDocument(),
-              receiverImage(),
-              receiverVideo(),
-              SizedBox(height: 50),
-            ],
-          ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              color: AppColors.kffffff    ,          child: Row(
+              color: AppColors.kffffff,
+              child: Row(
                 children: [
                   Expanded(
                     child: TextField(
@@ -156,7 +164,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             ),
                             isDefaultAction: true,
                             onPressed: () {
-                              print("Action 1 is been clicked");
+                              print('Action 1 is been clicked');
                             },
                           ),
                           CupertinoActionSheetAction(
@@ -169,7 +177,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             ),
                             isDestructiveAction: true,
                             onPressed: () {
-                              print("Action 2 is been clicked");
+                              print('Action 2 is been clicked');
                             },
                           )
                         ],
@@ -254,7 +262,10 @@ class _ChatScreenState extends State<ChatScreen> {
                                   top: 2, left: 2, right: 5, bottom: 2),
                               child: Image(
                                 image: AssetImage(
-                                    'assets/images/ic_call_turnonvideo_copy.png'),
+                                  'assets/images/ic_call_turnonvideo_copy.png',
+                                ),
+                                width: 25,
+                                height: 25,
                               ),
                             )),
                       ),
@@ -390,7 +401,8 @@ Widget receiverTextMessage() {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: AppColors.kffffff    ,              boxShadow: [
+                  color: AppColors.kffffff,
+                  boxShadow: [
                     BoxShadow(
                       color: AppColors.k010101.withOpacity(0.18),
                       offset: Offset(
@@ -467,7 +479,8 @@ Widget receiverDocument() {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: AppColors.kffffff ,                 boxShadow: [
+                  color: AppColors.kffffff,
+                  boxShadow: [
                     BoxShadow(
                       color: AppColors.k010101.withOpacity(0.18),
                       offset: Offset(
@@ -494,10 +507,7 @@ Widget receiverDocument() {
                   // child:
                   child: Row(
                     children: [
-                      Image(
-                        image: AssetImage(
-                            'assets/images/NavBar/ic_nb_purchases.png'),
-                      ),
+                      navBarIcon(iconAssetName: 'ic_nb_purchases.png'),
                       SizedBox(width: 6),
                       Text(
                         'Document goes here...',
@@ -554,7 +564,8 @@ Widget receiverImage() {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color:AppColors.kffffff    ,              boxShadow: [
+                  color: AppColors.kffffff,
+                  boxShadow: [
                     BoxShadow(
                       color: AppColors.k010101.withOpacity(0.18),
                       offset: Offset(
@@ -627,7 +638,8 @@ Widget receiverVideo() {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: AppColors.kffffff,                  boxShadow: [
+                  color: AppColors.kffffff,
+                  boxShadow: [
                     BoxShadow(
                       color: AppColors.k010101.withOpacity(0.18),
                       offset: Offset(
