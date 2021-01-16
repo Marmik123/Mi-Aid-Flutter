@@ -27,6 +27,7 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
       backgroundColor: Colors.transparent,
       // extendBody: true,
       appBar: AppBar(
+        brightness: Brightness.dark,
         automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -58,7 +59,7 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
           ),
         ],
       ),
-
+      extendBodyBehindAppBar: true,
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -67,20 +68,19 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
             colors: [AppColors.k010101, AppColors.k0cbcc5],
             stops: [
               0.0,
-              0.18,
+              0.30,
             ],
           ),
         ),
         child: Stack(
+          alignment: Alignment.center,
+          fit: StackFit.expand,
           children: [
-            Center(
-              child: Image(
-                image: AssetImage('assets/images/ph_call_doctor.png'),
-              ),
+            Image(
+              image: AssetImage('assets/images/ph_call_doctor.png'),
             ),
             Positioned(
-              top: 10,
-              right: 150,
+              top: AppBar().preferredSize.height + 25,
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -211,7 +211,7 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Padding(
@@ -226,6 +226,8 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_switchcamera.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                                 SizedBox(
                                   width: 24.89,
@@ -233,6 +235,8 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_turnonvideo.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                                 SizedBox(
                                   width: 24.89,
@@ -240,6 +244,8 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_turnonmic.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                                 SizedBox(
                                   width: 24.89,
@@ -247,6 +253,8 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_chat.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                               ],
                             ),

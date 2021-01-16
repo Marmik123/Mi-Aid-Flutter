@@ -15,8 +15,8 @@ class _CallState extends State<Call> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      // extendBody: true,
       appBar: AppBar(
+        brightness: Brightness.dark,
         automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -48,7 +48,7 @@ class _CallState extends State<Call> {
           ),
         ],
       ),
-
+      extendBodyBehindAppBar: true,
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -57,24 +57,37 @@ class _CallState extends State<Call> {
             colors: [AppColors.k010101, AppColors.k0cbcc5],
             stops: [
               0.0,
-              0.18,
+              0.3,
             ],
           ),
         ),
         child: Stack(
           fit: StackFit.expand,
+          alignment: Alignment.center,
           children: [
-            Center(
-              child: Image(
-                fit: BoxFit.cover,
-                image: AssetImage('assets/images/doctor.jpg'),
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
+            Image(
+              fit: BoxFit.cover,
+              image: AssetImage('assets/images/doctor.jpg'),
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [AppColors.k010101, Colors.transparent],
+                  stops: [
+                    0.0,
+                    0.3,
+                  ],
+                ),
               ),
             ),
             Positioned(
-              top: 10,
-              right: 150,
+              top: AppBar().preferredSize.height + 25,
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -90,7 +103,10 @@ class _CallState extends State<Call> {
                   child: Text(
                     '4:36',
                     style: GoogleFonts.rubik(
-                        color: AppColors.kffffff, fontSize: 12),
+                      color: AppColors.kffffff,
+                      fontSize: 12,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
@@ -208,95 +224,91 @@ class _CallState extends State<Call> {
             ),
             Positioned(
               bottom: 0,
-              child: Container(
-                width: MediaQuery.of(context).size.width,
+              child: Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Row(
-                  mainAxisSize: MainAxisSize.max,
                   children: [
-                    Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppColors.k003f51.withOpacity(0.2),
-                              blurRadius: 25.0, // soften the shadow
-                              spreadRadius: 5.0, //extend the shadow
-                              offset: Offset(
-                                15.0, // Move to right 10  horizontally
-                                15.0, // Move to bottom 10 Vertically
-                              ),
-                            )
-                          ],
-                          color: AppColors.kffffff,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                left: 24,
-                                top: 10,
-                                bottom: 10,
-                                right: 24,
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Image(
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(
-                                        'assets/images/btn_call_switchcamera.png'),
-                                    width: 32,
-                                    height: 32,
-                                  ),
-                                  SizedBox(
-                                    width: 24.89,
-                                  ),
-                                  Image(
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(
-                                        'assets/images/btn_call_turnoffvideo.png'),
-                                    width: 32,
-                                    height: 32,
-                                  ),
-                                  SizedBox(
-                                    width: 24.89,
-                                  ),
-                                  Image(
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(
-                                        'assets/images/btn_call_turnonmic_copy.png'),
-                                    width: 32,
-                                    height: 32,
-                                  ),
-                                  SizedBox(
-                                    width: 24.89,
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute<void>(
-                                          builder: (context) => ChatScreen(),
-                                        ),
-                                      );
-                                    },
-                                    child: Image(
-                                      fit: BoxFit.cover,
-                                      image: AssetImage(
-                                          'assets/images/btn_call_chat.png'),
-                                      width: 32,
-                                      height: 32,
-                                    ),
-                                  ),
-                                ],
-                              ),
+                    Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.k003f51.withOpacity(0.2),
+                            blurRadius: 25.0, // soften the shadow
+                            spreadRadius: 5.0, //extend the shadow
+                            offset: Offset(
+                              15.0, // Move to right 10  horizontally
+                              15.0, // Move to bottom 10 Vertically
                             ),
-                          ],
-                        ),
+                          )
+                        ],
+                        color: AppColors.kffffff,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 24,
+                              top: 10,
+                              bottom: 10,
+                              right: 24,
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Image(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage(
+                                      'assets/images/btn_call_switchcamera.png'),
+                                  width: 32,
+                                  height: 32,
+                                ),
+                                SizedBox(
+                                  width: 24.89,
+                                ),
+                                Image(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage(
+                                      'assets/images/btn_call_turnoffvideo.png'),
+                                  width: 32,
+                                  height: 32,
+                                ),
+                                SizedBox(
+                                  width: 24.89,
+                                ),
+                                Image(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage(
+                                      'assets/images/btn_call_turnonmic_copy.png'),
+                                  width: 32,
+                                  height: 32,
+                                ),
+                                SizedBox(
+                                  width: 24.89,
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute<void>(
+                                        builder: (context) => ChatScreen(),
+                                      ),
+                                    );
+                                  },
+                                  child: Image(
+                                    fit: BoxFit.cover,
+                                    image: AssetImage(
+                                        'assets/images/btn_call_chat.png'),
+                                    width: 32,
+                                    height: 32,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     Container(

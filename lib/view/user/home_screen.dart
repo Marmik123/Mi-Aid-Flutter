@@ -24,7 +24,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String sharedPrefs = savedLocale.languageCode;
+  String langCode = savedLocale.languageCode;
 
   int remainingVideoConsultations = 10;
   @override
@@ -74,9 +74,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       isDefaultAction: true,
                       onPressed: () async {
                         setState(() {
-                          sharedPrefs = 'en';
+                          langCode = 'en';
                         });
-                        await setLang(Locale(sharedPrefs));
+                        await setLang(Locale(langCode));
                         setState(() {});
                         Navigator.pop(context);
                       },
@@ -92,9 +92,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       isDestructiveAction: true,
                       onPressed: () async {
                         setState(() {
-                          sharedPrefs = 'en';
+                          langCode = 'cn';
                         });
-                        await setLang(Locale(sharedPrefs));
+                        await setLang(Locale(langCode));
                         setState(() {});
                         Navigator.pop(context);
                       },
@@ -139,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       vertical: 0,
                     ),
                     child: Text(
-                      'EN',
+                      langCode.toUpperCase(),
                       style: GoogleFonts.rubik(
                         color: AppColors.k0cbcc5,
                         fontSize: 15,
@@ -436,10 +436,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         InkWell(
                           onTap: () {
                             setState(() {
-                              remainingVideoConsultations--;
-                              if (remainingVideoConsultations == 0) {
+                              if (remainingVideoConsultations <= 0) {
                                 videoConsultationsAlert(context);
                               } else {
+                                remainingVideoConsultations--;
                                 // Navigator.push(
                                 //   context,
                                 //   MaterialPageRoute<void>(
@@ -858,76 +858,6 @@ void individualUserSubscriptionAlert(BuildContext context) {
 }
 
 void callAlertDialog(BuildContext context) {
-  Widget okButton = Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 45,
-        ),
-        child: Row(
-          children: [
-            Image(
-              height: 55.14,
-              width: 55.14,
-              image: AssetImage('assets/images/ic_call_operator.png'),
-            ),
-            SizedBox(width: 4),
-            Image(
-              height: 55.14,
-              width: 55.14,
-              image: AssetImage('assets/images/ic_call_doctor.png'),
-            ),
-            SizedBox(width: 4),
-            Image(
-              height: 55.14,
-              width: 55.14,
-              image: AssetImage('assets/images/ic_call_translator.png'),
-            ),
-          ],
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(
-          left: 40,
-          right: 30,
-          top: 30,
-          bottom: 30,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            InkWell(
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (context) => Call(),
-                  ),
-                );
-              },
-              child: Image(
-                image: AssetImage('assets/images/btn_call_answer.png'),
-              ),
-            ),
-            SizedBox(width: 25),
-            Padding(
-              padding: const EdgeInsets.only(top: 8),
-              child: InkWell(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Image(
-                  image: AssetImage('assets/images/btn_call_hangup.png'),
-                ),
-              ),
-            ),
-          ],
-        ),
-      )
-    ],
-  );
-
   var alert = AlertDialog(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -940,19 +870,91 @@ void callAlertDialog(BuildContext context) {
         fontSize: 14,
       ),
     ),
-    content: Padding(
-      padding: const EdgeInsets.only(top: 30),
-      child: Text(
-        'Ralph Fernandez, Alice Grant, Lulu Norman',
-        textAlign: TextAlign.center,
-        style: GoogleFonts.rubik(
-          fontSize: 18,
-          fontWeight: FontWeight.w500,
-          color: AppColors.k0cbcc5,
+    content: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 30),
+          child: Text(
+            'Ralph Fernandez, Alice Grant, Lulu Norman',
+            textAlign: TextAlign.center,
+            style: GoogleFonts.rubik(
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+              color: AppColors.k0cbcc5,
+            ),
+          ),
         ),
-      ),
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 45,
+            vertical: 30,
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Image(
+                height: 55.14,
+                width: 55.14,
+                image: AssetImage('assets/images/ic_call_operator.png'),
+              ),
+              SizedBox(width: 4),
+              Image(
+                height: 55.14,
+                width: 55.14,
+                image: AssetImage('assets/images/ic_call_doctor.png'),
+              ),
+              SizedBox(width: 4),
+              Image(
+                height: 55.14,
+                width: 55.14,
+                image: AssetImage('assets/images/ic_call_translator.png'),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 40,
+            right: 30,
+            bottom: 30,
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (context) => Call(),
+                    ),
+                  );
+                },
+                child: Image(
+                  image: AssetImage('assets/images/btn_call_answer.png'),
+                ),
+              ),
+              SizedBox(width: 25),
+              Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Image(
+                    image: AssetImage('assets/images/btn_call_hangup.png'),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        )
+      ],
     ),
-    actions: [okButton],
+
+    // actions: [okButton],
   );
 
   showDialog(

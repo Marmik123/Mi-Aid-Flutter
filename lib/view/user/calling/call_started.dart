@@ -29,6 +29,7 @@ class _CallStartedState extends State<CallStarted> {
       backgroundColor: Colors.transparent,
       extendBody: true,
       appBar: AppBar(
+        brightness: Brightness.dark,
         automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -60,6 +61,7 @@ class _CallStartedState extends State<CallStarted> {
           ),
         ],
       ),
+      extendBodyBehindAppBar: true,
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -73,19 +75,32 @@ class _CallStartedState extends State<CallStarted> {
           ),
         ),
         child: Stack(
-          // fit: StackFit.expand,
+          fit: StackFit.expand,
+          alignment: Alignment.center,
           children: [
-            Center(
-              child: Image(
-                fit: BoxFit.cover,
-                image: AssetImage('assets/images/doctor.jpg'),
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
+            Image(
+              fit: BoxFit.cover,
+              image: AssetImage('assets/images/doctor.jpg'),
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [AppColors.k010101, Colors.transparent],
+                  stops: [
+                    0.0,
+                    0.3,
+                  ],
+                ),
               ),
             ),
             Positioned(
-              top: 10,
-              right: 150,
+              top: AppBar().preferredSize.height + 25,
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -168,7 +183,7 @@ class _CallStartedState extends State<CallStarted> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Padding(
@@ -183,6 +198,8 @@ class _CallStartedState extends State<CallStarted> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_switchcamera.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                                 SizedBox(
                                   width: 24.89,
@@ -190,6 +207,8 @@ class _CallStartedState extends State<CallStarted> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_turnoffvideo.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                                 SizedBox(
                                   width: 24.89,
@@ -197,6 +216,8 @@ class _CallStartedState extends State<CallStarted> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_turnonmic_copy.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                                 SizedBox(
                                   width: 24.89,
@@ -204,6 +225,8 @@ class _CallStartedState extends State<CallStarted> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_chat.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                               ],
                             ),

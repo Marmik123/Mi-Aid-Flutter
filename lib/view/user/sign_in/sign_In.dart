@@ -33,7 +33,7 @@ class _SignInState extends State<SignIn> {
 
   bool _obsecurePasswordText = true;
 
-  String sharedPrefs = savedLocale.languageCode;
+  String langCode = savedLocale.languageCode;
 
   @override
   Widget build(BuildContext context) {
@@ -79,9 +79,9 @@ class _SignInState extends State<SignIn> {
                       isDefaultAction: true,
                       onPressed: () async {
                         setState(() {
-                          sharedPrefs = 'en';
+                          langCode = 'en';
                         });
-                        await setLang(Locale(sharedPrefs));
+                        await setLang(Locale(langCode));
                         setState(() {});
                         Navigator.pop(context);
                       },
@@ -97,9 +97,9 @@ class _SignInState extends State<SignIn> {
                       isDestructiveAction: true,
                       onPressed: () async {
                         setState(() {
-                          sharedPrefs = 'cn';
+                          langCode = 'cn';
                         });
-                        await setLang(Locale(sharedPrefs));
+                        await setLang(Locale(langCode));
                         setState(() {});
                         Navigator.pop(context);
                       },
@@ -144,7 +144,7 @@ class _SignInState extends State<SignIn> {
                       vertical: 0,
                     ),
                     child: Text(
-                      sharedPrefs.toUpperCase(),
+                      langCode.toUpperCase(),
                       style: GoogleFonts.rubik(
                         color: AppColors.k0cbcc5,
                         fontSize: 15,
