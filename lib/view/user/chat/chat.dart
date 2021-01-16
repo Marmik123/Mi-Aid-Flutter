@@ -14,89 +14,70 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      // extendBody: true,
-
       body: Stack(
         children: [
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                    top: 20,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 10, left: 13),
-                          child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
-                        ),
+          Positioned(
+            top: 0,
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: Column(
+                children: [
+                  AppBar(
+                    backgroundColor: Colors.white,
+                    elevation: 0,
+                    leading: InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 10, left: 13),
+                        child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10),
-                        child: Text(
-                          S.of(context).chat,
-                          style: GoogleFonts.rubik(
-                            color: AppColors.k010101,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
+                    ),
+                    title: Text(
+                      S.of(context).chat,
+                      style: GoogleFonts.rubik(
+                        color: AppColors.k010101,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    centerTitle: true,
+                  ),
+                  Expanded(
+                    child: ListView(
+                      shrinkWrap: true,
+                      physics: ClampingScrollPhysics(),
+                      children: [
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            'Today',
+                            style: GoogleFonts.rubik(
+                              fontSize: 12,
+                              color: AppColors.kb1b1b1,
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10),
-                        child: Text(
-                          S.of(context).chat,
-                          style: GoogleFonts.rubik(
-                            color: AppColors.kffffff,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ],
+                        SizedBox(height: 18),
+                        receiverTextMessage(),
+                        senderTextMessage(),
+                        receiverTextMessage(),
+                        receiverDocument(),
+                        receiverImage(),
+                        receiverVideo(),
+                        senderTextMessage(),
+                        receiverTextMessage(),
+                        receiverDocument(),
+                        receiverImage(),
+                        receiverVideo(),
+                        SizedBox(height: 50),
+                      ],
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: ListView(
-                    shrinkWrap: true,
-                    physics: ClampingScrollPhysics(),
-                    children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Today',
-                          style: GoogleFonts.rubik(
-                            fontSize: 12,
-                            color: AppColors.kb1b1b1,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 18),
-                      receiverTextMessage(),
-                      senderTextMessage(),
-                      receiverTextMessage(),
-                      receiverDocument(),
-                      receiverImage(),
-                      receiverVideo(),
-                      senderTextMessage(),
-                      receiverTextMessage(),
-                      receiverDocument(),
-                      receiverImage(),
-                      receiverVideo(),
-                      SizedBox(height: 50),
-                    ],
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Align(
