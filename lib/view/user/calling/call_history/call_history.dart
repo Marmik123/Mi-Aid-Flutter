@@ -4,8 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/drawer.dart';
 import 'package:miaid/component/nav_bar_icons.dart';
 import 'package:miaid/config/app_colors.dart';
-//import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/utils/date_utils.dart';
 import 'package:miaid/view/user/sign_in/sign_In.dart';
 
 import './callViewReceipt.dart';
@@ -230,7 +230,7 @@ class _CallHistoryState extends State<CallHistory> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        DateTime.now().toString(),
+                        formatDate(DateTime.now()),
                         style: GoogleFonts.rubik(
                             fontSize: 12, fontWeight: FontWeight.w500),
                       ),
