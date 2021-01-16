@@ -872,6 +872,7 @@ void callAlertDialog(BuildContext context) {
     ),
     content: Column(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Padding(
           padding: const EdgeInsets.only(top: 30),
@@ -887,11 +888,12 @@ void callAlertDialog(BuildContext context) {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: 45,
+            // horizontal: 45,
             vertical: 30,
           ),
           child: Row(
             mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image(
                 height: 55.14,
