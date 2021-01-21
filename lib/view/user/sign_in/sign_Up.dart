@@ -1,11 +1,10 @@
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/component/custom_segmented_control.dart';
 import 'package:miaid/component/nav_bar_icons.dart';
 import 'package:miaid/config/app_colors.dart';
-//import 'package:miaid/component/miaid_card.dart';
 import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/view/drawer/privacy_and_policy.dart';
 import 'package:miaid/view/drawer/terms_and_cond.dart';
@@ -98,7 +97,7 @@ class _SignUpState extends State<SignUp> {
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: CupertinoSegmentedControl(
+                  child: MiAidCupertinoSegmentedControl(
                     selectedColor: AppColors.k0cbcc5,
                     unselectedColor: Colors.white,
                     borderColor: AppColors.k0cbcc5,
