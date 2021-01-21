@@ -5,8 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/nav_bar_icons.dart';
 import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/generated/l10n.dart';
-import 'package:miaid/view/user/sign_in/sign_In.dart';
-import 'package:miaid/view/user/sign_in/sign_Up_2.dart';
+import 'package:miaid/view/user/sign_in/sign_in.dart';
+import 'package:miaid/view/user/sign_in/sign_up_2.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OTPScreen extends StatefulWidget {

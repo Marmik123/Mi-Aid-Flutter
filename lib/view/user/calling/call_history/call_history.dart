@@ -6,9 +6,9 @@ import 'package:miaid/component/nav_bar_icons.dart';
 import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/utils/date_utils.dart';
-import 'package:miaid/view/user/sign_in/sign_In.dart';
+import 'package:miaid/view/user/sign_in/sign_in.dart';
 
-import './callViewReceipt.dart';
+import './call_view_receipt.dart';
 
 class CallHistory extends StatefulWidget {
   @override
