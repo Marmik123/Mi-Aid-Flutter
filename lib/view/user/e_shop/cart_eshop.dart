@@ -1,7 +1,12 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miaid/component/miaid_card.dart';
-import 'package:miaid/payment/additional_services.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
+import 'package:miaid/component/payment_bootomsheet.dart';
+import 'package:miaid/config/app_colors.dart';
+import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/view/drawer/terms_and_cond.dart';
 
 class CartEShop extends StatefulWidget {
   @override
@@ -11,42 +16,63 @@ class CartEShop extends StatefulWidget {
 class _CartEShopState extends State<CartEShop> {
   int value_1;
   int value_2;
+  int quentity = 1;
+  bool remove = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          FlatButton(
-            onPressed: () {},
-            child: Text(
-              "Remove",
-              style: GoogleFonts.rubik(
-                color: Color(0xffFA0020),
-                fontSize: 17,
-                fontWeight: FontWeight.w600,
-                letterSpacing: -0.41,
-              ),
-            ),
-          ),
+          !remove
+              ? FlatButton(
+                  onPressed: () {
+                    setState(() {
+                      remove = true;
+                    });
+                  },
+                  child: Text(
+                    S.of(context).remove,
+                    style: GoogleFonts.rubik(
+                      color: AppColors.kfa0020,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: -0.41,
+                    ),
+                  ),
+                )
+              : FlatButton(
+                  onPressed: () {
+                    setState(() {
+                      remove = false;
+                    });
+                  },
+                  child: Text(
+                    S.of(context).done,
+                    style: GoogleFonts.rubik(
+                      color: AppColors.k0cbcc5,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: -0.41,
+                    ),
+                  ),
+                ),
         ],
         backgroundColor: Colors.white,
         elevation: 0,
         leading: InkWell(
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => AdditionalServices()));
+            Navigator.pop(context);
           },
-          child: Image(
-            image: AssetImage("assets/images/NavBar/ic_nb_back.png"),
-          ),
+          child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
         ),
         centerTitle: true,
         title: Text(
-          "Cart",
+          S.of(context).cart,
           style: GoogleFonts.rubik(
-            color: Color(0xff010101),
+            color: AppColors.k010101,
             fontSize: 15,
+            fontWeight: FontWeight.w500,
           ),
         ),
       ),
@@ -62,16 +88,16 @@ class _CartEShopState extends State<CartEShop> {
                 Row(
                   children: [
                     Text(
-                      "Order Number ",
+                      S.of(context).orderNumber,
                       style: GoogleFonts.rubik(
-                        color: Color(0xff5E5E5E),
+                        color: AppColors.k5e5e5e,
                         fontSize: 14,
                       ),
                     ),
                     Text(
-                      "0000012 ",
+                      ' 0000012 ',
                       style: GoogleFonts.rubik(
-                        color: Color(0xff010101),
+                        color: AppColors.k010101,
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                       ),
@@ -97,11 +123,13 @@ class _CartEShopState extends State<CartEShop> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Text(' Market City Pharmacy',
-                                  style: GoogleFonts.rubik(
-                                    color: Color(0xff5E5E5E),
-                                    fontSize: 14,
-                                  )),
+                              Text(
+                                'Market City Pharmacy',
+                                style: GoogleFonts.rubik(
+                                  color: AppColors.k5e5e5e,
+                                  fontSize: 14,
+                                ),
+                              ),
                               Padding(
                                 padding: const EdgeInsets.only(
                                   top: 8,
@@ -110,10 +138,11 @@ class _CartEShopState extends State<CartEShop> {
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Container(
-                                      color: Colors.red,
-                                      height: 80,
+                                    Image(
+                                      height: 70,
                                       width: 70,
+                                      image: AssetImage(
+                                          'assets/images/panadol.png'),
                                     ),
                                     Expanded(
                                       child: Padding(
@@ -131,9 +160,9 @@ class _CartEShopState extends State<CartEShop> {
                                                 bottom: 14,
                                               ),
                                               child: Text(
-                                                  "Panadol Rapid Parace Panadol Rapid Paracetamol Pain Relief Caplets 500 mg",
+                                                  'Panadol Rapid Parace Panadol Rapid Paracetamol Pain Relief Caplets 500 mg',
                                                   style: GoogleFonts.rubik(
-                                                    color: Color(0xff010101),
+                                                    color: AppColors.k010101,
                                                     fontSize: 14,
                                                     fontWeight: FontWeight.w500,
                                                   )),
@@ -151,7 +180,7 @@ class _CartEShopState extends State<CartEShop> {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             4),
-                                                    color: Color(0xffF4F4F4),
+                                                    color: AppColors.kf4f4f4,
                                                   ),
                                                   child: Padding(
                                                     padding:
@@ -165,9 +194,9 @@ class _CartEShopState extends State<CartEShop> {
                                                       mainAxisSize:
                                                           MainAxisSize.min,
                                                       children: [
-                                                        Text("A\$ "),
+                                                        Text('A\$ '),
                                                         Text(
-                                                          "20.0",
+                                                          '20.0',
                                                           style: TextStyle(
                                                             fontWeight:
                                                                 FontWeight.bold,
@@ -178,39 +207,70 @@ class _CartEShopState extends State<CartEShop> {
                                                     ),
                                                   ),
                                                 ),
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceEvenly,
-                                                  children: [
-                                                    buttonContainer(
-                                                      Image.asset(
-                                                          "assets/images/btn_medicine_quantity_minus_disabled.png"),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              left: 15,
-                                                              right: 15),
-                                                      child: Text(
-                                                        "1",
-                                                        style: TextStyle(
-                                                          color:
-                                                              Color(0xff010101),
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontSize: 14,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    buttonContainer(
-                                                      Image.asset(
-                                                          "assets/images/btn_medicine_quantity_add.png"),
-                                                    ),
-                                                  ],
-                                                )
+                                                remove
+                                                    ? InkWell(
+                                                        onTap: () =>
+                                                            showAlertDialog(
+                                                                context),
+                                                        child: Image.asset(
+                                                            'assets/images/btn_medicine_removeitem.png'),
+                                                      )
+                                                    : Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.min,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceEvenly,
+                                                        children: [
+                                                          InkWell(
+                                                            onTap: () {
+                                                              setState(() {
+                                                                if (quentity >
+                                                                    1) {
+                                                                  quentity--;
+                                                                }
+                                                              });
+                                                            },
+                                                            child:
+                                                                buttonContainer(
+                                                              Image.asset(quentity <=
+                                                                      1
+                                                                  ? 'assets/images/btn_medicine_quantity_minus_disabled.png'
+                                                                  : 'assets/images/btn_medicine_quantity_minus.png'),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .only(
+                                                                    left: 15,
+                                                                    right: 15),
+                                                            child: Text(
+                                                              '$quentity',
+                                                              style: TextStyle(
+                                                                color: Color(
+                                                                    0xff010101),
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                fontSize: 14,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          InkWell(
+                                                            onTap: () {
+                                                              setState(() {
+                                                                quentity++;
+                                                              });
+                                                            },
+                                                            child:
+                                                                buttonContainer(
+                                                              Image.asset(
+                                                                  'assets/images/btn_medicine_quantity_add.png'),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      )
                                               ],
                                             )
                                           ],
@@ -234,9 +294,9 @@ class _CartEShopState extends State<CartEShop> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Delivery Option",
+                      S.of(context).deliveryOption,
                       style: GoogleFonts.rubik(
-                        color: Color(0xff010101),
+                        color: AppColors.k010101,
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
                       ),
@@ -247,7 +307,7 @@ class _CartEShopState extends State<CartEShop> {
                     radiobuttonContainer(Row(
                       children: [
                         Radio(
-                          // focusColor: Color(0xff0CBCC5),
+                          // focusColor: AppColors.k0cbcc5,
                           value: 0,
                           groupValue: value_1,
                           onChanged: (value) {
@@ -255,13 +315,13 @@ class _CartEShopState extends State<CartEShop> {
                               value_1 = value;
                             });
                           },
-                          activeColor: Color(0xff0CBCC5),
+                          activeColor: AppColors.k0cbcc5,
                           toggleable: true,
                         ),
                         Text(
-                          "Deliver",
+                          S.of(context).delivery,
                           style: GoogleFonts.rubik(
-                            color: Color(0xff5E5E5E),
+                            color: AppColors.k5e5e5e,
                             fontSize: 14,
                           ),
                         )
@@ -273,7 +333,7 @@ class _CartEShopState extends State<CartEShop> {
                     radiobuttonContainer(Row(
                       children: [
                         Radio(
-                          activeColor: Color(0xff0CBCC5),
+                          activeColor: AppColors.k0cbcc5,
                           value: 1,
                           groupValue: value_2,
                           onChanged: (value) {
@@ -284,9 +344,9 @@ class _CartEShopState extends State<CartEShop> {
                           toggleable: true,
                         ),
                         Text(
-                          "Collect From the Pharmacy",
+                          S.of(context).inStore,
                           style: GoogleFonts.rubik(
-                            color: Color(0xff5E5E5E),
+                            color: AppColors.k5e5e5e,
                             fontSize: 14,
                           ),
                         )
@@ -296,9 +356,9 @@ class _CartEShopState extends State<CartEShop> {
                       height: 20,
                     ),
                     Text(
-                      "Order Summary",
+                      S.of(context).orderSummary,
                       style: GoogleFonts.rubik(
-                        color: Color(0xff010101),
+                        color: AppColors.k010101,
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
                       ),
@@ -310,14 +370,14 @@ class _CartEShopState extends State<CartEShop> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Sub Total",
+                          S.of(context).subTotal,
                           style: GoogleFonts.rubik(
-                            color: Color(0xff010101),
+                            color: AppColors.k010101,
                             fontSize: 12,
                           ),
                         ),
                         Text(
-                          "A\$ 20.0",
+                          'A\$ 20.0',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 14,
@@ -332,14 +392,14 @@ class _CartEShopState extends State<CartEShop> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Delivery Fee",
+                          S.of(context).deliveryFees,
                           style: GoogleFonts.rubik(
-                            color: Color(0xff010101),
+                            color: AppColors.k010101,
                             fontSize: 12,
                           ),
                         ),
                         Text(
-                          "A\$ 20.0",
+                          'A\$ 20.0',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 14,
@@ -351,32 +411,46 @@ class _CartEShopState extends State<CartEShop> {
                       height: 20,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Image(
                           image: AssetImage(
-                              "assets/images/ic_cart_checkbox_normal.png"),
+                              'assets/images/ic_cart_checkbox_normal.png'),
                         ),
-                        RichText(
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left: 1,
+                          ),
+                          child: RichText(
+                            textAlign: TextAlign.center,
                             text: TextSpan(
-                          text: "By purchasing, You agree to",
-                          children: [
-                            TextSpan(
-                              text: "our  Terms & Conditions.",
                               style: GoogleFonts.rubik(
-                                color: Color(0xff5E5E5E),
+                                color: AppColors.k5e5e5e,
                                 fontSize: 12,
                               ),
-                            )
-                          ],
-                        )),
-                        Text(
-                          "By purchasing, You agree to our  Terms & Conditions.",
-                          style: GoogleFonts.rubik(
-                            color: Color(0xff5E5E5E),
-                            fontSize: 12,
+                              children: [
+                                TextSpan(text: S.of(context).bySubmit),
+                                TextSpan(
+                                  text: S.of(context).tandc,
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute<void>(
+                                          builder: (context) =>
+                                              TermsConditions(),
+                                        ),
+                                      );
+                                    },
+                                  style: GoogleFonts.rubik(
+                                    color: AppColors.k0cbcc5,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ],
@@ -385,7 +459,7 @@ class _CartEShopState extends State<CartEShop> {
             ),
           ),
           Divider(
-            color: Color(0xff010101),
+            color: AppColors.k010101,
             height: 0,
           ),
           Padding(
@@ -396,14 +470,14 @@ class _CartEShopState extends State<CartEShop> {
                 Row(
                   children: [
                     Text(
-                      "Order Total  ",
+                      S.of(context).orderTotal,
                       style: GoogleFonts.rubik(
-                        color: Color(0xff010101),
+                        color: AppColors.k010101,
                         fontSize: 12,
                       ),
                     ),
                     Text(
-                      "A\$ 20.0",
+                      '  A\$ 20.0',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 17,
@@ -412,9 +486,19 @@ class _CartEShopState extends State<CartEShop> {
                   ],
                 ),
                 FlatButton(
-                  color: Color(0xff0CBCC5),
+                  color: AppColors.k0cbcc5,
                   onPressed: () {
-                    // Navigator.pop(context);
+                    showModalBottomSheet(
+                        backgroundColor: Colors.white,
+                        context: context,
+                        isDismissible: true,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(16),
+                              topRight: Radius.circular(16)),
+                        ),
+                        builder: (BuildContext context) =>
+                            PaymentBottomSheet());
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(
@@ -424,9 +508,9 @@ class _CartEShopState extends State<CartEShop> {
                       bottom: 12,
                     ),
                     child: Text(
-                      "Checkout",
+                      S.of(context).checkout,
                       style: GoogleFonts.rubik(
-                        color: Color(0xffFFFFFF),
+                        color: AppColors.kffffff,
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
                       ),
@@ -442,5 +526,97 @@ class _CartEShopState extends State<CartEShop> {
         ],
       ),
     );
+  }
+
+  void showAlertDialog(BuildContext context) {
+    Widget okButton = Padding(
+      padding: EdgeInsets.only(left: 64.5, right: 63.5, bottom: 24.5),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: 36,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.k0cbcc5.withOpacity(0.2),
+                  blurRadius: 10.0,
+                  spreadRadius: 0.0, //extend the shadow
+                  offset: Offset(
+                    0.0, // Move to right 10  horizontally
+                    4, // Move to bottom 10 Vertically
+                  ),
+                ),
+              ],
+            ),
+            child: FlatButton(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(9),
+              ),
+              color: AppColors.k0cbcc5,
+              onPressed: () {
+                setState(() {
+                  remove = false;
+                });
+                Navigator.pop(context);
+              },
+              child: Text(
+                S.of(context).no,
+                style: GoogleFonts.rubik(
+                  color: AppColors.kffffff,
+                  fontSize: 14,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Center(
+            child: InkWell(
+              onTap: () {
+                //Navigator.pop(context);
+              },
+              child: Text(
+                S.of(context).remove,
+                style: GoogleFonts.rubik(
+                  color: AppColors.k0cbcc5,
+                  fontSize: 14,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+
+    var alert = AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+      ),
+      title: Text(
+        S.of(context).remove,
+        textAlign: TextAlign.center,
+        style: GoogleFonts.rubik(
+            color: AppColors.k010101, fontWeight: FontWeight.w700),
+      ),
+      content: Text(
+        S.of(context).removeAlertMessage,
+        textAlign: TextAlign.center,
+        style: GoogleFonts.rubik(
+          fontSize: 13,
+        ),
+      ),
+      actions: [okButton],
+    );
+
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return alert;
+        });
   }
 }

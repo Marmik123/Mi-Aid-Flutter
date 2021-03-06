@@ -5,8 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
+import 'package:miaid/config/app_colors.dart';
+import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/payment/additional_services.dart';
 import 'package:miaid/utils/card_utils.dart';
+import 'package:miaid/view/user/e_shop/purchase.dart';
 
 enum CardType {
   Master,
@@ -30,12 +34,12 @@ class _CardDetailsState extends State<CardDetails> {
   int year;
   CardType cardType;
 
-  var maskFormatter = new MaskTextInputFormatter(
-      mask: '#### #### #### ####', filter: {"#": RegExp(r'[0-9]')});
-  var expiryMask = new MaskTextInputFormatter(
-      mask: '##/##', filter: {"#": RegExp(r'[0-9]')});
+  var maskFormatter = MaskTextInputFormatter(
+      mask: '#### #### #### ####', filter: {'#': RegExp(r'[0-9]')});
+  var expiryMask =
+      MaskTextInputFormatter(mask: '##/##', filter: {'#': RegExp(r'[0-9]')});
   var cvvMask =
-      new MaskTextInputFormatter(mask: '###', filter: {"#": RegExp(r'[0-9]')});
+      MaskTextInputFormatter(mask: '###', filter: {'#': RegExp(r'[0-9]')});
   TextEditingController cardNumber = TextEditingController();
   TextEditingController cardHolderName = TextEditingController();
   TextEditingController cvv = TextEditingController();
@@ -50,18 +54,18 @@ class _CardDetailsState extends State<CardDetails> {
         elevation: 0,
         leading: InkWell(
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => AdditionalServices()));
+            Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (context) => AdditionalServices()));
           },
-          child: Image(
-            image: AssetImage("assets/images/NavBar/ic_nb_back.png"),
-          ),
+          child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
         ),
         centerTitle: true,
         title: Text(
-          "Add Card Details",
+          S.of(context).addCardDetails,
           style: GoogleFonts.rubik(
-            color: Color(0xff010101),
+            color: AppColors.k010101,
             fontSize: 15,
           ),
         ),
@@ -73,11 +77,11 @@ class _CardDetailsState extends State<CardDetails> {
           child: ListView(
             children: [
               Text(
-                "Card Number",
+                S.of(context).cardName,
                 style: GoogleFonts.rubik(
-                  color: cardNumber.text.trim().length > 0
-                      ? Color(0xffB1B1B1)
-                      : Color(0xff010101),
+                  color: cardNumber.text.trim().isNotEmpty
+                      ? AppColors.kb1b1b1
+                      : AppColors.k010101,
                   fontSize: 12,
                   letterSpacing: 0.4,
                 ),
@@ -89,10 +93,12 @@ class _CardDetailsState extends State<CardDetails> {
                 controller: cardNumber,
                 validator: (value) {
                   if (value.isEmpty) {
-                    return "Please enter a value";
+                    return S.of(context).cardNumberMessage;
                   }
                   if (value.length < 8) {
-                    return "Please a valid card number";
+                    return S.of(context).cardNumberValidate;
+                  } else {
+                    return null;
                   }
                 },
                 inputFormatters: [
@@ -113,20 +119,20 @@ class _CardDetailsState extends State<CardDetails> {
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
-                      color: Color(0xff010101),
+                      color: AppColors.k010101,
                       width: 0.5,
                     ),
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
-                      color: Color(0xffB1B1B1),
+                      color: AppColors.kb1b1b1,
                       width: 0.5,
                     ),
                   ),
-                  hintText: "EX: 1234 5678 8901 234",
+                  hintText: 'EX: 1234 5678 8901 234',
                   hintStyle: GoogleFonts.rubik(
-                    color: Color(0xffB1B1B1),
+                    color: AppColors.kb1b1b1,
                     fontSize: 14,
                   ),
                   suffixIcon: getCardIcon(cardType),
@@ -136,11 +142,11 @@ class _CardDetailsState extends State<CardDetails> {
                 height: 25,
               ),
               Text(
-                "Card Holder's Name",
+                S.of(context).cardName,
                 style: GoogleFonts.rubik(
-                  color: cardHolderName.text.trim().length > 0
-                      ? Color(0xffB1B1B1)
-                      : Color(0xff010101),
+                  color: cardHolderName.text.trim().isNotEmpty
+                      ? AppColors.kb1b1b1
+                      : AppColors.k010101,
                   fontSize: 12,
                   letterSpacing: 0.4,
                 ),
@@ -152,7 +158,9 @@ class _CardDetailsState extends State<CardDetails> {
                 controller: cardHolderName,
                 validator: (value) {
                   if (value.isEmpty) {
-                    return "Please enter name";
+                    return S.of(context).cardNameMessage;
+                  } else {
+                    return null;
                   }
                 },
                 keyboardType: TextInputType.text,
@@ -168,20 +176,20 @@ class _CardDetailsState extends State<CardDetails> {
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
-                      color: Color(0xff010101),
+                      color: AppColors.k010101,
                       width: 0.5,
                     ),
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
-                      color: Color(0xffB1B1B1),
+                      color: AppColors.kb1b1b1,
                       width: 0.5,
                     ),
                   ),
-                  hintText: "Ex: Kelly Babara",
+                  hintText: 'Ex: Kelly Babara',
                   hintStyle: GoogleFonts.rubik(
-                    color: Color(0xffB1B1B1),
+                    color: AppColors.kb1b1b1,
                     fontSize: 14,
                   ),
                 ),
@@ -197,11 +205,11 @@ class _CardDetailsState extends State<CardDetails> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Expiry Date",
+                          S.of(context).expiryDate,
                           style: GoogleFonts.rubik(
-                            color: expiry.text.trim().length > 0
-                                ? Color(0xffB1B1B1)
-                                : Color(0xff010101),
+                            color: expiry.text.trim().isNotEmpty
+                                ? AppColors.kb1b1b1
+                                : AppColors.k010101,
                             fontSize: 12,
                             letterSpacing: 0.4,
                           ),
@@ -213,14 +221,13 @@ class _CardDetailsState extends State<CardDetails> {
                           controller: expiry,
                           validator: (value) {
                             if (value.isEmpty) {
-                              return "Please enter a value";
+                              return S.of(context).cardNumberMessage;
                             }
                             if (value.length != 5) {
-                              return "Enter Valid Expiry  ";
+                              return S.of(context).expiryValidate;
                             }
-                            if (value.contains(new RegExp(r'(\/)'))) {
-                              var split = value.split(new RegExp(r'(\/)'));
-                              print("!!!!!!!!!!split $split");
+                            if (value.contains(RegExp(r'(\/)'))) {
+                              var split = value.split(RegExp(r'(\/)'));
                               // ignore: missing_return
                               // The value before the slash is the month while the value to right of
                               // it is the year.
@@ -235,11 +242,12 @@ class _CardDetailsState extends State<CardDetails> {
                             }
                             if ((month < 1) || (month > 12)) {
                               // A valid month is between 1 (January) and 12 (December)
-                              return 'Expiry month is invalid';
+                              return S.of(context).expiryMonth;
                             }
                             if (year == null) {
-                              return "Enter Expiry year";
+                              return S.of(context).expiryYear;
                             }
+                            return null;
                           },
                           inputFormatters: [
                             expiryMask,
@@ -257,20 +265,20 @@ class _CardDetailsState extends State<CardDetails> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
-                                color: Color(0xff010101),
+                                color: AppColors.k010101,
                                 width: 0.5,
                               ),
                             ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
-                                color: Color(0xffB1B1B1),
+                                color: AppColors.kb1b1b1,
                                 width: 0.5,
                               ),
                             ),
-                            hintText: "MM/YY",
+                            hintText: 'MM/YY',
                             hintStyle: GoogleFonts.rubik(
-                              color: Color(0xffB1B1B1),
+                              color: AppColors.kb1b1b1,
                               fontSize: 14,
                             ),
                           ),
@@ -290,11 +298,11 @@ class _CardDetailsState extends State<CardDetails> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "CVV",
+                          S.of(context).cvv,
                           style: GoogleFonts.rubik(
-                            color: cvv.text.trim().length > 0
-                                ? Color(0xffB1B1B1)
-                                : Color(0xff010101),
+                            color: cvv.text.trim().isNotEmpty
+                                ? AppColors.kb1b1b1
+                                : AppColors.k010101,
                             fontSize: 12,
                             letterSpacing: 0.4,
                           ),
@@ -306,10 +314,12 @@ class _CardDetailsState extends State<CardDetails> {
                           controller: cvv,
                           validator: (value) {
                             if (value.isEmpty) {
-                              return "Please enter a value";
+                              return S.of(context).cardNumberMessage;
                             }
                             if (value.length < 3 || value.length > 4) {
-                              return "Please enter a valid CVV";
+                              return S.of(context).cvvValidate;
+                            } else {
+                              return null;
                             }
                           },
                           inputFormatters: [
@@ -339,9 +349,9 @@ class _CardDetailsState extends State<CardDetails> {
                                 width: 0.5,
                               ),
                             ),
-                            hintText: "Ex:123",
+                            hintText: 'Ex:123',
                             hintStyle: GoogleFonts.rubik(
-                              color: Color(0xffB1B1B1),
+                              color: AppColors.kb1b1b1,
                               fontSize: 14,
                             ),
                           ),
@@ -356,16 +366,16 @@ class _CardDetailsState extends State<CardDetails> {
               ),
               FlatButton(
                 padding: EdgeInsets.only(bottom: 15, top: 15),
-                color: Color(0xff0CBCC5),
+                color: AppColors.k0cbcc5,
                 onPressed: () {
                   if (formKey.currentState.validate()) {
                     paymentConfirmationDialog();
                   }
                 },
                 child: Text(
-                  "Pay and Continue",
+                  S.of(context).payandContinue,
                   style: GoogleFonts.rubik(
-                    color: Color(0xffFFFFFF),
+                    color: AppColors.kffffff,
                     fontSize: 17,
                     fontWeight: FontWeight.w500,
                   ),
@@ -381,16 +391,16 @@ class _CardDetailsState extends State<CardDetails> {
     );
   }
 
-  paymentConfirmationDialog() {
+  Future paymentConfirmationDialog() {
     return showDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
             title: Center(
               child: Text(
-                "Confirmation",
+                S.of(context).confirmation,
                 style: GoogleFonts.rubik(
-                  color: Color(0xff010101),
+                  color: AppColors.k010101,
                   fontSize: 17,
                   fontWeight: FontWeight.w500,
                 ),
@@ -401,9 +411,9 @@ class _CardDetailsState extends State<CardDetails> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "You are about to make payment of \$20.00 for “Additional Video Consultations” Service.",
+                  'You are about to make payment of \$20.00 for “Additional Video Consultations” Service.',
                   style: GoogleFonts.rubik(
-                    color: Color(0xff010101),
+                    color: AppColors.k010101,
                     fontSize: 13,
                     letterSpacing: -0.08,
                   ),
@@ -416,7 +426,7 @@ class _CardDetailsState extends State<CardDetails> {
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                        color: Color(0xff0cbcc5).withOpacity(0.2),
+                        color: AppColors.k0cbcc5.withOpacity(0.2),
                         offset: Offset(
                           0,
                           0.4,
@@ -427,7 +437,7 @@ class _CardDetailsState extends State<CardDetails> {
                     ],
                   ),
                   child: FlatButton(
-                    color: Color(0xff0CBCC5),
+                    color: AppColors.k0cbcc5,
                     onPressed: () {
                       Navigator.pop(context);
                       successDialog();
@@ -440,9 +450,9 @@ class _CardDetailsState extends State<CardDetails> {
                         bottom: 8,
                       ),
                       child: Text(
-                        "Confirm",
+                        S.of(context).confirm,
                         style: GoogleFonts.rubik(
-                          color: Color(0xffFFFFFF),
+                          color: AppColors.kffffff,
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
@@ -459,9 +469,9 @@ class _CardDetailsState extends State<CardDetails> {
                     errorDialog();
                   },
                   child: Text(
-                    "Cancel",
+                    S.of(context).cancel,
                     style: GoogleFonts.rubik(
-                      color: Color(0xff0CBCC5),
+                      color: AppColors.k0cbcc5,
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
                     ),
@@ -479,16 +489,16 @@ class _CardDetailsState extends State<CardDetails> {
         });
   }
 
-  errorDialog() {
+  Future errorDialog() {
     return showDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
             title: Center(
               child: Text(
-                "Error",
+                S.of(context).error,
                 style: GoogleFonts.rubik(
-                  color: Color(0xff010101),
+                  color: AppColors.k010101,
                   fontSize: 17,
                   fontWeight: FontWeight.w500,
                 ),
@@ -499,9 +509,9 @@ class _CardDetailsState extends State<CardDetails> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Please file the payment details accurately to continue",
+                  S.of(context).errorMessage,
                   style: GoogleFonts.rubik(
-                    color: Color(0xff010101),
+                    color: AppColors.k010101,
                     fontSize: 13,
                     letterSpacing: -0.08,
                   ),
@@ -514,7 +524,7 @@ class _CardDetailsState extends State<CardDetails> {
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                        color: Color(0xff0cbcc5).withOpacity(0.2),
+                        color: AppColors.k0cbcc5.withOpacity(0.2),
                         offset: Offset(
                           0,
                           0.4,
@@ -525,7 +535,7 @@ class _CardDetailsState extends State<CardDetails> {
                     ],
                   ),
                   child: FlatButton(
-                    color: Color(0xff0CBCC5),
+                    color: AppColors.k0cbcc5,
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -537,9 +547,9 @@ class _CardDetailsState extends State<CardDetails> {
                         bottom: 8,
                       ),
                       child: Text(
-                        "Ok",
+                        S.of(context).okay,
                         style: GoogleFonts.rubik(
-                          color: Color(0xffFFFFFF),
+                          color: AppColors.kffffff,
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
@@ -559,82 +569,84 @@ class _CardDetailsState extends State<CardDetails> {
         });
   }
 
-  successDialog() {
+  Future successDialog() {
     return showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Center(
-              child: Text(
-                "Success",
-                style: GoogleFonts.rubik(
-                  color: Color(0xff010101),
-                  fontSize: 17,
-                  fontWeight: FontWeight.w500,
-                ),
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Center(
+            child: Text(
+              S.of(context).successs,
+              style: GoogleFonts.rubik(
+                color: AppColors.k010101,
+                fontSize: 17,
+                fontWeight: FontWeight.w500,
               ),
             ),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Payment has been done.",
-                  style: GoogleFonts.rubik(
-                    color: Color(0xff010101),
-                    fontSize: 13,
-                  ),
-                  textAlign: TextAlign.center,
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                S.of(context).successMessage,
+                style: GoogleFonts.rubik(
+                  color: AppColors.k010101,
+                  fontSize: 13,
                 ),
-                SizedBox(
-                  height: 30,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0xff0cbcc5).withOpacity(0.2),
-                        offset: Offset(
-                          0,
-                          0.4,
-                        ),
-                        blurRadius: 10,
-                        spreadRadius: 0,
-                      )
-                    ],
-                  ),
-                  child: FlatButton(
-                    color: Color(0xff0CBCC5),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                        left: 44,
-                        right: 44,
-                        top: 10,
-                        bottom: 8,
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.k0cbcc5.withOpacity(0.2),
+                      offset: Offset(
+                        0,
+                        0.4,
                       ),
-                      child: Text(
-                        "Ok",
-                        style: GoogleFonts.rubik(
-                          color: Color(0xffFFFFFF),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                        ),
+                      blurRadius: 10,
+                      spreadRadius: 0,
+                    )
+                  ],
+                ),
+                child: FlatButton(
+                  color: AppColors.k0cbcc5,
+                  onPressed: () {
+                    Navigator.of(context).push(CupertinoPageRoute<void>(
+                        builder: (context) => PurchaseItem()));
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      left: 44,
+                      right: 44,
+                      top: 10,
+                      bottom: 8,
+                    ),
+                    child: Text(
+                      S.of(context).okay,
+                      style: GoogleFonts.rubik(
+                        color: AppColors.kffffff,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(9),
-                    ),
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(9),
                   ),
                 ),
-              ],
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-          );
-        });
+              ),
+            ],
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        );
+      },
+    );
   }
 }

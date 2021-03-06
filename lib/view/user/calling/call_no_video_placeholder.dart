@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'dart:async';
+import 'package:miaid/component/nav_bar_icons.dart';
+import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/view/user/calling/call.dart';
 
 class NoVideoPlaceHolder extends StatefulWidget {
@@ -9,20 +12,13 @@ class NoVideoPlaceHolder extends StatefulWidget {
 }
 
 class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
-  static const color = Color(0xFF0CBCC5);
-  static const colorBlack = Color(0xFF010101);
-  static const colorRed = Color(0xFFE63030);
-  static const colorWhite = Color(0xFFFFFFFF);
-  static const colorgrey = Color(0xFF696969);
-
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Timer(
-        Duration(seconds: 5),
+        Duration(seconds: 2),
         () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => Call())));
+            context, MaterialPageRoute<void>(builder: (context) => Call())));
   }
 
   @override
@@ -31,6 +27,7 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
       backgroundColor: Colors.transparent,
       // extendBody: true,
       appBar: AppBar(
+        brightness: Brightness.dark,
         automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -38,7 +35,7 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
         title: Text(
           'MiAid Assistance',
           style: GoogleFonts.rubik(
-            color: colorWhite,
+            color: AppColors.kffffff,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -49,9 +46,7 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Image(
-                image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
             );
           },
         ),
@@ -60,39 +55,37 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
             padding: const EdgeInsets.only(
               right: 13,
             ),
-            child: Image(
-              image: AssetImage('assets/images/NavBar/ic_nb_call_sound.png'),
-            ),
+            child: navBarIcon(iconAssetName: 'ic_nb_call_sound.png'),
           ),
         ],
       ),
-
+      extendBodyBehindAppBar: true,
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [colorBlack, color],
+            colors: [AppColors.k010101, AppColors.k0cbcc5],
             stops: [
               0.0,
-              0.18,
+              0.30,
             ],
           ),
         ),
         child: Stack(
+          alignment: Alignment.center,
+          fit: StackFit.expand,
           children: [
-            Center(
-              child: Image(
-                image: AssetImage('assets/images/ph_call_doctor.png'),
-              ),
+            Image(
+              image: AssetImage('assets/images/ph_call_doctor.png'),
             ),
             Positioned(
-              top: 10,
-              right: 150,
+              top: AppBar().preferredSize.height + 25,
               child: Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.transparent),
+                  borderRadius: BorderRadius.circular(10),
+                  color: AppColors.k010101.withOpacity(0.3),
+                ),
                 child: Padding(
                   padding: const EdgeInsets.only(
                     left: 17,
@@ -102,7 +95,8 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                   ),
                   child: Text(
                     '4:36',
-                    style: GoogleFonts.rubik(color: colorWhite, fontSize: 12),
+                    style: GoogleFonts.rubik(
+                        color: AppColors.kffffff, fontSize: 12),
                   ),
                 ),
               ),
@@ -120,12 +114,12 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                     Container(
                       height: 98,
                       width: 98,
-                      decoration: new BoxDecoration(
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.white,
                         boxShadow: [
-                          new BoxShadow(
-                            color: Color(0xFF000000).withOpacity(0.24),
+                          BoxShadow(
+                            color: AppColors.k000000.withOpacity(0.24),
                             blurRadius: 15.0,
                             spreadRadius: 0.0, //extend the shadow
                             offset: Offset(
@@ -145,12 +139,12 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                     Container(
                       height: 98,
                       width: 98,
-                      decoration: new BoxDecoration(
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.white,
                         boxShadow: [
-                          new BoxShadow(
-                            color: Color(0xFF000000).withOpacity(0.24),
+                          BoxShadow(
+                            color: AppColors.k000000.withOpacity(0.24),
                             blurRadius: 15.0,
                             spreadRadius: 0.0, //extend the shadow
                             offset: Offset(
@@ -171,12 +165,12 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                     Container(
                       height: 98,
                       width: 98,
-                      decoration: new BoxDecoration(
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.white,
                         boxShadow: [
-                          new BoxShadow(
-                            color: Color(0xFF000000).withOpacity(0.24),
+                          BoxShadow(
+                            color: AppColors.k000000.withOpacity(0.24),
                             blurRadius: 15.0,
                             spreadRadius: 0.0, //extend the shadow
                             offset: Offset(
@@ -192,7 +186,6 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                     ),
                   ],
                 ),
-              
               ),
             ),
             Positioned(
@@ -205,7 +198,7 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            color: Color(0xFF003f51).withOpacity(0.2),
+                            color: AppColors.k003f51.withOpacity(0.2),
                             blurRadius: 25.0, // soften the shadow
                             spreadRadius: 5.0, //extend the shadow
                             offset: Offset(
@@ -214,11 +207,11 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                             ),
                           )
                         ],
-                        color: colorWhite,
+                        color: AppColors.kffffff,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Padding(
@@ -233,6 +226,8 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_switchcamera.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                                 SizedBox(
                                   width: 24.89,
@@ -240,6 +235,8 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_turnonvideo.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                                 SizedBox(
                                   width: 24.89,
@@ -247,6 +244,8 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_turnonmic.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                                 SizedBox(
                                   width: 24.89,
@@ -254,6 +253,8 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_chat.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                               ],
                             ),
@@ -267,7 +268,7 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
                         decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
-                              color: Color(0xFF003f51).withOpacity(0.2),
+                              color: AppColors.k003f51.withOpacity(0.2),
                               blurRadius: 25.0, // soften the shadow
                               spreadRadius: 5.0, //extend the shadow
                               offset: Offset(
@@ -293,7 +294,7 @@ class _NoVideoPlaceHolderState extends State<NoVideoPlaceHolder> {
             //   child: Container(
             //     decoration: BoxDecoration(
             //       borderRadius: BorderRadius.circular(10),
-            //       color: Color(0xFFEEFEFF),
+            //       color: AppColors.keefeff,
             //     ),
             //     child: bottomNavigation(),
             //   ),

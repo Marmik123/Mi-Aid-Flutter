@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
+import 'package:miaid/config/app_colors.dart';
+import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/view/user/chat/chat.dart';
 
 class Call extends StatefulWidget {
   @override
@@ -7,26 +11,20 @@ class Call extends StatefulWidget {
 }
 
 class _CallState extends State<Call> {
-  static const color = Color(0xFF0CBCC5);
-  static const colorBlack = Color(0xFF010101);
-  static const colorRed = Color(0xFFE63030);
-  static const colorWhite = Color(0xFFFFFFFF);
-  static const colorgrey = Color(0xFF696969);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      // extendBody: true,
       appBar: AppBar(
+        brightness: Brightness.dark,
         automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Colors.transparent,
         centerTitle: true,
         title: Text(
-          'MiAid Assistance',
+          S.of(context).assistant,
           style: GoogleFonts.rubik(
-            color: colorWhite,
+            color: AppColors.kffffff,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -37,9 +35,7 @@ class _CallState extends State<Call> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Image(
-                image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
             );
           },
         ),
@@ -48,40 +44,55 @@ class _CallState extends State<Call> {
             padding: const EdgeInsets.only(
               right: 13,
             ),
-            child: Image(
-              image: AssetImage('assets/images/NavBar/ic_nb_call_soundoff.png'),
-            ),
+            child: navBarIcon(iconAssetName: 'ic_nb_call_soundoff.png'),
           ),
         ],
       ),
-
+      extendBodyBehindAppBar: true,
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [colorBlack, color],
+            colors: [AppColors.k010101, AppColors.k0cbcc5],
             stops: [
               0.0,
-              0.18,
+              0.3,
             ],
           ),
         ),
         child: Stack(
+          fit: StackFit.expand,
+          alignment: Alignment.center,
           children: [
-            Center(
-              child: Image(
-                fit: BoxFit.cover,
-                image: AssetImage('assets/images/nature.png'),
+            Image(
+              fit: BoxFit.cover,
+              image: AssetImage('assets/images/doctor.jpg'),
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [AppColors.k010101, Colors.transparent],
+                  stops: [
+                    0.0,
+                    0.3,
+                  ],
+                ),
               ),
             ),
             Positioned(
-              top: 10,
-              right: 150,
+              top: AppBar().preferredSize.height + 25,
               child: Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.transparent),
+                  borderRadius: BorderRadius.circular(10),
+                  color: AppColors.k010101.withOpacity(0.3),
+                ),
                 child: Padding(
                   padding: const EdgeInsets.only(
                     left: 17,
@@ -91,7 +102,11 @@ class _CallState extends State<Call> {
                   ),
                   child: Text(
                     '4:36',
-                    style: GoogleFonts.rubik(color: colorWhite, fontSize: 12),
+                    style: GoogleFonts.rubik(
+                      color: AppColors.kffffff,
+                      fontSize: 12,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
@@ -104,17 +119,22 @@ class _CallState extends State<Call> {
                   left: 20,
                 ),
                 child: Row(
+                  mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      height: 98,
-                      width: 98,
-                      decoration: new BoxDecoration(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
+                        border: Border.all(
+                          color: AppColors.kffffff,
+                          width: 2,
+                        ),
                         color: Colors.white,
                         boxShadow: [
-                          new BoxShadow(
-                            color: Color(0xFF000000).withOpacity(0.24),
+                          BoxShadow(
+                            color: AppColors.k000000.withOpacity(0.24),
                             blurRadius: 15.0,
                             spreadRadius: 0.0, //extend the shadow
                             offset: Offset(
@@ -124,8 +144,12 @@ class _CallState extends State<Call> {
                           ),
                         ],
                       ),
-                      child: Image(
-                        image: AssetImage('assets/images/ph_call_operator.png'),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image(
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/images/female_doctor.jpg'),
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -134,12 +158,16 @@ class _CallState extends State<Call> {
                     Container(
                       height: 98,
                       width: 98,
-                      decoration: new BoxDecoration(
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
+                        border: Border.all(
+                          color: AppColors.kffffff,
+                          width: 2,
+                        ),
                         color: Colors.white,
                         boxShadow: [
-                          new BoxShadow(
-                            color: Color(0xFF000000).withOpacity(0.24),
+                          BoxShadow(
+                            color: AppColors.k000000.withOpacity(0.24),
                             blurRadius: 15.0,
                             spreadRadius: 0.0, //extend the shadow
                             offset: Offset(
@@ -149,9 +177,12 @@ class _CallState extends State<Call> {
                           ),
                         ],
                       ),
-                      child: Image(
-                        image:
-                            AssetImage('assets/images/ph_call_translator.png'),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image(
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/images/female_doctor.jpg'),
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -160,12 +191,16 @@ class _CallState extends State<Call> {
                     Container(
                       height: 98,
                       width: 98,
-                      decoration: new BoxDecoration(
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
+                        border: Border.all(
+                          color: AppColors.kffffff,
+                          width: 2,
+                        ),
                         color: Colors.white,
                         boxShadow: [
-                          new BoxShadow(
-                            color: Color(0xFF000000).withOpacity(0.24),
+                          BoxShadow(
+                            color: AppColors.k000000.withOpacity(0.24),
                             blurRadius: 15.0,
                             spreadRadius: 0.0, //extend the shadow
                             offset: Offset(
@@ -175,8 +210,12 @@ class _CallState extends State<Call> {
                           ),
                         ],
                       ),
-                      child: Image(
-                        image: AssetImage('assets/images/ph_call_user.png'),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image(
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/images/female_doctor.jpg'),
+                        ),
                       ),
                     ),
                   ],
@@ -193,7 +232,7 @@ class _CallState extends State<Call> {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            color: Color(0xFF003f51).withOpacity(0.2),
+                            color: AppColors.k003f51.withOpacity(0.2),
                             blurRadius: 25.0, // soften the shadow
                             spreadRadius: 5.0, //extend the shadow
                             offset: Offset(
@@ -202,11 +241,11 @@ class _CallState extends State<Call> {
                             ),
                           )
                         ],
-                        color: colorWhite,
+                        color: AppColors.kffffff,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Padding(
@@ -217,31 +256,54 @@ class _CallState extends State<Call> {
                               right: 24,
                             ),
                             child: Row(
+                              mainAxisSize: MainAxisSize.max,
                               children: [
                                 Image(
+                                  fit: BoxFit.cover,
                                   image: AssetImage(
                                       'assets/images/btn_call_switchcamera.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                                 SizedBox(
                                   width: 24.89,
                                 ),
                                 Image(
+                                  fit: BoxFit.cover,
                                   image: AssetImage(
                                       'assets/images/btn_call_turnoffvideo.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                                 SizedBox(
                                   width: 24.89,
                                 ),
                                 Image(
+                                  fit: BoxFit.cover,
                                   image: AssetImage(
                                       'assets/images/btn_call_turnonmic_copy.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                                 SizedBox(
                                   width: 24.89,
                                 ),
-                                Image(
-                                  image: AssetImage(
-                                      'assets/images/btn_call_chat.png'),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute<void>(
+                                        builder: (context) => ChatScreen(),
+                                      ),
+                                    );
+                                  },
+                                  child: Image(
+                                    fit: BoxFit.cover,
+                                    image: AssetImage(
+                                        'assets/images/btn_call_chat.png'),
+                                    width: 32,
+                                    height: 32,
+                                  ),
                                 ),
                               ],
                             ),
@@ -249,27 +311,24 @@ class _CallState extends State<Call> {
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color(0xFF003f51).withOpacity(0.2),
-                              blurRadius: 25.0, // soften the shadow
-                              spreadRadius: 5.0, //extend the shadow
-                              offset: Offset(
-                                15.0, // Move to right 10  horizontally
-                                15.0, // Move to bottom 10 Vertically
-                              ),
-                            )
-                          ],
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Image(
-                          image:
-                              AssetImage('assets/images/btn_call_hangup.png'),
-                        ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 10),
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.k003f51.withOpacity(0.2),
+                            blurRadius: 25.0, // soften the shadow
+                            spreadRadius: 5.0, //extend the shadow
+                            offset: Offset(
+                              15.0, // Move to right 10  horizontally
+                              15.0, // Move to bottom 10 Vertically
+                            ),
+                          )
+                        ],
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Image(
+                        image: AssetImage('assets/images/btn_call_hangup.png'),
                       ),
                     )
                   ],
@@ -281,7 +340,7 @@ class _CallState extends State<Call> {
             //   child: Container(
             //     decoration: BoxDecoration(
             //       borderRadius: BorderRadius.circular(10),
-            //       color: Color(0xFFEEFEFF),
+            //       color: AppColors.keefeff,
             //     ),
             //     child: bottomNavigation(),
             //   ),

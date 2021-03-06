@@ -1,34 +1,45 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:miaid/view/user/e_shop/cart_eshop.dart';
-import 'package:miaid/view/user/sign_In_view/signIn.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:miaid/generated/l10n.dart';
+import 'package:miaid/utils/shared_preferrences_utils.dart';
+import 'package:miaid/view/user/sign_in/sign_in.dart';
+//import 'view/user/home_screen.dart';
 
-void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: CartEShop(),
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initPreferences();
+  await S.load(savedLocale);
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+    statusBarBrightness: Brightness.light,
+    statusBarIconBrightness: Brightness.dark,
   ));
-}
-
-class SplashScreen extends StatefulWidget {
-  @override
-  _SplashScreenState createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    Timer(
-        Duration(seconds: 0),
-        () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => SignIn())));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
+  runApp(
+    MaterialApp(
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          brightness: Brightness.light,
+        ),
+        scaffoldBackgroundColor: Colors.white,
+      ),
+      localizationsDelegates: [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
+      debugShowCheckedModeBanner: false,
+      home: SignIn(),
+    ),
+  );
+  await SystemChrome.setPreferredOrientations(
+    [
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.portraitUp,
+    ],
+  );
 }

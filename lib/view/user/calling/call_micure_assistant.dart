@@ -1,8 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'dart:async';
+import 'package:miaid/component/nav_bar_icons.dart';
+import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/view/user/calling/call_started.dart';
-
 
 class CallScreen extends StatefulWidget {
   @override
@@ -10,28 +12,22 @@ class CallScreen extends StatefulWidget {
 }
 
 class _CallScreenState extends State<CallScreen> {
-  static const color = Color(0xFF0CBCC5);
-  static const colorBlack = Color(0xFF010101);
-  static const colorRed = Color(0xFFE63030);
-  static const colorWhite = Color(0xFFFFFFFF);
-  static const colorgrey = Color(0xFF696969);
-
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Timer(
-        Duration(seconds: 5),
-        () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => CallStarted())));
+        Duration(seconds: 2),
+        () => Navigator.pushReplacement(context,
+            MaterialPageRoute<void>(builder: (context) => CallStarted())));
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
       // extendBody: true,
       appBar: AppBar(
+        brightness: Brightness.dark,
         automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -39,7 +35,7 @@ class _CallScreenState extends State<CallScreen> {
         title: Text(
           'MiAid Assistance',
           style: GoogleFonts.rubik(
-            color: colorWhite,
+            color: AppColors.kffffff,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -50,9 +46,7 @@ class _CallScreenState extends State<CallScreen> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Image(
-                image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
             );
           },
         ),
@@ -61,39 +55,37 @@ class _CallScreenState extends State<CallScreen> {
             padding: const EdgeInsets.only(
               right: 13,
             ),
-            child: Image(
-              image: AssetImage('assets/images/NavBar/ic_nb_call_sound.png'),
-            ),
+            child: navBarIcon(iconAssetName: 'ic_nb_call_sound.png'),
           ),
         ],
       ),
-
+      extendBodyBehindAppBar: true,
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [colorBlack, color],
+            colors: [AppColors.k010101, AppColors.k0cbcc5],
             stops: [
               0.0,
-              0.18,
+              0.3,
             ],
           ),
         ),
         child: Stack(
+          fit: StackFit.expand,
+          alignment: Alignment.center,
           children: [
-            Center(
-              child: Image(
-                image: AssetImage('assets/images/ph_call_doctor.png'),
-              ),
+            Image(
+              image: AssetImage('assets/images/ph_call_doctor.png'),
             ),
             Positioned(
-              top: 10,
-              right: 150,
+              top: AppBar().preferredSize.height + 25,
               child: Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.transparent),
+                  borderRadius: BorderRadius.circular(10),
+                  color: AppColors.k010101.withOpacity(0.3),
+                ),
                 child: Padding(
                   padding: const EdgeInsets.only(
                     left: 17,
@@ -102,8 +94,9 @@ class _CallScreenState extends State<CallScreen> {
                     bottom: 10,
                   ),
                   child: Text(
-                    'Calling ...',
-                    style: GoogleFonts.rubik(color: colorWhite, fontSize: 12),
+                    'Calling...',
+                    style: GoogleFonts.rubik(
+                        color: AppColors.kffffff, fontSize: 12),
                   ),
                 ),
               ),
@@ -134,20 +127,20 @@ class _CallScreenState extends State<CallScreen> {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            color: Color(0xFF003f51).withOpacity(0.2),
+                            color: AppColors.k003f51.withOpacity(0.2),
                             blurRadius: 25.0, // soften the shadow
                             spreadRadius: 5.0, //extend the shadow
                             offset: Offset(
                               15.0, // Move to right 10  horizontally
                               15.0, // Move to bottom 10 Vertically
                             ),
-                          )
+                          ),
                         ],
-                        color: colorWhite,
+                        color: AppColors.kffffff,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Padding(
@@ -162,6 +155,8 @@ class _CallScreenState extends State<CallScreen> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_switchcamera.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                                 SizedBox(
                                   width: 24.89,
@@ -169,6 +164,8 @@ class _CallScreenState extends State<CallScreen> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_turnonvideo.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                                 SizedBox(
                                   width: 24.89,
@@ -176,6 +173,8 @@ class _CallScreenState extends State<CallScreen> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_turnonmic.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                                 SizedBox(
                                   width: 24.89,
@@ -183,6 +182,8 @@ class _CallScreenState extends State<CallScreen> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_chat.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                               ],
                             ),
@@ -196,7 +197,7 @@ class _CallScreenState extends State<CallScreen> {
                         decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
-                              color: Color(0xFF003f51).withOpacity(0.2),
+                              color: AppColors.k003f51.withOpacity(0.2),
                               blurRadius: 25.0, // soften the shadow
                               spreadRadius: 5.0, //extend the shadow
                               offset: Offset(
@@ -217,55 +218,9 @@ class _CallScreenState extends State<CallScreen> {
                 ),
               ),
             ),
-            // Align(
-            //   alignment: Alignment.bottomCenter,
-            //   child: Container(
-            //     decoration: BoxDecoration(
-            //       borderRadius: BorderRadius.circular(10),
-            //       color: Color(0xFFEEFEFF),
-            //     ),
-            //     child: bottomNavigation(),
-            //   ),
-            // ),
           ],
         ),
       ),
     );
- 
   }
-
-  // Widget bottomNavigation() {
-  //   return Padding(
-  //     padding: const EdgeInsets.only(
-  //       top: 10,
-  //     ),
-  //     child: BottomNavigationBar(
-  //       type: BottomNavigationBarType.fixed,
-  //       backgroundColor: Colors.transparent,
-  //       items: [
-  //         BottomNavigationBarItem(
-  //             icon: Image(
-  //               image: AssetImage('assets/images/btn_call_switchcamera.png'),
-  //             ),
-  //             label: ''),
-  //         BottomNavigationBarItem(
-  //             icon: Image(
-  //               image: AssetImage('assets/images/btn_call_turnonvideo.png'),
-  //             ),
-  //             label: ''),
-  //         BottomNavigationBarItem(
-  //             icon: Image(
-  //               image: AssetImage('assets/images/btn_call_turnonmic.png'),
-  //             ),
-  //             label: ''),
-  //         BottomNavigationBarItem(
-  //             icon: Image(
-  //               image: AssetImage('assets/images/btn_call_chat.png'),
-  //             ),
-  //             label: ''),
-  //       ],
-  //     ),
-  //   );
-  // }
-
 }

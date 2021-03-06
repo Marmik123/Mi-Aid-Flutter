@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'dart:async';
+import 'package:miaid/component/nav_bar_icons.dart';
+import 'package:miaid/config/app_colors.dart';
 import 'package:miaid/view/user/calling/call_no_video_placeholder.dart';
 
 class CallStarted extends StatefulWidget {
@@ -9,20 +12,15 @@ class CallStarted extends StatefulWidget {
 }
 
 class _CallStartedState extends State<CallStarted> {
-  static const color = Color(0xFF0CBCC5);
-  static const colorBlack = Color(0xFF010101);
-  static const colorRed = Color(0xFFE63030);
-  static const colorWhite = Color(0xFFFFFFFF);
-  static const colorgrey = Color(0xFF696969);
-
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Timer(
-        Duration(seconds: 5),
-        () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => NoVideoPlaceHolder())));
+        Duration(seconds: 2),
+        () => Navigator.pushReplacement(
+            context,
+            MaterialPageRoute<void>(
+                builder: (context) => NoVideoPlaceHolder())));
   }
 
   @override
@@ -31,6 +29,7 @@ class _CallStartedState extends State<CallStarted> {
       backgroundColor: Colors.transparent,
       extendBody: true,
       appBar: AppBar(
+        brightness: Brightness.dark,
         automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -38,7 +37,7 @@ class _CallStartedState extends State<CallStarted> {
         title: Text(
           'MiAid Assistance',
           style: GoogleFonts.rubik(
-            color: colorWhite,
+            color: AppColors.kffffff,
             fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
@@ -49,9 +48,7 @@ class _CallStartedState extends State<CallStarted> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Image(
-                image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
             );
           },
         ),
@@ -60,18 +57,17 @@ class _CallStartedState extends State<CallStarted> {
             padding: const EdgeInsets.only(
               right: 13,
             ),
-            child: Image(
-              image: AssetImage('assets/images/NavBar/ic_nb_call_soundoff.png'),
-            ),
+            child: navBarIcon(iconAssetName: 'ic_nb_call_soundoff.png'),
           ),
         ],
       ),
+      extendBodyBehindAppBar: true,
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [colorBlack, color],
+            colors: [AppColors.k010101, AppColors.k0cbcc5],
             stops: [
               0.0,
               0.18,
@@ -79,19 +75,37 @@ class _CallStartedState extends State<CallStarted> {
           ),
         ),
         child: Stack(
+          fit: StackFit.expand,
+          alignment: Alignment.center,
           children: [
-            Center(
-              child: Image(
-                image: AssetImage('assets/images/nature.png'),
+            Image(
+              fit: BoxFit.cover,
+              image: AssetImage('assets/images/doctor.jpg'),
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [AppColors.k010101, Colors.transparent],
+                  stops: [
+                    0.0,
+                    0.3,
+                  ],
+                ),
               ),
             ),
             Positioned(
-              top: 10,
-              right: 150,
+              top: AppBar().preferredSize.height + 25,
               child: Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.transparent),
+                  borderRadius: BorderRadius.circular(10),
+                  color: AppColors.k010101.withOpacity(0.3),
+                ),
                 child: Padding(
                   padding: const EdgeInsets.only(
                     left: 17,
@@ -100,8 +114,9 @@ class _CallStartedState extends State<CallStarted> {
                     bottom: 10,
                   ),
                   child: Text(
-                    '4:36',
-                    style: GoogleFonts.rubik(color: colorWhite, fontSize: 12),
+                    '5:00',
+                    style: GoogleFonts.rubik(
+                        color: AppColors.kffffff, fontSize: 12),
                   ),
                 ),
               ),
@@ -116,8 +131,31 @@ class _CallStartedState extends State<CallStarted> {
                 child: Container(
                   height: 98,
                   width: 98,
-                  child: Image(
-                    image: AssetImage('assets/images/logo_auth.png'),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(
+                      color: AppColors.kffffff,
+                      width: 2,
+                    ),
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.k000000.withOpacity(0.24),
+                        blurRadius: 15.0,
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          0.0, // Move to right 10  horizontally
+                          8, // Move to bottom 10 Vertically
+                        ),
+                      ),
+                    ],
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: Image(
+                      fit: BoxFit.cover,
+                      image: AssetImage('assets/images/female_doctor.jpg'),
+                    ),
                   ),
                 ),
               ),
@@ -132,7 +170,7 @@ class _CallStartedState extends State<CallStarted> {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            color: Color(0xFF003f51).withOpacity(0.2),
+                            color: AppColors.k003f51.withOpacity(0.2),
                             blurRadius: 25.0, // soften the shadow
                             spreadRadius: 5.0, //extend the shadow
                             offset: Offset(
@@ -141,11 +179,11 @@ class _CallStartedState extends State<CallStarted> {
                             ),
                           )
                         ],
-                        color: colorWhite,
+                        color: AppColors.kffffff,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Padding(
@@ -160,6 +198,8 @@ class _CallStartedState extends State<CallStarted> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_switchcamera.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                                 SizedBox(
                                   width: 24.89,
@@ -167,6 +207,8 @@ class _CallStartedState extends State<CallStarted> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_turnoffvideo.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                                 SizedBox(
                                   width: 24.89,
@@ -174,6 +216,8 @@ class _CallStartedState extends State<CallStarted> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_turnonmic_copy.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                                 SizedBox(
                                   width: 24.89,
@@ -181,9 +225,10 @@ class _CallStartedState extends State<CallStarted> {
                                 Image(
                                   image: AssetImage(
                                       'assets/images/btn_call_chat.png'),
+                                  width: 32,
+                                  height: 32,
                                 ),
                               ],
-                            
                             ),
                           ),
                         ],
@@ -198,7 +243,7 @@ class _CallStartedState extends State<CallStarted> {
                         decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
-                              color: Color(0xFF003f51).withOpacity(0.2),
+                              color: AppColors.k003f51.withOpacity(0.2),
                               blurRadius: 25.0, // soften the shadow
                               spreadRadius: 5.0, //extend the shadow
                               offset: Offset(
@@ -219,53 +264,9 @@ class _CallStartedState extends State<CallStarted> {
                 ),
               ),
             ),
-            // Align(
-            //   alignment: Alignment.bottomCenter,
-            //   child: Container(
-            //     decoration: BoxDecoration(
-            //       borderRadius: BorderRadius.circular(10),
-            //       color: Color(0xFFEEFEFF),
-            //     ),
-            //     child: bottomNavigation(),
-            //   ),
-            // ),
           ],
         ),
       ),
     );
   }
-
-  // Widget bottomNavigation() {
-  //   return Padding(
-  //     padding: const EdgeInsets.only(
-  //       top: 10,
-  //     ),
-  //     child: BottomNavigationBar(
-  //       type: BottomNavigationBarType.fixed,
-  //       backgroundColor: Colors.transparent,
-  //       items: [
-  //         BottomNavigationBarItem(
-  //             icon: Image(
-  //               image: AssetImage('assets/images/btn_call_switchcamera.png'),
-  //             ),
-  //             label: ''),
-  //         BottomNavigationBarItem(
-  //             icon: Image(
-  //               image: AssetImage('assets/images/btn_call_turnoffvideo.png'),
-  //             ),
-  //             label: ''),
-  //         BottomNavigationBarItem(
-  //             icon: Image(
-  //               image: AssetImage('assets/images/btn_call_turnonmic copy.png'),
-  //             ),
-  //             label: ''),
-  //         BottomNavigationBarItem(
-  //             icon: Image(
-  //               image: AssetImage('assets/images/btn_call_chat.png'),
-  //             ),
-  //             label: ''),
-  //       ],
-  //     ),
-  //   );
-  // }
 }

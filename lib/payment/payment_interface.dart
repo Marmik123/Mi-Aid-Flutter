@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
+import 'package:miaid/config/app_colors.dart';
+import 'package:miaid/generated/l10n.dart';
 
 import 'additional_services.dart';
 
@@ -12,18 +15,18 @@ class PaymentInterface extends StatelessWidget {
         elevation: 0,
         leading: InkWell(
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => AdditionalServices()));
+            Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                    builder: (context) => AdditionalServices()));
           },
-          child: Image(
-            image: AssetImage("assets/images/NavBar/ic_nb_back.png"),
-          ),
+          child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
         ),
         centerTitle: true,
         title: Text(
-          "Payment",
+          S.of(context).payment,
           style: GoogleFonts.rubik(
-            color: Color(0xff010101),
+            color: AppColors.k010101,
             fontSize: 15,
           ),
         ),
@@ -32,9 +35,9 @@ class PaymentInterface extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 95, vertical: 20),
         child: Center(
             child: Text(
-          "Paypal, Braintree, Stripe, Wechat, allpay payment interface will appear here",
+          'Paypal, Braintree, Stripe, Wechat, allpay payment interface will appear here',
           style: GoogleFonts.rubik(
-            color: Color(0xffB1B1B1),
+            color: AppColors.kb1b1b1,
             fontSize: 21,
             letterSpacing: -0.13,
           ),

@@ -1,9 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:country_code_picker/country_code_picker.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:miaid/component/nav_bar_icons.dart';
+//import 'package:miaid/component/miaid_card.dart';
+import 'package:miaid/config/app_colors.dart';
+import 'package:miaid/generated/l10n.dart';
 import 'package:miaid/view/user/user_profile_screen/user_profile.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class EditUserProfile extends StatefulWidget {
   @override
@@ -33,11 +36,6 @@ class _EditUserProfileState extends State<EditUserProfile> {
   final regularDoctorKey = GlobalKey<FormState>();
   final accountDetailsKey = GlobalKey<FormState>();
 
-  static const colorBlue = Color(0xFF0CBCC5);
-  static const colorBlack = Color(0xFF010101);
-  static const colorGrey = Color(0xFF5E5E5E);
-  static const borderColor = Color(0xFFB1B1B1);
-
   DateTime _dateTime = DateTime.now();
 
   @override
@@ -46,14 +44,14 @@ class _EditUserProfileState extends State<EditUserProfile> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: AppColors.kffffff,
         centerTitle: true,
         title: Text(
-          'Edit Profile',
+          S.of(context).editProfile,
           style: GoogleFonts.rubik(
-            color: Color(0xFF010101),
+            color: AppColors.k010101,
             fontSize: 15,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w500,
           ),
         ),
         leading: Builder(
@@ -62,9 +60,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Image(
-                image: AssetImage('assets/images/NavBar/ic_nb_back.png'),
-              ),
+              child: navBarIcon(iconAssetName: 'ic_nb_back.png'),
             );
           },
         ),
@@ -86,20 +82,20 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(9),
                   ),
-                  color: Color(0xFF0CBCC5),
+                  color: AppColors.k0cbcc5,
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
+                      MaterialPageRoute<void>(
                         builder: (context) => UserProfileScreen(),
                       ),
                     );
                     // cupertinoDatePicker(context);
                   },
                   child: Text(
-                    'Save Changes',
+                    S.of(context).saveChange,
                     style: GoogleFonts.rubik(
-                      color: Color(0xFFFFFFFF),
+                      color: AppColors.kffffff,
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
                     ),
@@ -128,9 +124,9 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   Padding(
                     padding: const EdgeInsets.only(top: 20),
                     child: Text(
-                      'Account Details',
+                      S.of(context).accountDetails,
                       style: GoogleFonts.rubik(
-                        color: Color(0xFF010101),
+                        color: AppColors.k010101,
                         fontSize: 17,
                         fontWeight: FontWeight.bold,
                       ),
@@ -140,12 +136,12 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     height: 19,
                   ),
                   Text(
-                    'First Name',
+                    S.of(context).fname,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: accountFirstNameController.text.trim().length > 0
-                          ? Color(0xFFB1B1B1)
-                          : Color(0xFF010101),
+                      color: accountFirstNameController.text.trim().isNotEmpty
+                          ? AppColors.kb1b1b1
+                          : AppColors.k010101,
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                     ),
@@ -155,7 +151,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   ),
                   TextFormField(
                     // validator: (value) {
-                    //   if (value.trim().length == 0) {
+                    //   if (value.trim().isEmpty) {
                     //     return 'please Enter an Email';
                     //   } else {
                     //     return null;
@@ -166,7 +162,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     },
                     controller: accountFirstNameController..text = 'John',
                     style: GoogleFonts.rubik(
-                      color: colorBlack,
+                      color: AppColors.k010101,
                       fontSize: 14,
                     ),
                     decoration: InputDecoration(
@@ -177,14 +173,14 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color(0xFF010101),
+                          color: AppColors.k010101,
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: AppColors.kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -201,12 +197,12 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Last Name',
+                    S.of(context).lName,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: accountLastNameController.text.trim().length > 0
-                          ? Color(0xFFB1B1B1)
-                          : Color(0xFF010101),
+                      color: accountLastNameController.text.trim().isNotEmpty
+                          ? AppColors.kb1b1b1
+                          : AppColors.k010101,
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                     ),
@@ -216,7 +212,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   ),
                   TextFormField(
                     // validator: (value) {
-                    //   if (value.trim().length == 0) {
+                    //   if (value.trim().isEmpty) {
                     //     return 'please Enter an Email';
                     //   } else {
                     //     return null;
@@ -227,7 +223,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     },
                     controller: accountLastNameController..text = 'Doe',
                     style: GoogleFonts.rubik(
-                      color: colorBlack,
+                      color: AppColors.k010101,
                       fontSize: 14,
                     ),
                     decoration: InputDecoration(
@@ -238,14 +234,14 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color(0xFF010101),
+                          color: AppColors.k010101,
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: AppColors.kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -262,12 +258,12 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Email',
+                    S.of(context).email,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: accountEmailController.text.trim().length > 0
-                          ? Color(0xFFB1B1B1)
-                          : Color(0xFF010101),
+                      color: accountEmailController.text.trim().isNotEmpty
+                          ? AppColors.kb1b1b1
+                          : AppColors.k010101,
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                     ),
@@ -277,7 +273,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   ),
                   TextFormField(
                     // validator: (value) {
-                    //   if (value.trim().length == 0) {
+                    //   if (value.trim().isEmpty) {
                     //     return 'please Enter an Email';
                     //   } else {
                     //     return null;
@@ -289,7 +285,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     controller: accountEmailController
                       ..text = 'Johndoe@mail.com',
                     style: GoogleFonts.rubik(
-                      color: colorBlack,
+                      color: AppColors.k010101,
                       fontSize: 14,
                     ),
                     decoration: InputDecoration(
@@ -300,14 +296,14 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color(0xFF010101),
+                          color: AppColors.k010101,
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: AppColors.kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -324,12 +320,12 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Phone',
+                    S.of(context).phone,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: accountPhoneController.text.trim().length > 0
-                          ? Color(0xFFB1B1B1)
-                          : Color(0xFF010101),
+                      color: accountPhoneController.text.trim().isNotEmpty
+                          ? AppColors.kb1b1b1
+                          : AppColors.k010101,
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                     ),
@@ -339,7 +335,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   ),
                   TextFormField(
                     // validator: (value) {
-                    //   if (value.trim().length == 0) {
+                    //   if (value.trim().isEmpty) {
                     //     return 'please Enter an Email';
                     //   } else {
                     //     return null;
@@ -351,7 +347,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     keyboardType: TextInputType.phone,
                     controller: accountPhoneController..text = '1 23456 7890',
                     style: GoogleFonts.rubik(
-                      color: colorBlack,
+                      color: AppColors.k010101,
                       fontSize: 14,
                     ),
                     decoration: InputDecoration(
@@ -362,14 +358,14 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color(0xFF010101),
+                          color: AppColors.k010101,
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: AppColors.kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -382,14 +378,14 @@ class _EditUserProfileState extends State<EditUserProfile> {
                           showDropDownButton: true,
                           alignLeft: false,
                           textStyle: GoogleFonts.rubik(
-                            color: Color(0xFFB1B1B1),
+                            color: AppColors.kb1b1b1,
                             fontSize: 14,
                           ),
                           initialSelection: 'au',
                           showCountryOnly: false,
-                          closeIcon: const Icon(
+                          closeIcon: Icon(
                             Icons.close,
-                            color: colorBlue,
+                            color: AppColors.k0cbcc5,
                           ),
                           showOnlyCountryWhenClosed: false,
                           padding: EdgeInsets.zero,
@@ -407,7 +403,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                                 Text(
                                   country.dialCode,
                                   style: GoogleFonts.rubik(
-                                    color: Color(0xFFB1B1B1),
+                                    color: AppColors.kb1b1b1,
                                     fontSize: 14,
                                   ),
                                 ),
@@ -422,7 +418,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                                 Container(
                                   height: 35,
                                   width: 1,
-                                  color: Color(0xFFb1b1b1),
+                                  color: AppColors.kb1b1b1.withOpacity(0.1),
                                 )
                               ],
                             );
@@ -455,9 +451,9 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   Padding(
                     padding: const EdgeInsets.only(top: 20),
                     child: Text(
-                      'General Details',
+                      S.of(context).generalDetail,
                       style: GoogleFonts.rubik(
-                        color: Color(0xFF010101),
+                        color: AppColors.k010101,
                         fontSize: 17,
                         fontWeight: FontWeight.bold,
                       ),
@@ -467,12 +463,12 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     height: 19,
                   ),
                   Text(
-                    'DOB',
+                    S.of(context).dob,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: dobController.text.trim().length > 0
-                          ? Color(0xFFB1B1B1)
-                          : Color(0xFF010101),
+                      color: dobController.text.trim().isNotEmpty
+                          ? AppColors.kb1b1b1
+                          : AppColors.k010101,
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                     ),
@@ -482,7 +478,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   ),
                   TextFormField(
                     // validator: (value) {
-                    //   if (value.trim().length == 0) {
+                    //   if (value.trim().isEmpty) {
                     //     return 'please Enter an Email';
                     //   } else {
                     //     return null;
@@ -492,19 +488,18 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       setState(() {});
                     },
                     onTap: () {
-                      showCupertinoModalBottomSheet(
-                        expand: false,
+                      showModalBottomSheet(
                         context: context,
                         builder: (context) => cupertinoDatePicker(context),
                       );
                     },
-                    enabled: true,
+                    readOnly: true,
                     controller: dobController..text = '01 Jan 1990',
 
                     decoration: InputDecoration(
                       // hintText: 'Ex: 01 Jan 1990',
                       // hintStyle: TextStyle(
-                      //   color: Color(0xFfB1B1B1),
+                      //   color: AppColors.kb1b1b1,
                       //   fontSize: 14,
                       // ),
                       contentPadding: EdgeInsets.only(
@@ -514,14 +509,14 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color(0xFF010101),
+                          color: AppColors.k010101,
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: AppColors.kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -535,10 +530,8 @@ class _EditUserProfileState extends State<EditUserProfile> {
                           //         cupertinoDatePicker(context),
                           //   );
                           // },
-                          child: Image(
-                            image: AssetImage(
-                                'assets/images/NavBar/ic_nb_callhistory_date.png'),
-                          ),
+                          child: navBarIcon(
+                              iconAssetName: 'ic_nb_callhistory_date.png'),
                         ),
                       ),
                     ),
@@ -550,12 +543,12 @@ class _EditUserProfileState extends State<EditUserProfile> {
               height: 25,
             ),
             Text(
-              'Prefered Language',
+              S.of(context).preLanguage,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: languageController.text.trim().length > 0
-                    ? Color(0xFFB1B1B1)
-                    : Color(0xFF010101),
+                color: languageController.text.trim().isNotEmpty
+                    ? AppColors.kb1b1b1
+                    : AppColors.k010101,
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),
@@ -565,7 +558,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
             ),
             TextFormField(
               // validator: (value) {
-              //   if (value.trim().length == 0) {
+              //   if (value.trim().isEmpty) {
               //     return 'please Enter an Email';
               //   } else {
               //     return null;
@@ -576,7 +569,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               },
               controller: languageController..text = 'English',
               style: GoogleFonts.rubik(
-                color: colorBlack,
+                color: AppColors.k010101,
                 fontSize: 14,
               ),
               decoration: InputDecoration(
@@ -587,14 +580,14 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: AppColors.kb1b1b1,
                     width: 0.5,
                   ),
                 ),
@@ -604,12 +597,12 @@ class _EditUserProfileState extends State<EditUserProfile> {
               height: 25,
             ),
             Text(
-              'Gender',
+              S.of(context).gender,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: genderController.text.trim().length > 0
-                    ? Color(0xFFB1B1B1)
-                    : Color(0xFF010101),
+                color: genderController.text.trim().isNotEmpty
+                    ? AppColors.kb1b1b1
+                    : AppColors.k010101,
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),
@@ -619,7 +612,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
             ),
             TextFormField(
               // validator: (value) {
-              //   if (value.trim().length == 0) {
+              //   if (value.trim().isEmpty) {
               //     return 'please Enter an Email';
               //   } else {
               //     return null;
@@ -630,7 +623,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               },
               controller: genderController..text = 'Male',
               style: GoogleFonts.rubik(
-                color: colorBlack,
+                color: AppColors.k010101,
                 fontSize: 14,
               ),
               decoration: InputDecoration(
@@ -641,14 +634,14 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: AppColors.kb1b1b1,
                     width: 0.5,
                   ),
                 ),
@@ -658,12 +651,12 @@ class _EditUserProfileState extends State<EditUserProfile> {
               height: 25,
             ),
             Text(
-              'Doctor Preference',
+              S.of(context).doctorPre,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: doctorPreferenceController.text.trim().length > 0
-                    ? Color(0xFFB1B1B1)
-                    : Color(0xFF010101),
+                color: doctorPreferenceController.text.trim().isNotEmpty
+                    ? AppColors.kb1b1b1
+                    : AppColors.k010101,
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),
@@ -673,7 +666,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
             ),
             TextFormField(
               // validator: (value) {
-              //   if (value.trim().length == 0) {
+              //   if (value.trim().isEmpty) {
               //     return 'please Enter an Email';
               //   } else {
               //     return null;
@@ -684,7 +677,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               },
               controller: doctorPreferenceController..text = 'Any',
               style: GoogleFonts.rubik(
-                color: colorBlack,
+                color: AppColors.k010101,
                 fontSize: 14,
               ),
               decoration: InputDecoration(
@@ -695,14 +688,14 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: AppColors.kb1b1b1,
                     width: 0.5,
                   ),
                 ),
@@ -712,12 +705,12 @@ class _EditUserProfileState extends State<EditUserProfile> {
               height: 25,
             ),
             Text(
-              'Travel Agency Name',
+              S.of(context).travelAgencyName,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: travelAgencyNameController.text.trim().length > 0
-                    ? Color(0xFFB1B1B1)
-                    : Color(0xFF010101),
+                color: travelAgencyNameController.text.trim().isNotEmpty
+                    ? AppColors.kb1b1b1
+                    : AppColors.k010101,
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),
@@ -727,7 +720,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
             ),
             TextFormField(
               // validator: (value) {
-              //   if (value.trim().length == 0) {
+              //   if (value.trim().isEmpty) {
               //     return 'please Enter an Email';
               //   } else {
               //     return null;
@@ -739,7 +732,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               controller: travelAgencyNameController
                 ..text = 'First Class tours',
               style: GoogleFonts.rubik(
-                color: colorBlack,
+                color: AppColors.k010101,
                 fontSize: 14,
               ),
               decoration: InputDecoration(
@@ -750,14 +743,14 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: AppColors.kb1b1b1,
                     width: 0.5,
                   ),
                 ),
@@ -783,9 +776,9 @@ class _EditUserProfileState extends State<EditUserProfile> {
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Text(
-                'Next Of Kin',
+                S.of(context).nextOfKin,
                 style: GoogleFonts.rubik(
-                  color: Color(0xFF010101),
+                  color: AppColors.k010101,
                   fontSize: 17,
                   fontWeight: FontWeight.bold,
                 ),
@@ -795,12 +788,12 @@ class _EditUserProfileState extends State<EditUserProfile> {
               height: 19,
             ),
             Text(
-              'Full Name',
+              S.of(context).fullName,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: fullNameController.text.trim().length > 0
-                    ? Color(0xFFB1B1B1)
-                    : Color(0xFF010101),
+                color: fullNameController.text.trim().isNotEmpty
+                    ? AppColors.kb1b1b1
+                    : AppColors.k010101,
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),
@@ -814,7 +807,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               },
               controller: fullNameController..text = 'Lucinda Mendez',
               style: GoogleFonts.rubik(
-                color: colorBlack,
+                color: AppColors.k010101,
                 fontSize: 14,
               ),
               decoration: InputDecoration(
@@ -825,26 +818,26 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: AppColors.kb1b1b1,
                     width: 0.5,
                   ),
                 ),
                 errorBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFFFA0020),
+                    color: AppColors.kfa0020,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFFFA0020),
+                    color: AppColors.kfa0020,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -854,12 +847,12 @@ class _EditUserProfileState extends State<EditUserProfile> {
               height: 25,
             ),
             Text(
-              'Email',
+              S.of(context).email,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: emailController.text.trim().length > 0
-                    ? Color(0xFFB1B1B1)
-                    : Color(0xFF010101),
+                color: emailController.text.trim().isNotEmpty
+                    ? AppColors.kb1b1b1
+                    : AppColors.k010101,
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),
@@ -874,7 +867,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               keyboardType: TextInputType.emailAddress,
               controller: emailController..text = 'lucinda.m@mail.com',
               style: GoogleFonts.rubik(
-                color: colorBlack,
+                color: AppColors.k010101,
                 fontSize: 14,
               ),
               decoration: InputDecoration(
@@ -885,26 +878,26 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 errorBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFFFA0020),
+                    color: AppColors.kfa0020,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: AppColors.kb1b1b1,
                     width: 0.5,
                   ),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFFFA0020),
+                    color: AppColors.kfa0020,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -918,12 +911,12 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Phone',
+                    S.of(context).phone,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.rubik(
-                      color: phoneController.text.trim().length > 0
-                          ? Color(0xFFB1B1B1)
-                          : Color(0xFF010101),
+                      color: phoneController.text.trim().isNotEmpty
+                          ? AppColors.kb1b1b1
+                          : AppColors.k010101,
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                     ),
@@ -933,7 +926,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   ),
                   TextFormField(
                     // validator: (value) {
-                    //   if (value.trim().length == 0) {
+                    //   if (value.trim().isEmpty) {
                     //     return 'please Enter an Email';
                     //   } else {
                     //     return null;
@@ -945,7 +938,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     keyboardType: TextInputType.phone,
                     controller: phoneController..text = '1 23456 7890',
                     style: GoogleFonts.rubik(
-                      color: colorBlack,
+                      color: AppColors.k010101,
                       fontSize: 14,
                     ),
                     decoration: InputDecoration(
@@ -956,14 +949,14 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color(0xFF010101),
+                          color: AppColors.k010101,
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: borderColor,
+                          color: AppColors.kb1b1b1,
                           width: 0.5,
                         ),
                       ),
@@ -976,14 +969,14 @@ class _EditUserProfileState extends State<EditUserProfile> {
                           showDropDownButton: true,
                           alignLeft: false,
                           textStyle: GoogleFonts.rubik(
-                            color: Color(0xFFB1B1B1),
+                            color: AppColors.kb1b1b1,
                             fontSize: 14,
                           ),
                           initialSelection: 'au',
                           showCountryOnly: false,
-                          closeIcon: const Icon(
+                          closeIcon: Icon(
                             Icons.close,
-                            color: colorBlue,
+                            color: AppColors.k0cbcc5,
                           ),
                           showOnlyCountryWhenClosed: false,
                           padding: EdgeInsets.zero,
@@ -1001,7 +994,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                                 Text(
                                   country.dialCode,
                                   style: GoogleFonts.rubik(
-                                    color: Color(0xFFB1B1B1),
+                                    color: AppColors.kb1b1b1,
                                     fontSize: 14,
                                   ),
                                 ),
@@ -1016,7 +1009,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                                 Container(
                                   height: 35,
                                   width: 1,
-                                  color: Color(0xFFb1b1b1),
+                                  color: AppColors.kb1b1b1.withOpacity(0.1),
                                 )
                               ],
                             );
@@ -1048,9 +1041,9 @@ class _EditUserProfileState extends State<EditUserProfile> {
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Text(
-                'Regular Doctor',
+                S.of(context).regularDoctor,
                 style: GoogleFonts.rubik(
-                  color: Color(0xFF010101),
+                  color: AppColors.k010101,
                   fontSize: 17,
                   fontWeight: FontWeight.bold,
                 ),
@@ -1060,12 +1053,12 @@ class _EditUserProfileState extends State<EditUserProfile> {
               height: 19,
             ),
             Text(
-              'Full Name',
+              S.of(context).fullName,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: regularDoctorFullNameController.text.trim().length > 0
-                    ? Color(0xFFB1B1B1)
-                    : Color(0xFF010101),
+                color: regularDoctorFullNameController.text.trim().isNotEmpty
+                    ? AppColors.kb1b1b1
+                    : AppColors.k010101,
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),
@@ -1080,7 +1073,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               controller: regularDoctorFullNameController
                 ..text = 'Theresa Warren',
               style: GoogleFonts.rubik(
-                color: colorBlack,
+                color: AppColors.k010101,
                 fontSize: 14,
               ),
               decoration: InputDecoration(
@@ -1091,26 +1084,26 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: AppColors.kb1b1b1,
                     width: 0.5,
                   ),
                 ),
                 errorBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFFFA0020),
+                    color: AppColors.kfa0020,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFFFA0020),
+                    color: AppColors.kfa0020,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -1120,12 +1113,12 @@ class _EditUserProfileState extends State<EditUserProfile> {
               height: 25,
             ),
             Text(
-              'Email',
+              S.of(context).email,
               textAlign: TextAlign.left,
               style: GoogleFonts.rubik(
-                color: regularDoctorEmailController.text.trim().length > 0
-                    ? Color(0xFFB1B1B1)
-                    : Color(0xFF010101),
+                color: regularDoctorEmailController.text.trim().isNotEmpty
+                    ? AppColors.kb1b1b1
+                    : AppColors.k010101,
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),
@@ -1140,7 +1133,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
               controller: regularDoctorEmailController
                 ..text = 'theresawarren@mail.com',
               style: GoogleFonts.rubik(
-                color: colorBlack,
+                color: AppColors.k010101,
                 fontSize: 14,
               ),
               decoration: InputDecoration(
@@ -1151,26 +1144,26 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFF010101),
+                    color: AppColors.k010101,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 errorBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFFFA0020),
+                    color: AppColors.kfa0020,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: borderColor,
+                    color: AppColors.kb1b1b1,
                     width: 0.5,
                   ),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFFFA0020),
+                    color: AppColors.kfa0020,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -1182,22 +1175,62 @@ class _EditUserProfileState extends State<EditUserProfile> {
     );
   }
 
-  Widget cupertinoDatePicker(context) {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: Container(
-        height: 300,
-        child: CupertinoDatePicker(
-          initialDateTime: _dateTime,
-          use24hFormat: false,
-          mode: CupertinoDatePickerMode.date,
-          onDateTimeChanged: (dateTime) {
-            setState(() {
-              _dateTime = dateTime;
-              print(_dateTime);
-            });
-          },
-        ),
+  Widget cupertinoDatePicker(BuildContext context) {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            padding: EdgeInsets.only(left: 20, right: 20),
+            height: 50,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    S.of(context).cancel,
+                    style: GoogleFonts.rubik(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w300,
+                        color: Color.fromRGBO(12, 188, 197, 1)),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    S.of(context).done,
+                    style: GoogleFonts.rubik(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        color: Color.fromRGBO(12, 188, 197, 1)),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            height: 200,
+            child: CupertinoDatePicker(
+              initialDateTime: _dateTime,
+              maximumYear: DateTime.now().year,
+              minimumYear: 1930,
+              use24hFormat: false,
+              mode: CupertinoDatePickerMode.date,
+              onDateTimeChanged: (dateTime) {
+                setState(() {
+                  _dateTime = dateTime;
+                  print(_dateTime);
+                });
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
